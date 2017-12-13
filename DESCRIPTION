@@ -1,0 +1,15 @@
+Package: ImmPortPrepR
+Type: Package
+Title: Tools for preparing an ImmPort Data Submission
+Version: 0.1.0
+Author: ImmuneSpace Team
+Maintainer: Evan Henrich <ehenrich@fredhutch.org>
+Description: ImmPortPrepR contains functions that allow users to transform semi-standardized
+    R data into the csv templates required for ImmPort Data Submission and validate
+    these csvs using ImmPort's validator criteria.
+URL: https://github.com/RGLab/ImmPortPrepR
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Imports:
+RoxygenNote: 6.0.1
