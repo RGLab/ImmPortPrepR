@@ -90,6 +90,9 @@ transform_basicStudyDesign <- function(basicStudy,
                                        studyPersonnel,
                                        plannedVisit,
                                        study2Protocol,
+                                       studyFile,
+                                       studyLink,
+                                       studyPubmed,
                                        outputDir = NULL,
                                        validate = TRUE){
 
@@ -102,7 +105,19 @@ transform_basicStudyDesign <- function(basicStudy,
     preCheck_s2p()
 
     #----Generate tsv output-----
-
+    name <- "basic_study_design"
+    blocks <- list("study" = basicStudy,
+                   "arm_or_cohort" = armOrCohort,
+                   "study_personnel" = studyPersonnel,
+                   "planned_visit" = plannedVisit,
+                   "inclusion_exclusion" = inclusionExlusion,
+                   "study_2_protocol" = study2Protocol,
+                   "study_file" = studyFile,
+                   "study_link" = studyLink,
+                   "study_pubmed" = studyPubmed)
+    file <- file.path(outputDir, paste0(name, ".txt"))
+    
+    write_txt(name, blocks, file)
 
 
     #-----Validate output------
