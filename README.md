@@ -39,16 +39,16 @@ library(Import2ImmPort)
 
 For each of the following templates, follow the corresponding vignette to see examples of how to build, write out, and validate the ImmPort-ready tsv files.
 
-  a. BasicStudyDesign
-  b. Protocol
-  c. Treatments
-  d. bioSamples
-  e. Subjects
+* BasicStudyDesign
+* Protocol
+* Treatments
+* bioSamples
+* Subjects
 
 ### 4. Work on AssayData (repeat for each assay)
 
 After identifying necessary templates with the help of an ImmPort colleague, use an example vignette as a guide for creating an assay tsv file.
 
-  a. experimentSamples
-  b. Results
-  c. Reagents
+* experimentSamples
+* Results
+* Reagents
