@@ -2,6 +2,7 @@
 ###          Helper Functions         ###
 #########################################
 
+#' @importFrom utils packageVersion
 get_version <- function() {
   ver <- packageVersion("Import2ImmPort")
 
