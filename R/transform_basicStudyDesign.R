@@ -7,51 +7,17 @@ preCheck_bs <- function(basicStudyDesign){
         stop("dimensions of basicStudyDesign DF are not c(21,2).")
     }
 
-    nms <- c("Study",
-             "User Defined ID",
-             "Brief Title",
-             "Official Title",
-             "Type",
-             "Brief Description",
-             "Description",
-             "HYPOTHESIS",
-             "OBJECTIVES",
-             "ENDPOINTS",
-             "Sponsoring Organization",
-             "Target Enrollment",
-             "Condition Studied",
-             "Minimum Age",
-             "Maximum Age",
-             "Age Unit",
-             "Intervention Agent",
-             "Actual Start Date")
+    load("data/basicStudyDesign_Rownames.rda")
 
-    if( basicStudyDesign[ ,1] != nms ){
+    if( basicStudyDesign[ ,1] != basicStudyDesign_Rownames ){
         stop("The names in the basicStudyDesign DF are not correct.")
     }
 
-    allowedTypes <- c("character",
-                      "character",
-                      "character",
-                      "character",
-                      "character",
-                      "character",
-                      "character",
-                      "character",
-                      "character",
-                      "character",
-                      "character",
-                      "double",
-                      "character",
-                      "double",
-                      "double",
-                      "character",
-                      "character",
-                      "character")
+    load("data/basicStudyDesign_AllowedTypes.rda")
 
-    bsdTypes <- lapply(basicStudyDesign[,2], typeof)
+    currTypes <- lapply(basicStudyDesign[,2], typeof)
 
-    if( !(all.equal(bsdTypes, allowedTypes)) ){
+    if( !(all.equal(currTypes, basicStudyDesign_AllowedTypes)) ){
         stop("Basic Study Design input types do not match allowed.")
     }
 
@@ -75,6 +41,18 @@ preCheck_pv <- function(plannedVisit){
 
 preCheck_s2p <- function(study2Protocol){
 
+}
+
+preCheck_sf <- function(studyFile){
+  
+}
+
+preCheck_sl <- function(studyLink){
+  
+}
+
+preCheck_spu <- function(studyPubmed){
+  
 }
 
 
@@ -103,6 +81,9 @@ transform_basicStudyDesign <- function(basicStudy,
     preCheck_sp()
     preCheck_pv()
     preCheck_s2p()
+    preCheck_sf()
+    preCheck_sl()
+    preCheck_spu()
 
     #----Generate tsv output-----
     name <- "basic_study_design"
