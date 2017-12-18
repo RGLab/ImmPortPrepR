@@ -18,6 +18,10 @@ save(treatmentsChk, file = "data/treatmentsChk.rda")
 subjectsHumanChk <- read.csv("data-raw/subjectsHuman.csv", stringsAsFactors = FALSE)
 save(subjectsHumanChk, file = "data/subjectsHumanChk.rda")
 
+# SubjectsHuman
+subjectsAnimalChk <- read.csv("data-raw/subjectsAnimal.csv", stringsAsFactors = FALSE)
+save(subjectsAnimalChk, file = "data/subjectsAnimalChk.rda")
+
 ###########################################
 ###            Assay-Data               ###
 ###########################################

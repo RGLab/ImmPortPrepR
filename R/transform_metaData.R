@@ -8,7 +8,8 @@ transform_metaData <- function(dataName,
 
     mDataOptions <- c("protocols",
                       "treatments",
-                      "subjectsHuman")
+                      "subjectsHuman",
+                      "subjectsAnimal")
 
     if( !(dataName %in% mDataOptions) ){
         stop(paste0(dataName, " is not an option for transformation."))
