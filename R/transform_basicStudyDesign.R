@@ -9,18 +9,17 @@ preCheck_bs <- function(basicStudyDesign){
 
     load("data/basicStudyDesign_Rownames.rda")
 
-    if( basicStudyDesign[ ,1] != basicStudyDesign_Rownames ){
+    if( basicStudyDesign[ ,1] != bsdRownames ){
         stop("The names in the basicStudyDesign DF are not correct.")
     }
 
     load("data/basicStudyDesign_AllowedTypes.rda")
 
-    currTypes <- lapply(basicStudyDesign[,2], typeof)
+    currTypes <- lapply(basicStudyDesign[ ,2], typeof)
 
-    if( !(all.equal(currTypes, basicStudyDesign_AllowedTypes)) ){
+    if( !(all.equal(currTypes, bsdAllowedTypes)) ){
         stop("Basic Study Design input types do not match allowed.")
     }
-
 }
 
 preCheck_ac <- function(armOrCohort){
@@ -44,15 +43,15 @@ preCheck_s2p <- function(study2Protocol){
 }
 
 preCheck_sf <- function(studyFile){
-  
+
 }
 
 preCheck_sl <- function(studyLink){
-  
+
 }
 
 preCheck_spu <- function(studyPubmed){
-  
+
 }
 
 
@@ -97,7 +96,7 @@ transform_basicStudyDesign <- function(basicStudy,
                    "study_link" = studyLink,
                    "study_pubmed" = studyPubmed)
     file <- file.path(outputDir, paste0(name, ".txt"))
-    
+
     write_txt(name, blocks, file)
 
 

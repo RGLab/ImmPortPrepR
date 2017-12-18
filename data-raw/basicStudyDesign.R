@@ -1,18 +1,18 @@
-# basicStudyDesign_Rownames, assuming that row.names = F when table was created
-basicStudyDesign_Rownames <- read.table(file = "data-raw/basicStudyDesign_Rownames.tsv", sep = "\t")
-basicStudyDesign_Rownames <- as.vector(basicStudyDesign_Rownames[,1])
-save(basicStudyDesign_Rownames, file = "data/basicStudyDesign_Rownames.rda")
+# bsdRownames, assuming that row.names = F when table was created
+bsdRownames <- read.table(file = "data-raw/basicStudyDesign_Rownames.tsv", sep = "\t")
+bsdRownames <- as.vector(bsdRownames[,1])
+save(bsdRownames, file = "data/bsdRownames.rda")
 
-# basicStudyDesign_allowedTypes, assuming that row.names = F when table was created
-basicStudyDesign_AllowedTypes <- read.table(file = "data-raw/basicStudyDesign_allowedTypes.tsv", sep = "\t")
-basicStudyDesign_AllowedTypes <- as.vector(basicStudyDesign_AllowedTypes[,1])
-save(basicStudyDesign_AllowedTypes, file = "data/basicStudyDesign_AllowedTypes.rda")
+# bsdAllowedTypes, assuming that row.names = F when table was created
+bsdAllowedTypes <- read.table(file = "data-raw/basicStudyDesign_AllowedTypes.tsv", sep = "\t")
+bsdAllowedTypes <- as.vector(bsdAllowedTypes[,1])
+save(bsdAllowedTypes, file = "data/bsdAllowedTypes.rda")
 
 # armOrCohort
 armOrCohort <- read.table(file = "data-raw/armOrCohort.tsv", sep = "\t")
 save(armOrCohort, file = "data/armOrCohort.rda")
 
-# studyPersonnel 
+# studyPersonnel
 studyPersonnel <- read.table(file = "data-raw/studyPersonnel.tsv", sep = "\t")
 save(studyPersonnel, file = "data/studyPersonnel.rda")
 
