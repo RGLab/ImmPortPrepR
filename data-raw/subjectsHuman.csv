@@ -1,0 +1,16 @@
+Block,Variable_Name,Variable_Type,Format
+subjectsHuman,User Defined ID,character,table
+subjectsHuman,Arm Or Cohort ID,character,table
+subjectsHuman,Gender,character,table
+subjectsHuman,Min Subject Age,double,table
+subjectsHuman,Max Subject Age,double,table
+subjectsHuman,Age Unit,character,table
+subjectsHuman,Age Event,character,table
+subjectsHuman,Age Event Specify,double,table
+subjectsHuman,Subject Phenotype,character,table
+subjectsHuman,Subject Location,character,table
+subjectsHuman,Ancestry Population(s),character,table
+subjectsHuman,Ethnicity,character,table
+subjectsHuman,Race,character,table
+subjectsHuman,Race Specify,character,table
+subjectsHuman,Description,character,table
