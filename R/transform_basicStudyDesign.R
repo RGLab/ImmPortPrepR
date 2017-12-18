@@ -7,13 +7,13 @@ preCheck_bs <- function(basicStudyDesign){
         stop("dimensions of basicStudyDesign DF are not c(21,2).")
     }
 
-    load("data/basicStudyDesign_Rownames.rda")
+    load("data/bsdRownames.rda")
 
     if( basicStudyDesign[ ,1] != bsdRownames ){
         stop("The names in the basicStudyDesign DF are not correct.")
     }
 
-    load("data/basicStudyDesign_AllowedTypes.rda")
+    load("data/bsdAllowedTypes.rda")
 
     currTypes <- lapply(basicStudyDesign[ ,2], typeof)
 
@@ -24,13 +24,21 @@ preCheck_bs <- function(basicStudyDesign){
 
 preCheck_ac <- function(armOrCohort){
 
+    load("data/aoc_header.rda")
+
+    if( dim(armOrCohort)[[2]] != 4 ){
+        stop("The arm_or_cohort dataframe does not have correct number of columns.")
+    }
+
+
+    if( armOrCohort[1:2,] !=)
 }
 
 preCheck_ie <- function(inclusionExclusion){
 
 }
 
-preCheck_sp <- function(studyPersonnel){
+preCheck_spe <- function(studyPersonnel){
 
 }
 
