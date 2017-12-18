@@ -20,7 +20,9 @@ transform_metaData <- function(dataName,
     load(paste0("data/", chkVals, ".rda"))
     df <- get(dataName, envir = globalenv())
 
-    checkObj(df, chkVals, dataName)
+    checkObj(df = df,
+             chkVals = chkVals,
+             dataName = dataName)
 
     #----Generate tsv output-----
     blocks <- list(df)
