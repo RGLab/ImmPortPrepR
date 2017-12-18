@@ -1,16 +1,16 @@
-Block,Variable_Name,Variable_Type,Format
-subjectsHuman,User Defined ID,character,table
-subjectsHuman,Arm Or Cohort ID,character,table
-subjectsHuman,Gender,character,table
-subjectsHuman,Min Subject Age,double,table
-subjectsHuman,Max Subject Age,double,table
-subjectsHuman,Age Unit,character,table
-subjectsHuman,Age Event,character,table
-subjectsHuman,Age Event Specify,double,table
-subjectsHuman,Subject Phenotype,character,table
-subjectsHuman,Subject Location,character,table
-subjectsHuman,Ancestry Population(s),character,table
-subjectsHuman,Ethnicity,character,table
-subjectsHuman,Race,character,table
-subjectsHuman,Race Specify,character,table
-subjectsHuman,Description,character,table
+Block,Variable_Name,Variable_Type,Format,Required,Terms
+subjectsHuman,User Defined ID,character,table,TRUE,
+subjectsHuman,Arm Or Cohort ID,character,table,TRUE,
+subjectsHuman,Gender,character,table,TRUE,Female;Male;Not Specified; Other; Unknown
+subjectsHuman,Min Subject Age,double,table,TRUE,
+subjectsHuman,Max Subject Age,double,table,FALSE,
+subjectsHuman,Age Unit,character,table,TRUE,d.p.c.;Days;Hours;Minutes;Months;Not Specified; Seconds; Weeks; Years
+subjectsHuman,Age Event,character,table,TRUE,Age at enrollment;Age at infection; Age at initial treatment;Age at initial vaccine administration; Age at Study Day 0;Not Specified;Other
+subjectsHuman,Age Event Specify,double,table,FALSE,
+subjectsHuman,Subject Phenotype,character,table,FALSE,
+subjectsHuman,Subject Location,character,table,FALSE,
+subjectsHuman,Ancestry Population(s),character,table,TRUE,Australia;Europe;None of the above;North Africa;North America;North-East Asia;Oceania;Other;South America;South-East Asia;South-West Asia;Sub-Saharan Africa
+subjectsHuman,Ethnicity,character,table,TRUE,Hispanic or Latino;Not Hispanic or Latino;Not Specified;Other
+subjectsHuman,Race,character,table,TRUE,American Indian or Alaska Native;Asian;Black or African American;Native Hawaiian or Other Pacific Islander;Not Specified;Other;Unknown;White
+subjectsHuman,Race Specify,character,table,FALSE,
+subjectsHuman,Description,character,table,FALSE,
