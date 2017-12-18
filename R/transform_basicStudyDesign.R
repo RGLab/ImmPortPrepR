@@ -1,108 +1,41 @@
 #########################################
-###          Helper Functions         ###
-#########################################
-
-preCheck_bs <- function(basicStudyDesign){
-    if( dim(basicStudyDesign) != c(21,2) ){
-        stop("dimensions of basicStudyDesign DF are not c(21,2).")
-    }
-
-    load("data/bsdRownames.rda")
-
-    if( basicStudyDesign[ ,1] != bsdRownames ){
-        stop("The names in the basicStudyDesign DF are not correct.")
-    }
-
-    load("data/bsdAllowedTypes.rda")
-
-    currTypes <- lapply(basicStudyDesign[ ,2], typeof)
-
-    if( !(all.equal(currTypes, bsdAllowedTypes)) ){
-        stop("Basic Study Design input types do not match allowed.")
-    }
-}
-
-preCheck_ac <- function(armOrCohort){
-
-    load("data/aoc_header.rda")
-
-    if( dim(armOrCohort)[[2]] != 4 ){
-        stop("The arm_or_cohort dataframe does not have correct number of columns.")
-    }
-
-
-    if( armOrCohort[1:2,] !=)
-}
-
-preCheck_ie <- function(inclusionExclusion){
-
-}
-
-preCheck_spe <- function(studyPersonnel){
-
-}
-
-preCheck_pv <- function(plannedVisit){
-
-}
-
-preCheck_s2p <- function(study2Protocol){
-
-}
-
-preCheck_sf <- function(studyFile){
-
-}
-
-preCheck_sl <- function(studyLink){
-
-}
-
-preCheck_spu <- function(studyPubmed){
-
-}
-
-
-#########################################
 ###          Main Function            ###
 #########################################
 
-
-
-transform_basicStudyDesign <- function(basicStudy,
-                                       armOrCohort,
-                                       inclusionExlusion,
-                                       studyPersonnel,
-                                       plannedVisit,
-                                       study2Protocol,
-                                       studyFile,
-                                       studyLink,
-                                       studyPubmed,
+transform_basicStudyDesign <- function(study,
+                                       arm_or_cohort,
+                                       inclusion_exclusion,
+                                       study_personnel,
+                                       planned_visit,
+                                       study_2_protocol,
+                                       study_file,
+                                       study_link,
+                                       study_pubmed,
                                        outputDir = NULL,
                                        validate = TRUE){
 
     #----PreCheck DFs-------
-    preCheck_bs()
-    preCheck_ac()
-    preCheck_ie()
-    preCheck_sp()
-    preCheck_pv()
-    preCheck_s2p()
-    preCheck_sf()
-    preCheck_sl()
-    preCheck_spu()
+    load("data/bsdNames.rda")
+
+    # get arg list and clean
+    argList <- as.list(match.call())
+    argList <- argList[ -1 ]
+    argList <- argList[ !(names(argList) %in% c("outputDir", "validate")) ]
+
+    # lapply checkObj
+    lapply(argList, checkObj, chkVals = bsdChk, dfName = names(argList) )
 
     #----Generate tsv output-----
     name <- "basic_study_design"
-    blocks <- list("study" = basicStudy,
-                   "arm_or_cohort" = armOrCohort,
-                   "study_personnel" = studyPersonnel,
-                   "planned_visit" = plannedVisit,
-                   "inclusion_exclusion" = inclusionExlusion,
-                   "study_2_protocol" = study2Protocol,
-                   "study_file" = studyFile,
-                   "study_link" = studyLink,
-                   "study_pubmed" = studyPubmed)
+    blocks <- list("study" = study,
+                   "arm_or_cohort" = arm_or_cohort,
+                   "study_personnel" = study_personnel,
+                   "planned_visit" = planned_visit,
+                   "inclusion_exclusion" = inclusion_exclusion,
+                   "study_2_protocol" = study_2_protocol,
+                   "study_file" = study_file,
+                   "study_link" = study_link,
+                   "study_pubmed" = study_pubmed)
     file <- file.path(outputDir, paste0(name, ".txt"))
 
     write_txt(name, blocks, file)
