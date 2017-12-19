@@ -1,5 +1,10 @@
 # Import2ImmPort
 
+[![Travis-CI Build Status](https://travis-ci.org/RGLab/Import2ImmPort.svg?branch=master)](https://travis-ci.org/RGLab/Import2ImmPort)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/RGLab/Import2ImmPort?branch=master&svg=true)](https://ci.appveyor.com/project/RGLab/Import2ImmPort)
+[![Coverage Status](https://img.shields.io/codecov/c/github/RGLab/Import2ImmPort/master.svg)](https://codecov.io/github/RGLab/Import2ImmPort?branch=master)
+
+
 Tools for preparing ImmPort Submission
 
 
