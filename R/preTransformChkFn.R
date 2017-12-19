@@ -36,7 +36,8 @@ checkTypes <- function(df, chkVals, dfName){
 }
 
 checkRequired <- function(df, chkVals, dfName){
-  reqFields <- chkVals$Variable_Name[chkVals$Required]
+  blockdf <- chkVals[ grepl(paste0("^", dfName, "$"), chkVals$Block), ]
+  reqFields <- blockdf$Variable_Name[blockdf$Required]
   presentFields <- colnames(df)[colSums(is.na(df)| df == "" | df == " ") == 0]
   if(identical(setdiff(reqFields, presentFields), character(0)) != TRUE ){
     stop(paste0(dfName," required fields are missing"))
