@@ -2,13 +2,19 @@
 ###          Helper Functions         ###
 #########################################
 
-write_header <- function(name, file, version = get_version()) {
+write_header <- function(name, file, version = get_version(), extras = FALSE) {
   schema_version <- paste("Schema Version", version)
 
   cat(name, schema_version,
       file = file, sep = "\t", fill = TRUE)
   cat("Please do not delete or edit this column",
       file = file, append = TRUE, fill = TRUE)
+  if (extras) {
+    cat("Validation Level", "Standard",
+        file = file, sep = "\t", append = TRUE, fill = TRUE)
+    cat("Column Name",
+        file = file, append = TRUE, fill = TRUE)
+  }
 }
 
 write_line <- function(file) {
@@ -20,14 +26,16 @@ write_blockName <- function(blockName, file) {
 }
 
 #' @importFrom utils write.table
-write_table <- function(table, file) {
+write_table <- function(table, file, addColumnName = TRUE) {
   stopifnot(is.data.frame(table))
 
-  table <- cbind(data.frame("Column Name" = "", check.names = FALSE), table)
+  if (addColumnName) {
+    table <- cbind(data.frame("Column Name" = "", check.names = FALSE), table)
+  }
   
   suppressWarnings(
     write.table(table, file = file, append = TRUE, quote = FALSE,
-                sep = "\t", row.names = FALSE)
+                sep = "\t", row.names = FALSE, na = "")
   )
 }
 
@@ -41,6 +49,16 @@ write_list <- function(list, file) {
     write.table(table, file = file, append = TRUE, quote = FALSE,
                 sep = "\t", row.names = FALSE, col.names = FALSE)
   )
+}
+
+write_emptyTable <- function(varNames, file, addColumnName = TRUE) {
+  stopifnot(is.character(varNames))
+  
+  if (addColumnName) {
+    varNames <- c("Column Name" = "", varNames)
+  }
+  
+  cat(varNames, file = file, sep = "\t", fill = TRUE, append = TRUE)
 }
 
 
@@ -59,16 +77,25 @@ write_list <- function(list, file) {
 write_txt <- function(name, blocks, file) {
   stopifnot(!is.null(names(blocks)))
 
-  write_header(name, file)
+  addColumnName <- name != "basic_study_design"
+  extras <- name == "basic_study_design"
+  
+  write_header(name, file, extras = extras)
 
   lapply(names(blocks), function(blockName) {
     write_line(file)
     write_blockName(blockName, file)
 
-    if (class(blocks[[blockName]]) == "list") {
-      write_list(blocks[[blockName]], file)
+    block <- blocks[[blockName]]
+    blockClass <- class(block)[1]
+    if (blockClass == "list") {
+      write_list(block, file)
+    } else if (blockClass == "character") {
+      write_emptyTable(block, file, addColumnName)
+    } else if (blockClass == "data.frame") {
+      write_table(block, file, addColumnName)
     } else {
-      write_table(blocks[[blockName]], file)
+      stop("block should be list, data frame, or character vector.")
     }
   })
 
