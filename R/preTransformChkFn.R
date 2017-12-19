@@ -43,9 +43,17 @@ checkRequired <- function(df, chkVals, dfName){
   }
 }
 
+# TODO - checkFormat(df, chkVals, dfName)
+# if any of the "format" cells are not empty
+# parse semi-colon delimited string
+# compare values in target col vs allowed vals
+# determine if Non-Controlled terms allowed depending on chkVals "allowNC = TRUE"
+# Msg / warning if non-controlled terms passed through
+
 checkObj <- function(df, chkVals, dfName){
     checkClass(df, dfName)
     checkDim(df, chkVals, dfName)
     checkColnames(df, chkVals, dfName)
+    checkRequired(df, chkVals, dfName)
     checkTypes(df, chkVals, dfName)
 }
