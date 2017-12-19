@@ -1,0 +1,54 @@
+basic_study_design	Schema Version 3.15
+Please do not delete or edit this column
+Validation Level	Standard
+Column Name
+
+study
+User Defined ID	example human study
+Brief Title	example human study title
+Official Title	example human study official
+Type	Interventional
+Brief Description	example human study
+Description	this is a detailed description.
+Hypothesis	example human study hypothesis
+Objectives	example human study objectives
+Endpoints	example human study endpoints
+Sponsoring Organization	university
+Target Enrollment	2
+Condition Studied	example human study test load
+Minimum Age	0
+Maximum Age	100
+Age Unit	Years
+Actual Start Date	06-Feb-2005
+Intervention Agent	example human study
+
+arm_or_cohort
+User Defined ID	Name	Description	Type
+example arm vaccine 1	example human study vaccine 1	vaccine type 001	Intervention
+example arm vaccine 2	example human study vaccine 2	vaccine type 002	Intervention
+
+study_personnel
+User Defined ID	Honorific	Last Name	First Name	Suffixes	Organization	Email	Title In Study	Role In Study	Site Name
+example human study 1	Dr.	last	first	jr	college	first.name@address.org	Principal Investigator	Principal Investigator	college
+
+planned_visit
+User Defined ID	Name	Order Number	Min Start Day	Max Start Day	Start Rule	End Rule
+example human study v1	example human study v1	1	1			
+example human study v2	example human study v2	2	10			
+
+inclusion_exclusion
+User Defined ID	Criterion	Criterion Category
+example human study.Question 1	Question asked	Inclusion
+example human study.Question 2	Question asked	Exclusion
+
+study_2_protocol
+Protocol ID	example human study protocol
+
+study_file
+File Name	Description	Study File Type
+
+study_link
+Name	Value
+
+study_pubmed
+Pubmed ID	DOI	Title	Journal	Year	Month	Issue	Pages	Authors
