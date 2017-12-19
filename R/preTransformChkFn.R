@@ -2,6 +2,12 @@
 ###    Pre-Transform Check Functions    ###
 ###########################################
 
+checkClass <- function(df, dfName) {
+  if(class(df)[1] != "data.frame") {
+    stop(paste0(dfName, " data must be input as a data frame. Please re-format."))
+  }
+}
+
 checkDim <- function(df, chkVals, dfName){
     inputFormat <- chkVals$Format[ grep(paste0("^", dfName, "$"),
                                         chkVals$Block) ]
@@ -38,11 +44,7 @@ checkRequired <- function(df, chkVals, dfName){
 }
 
 checkObj <- function(df, chkVals, dfName){
-
-    if( class(df) != "data.frame" ){
-        stop(paste0(dfName, " data must be input as a data frame. Please re-format."))
-    }
-
+    checkClass(df, dfName)
     checkDim(df, chkVals, dfName)
     checkColnames(df, chkVals, dfName)
     checkTypes(df, chkVals, dfName)
