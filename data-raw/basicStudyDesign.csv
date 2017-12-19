@@ -1,55 +1,55 @@
-Block,Variable_Name,Variable_Type
-study,User Defined ID,character
-study,Brief Title,character
-study,Official Title,character
-study,Type,character
-study,Brief Description,character
-study,Description,character
-study,HYPOTHESIS,character
-study,OBJECTIVES,character
-study,ENDPOINTS,character
-study,Sponsoring Organization,character
-study,Target Enrollment,double
-study,Condition Studied,character
-study,Minimum Age,double
-study,Maximum Age,double
-study,Age Unit,character
-study,Intervention Agent,character
-study,Actual Start Date,character
-arm_or_cohort,User Defined ID,character
-arm_or_cohort,Name,character
-arm_or_cohort,Description,character
-arm_or_cohort,Type,character
-inclusion_exclusion,User Defined ID,character
-inclusion_exclusion,Criterion,character
-inclusion_exclusion,Criterion Category,character
-planned_visit,User Defined ID,character
-planned_visit,Name,character
-planned_visit,Order Number,character
-planned_visit,Min Start Day,double
-planned_visit,Max Start Day,double
-planned_visit,Start Rule,character
-planned_visit,End Rule,character
-study_2_protocol,Procotol_ID,character
-study_file,File Name,character
-study_file,Description,character
-study_file,Study File Type,character
-study_personnel,User Defined ID,character
-study_personnel,Honorific,character
-study_personnel,Last Name,character
-study_personnel,First Name,character
-study_personnel,Suffixes,character
-study_personnel,Organization,character
-study_personnel,Email,character
-study_personnel,Title In Study,character
-study_personnel,Role In Study,character
-study_personnel,Site Name,character
-study_pubmed,Pubmed ID,character
-study_pubmed,DOI,character
-study_pubmed,Title  ,character
-study_pubmed,Journal,character
-study_pubmed,Year,double
-study_pubmed,Month,double
-study_pubmed,Issue,character
-study_pubmed,Pages,character
-study_pubmed,Authors,character
+Block,Variable_Name,Variable_Type,Format
+study,User Defined ID,character,list
+study,Brief Title,character,list
+study,Official Title,character,list
+study,Type,character,list
+study,Brief Description,character,list
+study,Description,character,list
+study,HYPOTHESIS,character,list
+study,OBJECTIVES,character,list
+study,ENDPOINTS,character,list
+study,Sponsoring Organization,character,list
+study,Target Enrollment,double,list
+study,Condition Studied,character,list
+study,Minimum Age,double,list
+study,Maximum Age,double,list
+study,Age Unit,character,list
+study,Intervention Agent,character,list
+study,Actual Start Date,character,list
+arm_or_cohort,User Defined ID,character,table
+arm_or_cohort,Name,character,table
+arm_or_cohort,Description,character,table
+arm_or_cohort,Type,character,table
+inclusion_exclusion,User Defined ID,character,table
+inclusion_exclusion,Criterion,character,table
+inclusion_exclusion,Criterion Category,character,table
+planned_visit,User Defined ID,character,table
+planned_visit,Name,character,table
+planned_visit,Order Number,character,table
+planned_visit,Min Start Day,double,table
+planned_visit,Max Start Day,double,table
+planned_visit,Start Rule,character,table
+planned_visit,End Rule,character,table
+study_2_protocol,Procotol_ID,character,list
+study_file,File Name,character,table
+study_file,Description,character,table
+study_file,Study File Type,character,table
+study_personnel,User Defined ID,character,table
+study_personnel,Honorific,character,table
+study_personnel,Last Name,character,table
+study_personnel,First Name,character,table
+study_personnel,Suffixes,character,table
+study_personnel,Organization,character,table
+study_personnel,Email,character,table
+study_personnel,Title In Study,character,table
+study_personnel,Role In Study,character,table
+study_personnel,Site Name,character,table
+study_pubmed,Pubmed ID,character,table
+study_pubmed,DOI,character,table
+study_pubmed,Title  ,character,table
+study_pubmed,Journal,character,table
+study_pubmed,Year,double,table
+study_pubmed,Month,double,table
+study_pubmed,Issue,character,table
+study_pubmed,Pages,character,table
+study_pubmed,Authors,character,table

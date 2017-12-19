@@ -1,0 +1,11 @@
+Block,Variable_Name,Variable_Type,Format
+treatments,User Defined ID,character,table
+treatments,Name,character,table
+treatments,Use Treatment?,character,table
+treatments,Amount Value,double,table
+treatments,Amount Unit,character,table
+treatments,Duration Value,double,table
+treatments,Duration Unit,character,table
+treatments,Temperature Value,double,table
+treatments,Temperature Unit,character,table
+treatments,Comments,character,table

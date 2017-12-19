@@ -15,7 +15,7 @@ transform_basicStudyDesign <- function(study,
                                        validate = TRUE){
 
     #----PreCheck DFs-------
-    load("data/bsdNames.rda")
+    load("data/bsdChk.rda")
 
     # get arg list and clean
     argList <- as.list(match.call())
