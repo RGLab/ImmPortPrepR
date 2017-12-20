@@ -1,8 +1,0 @@
-Block,Variable_Name,Variable_Type,Format,Required,Terms,allowNC
-CyTOF_Derived_data,Expsample ID,character,table,TRUE,,
-CyTOF_Derived_data,Population Name Gating Definition,character,table,TRUE,,TRUE
-CyTOF_Derived_data,Parent Population Reported,character,table,,,TRUE
-CyTOF_Derived_data,"Population Statistic (count, percentile, etc)",double,table,TRUE,,
-CyTOF_Derived_data,Population Stat Unit Reported,character,table,TRUE,,TRUE
-CyTOF_Derived_data,Workspace File,character,table,TRUE,,
-CyTOF_Derived_data,Comments,character,table,,,

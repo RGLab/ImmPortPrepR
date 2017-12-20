@@ -32,3 +32,10 @@ save(subjectsAnimalChk, file = "data/subjectsAnimalChk.rda")
 ###########################################
 
 # controlSamples
+
+# CyTOF_derived_data, has commas in controlled terms so tab-delim
+CyTOF_Derived_data <- read.table("data-raw/CyTOF_Derived_data.txt",
+                                 header = TRUE,
+                                 sep = "\t",
+                                 stringsAsFactors = FALSE)
+save(CyTOF_Derived_data, file = "data/CyTOF_Derived_data")
