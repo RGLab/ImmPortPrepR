@@ -1,6 +1,0 @@
-Block,Variable_Name,Variable_Type,Format
-protocols,User Defined ID,character,table
-protocols,File Name,character,table
-protocols,Name,character,table
-protocols,Description,character,table
-protocols,Type,character,table

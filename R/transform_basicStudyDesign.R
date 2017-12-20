@@ -15,7 +15,8 @@ transform_basicStudyDesign <- function(study,
                                        validate = TRUE){
 
     #----PreCheck DFs-------
-    load("data/bsdChk.rda")
+    load("data/ImmPortTemplates.rda")
+    load("data/ImmPortLookups.rda")
 
     # get arg list and clean
     argList <- as.list(match.call())
@@ -23,7 +24,11 @@ transform_basicStudyDesign <- function(study,
     argList <- argList[ !(names(argList) %in% c("outputDir", "validate")) ]
 
     # lapply checkObj
-    lapply(argList, checkObj, chkVals = bsdChk, dfName = names(argList) )
+    lapply(argList,
+           checkObj,
+           ImmPortTemplateName = names(argList),
+           templatesDF = ImmPortTemplates,
+           lookupsDF = ImmPortLookups)
 
     #----Generate tsv output-----
     name <- "basic_study_design"
@@ -40,9 +45,7 @@ transform_basicStudyDesign <- function(study,
 
     write_txt(name, blocks, file)
 
-
     #-----Validate output------
-
 
     return(output)
 }

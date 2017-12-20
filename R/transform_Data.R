@@ -2,27 +2,26 @@
 ###          Main Function            ###
 #########################################
 
-transform_metaData <- function(dataName,
-                               outputDir = NULL,
-                               validate = TRUE){
+#' @export
+transform_Data <- function(dataName,
+                           outputDir = NULL,
+                           validate = TRUE){
 
-    mDataOptions <- c("protocols",
-                      "treatments",
-                      "subjectsHuman",
-                      "subjectsAnimal")
+    # load template and lookup info
+    load("data/ImmPortTemplates.rda")
+    load("data/ImmPortLookups.rda")
 
-    if( !(dataName %in% mDataOptions) ){
+    if( !(dataName %in% unique(ImmPortTemplates$tableName)) ){
         stop(paste0(dataName, " is not an option for transformation."))
     }
 
     #----PreCheck DFs-------
-    chkVals <- paste0(dataName, "Chk")
-    load(paste0("data/", chkVals, ".rda"))
     df <- get(dataName, envir = globalenv())
-
     checkObj(df = df,
-             chkVals = chkVals,
-             dataName = dataName)
+             ImmPortTemplateName = dataName,
+             templatesDF = ImmPortTemplates,
+             lookupsDF = ImmPortLookups
+             )
 
     #----Generate tsv output-----
     blocks <- list(df)
