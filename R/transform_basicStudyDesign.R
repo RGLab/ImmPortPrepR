@@ -16,14 +16,12 @@ transform_basicStudyDesign <- function(study,
                                        validate = TRUE){
 
     #----PreCheck DFs-------
-    load("data/ImmPortTemplates.rda")
-    load("data/ImmPortLookups.rda")
 
     # get arg list and clean
     argList <- as.list(match.call())
     argList <- argList[ -1 ]
     argList <- argList[ !(names(argList) %in% c("outputDir", "validate")) ]
-    
+
     # Check arg list
     if( length(argList) != 9 ){
       stop("Number of argument DFs is not 9. Please ensure all arguments are passed.")
