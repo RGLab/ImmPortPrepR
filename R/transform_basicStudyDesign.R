@@ -2,6 +2,7 @@
 ###          Main Function            ###
 #########################################
 
+#' @export
 transform_basicStudyDesign <- function(study,
                                        arm_or_cohort,
                                        inclusion_exclusion,
@@ -22,6 +23,11 @@ transform_basicStudyDesign <- function(study,
     argList <- as.list(match.call())
     argList <- argList[ -1 ]
     argList <- argList[ !(names(argList) %in% c("outputDir", "validate")) ]
+    
+    # Check arg list
+    if( length(argList) != 9 ){
+      stop("Number of argument DFs is not 9. Please ensure all arguments are passed.")
+    }
 
     # lapply checkObj
     lapply(argList,

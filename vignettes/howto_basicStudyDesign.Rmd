@@ -1,0 +1,29 @@
+---
+title: "basicStudyDesign"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# OVERVIEW
+The purpose of this vignette is to demonstrate how to use the functions and data in the `import2ImmPort` package to
+create the basicStudyDesign.csv that must be submitted along with assay and other metaData to the public ImmPort 
+database at NIH.
+
+First, we will load the `import2ImmPort` library, which has the functions and data we need.
+```{r load-library}
+library(Import2ImmPort)
+```
+
+Next, we need to create the 9 dataframes that will be put together to form the larger csv.  
+
+The first dataframe, called *study* is unique in that it has two columns, one with header names and the other with 
+information for the corresponding header.  In this way it functions more like a named list and is treated differently 
+from most other dataframes that have a typical format with column headers and unlimited rows allowed.
+```{r create-study-df}
+
+```
+
+
+

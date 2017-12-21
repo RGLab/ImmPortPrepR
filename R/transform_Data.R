@@ -7,10 +7,6 @@ transform_Data <- function(dataName,
                            outputDir = NULL,
                            validate = TRUE){
 
-    # load template and lookup info
-    load("data/ImmPortTemplates.rda")
-    load("data/ImmPortLookups.rda")
-
     if( !(dataName %in% unique(ImmPortTemplates$tableName)) ){
         stop(paste0(dataName, " is not an option for transformation."))
     }

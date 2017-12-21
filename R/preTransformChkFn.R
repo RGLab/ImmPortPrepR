@@ -84,10 +84,7 @@ checkFormat <- function(df, templateDF, lookupsDF, ImmPortTemplateName){
 #' @export
 checkObj <- function(df, ImmPortTemplateName, ImmPortLookups, ImmPortTemplates){
 
-    # To get template DF, Have to use a range of row vals b/c some required
-    # rows do not have tableName. e.g. `required separator column`
-    templateRng <- range(grep(ImmPortTemplateName, ImmPortTemplates$tableName))
-    templateDF <- ImmPortTemplates[ templateRng[[1]]:templateRng[[2]], ]
+    templateDF <- getSingleTemplate(ImmPortTemplateName, ImmPortTemplates)
 
     # template checks
     checkClass(df, ImmPortTemplateName)
