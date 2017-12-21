@@ -33,11 +33,3 @@ json2DF <- function(jsonFile, writeCSV = FALSE){
 
     return(df)
 }
-
-# get single template info from larger ImmPortTemplates
-# To get template DF, Have to use a range of row vals b/c some required
-# rows do not have tableName. e.g. `required separator column`
-getSingleTemplate <- function(ImmPortTemplateName, ImmPortTemplates){
-  templateRng <- range(grep(ImmPortTemplateName, ImmPortTemplates$tableName))
-  templateDF <- ImmPortTemplates[ templateRng[[1]]:templateRng[[2]], ]
-}

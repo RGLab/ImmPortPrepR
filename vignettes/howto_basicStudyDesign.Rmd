@@ -16,13 +16,60 @@ First, we will load the `import2ImmPort` library, which has the functions and da
 library(Import2ImmPort)
 ```
 
-Next, we need to create the 9 dataframes that will be put together to form the larger csv.  
+Next, we need to create the 9 dataframes that will be put together to form the larger csv:
+- study
+- arm_or_cohort
+- inclusion_exclusion
+- planned_visit
+- study_2_protocol
+- study_file
+- study_link
+- study_personnel
+- study_pubmed
 
-The first dataframe, called *study* is unique in that it has two columns, one with header names and the other with 
-information for the corresponding header.  In this way it functions more like a named list and is treated differently 
-from most other dataframes that have a typical format with column headers and unlimited rows allowed.
+The first dataframe, called *study* is unique in that it has two columns, one with names and the other with 
+values.  In this way it functions more like a named list and is treated differently from most other dataframes 
+that have a typical format with column headers and unlimited rows allowed.
+
+In order to get a pre-made dataframe for *study* we use the `getTemplateDF()` function.  The only argument is the
+name of the template.
 ```{r create-study-df}
+study <- getTemplateDF("study")
+DT::datatable(study)
+```
 
+Now that we have the *study* dataframe, the easiest way to edit the dataframe by hand is to use the `edit()` function
+and save the output.  This function is found in the `utils` package, but depends on the `X11` library.  If you are on a 
+newer mac you may need to install XQuartz from the project's website as it is no longer bundled.  If for some reason `edit()`
+does not save the output correctly on your machine, then you will have to input information using an R-based approach.
+```{r input-to-study, eval=FALSE}
+edit(study)
+```
+
+```{r R-based-approach-to-editing}
+study[ , 2 ] <- c("SdyID",
+                  "myBriefTitle",
+                  "myOfficialTitle",
+                  "",
+                  "This is a study",
+                  "This is a longer description of the study",
+                  "We hypothesize ... ",
+                  "The objectives were ... ",
+                  "Endpoints are ... ",
+                  "NIH",
+                  50,
+                  "disease",
+                  10,
+                  30,
+                  "years",
+                  "doctor",
+                  "01/01/2018")
+```
+
+Similar to *study*, the other 8 dataframes that make up the basicStudyDesign.csv can be accessed with the
+`getTemplateDF()` function.  The next one we focus on is called *arm_or_cohort*.
+```{r make-arm-or-cohort-df}
+armOrCohort <- getTemplateDF("arm_or_cohort")
 ```
 
 
