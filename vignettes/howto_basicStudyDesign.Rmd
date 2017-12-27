@@ -9,9 +9,12 @@ knitr::opts_chunk$set(echo = TRUE)
 # OVERVIEW
 The purpose of this vignette is to demonstrate how to use the functions and data in the 
 `import2ImmPort` package to create the basicStudyDesign.csv that must be submitted along 
-with assay and other metaData to the public ImmPort database at NIH.
+with assay and other metaData to the public ImmPort database at NIH.  When creating your own
+submission documents, you can create a similar vignette so that the whole process is 
+reproducible.
 
-First, we will load the `import2ImmPort` library, which has the functions and data we need.
+First, we will load the `import2ImmPort` library, which has the functions and templates we need.
+
 ```{r load-library}
 library(Import2ImmPort)
 ```
@@ -34,6 +37,7 @@ unlimited rows allowed.
 
 In order to get a pre-made dataframe for *study* we use the `getTemplateDF()` function.  
 The only argument is the name of the template.
+
 ```{r create-study-df}
 study <- getTemplateDF("study")
 DT::datatable(study)
@@ -45,12 +49,15 @@ is found in the `utils` package, but depends on the `X11` library.  If you are o
 you may need to install XQuartz from the project's website as it is no longer bundled.  If for 
 some reason `edit()` does not save the output correctly on your machine, then you will have to 
 input information using an R-based approach.
+
 ```{r input-to-study, eval=FALSE}
 edit(study)
 ```
 
+An R-based approach example:
+
 ```{r R-based-approach-to-editing}
-study[ , 2 ] <- c("SdyID",
+study[ ,2 ] <- c("SdyID",
                   "myBriefTitle",
                   "myOfficialTitle",
                   "",
@@ -60,29 +67,143 @@ study[ , 2 ] <- c("SdyID",
                   "The objectives were ... ",
                   "Endpoints are ... ",
                   "NIH",
-                  50,
+                  "50",
                   "disease",
-                  10,
-                  30,
+                  "10",
+                  "30",
                   "years",
                   "doctor",
                   "01/01/2018")
 ```
 
 Similar to *study*, the other 8 dataframes that make up the basicStudyDesign.csv can be accessed 
-with the `getTemplateDF()` function.  The next one we focus on is called *arm_or_cohort*. In this
+with the `getTemplateDF()` function.  Depending on the amount of information that needs to be entered,
+it may be easier to use `edit()` or base R.  For the purpose of the vignette, an R-based approach is used
+for reproducibiity and demonstration.
+
+The next one we focus on is called *arm_or_cohort*. In this
 demonstration case, we have a csv already of the information needed and just want to bind this
 new information to correct headers.  Therefore we use armOrCohort only for the colnames() call.
+
 ```{r make-arm-or-cohort-df}
-armOrCohort <- getTemplateDF("arm_or_cohort")
+arm_or_cohort <- getTemplateDF("arm_or_cohort")
 aocImport <- read.table("arm_or_cohort_demo.tsv", sep = "\t", stringsAsFactors = FALSE)
-colnames(aocImport) <- colnames(armOrCohort)
+colnames(aocImport) <- colnames(arm_or_cohort)
 aocImport <- aocImport[ aocImport$`User Defined ID` != "", ]
 DT::datatable(aocImport)
 
-# to be consistent we rename aocImport
-armOrCohort <- aocImport
+# to be consistent we rename aocImport for use in the 'write' functions later
+arm_or_cohort <- aocImport
 ```
 
+Making *study_personnel*:
+
+```{r }
+study_personnel <- getTemplateDF("study_personnel")
+study_personnel[1,] <- c("Principal Investigator",
+                       "Dr.",
+                       "Khanna",
+                       "Elizabeth",
+                       "",
+                       "Major University",
+                       "ekhanna@major.edu",
+                       "PI",
+                       "PI",
+                       "Major University")
+DT::datatable(study_personnel)
+```
+
+Making *planned_visit*:
+
+```{r }
+planned_visit <- getTemplateDF("planned_visit")
+
+planned_visit[1,] <- c(1,
+                      "Screening",
+                      1,
+                      -10,
+                      -2,
+                      "",
+                      "")
+
+planned_visit[2,] <- c(2,
+                      "Immunization",
+                      2,
+                      0,
+                      0,
+                      "",
+                      "")
+
+planned_visit[3,] <- c(3,
+                      "Challenge",
+                      3,
+                      100,
+                      110,
+                      "",
+                      "")
+
+DT::datatable(planned_visit)
+```
+
+Making *inclusion_exclusion*: 
+
+```{r make-inclusion-exclusion-df}
+inclusion_exclusion <- getTemplateDF("inclusion_exclusion")
+inclusion_exclusion[1,] <- c("InclExcl1",
+                            "older than 35 years old",
+                            "exclusion")
+DT::datatable(inclusion_exclusion)
+```
+
+*study_2_protocol* is different than other templates.  It is a small dataframe with only 1 row and two columns
+with the first column being a name and the second being he value.  
+
+```{r make-study-2-protocol}
+study_2_protocol <- getTemplateDF("study_2_protocol")
+study_2_protocol[1,2] <- "protocol 3445"
+DT::datatable(study_2_protocol)
+```
+
+Making *study_file*:
+```{r make-study-file}
+study_file <- getTemplateDF("study_file")
+```
+
+Making *study_link*:
+```{r make-study-link}
+study_link <- getTemplateDF("study_link")
+study_link[1,] <- c("main website",
+                   "https://drkhannalab.major.edu/NewStudy1")
+DT::datatable(study_link)
+```
+
+*study_pubmed* is going to be left blank as a demonstration since some studies may need to be 
+imported prior to being published.  Publication information can be entered later using an update
+template.
+```{r make-study-pubmed}
+study_pubmed <- getTemplateDF("study_pubmed")
+```
+
+To create the csv that will be included in the ImmPort submission, we use the `transform_basicStudyDesign()` function that takes the 9 dataframes as arguments, as well as 
+`outputDir` and `validate`.  The `outputDir` argument is the filepath for the output directory 
+where the csv should be saved.  `validate` is a boolean with `TRUE` as the default that uses the
+validator scripts from ImmPort's web application to ensure that the csv meets the criteria 
+necessary for import.  To see more information about the `transform_basicStudyDesign()` function 
+you can always enter `?transform_basicStudyDesign` in the console.
+
+```{r transform-data-into-csv}
+transform_basicStudyDesign(study = study,
+                           arm_or_cohort = arm_or_cohort,
+                           study_personnel = study_personnel,
+                           planned_visit = planned_visit,
+                           inclusion_exclusion = inclusion_exclusion,
+                           study_2_protocol = study_2_protocol,
+                           study_file = study_file,
+                           study_link = study_link,
+                           study_pubmed = study_pubmed,
+                           outputDir = NULL,
+                           validate = TRUE)
+```
+# load csv to show what it looks like
 
 

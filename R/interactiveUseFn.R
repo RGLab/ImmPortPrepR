@@ -21,6 +21,31 @@ makeTemplateDF <- function(templateInfo, tblNmCol, headerNmsCol){
   return(tmpDF)
 }
 
+# Is template name in basicStudyDesign? 
+inBSD <- function(ImmPortTemplateName){
+  return( ImmPortTemplateName %in% unique(basicStudyDesignTemplates$Block) )
+}
+
+# To use same logic when pulling info from either bsd or immportTemplates
+getTblVars <- function(ImmPortTemplateName){
+  if( inBSD(ImmPortTemplateName) == TRUE ){
+    allDF <- basicStudyDesignTemplates
+    tblNmCol <- "Block"
+    varCol <- "Variable_Name"
+    typeCol <- "Variable_Type"
+  }else{
+    allDF <- ImmPortTemplates
+    tblNmCol <- "tableName"
+    varCol <- "templateColumn"
+    typeCol <- "jsonDataType"
+  }
+  
+  res <- list(allDF = allDF,
+              tblNmCol = tblNmCol,
+              varCol = varCol,
+              typeCol = typeCol)
+}
+
 # ---- MAIN FN --------------------------------------------------------
 #' @export
 # Use method dynamically to generate DF for interactive work in preparing data.
@@ -29,23 +54,20 @@ makeTemplateDF <- function(templateInfo, tblNmCol, headerNmsCol){
 # changes are all coming from same json files (templates and lookups) in the zip file
 # at `http://www.immport.org/downloads/data/upload/templates/ImmPortTemplates.zip`.
 getTemplateDF <- function(ImmPortTemplateName){
-
-  ImmPortTemplates <- get("ImmPortTemplates") # In global env when library loaded
-  basicStudyDesignTemplates <- get("basicStudyDesignTemplates")
-
-  if( ImmPortTemplateName %in% unique(basicStudyDesignTemplates$Block) ){
-    templateInfo <- getSingleTemplate(ImmPortTemplateName, basicStudyDesignTemplates, "Block")
-    if( ImmPortTemplateName == "study" ){
-      tmpDF <- data.frame(matrix("", ncol = 2, nrow = length(templateInfo$Block)),
-                          stringsAsFactors = F)
-      tmpDF[,1] <- templateInfo$Variable_Name
-      colnames(tmpDF) <- NULL
-    }else{
-      tmpDF <- makeTemplateDF(templateInfo, "Block", "Variable_Name")
-    }
+  
+  # note: ImmPortTemplates and basicStudyDesignTemplates are pulled from global env
+  
+  tblVars <- getTblVars(ImmPortTemplateName)
+  
+  templateInfo <- getSingleTemplate(ImmPortTemplateName, tblVars$allDF, tblVars$tblNmCol)
+  
+  if( ImmPortTemplateName %in% c("study", "study_2_protocol")  ){
+    tmpDF <- data.frame(matrix("", ncol = 2, nrow = length(templateInfo[[tblVars$tblNmCol]])),
+                        stringsAsFactors = F)
+    tmpDF[,1] <- templateInfo[[tblVars$varCol]]
+    colnames(tmpDF) <- NULL
   }else{
-    templateInfo <- getSingleTemplate(ImmPortTemplateName, ImmPortTemplates, "tableName")
-    tmpDF <- makeTemplateDF(templateInfo, "tableName", "tableColumn")
+    tmpDF <- makeTemplateDF(templateInfo, tblVars$tblNmCol, tblVars$varCol)
   }
 
   return(tmpDF)
