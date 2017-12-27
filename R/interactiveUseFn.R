@@ -13,15 +13,19 @@ getSingleTemplate <- function(ImmPortTemplateName, allDF, tblNmCol){
 
 # Create templateDF with flexibility for either bsd or ImmPortTemplates
 # NOTE: matrix() must be called with blank strings otherwise is not
-# editable by edit() in future.  Unsure why not.
-makeTemplateDF <- function(templateInfo, tblNmCol, headerNmsCol){
+# editable by edit() in future.
+makeTemplateDF <- function(templateInfo, tblNmCol, varCol, typeCol){
   tmpDF <- data.frame(matrix("", ncol = length(templateInfo[[tblNmCol]]), nrow = 1),
                       stringsAsFactors = FALSE)
-  colnames(tmpDF) <- templateInfo[[headerNmsCol]]
+  colnames(tmpDF) <- templateInfo[[varCol]]
+  for(x in seq(1:length(templateInfo[[typeCol]]))){
+      typeChg <- get(paste0("as.", templateInfo[[typeCol]][x] ))
+      tmpDF[,x] <- typeChg(tmpDF[,x])
+  }
   return(tmpDF)
 }
 
-# Is template name in basicStudyDesign? 
+# Is template name in basicStudyDesign?
 inBSD <- function(ImmPortTemplateName){
   return( ImmPortTemplateName %in% unique(basicStudyDesignTemplates$Block) )
 }
@@ -39,7 +43,7 @@ getTblVars <- function(ImmPortTemplateName){
     varCol <- "templateColumn"
     typeCol <- "jsonDataType"
   }
-  
+
   res <- list(allDF = allDF,
               tblNmCol = tblNmCol,
               varCol = varCol,
@@ -54,20 +58,20 @@ getTblVars <- function(ImmPortTemplateName){
 # changes are all coming from same json files (templates and lookups) in the zip file
 # at `http://www.immport.org/downloads/data/upload/templates/ImmPortTemplates.zip`.
 getTemplateDF <- function(ImmPortTemplateName){
-  
+
   # note: ImmPortTemplates and basicStudyDesignTemplates are pulled from global env
-  
+
   tblVars <- getTblVars(ImmPortTemplateName)
-  
+
   templateInfo <- getSingleTemplate(ImmPortTemplateName, tblVars$allDF, tblVars$tblNmCol)
-  
+
   if( ImmPortTemplateName %in% c("study", "study_2_protocol")  ){
     tmpDF <- data.frame(matrix("", ncol = 2, nrow = length(templateInfo[[tblVars$tblNmCol]])),
                         stringsAsFactors = F)
     tmpDF[,1] <- templateInfo[[tblVars$varCol]]
     colnames(tmpDF) <- NULL
   }else{
-    tmpDF <- makeTemplateDF(templateInfo, tblVars$tblNmCol, tblVars$varCol)
+    tmpDF <- makeTemplateDF(templateInfo, tblVars$tblNmCol, tblVars$varCol, tblVars$typeCol)
   }
 
   return(tmpDF)

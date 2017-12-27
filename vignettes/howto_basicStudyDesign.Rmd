@@ -142,6 +142,10 @@ planned_visit[3,] <- c(3,
                       "",
                       "")
 
+# To ensure correct types
+planned_visit$`Min Start Day` <- as.double(planned_visit$`Min Start Day`)
+planned_visit$`Max Start Day` <- as.double(planned_visit$`Max Start Day`)
+
 DT::datatable(planned_visit)
 ```
 
@@ -165,11 +169,13 @@ DT::datatable(study_2_protocol)
 ```
 
 Making *study_file*:
+
 ```{r make-study-file}
 study_file <- getTemplateDF("study_file")
 ```
 
 Making *study_link*:
+
 ```{r make-study-link}
 study_link <- getTemplateDF("study_link")
 study_link[1,] <- c("main website",
@@ -180,6 +186,7 @@ DT::datatable(study_link)
 *study_pubmed* is going to be left blank as a demonstration since some studies may need to be 
 imported prior to being published.  Publication information can be entered later using an update
 template.
+
 ```{r make-study-pubmed}
 study_pubmed <- getTemplateDF("study_pubmed")
 ```
@@ -204,6 +211,6 @@ transform_basicStudyDesign(study = study,
                            outputDir = NULL,
                            validate = TRUE)
 ```
-# load csv to show what it looks like
+
 
 

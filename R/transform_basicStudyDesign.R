@@ -3,11 +3,11 @@
 #########################################
 
 #' @title Transform R dataframes into ImmPort basicStudyDesign.csv format
-#' 
+#'
 #' @description Based on ImmPort's specifications, the function validates
 #' a group of dataframes holding metaData and then outputs a csv
 #' for submission to the database.
-#' 
+#'
 #' @param study a two-column dataframe with names and values for study metaData
 #' @param arm_or_cohort four column df defining arms or cohorts in study
 #' @param inclusion_exclusion three column df defining allowed participant criteria
@@ -33,40 +33,30 @@ transform_basicStudyDesign <- function(study,
                                        validate = TRUE){
 
     #----PreCheck DFs-------
+    blocks <- list("study" = study,
+                    "arm_or_cohort" = arm_or_cohort,
+                    "study_personnel" = study_personnel,
+                    "planned_visit" = planned_visit,
+                    "inclusion_exclusion" = inclusion_exclusion,
+                    "study_2_protocol" = study_2_protocol,
+                    "study_file" = study_file,
+                    "study_link" = study_link,
+                    "study_pubmed" = study_pubmed)
 
-    # get arg list and clean
-    argList <- as.list(match.call())
-    argList <- argList[ -1 ]
-    argList <- argList[ !(names(argList) %in% c("outputDir", "validate")) ]
-
-    # Check arg list
-    if( length(argList) != 9 ){
-      stop("Number of argument DFs is not 9. Please ensure all arguments are passed.")
-    }
-
-    # lapply checkObj
-    lapply(argList,
-           checkObj,
-           ImmPortTemplateName = names(argList),
-           templatesDF = ImmPortTemplates,
-           lookupsDF = ImmPortLookups)
+    # any errors in checkObj will stop transformation
+    mapply(checkObj,
+           df = blocks,
+           ImmPortTemplateName = names(blocks))
 
     #----Generate tsv output-----
     name <- "basic_study_design"
-    blocks <- list("study" = study,
-                   "arm_or_cohort" = arm_or_cohort,
-                   "study_personnel" = study_personnel,
-                   "planned_visit" = planned_visit,
-                   "inclusion_exclusion" = inclusion_exclusion,
-                   "study_2_protocol" = study_2_protocol,
-                   "study_file" = study_file,
-                   "study_link" = study_link,
-                   "study_pubmed" = study_pubmed)
+    if(is.null(outputDir)){ outputDir <- getwd() }
     file <- file.path(outputDir, paste0(name, ".txt"))
 
-    write_txt(name, blocks, file)
+    write_txt(name = name,
+              blocks = blocks,
+              file = file)
 
     #-----Validate output------
 
-    return(output)
 }
