@@ -57,33 +57,34 @@ edit(study)
 An R-based approach example:
 
 ```{r R-based-approach-to-editing}
-study[ ,2 ] <- c("SdyID",
-                  "myBriefTitle",
-                  "myOfficialTitle",
-                  "",
-                  "This is a study",
-                  "This is a longer description of the study",
-                  "We hypothesize ... ",
-                  "The objectives were ... ",
-                  "Endpoints are ... ",
-                  "NIH",
-                  "50",
-                  "disease",
-                  "10",
-                  "30",
-                  "years",
-                  "doctor",
-                  "01/01/2018")
+study[ 1, ] <- list("SdyID",
+                    "myBriefTitle",
+                    "myOfficialTitle",
+                    "",
+                    "This is a study",
+                    "This is a longer description of the study",
+                    "We hypothesize ... ",
+                    "The objectives were ... ",
+                    "Endpoints are ... ",
+                    "NIH",
+                    50,
+                    "disease",
+                    10,
+                    30,
+                    "years",
+                    "doctor",
+                    "01/01/2018")
 ```
 
 Similar to *study*, the other 8 dataframes that make up the basicStudyDesign.csv can be accessed 
-with the `getTemplateDF()` function.  Depending on the amount of information that needs to be entered,
-it may be easier to use `edit()` or base R.  For the purpose of the vignette, an R-based approach is used
-for reproducibiity and demonstration.
+with the `getTemplateDF()` function.  Depending on the amount of information that needs to be
+entered, it may be easier to use `edit()` or base R.  For the purpose of the vignette, an R-based
+approach is used for reproducibiity and demonstration.
 
 The next one we focus on is called *arm_or_cohort*. In this
 demonstration case, we have a csv already of the information needed and just want to bind this
-new information to correct headers.  Therefore we use armOrCohort only for the colnames() call.
+new information to correct headers.  Therefore we use the arm_or_cohort dataframe only for the
+colnames() call.
 
 ```{r make-arm-or-cohort-df}
 arm_or_cohort <- getTemplateDF("arm_or_cohort")

@@ -14,7 +14,7 @@ checkDim <- function(df, templateDF, ImmPortTemplateName){
     }else{
       res <- ncol(df) == nrow(templateDF)
     }
-  
+
     if( res == FALSE ){
         stop(paste0("Number of columns in ", ImmPortTemplateName, " is not correct."))
     }
@@ -26,26 +26,19 @@ checkColnames <- function(df, ImmPortTemplateName, templateDF, varCol){
     }else{
       res <- all(colnames(df) == templateDF[[varCol]])
     }
-  
+
     if( res == FALSE ){
         stop(paste0("Colnames of ", ImmPortTemplateName, " are not correct."))
     }
 }
 
 checkTypes <- function(df, templateDF, typeCol, ImmPortTemplateName){
-    types <- gsub("string", "character", templateDF[[typeCol]])
-    types <- gsub("enum|number", "double", types)
 
-    if( ImmPortTemplateName %in% c("study", "study_2_protocol") ){
-      res <- sapply(df[,2], typeof) == "character" # all will be coerced to char
-      badCols <- df[,1][ res == FALSE ]
-    }else{
-      res <- sapply(seq(ncol(df)), FUN = function(x){
+    res <- sapply(seq(ncol(df)), FUN = function(x){
         all(typeof(df[[x]]) == types[[x]])
-      })
-      badCols <- colnames(df)[res == FALSE]
-    }
-    
+    })
+    badCols <- colnames(df)[res == FALSE]
+
     if( any(res == FALSE) ){
        message("Type errors found in following columns: ")
        message(paste(badCols, collapse = "\n"))
@@ -100,9 +93,9 @@ checkFormat <- function(df, templateDF, lookupsDF, ImmPortTemplateName){
 
 #' @export
 checkObj <- function(df, ImmPortTemplateName){
-    
+
     tblVars <- getTblVars(ImmPortTemplateName)
-    
+
     templateDF <- getSingleTemplate(ImmPortTemplateName, tblVars$allDF, tblVars$tblNmCol)
 
     # template checks
