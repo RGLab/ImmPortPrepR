@@ -60,7 +60,7 @@ An R-based approach example:
 study[ 1, ] <- list("SdyID",
                     "myBriefTitle",
                     "myOfficialTitle",
-                    "",
+                    1,
                     "This is a study",
                     "This is a longer description of the study",
                     "We hypothesize ... ",

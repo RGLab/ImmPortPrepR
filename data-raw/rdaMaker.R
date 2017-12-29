@@ -23,6 +23,7 @@ json2DF <- function(jsonFile, writeCSV = FALSE){
         # The basicStudyDesign template is found unparsed in another
         # element within the json output and must be constructed.
         bsd <- plyr::ldply(tmp$templates, data.frame)
+        bsd <- bsd[1:9,] # duplicate tables created otherwise
         bsd <- plyr::ldply(lapply(bsd$columns, data.frame), rbind)
         bsd$templateName <- bsd$tableName
 
