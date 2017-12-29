@@ -8,9 +8,24 @@ json2DF <- function(jsonFile, writeCSV = FALSE){
 
     # templates + basicStudyDesign
     if( grepl("templates.json", jsonFile) ){
-        df <- plyr::ldply(tmp$columns, data.frame)
+
+        # DFs in tmp$columns do not have a way of identifying the
+        # actual template from any of the standalone columns, therefore
+        # must add a column that has the names from another element
+        # to make this feasible.
+        names(tmp$columns) <- gsub(".txt", "", tmp$fileName)
+        tmpLs <- lapply(seq(length(tmp$columns)), function(x){
+            tmp$columns[[x]]$templateName <- names(tmp$columns)[[x]]
+            return(tmp$columns[[x]])
+        })
+        df <- plyr::ldply(tmpLs, data.frame)
+
+        # The basicStudyDesign template is found unparsed in another
+        # element within the json output and must be constructed.
         bsd <- plyr::ldply(tmp$templates, data.frame)
         bsd <- plyr::ldply(lapply(bsd$columns, data.frame), rbind)
+        bsd$templateName <- bsd$tableName
+
         df <- rbind(df, bsd)
         fileNm <- "data-raw/templates.csv"
 
