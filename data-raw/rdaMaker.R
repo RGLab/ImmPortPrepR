@@ -61,7 +61,6 @@ ImmPortLookups <- read.csv("data-raw/lkTables.csv", stringsAsFactors = FALSE)
 save(ImmPortLookups, file = "data/ImmPortLookups.rda")
 
 source("data-raw/demoData.R")
-demoData <- blocks
 save(demoData, file = "data/demoData.rda")
 
 

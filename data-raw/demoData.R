@@ -1,4 +1,4 @@
-blocks <- list(
+demoData <- list(
     study = list(
         "User Defined ID" = "example human study",
         "Brief Title" = "example human study title",

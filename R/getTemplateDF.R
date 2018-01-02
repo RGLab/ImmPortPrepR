@@ -15,6 +15,13 @@ updateTypes <- function(templateInfo){
 }
 
 # ---- MAIN FN --------------------------------------------------------
+#' @title generate a template data frame for a given ImmPort Template Name
+#'
+#' @description Based on ImmPort's specifications, the function creates an
+#'     empty dataframe with the correct column headers for the user to update
+#'     as part of the ImmPort submission development.
+#'
+#' @param ImmPortTemplateName name of the ImmPort Template to create
 #' @export
 # Use method dynamically to generate DF for interactive work in preparing data.
 # Template DFs are not kept as rda objects because the ImmPort tables and lookups

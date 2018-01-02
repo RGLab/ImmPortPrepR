@@ -1,7 +1,5 @@
 context("write functions")
 
-source("data-raw/demoData.R")
-
 test_that("write_header", {
   name <- "basic_study_design"
   file <- tempfile()
@@ -114,10 +112,9 @@ test_that("write_emptyTable", {
 
 test_that("write_txt", {
   name <- "basic_study_design"
-  blocks <- blocks
   file <- tempfile()
 
-  Import2ImmPort:::write_txt(name, blocks, file)
+  Import2ImmPort:::write_txt(name, demoData, file)
 
   actual <- readLines(file)
   expected <- readLines("basic_study_design.txt")

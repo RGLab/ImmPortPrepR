@@ -4,20 +4,20 @@
 \alias{transform_basicStudyDesign}
 \title{Transform R dataframes into ImmPort basicStudyDesign.csv format}
 \usage{
-transform_basicStudyDesign(study, arm_or_cohort, inclusion_exclusion,
-  study_personnel, planned_visit, study_2_protocol, study_file, study_link,
-  study_pubmed, outputDir = NULL, validate = TRUE)
+transform_basicStudyDesign(study, arm_or_cohort, study_personnel, planned_visit,
+  inclusion_exclusion, study_2_protocol, study_file, study_link, study_pubmed,
+  outputDir = NULL, validate = TRUE)
 }
 \arguments{
 \item{study}{a two-column dataframe with names and values for study metaData}
 
 \item{arm_or_cohort}{four column df defining arms or cohorts in study}
 
-\item{inclusion_exclusion}{three column df defining allowed participant criteria}
-
 \item{study_personnel}{ten column df identifying all study personnel}
 
 \item{planned_visit}{seven column df describing all visits and potential variation}
+
+\item{inclusion_exclusion}{three column df defining allowed participant criteria}
 
 \item{study_2_protocol}{small 1 x 2 df with protocol reference}
 

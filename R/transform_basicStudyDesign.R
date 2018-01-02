@@ -10,9 +10,9 @@
 #'
 #' @param study a two-column dataframe with names and values for study metaData
 #' @param arm_or_cohort four column df defining arms or cohorts in study
-#' @param inclusion_exclusion three column df defining allowed participant criteria
 #' @param study_personnel ten column df identifying all study personnel
 #' @param planned_visit seven column df describing all visits and potential variation
+#' @param inclusion_exclusion three column df defining allowed participant criteria
 #' @param study_2_protocol small 1 x 2 df with protocol reference
 #' @param study_file three column df describing all related files being submitted
 #' @param study_link two column df with web links for study
@@ -44,7 +44,7 @@ transform_basicStudyDesign <- function(study,
                    "study_pubmed" = study_pubmed)
 
     # Any errors in checkObj will stop transformation.
-    mapply(checkObj,
+    mapply(checkTemplate,
            df = blocks,
            ImmPortTemplateName = names(blocks))
 

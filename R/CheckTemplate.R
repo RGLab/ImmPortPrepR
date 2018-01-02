@@ -1,5 +1,5 @@
 ###########################################
-###    Pre-Transform Check Functions    ###
+###          Helper Functions           ###
 ###########################################
 
 checkClass <- function(df, dfName) {
@@ -94,8 +94,19 @@ checkFormat <- function(df, templateInfo, lookupsDF, ImmPortTemplateName){
     }
 }
 
+###########################################
+###          Main Function              ###
+###########################################
+
+#' @title Check template data frame
+#'
+#' @description Check template data frame based on class, dimensions, colnames,
+#'     data types, and format.
+#'
+#' @param df data frame with user entered data
+#' @param ImmPortTemplateName Name of ImmPort Template to compare against
 #' @export
-checkObj <- function(df, ImmPortTemplateName){
+checkTemplate <- function(df, ImmPortTemplateName){
 
     templateInfo <- getSingleTemplate(ImmPortTemplateName)
 
