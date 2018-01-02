@@ -104,6 +104,16 @@ checkObj <- function(df, ImmPortTemplateName){
     checkDim(df, templateInfo, ImmPortTemplateName)
     checkColnames(df, ImmPortTemplateName, templateInfo)
     checkTypes(df, templateInfo, ImmPortTemplateName)
+
+    # Allow empty tables for certain non-required sub-tables in BSD
+    if( ImmPortTemplateName %in% c("study_file","study_link","study_pubmed")){
+        tmp <- unique(unname(unlist(df[1,])))
+        if( all(tmp == "" | is.na(tmp)) ){
+            message(paste0("skipping empty ", ImmPortTemplateName, " table"))
+            return()
+        }
+    }
+
     checkRequired(df, templateInfo, ImmPortTemplateName)
 
     # format check using lookups

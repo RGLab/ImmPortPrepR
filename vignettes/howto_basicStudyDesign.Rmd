@@ -119,7 +119,7 @@ Making *planned_visit*:
 ```{r }
 planned_visit <- getTemplateDF("planned_visit")
 
-planned_visit[1,] <- c(1,
+planned_visit[1,] <- list(1,
                       "Screening",
                       1,
                       -10,
@@ -127,7 +127,7 @@ planned_visit[1,] <- c(1,
                       "",
                       "")
 
-planned_visit[2,] <- c(2,
+planned_visit[2,] <- list(2,
                       "Immunization",
                       2,
                       0,
@@ -135,17 +135,13 @@ planned_visit[2,] <- c(2,
                       "",
                       "")
 
-planned_visit[3,] <- c(3,
+planned_visit[3,] <- list(3,
                       "Challenge",
                       3,
                       100,
                       110,
                       "",
                       "")
-
-# To ensure correct types
-planned_visit$`Min Start Day` <- as.double(planned_visit$`Min Start Day`)
-planned_visit$`Max Start Day` <- as.double(planned_visit$`Max Start Day`)
 
 DT::datatable(planned_visit)
 ```
@@ -165,7 +161,7 @@ with the first column being a name and the second being he value.
 
 ```{r make-study-2-protocol}
 study_2_protocol <- getTemplateDF("study_2_protocol")
-study_2_protocol[1,2] <- "protocol 3445"
+study_2_protocol[1,] <- "protocol 3445"
 DT::datatable(study_2_protocol)
 ```
 
@@ -173,6 +169,10 @@ Making *study_file*:
 
 ```{r make-study-file}
 study_file <- getTemplateDF("study_file")
+study_file[1,] <- list("Appendix.txt",
+                       "Study Appendix",
+                       "tsv")
+DT::datatable(study_file)
 ```
 
 Making *study_link*:
