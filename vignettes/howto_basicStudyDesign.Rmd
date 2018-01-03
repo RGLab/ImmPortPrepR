@@ -71,9 +71,52 @@ study[ 1, ] <- list("SdyID",
                     "disease",
                     10,
                     30,
-                    "Years",
+                    "years",
                     "doctor",
                     "01/01/2018")
+```
+
+We can check the *study* template to see if it passes the basic checks for class, dimension,
+data types, and controlled terms by using `checkTemplate()`.  This function takes in the
+data frame we have created as well as the template name.  Any problems will throw an error,
+so for demonstration purposes we wrap the function in a `tryCatch()` method here.
+
+```{r check-template}
+# NOTE: messages are printed out
+results <- tryCatch(checkTemplate(df = study,
+                                  ImmPortTemplateName = "study"),
+                    error = function(e){ return(e) })
+
+# to see error statement
+results$message
+```
+
+It seems we are using a non-controlled term in one of the columns.  Many templates use 
+controlled or preferred terms to help maintain standardized terms across studies, so
+it is important for us to correct this before writing out the template.
+
+In the case of *study*, we can see which columns have such terms by using the `getLookups()` 
+function. This function's only argument is the ImmPort Template Name.
+
+```{r get-lookups}
+getLookups(ImmPortTemplateName = "study")
+```
+
+It appears that *study* has two columns with controlled terms, **Type** and **Age Unit**. To 
+see what values are allowed for **Age Unit** we can use the `getLookupValues()` function. This
+function takes in the ImmPort Template Name and the column name as arguments, then returns
+a vector of allowed values.
+
+```{r get-lookup-vals}
+getLookupValues(ImmPortTemplateName = "study", templateColname = "Age Unit")
+```
+
+Since it looks like the original entry for **Age Unit** ('years') is not in the vector,
+we must correct it with a capitalized version so it passes the `checkTemplate()` function
+later on.
+
+```{r fix-years}
+study$`Age Unit` <- "Years"
 ```
 
 Similar to *study*, the other 8 dataframes that make up the basicStudyDesign.csv can be accessed 
