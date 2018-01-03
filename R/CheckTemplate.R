@@ -26,7 +26,7 @@ checkColnames <- function(df, ImmPortTemplateName, templateInfo){
 
 checkTypes <- function(df, templateInfo, ImmPortTemplateName){
 
-    templateInfo <- updateTypes(templateInfo)
+    templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
 
     res <- sapply(seq(ncol(df)), FUN = function(x){
         all(typeof(df[[x]]) == templateInfo$jsonDataType[[x]])

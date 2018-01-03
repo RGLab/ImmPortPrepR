@@ -2,16 +2,19 @@
 ###      Interactive Use Functions      ###
 ###########################################
 # ---- HELPER FN --------------------------
-# Used in CheckObj() and below
-getSingleTemplate <- function(ImmPortTemplateName){
-    templateInfo <- ImmPortTemplates[ ImmPortTemplates$templateName == ImmPortTemplateName, ]
+# Used in checkTemplate() and below
+getSingleTemplate <- function(ImmPortTemplateName) {
+  stopifnot(ImmPortTemplateName %in% ImmPortTemplates$tableName)
+  
+  ImmPortTemplates[ImmPortTemplates$templateName == ImmPortTemplateName, ]
 }
 
-# Used in CheckObj() and below
-updateTypes <- function(templateInfo){
-    templateInfo$jsonDataType <- gsub("string|date|enum", "character", templateInfo$jsonDataType)
-    templateInfo$jsonDataType <- gsub("number|positive", "double", templateInfo$jsonDataType)
-    return(templateInfo)
+# Used in checkTemplate() and below
+updateTypes <- function(jsonDataType) {
+  jsonDataType <- gsub("string|date|enum", "character", jsonDataType)
+  jsonDataType <- gsub("number|positive", "double", jsonDataType)
+  
+  jsonDataType
 }
 
 # ---- MAIN FN --------------------------------------------------------
@@ -28,21 +31,23 @@ updateTypes <- function(templateInfo){
 # can change with each data release.  Therefore using a function ensures that latest
 # changes are all coming from same json files (templates and lookups) in the zip file
 # at `http://www.immport.org/downloads/data/upload/templates/ImmPortTemplates.zip`.
-getTemplateDF <- function(ImmPortTemplateName){
-
+getTemplateDF <- function(ImmPortTemplateName) {
+  stopifnot(ImmPortTemplateName %in% ImmPortTemplates$tableName)
+  
   templateInfo <- getSingleTemplate(ImmPortTemplateName)
-
+  
+  templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
+  
+  # create a temp data frame with template columns
   tmpDF <- data.frame(matrix("", ncol = nrow(templateInfo), nrow = 1),
                       stringsAsFactors = FALSE)
   colnames(tmpDF) <- templateInfo$templateColumn
 
-  templateInfo <- updateTypes(templateInfo)
-
-  for(x in seq(1:length(templateInfo$jsonDataType))){
-      typeChg <- get(paste0("as.", templateInfo$jsonDataType[x] ))
-      tmpDF[,x] <- typeChg(tmpDF[,x])
+  # update column type
+  for (x in seq(1:length(templateInfo$jsonDataType))) {
+    changeType <- get(paste0("as.", templateInfo$jsonDataType[x]))
+    tmpDF[, x] <- changeType(tmpDF[, x])
   }
-
-  return(tmpDF)
-
+  
+  tmpDF
 }
