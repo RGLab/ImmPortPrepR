@@ -4,7 +4,7 @@
 # ---- HELPER FN --------------------------
 # Used in checkTemplate() and below
 getSingleTemplate <- function(ImmPortTemplateName) {
-  stopifnot(ImmPortTemplateName %in% ImmPortTemplates$tableName)
+  stopifnot(ImmPortTemplateName %in% ImmPortTemplates$templateName)
   
   ImmPortTemplates[ImmPortTemplates$templateName == ImmPortTemplateName, ]
 }
