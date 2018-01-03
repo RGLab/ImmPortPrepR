@@ -60,7 +60,7 @@ An R-based approach example:
 study[ 1, ] <- list("SdyID",
                     "myBriefTitle",
                     "myOfficialTitle",
-                    1,
+                    "Interventional",
                     "This is a study",
                     "This is a longer description of the study",
                     "We hypothesize ... ",
@@ -71,7 +71,7 @@ study[ 1, ] <- list("SdyID",
                     "disease",
                     10,
                     30,
-                    "years",
+                    "Years",
                     "doctor",
                     "01/01/2018")
 ```

@@ -4,8 +4,10 @@
 # ---- HELPER FN --------------------------
 # Used in checkTemplate() and below
 getSingleTemplate <- function(ImmPortTemplateName) {
-  stopifnot(ImmPortTemplateName %in% ImmPortTemplates$templateName)
-  
+  if (!(ImmPortTemplateName %in% unique(ImmPortTemplates$templateName))) {
+    stop("Given template name is not in ImmPortTemplates$templateName. Please re-run.")
+  }
+
   ImmPortTemplates[ImmPortTemplates$templateName == ImmPortTemplateName, ]
 }
 
@@ -13,7 +15,7 @@ getSingleTemplate <- function(ImmPortTemplateName) {
 updateTypes <- function(jsonDataType) {
   jsonDataType <- gsub("string|date|enum", "character", jsonDataType)
   jsonDataType <- gsub("number|positive", "double", jsonDataType)
-  
+
   jsonDataType
 }
 
@@ -32,12 +34,10 @@ updateTypes <- function(jsonDataType) {
 # changes are all coming from same json files (templates and lookups) in the zip file
 # at `http://www.immport.org/downloads/data/upload/templates/ImmPortTemplates.zip`.
 getTemplateDF <- function(ImmPortTemplateName) {
-  stopifnot(ImmPortTemplateName %in% ImmPortTemplates$tableName)
-  
   templateInfo <- getSingleTemplate(ImmPortTemplateName)
-  
+
   templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
-  
+
   # create a temp data frame with template columns
   tmpDF <- data.frame(matrix("", ncol = nrow(templateInfo), nrow = 1),
                       stringsAsFactors = FALSE)
@@ -48,6 +48,6 @@ getTemplateDF <- function(ImmPortTemplateName) {
     changeType <- get(paste0("as.", templateInfo$jsonDataType[x]))
     tmpDF[, x] <- changeType(tmpDF[, x])
   }
-  
+
   tmpDF
 }
