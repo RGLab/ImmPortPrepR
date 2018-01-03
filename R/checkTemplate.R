@@ -23,7 +23,7 @@ checkDim <- function(df, templateInfo, ImmPortTemplateName) {
 }
 
 checkColnames <- function(df, templateInfo, ImmPortTemplateName) {
-  res <- all.equal(colnames(df), templateInfo$templateColumn)
+  res <- identical(colnames(df), templateInfo$templateColumn)
 
   if (!res) {
     stop("Colnames of ", ImmPortTemplateName, " are not correct.")
