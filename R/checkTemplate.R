@@ -64,38 +64,6 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
   invisible(NULL)
 }
 
-#' @export
-# Helper for showing user which columns have lookups in a template
-getLookups <- function(ImmPortTemplateName){
-    tmp <- ImmPortTemplates[ ImmPortTemplates$templateName == ImmPortTemplateName, ]
-    pvLookups <- tmp$templateColumn[ tmp$pv == TRUE ]
-    if (length(pvLookups) > 0){
-        message("Columns with Preferred Values:")
-        message(paste(pvLookups, collapse = "\n"))
-    }
-    cvLookups <- tmp$templateColumn[ tmp$cv == TRUE ]
-    if (length(cvLookups) > 0){
-        message("Columns with Controlled Values:")
-        message(paste(cvLookups, collapse = "\n"))
-    }
-    return()
-}
-
-#' @export
-# Helper for getting vector of lookup values from template and column names
-getLookupValues <- function(ImmPortTemplateName, templateColname) {
-  tmp <- ImmPortTemplates[ ImmPortTemplates$templateName == ImmPortTemplateName &
-                               ImmPortTemplates$templateColumn == templateColname, ]
-  lkTblNm <- dplyr::coalesce(tmp$pvTableName, tmp$cvTableName)
-  lkVals <- ImmPortLookups$name[ImmPortLookups$lookup == lkTblNm]
-
-  if (any(grepl(";", lkVals))) {
-    lkVals <- unname(unlist(sapply(lkVals, function(y) strsplit(y, ";"))))
-  }
-
-  lkVals
-}
-
 # Helper for comparing inputVals to lkVals
 compareValues <- function(compCols, ImmPortTemplateName, df) {
   res <- sapply(compCols, function(x) {
