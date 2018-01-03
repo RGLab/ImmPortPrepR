@@ -19,7 +19,7 @@ getLookups <- function(ImmPortTemplateName){
         message("Columns with Controlled Values:")
         message(paste(cvLookups, collapse = "\n"))
     }
-    return()
+    return(invisible(NULL))
 }
 
 #' @title retrieve allowed or preferred values for a given template and column
@@ -35,7 +35,8 @@ getLookups <- function(ImmPortTemplateName){
 getLookupValues <- function(ImmPortTemplateName, templateColname) {
     tmp <- ImmPortTemplates[ ImmPortTemplates$templateName == ImmPortTemplateName &
                                  ImmPortTemplates$templateColumn == templateColname, ]
-    lkTblNm <- dplyr::coalesce(tmp$pvTableName, tmp$cvTableName)
+    lkTblNm <- c(tmp$pvTableName, tmp$cvTableName)
+    lkTblNm <- lkTblNm[ !is.na(lkTblNm) ]
     lkVals <- ImmPortLookups$name[ImmPortLookups$lookup == lkTblNm]
 
     if (any(grepl(";", lkVals))) {
