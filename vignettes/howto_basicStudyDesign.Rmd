@@ -109,7 +109,7 @@ study_personnel[1,] <- c("Principal Investigator",
                        "Major University",
                        "ekhanna@major.edu",
                        "PI",
-                       "PI",
+                       "Principal Investigator",
                        "Major University")
 DT::datatable(study_personnel)
 ```
@@ -152,7 +152,7 @@ Making *inclusion_exclusion*:
 inclusion_exclusion <- getTemplateDF("inclusion_exclusion")
 inclusion_exclusion[1,] <- c("InclExcl1",
                             "older than 35 years old",
-                            "exclusion")
+                            "Exclusion")
 DT::datatable(inclusion_exclusion)
 ```
 
@@ -171,7 +171,7 @@ Making *study_file*:
 study_file <- getTemplateDF("study_file")
 study_file[1,] <- list("Appendix.txt",
                        "Study Appendix",
-                       "tsv")
+                       "Study Data")
 DT::datatable(study_file)
 ```
 
