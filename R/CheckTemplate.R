@@ -3,95 +3,113 @@
 ###########################################
 
 checkClass <- function(df, dfName) {
-  if(class(df)[1] != "data.frame") {
+  res <- class(df)[1] == "data.frame"
+
+  if (!res) {
     stop(paste0(dfName, " data must be input as a data frame. Please re-format."))
   }
+
+  NULL
 }
 
-checkDim <- function(df, templateInfo, ImmPortTemplateName){
-    res <- ncol(df) == nrow(templateInfo)
+checkDim <- function(df, templateInfo, ImmPortTemplateName) {
+  res <- ncol(df) == nrow(templateInfo)
 
-    if( res == FALSE ){
-        stop(paste0("Number of columns in ", ImmPortTemplateName, " is not correct."))
-    }
+  if (!res) {
+    stop(paste0("Number of columns in ", ImmPortTemplateName, " is not correct."))
+  }
+  
+  NULL
 }
 
-checkColnames <- function(df, ImmPortTemplateName, templateInfo){
-    res <- all(colnames(df) == templateInfo$templateColumn)
+checkColnames <- function(df, templateInfo, ImmPortTemplateName) {
+  res <- all.equal(colnames(df), templateInfo$templateColumn)
 
-    if( res == FALSE ){
-        stop(paste0("Colnames of ", ImmPortTemplateName, " are not correct."))
-    }
+  if (!res) {
+    stop(paste0("Colnames of ", ImmPortTemplateName, " are not correct."))
+  }
+
+  NULL
 }
 
-checkTypes <- function(df, templateInfo, ImmPortTemplateName){
+checkTypes <- function(df, templateInfo, ImmPortTemplateName) {
+  templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
 
-    templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
+  res <- sapply(seq(ncol(df)), FUN = function(x) {
+    all(typeof(df[[x]]) == templateInfo$jsonDataType[[x]])
+  })
+  badCols <- colnames(df)[res == FALSE]
 
-    res <- sapply(seq(ncol(df)), FUN = function(x){
-        all(typeof(df[[x]]) == templateInfo$jsonDataType[[x]])
-    })
-    badCols <- colnames(df)[res == FALSE]
+  if (any(res == FALSE)) {
+    message("Type errors found in following columns: ")
+    message(paste(badCols, collapse = "\n"))
+    stop("Check data types for ", ImmPortTemplateName)
+  }
 
-    if( any(res == FALSE) ){
-       message("Type errors found in following columns: ")
-       message(paste(badCols, collapse = "\n"))
-       stop("Check data types for ", ImmPortTemplateName)
-    }
+  NULL
 }
 
-checkRequired <- function(df, templateInfo, ImmPortTemplateName){
-    req <- templateInfo$templateColumn[ templateInfo$required == TRUE]
-    res <- sapply(req, FUN = function(x){
-        any(is.na(df[[x]]) | df[[x]] == "")
-    })
-    if( any(res == TRUE) ){
-        message("Required columns with NA or blank values: ")
-        message(paste(res[res == TRUE], collapse = "\n"))
-        stop("Check data for ", ImmPortTemplateName)
-    }
+checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
+  required <- templateInfo$templateColumn[templateInfo$required]
+  
+  res <- sapply(required, function(x) any(is.na(df[[x]]) || df[[x]] == ""))
+
+  if (any(res)) {
+    message("Required columns with NA or blank values: ")
+    message(paste(required[res], collapse = "\n"))
+    stop("Check data for ", ImmPortTemplateName)
+  }
+
+  NULL
 }
 
 # Helper for getting vector of lookup values
-getLkVals <- function(lkTblNm, templateInfo, lookupsDF, cv){
-    colNm <- ifelse(cv == TRUE, "cvTableName", "pvTableName")
-    lkTbl <- templateInfo[[colNm]][ templateInfo$templateColumn == x ]
-    lkVals <- lookupsDF$name[ lookupsDF$lookup == lkTbl ]
-    if( any(grepl(";", lkVals)) ){
-        lkVals <- unname(unlist(sapply(lkVals, function(y){ strsplit(y, ";") })))
-    }
+getLkVals <- function(lkTblNm, templateInfo, lookupsDF, cv) {
+  colNm <- ifelse(cv, "cvTableName", "pvTableName")
+  lkTbl <- templateInfo[[colNm]][templateInfo$templateColumn == x]
+  lkVals <- lookupsDF$name[lookupsDF$lookup == lkTbl]
+
+  if (any(grepl(";", lkVals))) {
+    lkVals <- unname(unlist(sapply(lkVals, function(y) strsplit(y, ";"))))
+  }
+
+  lkVals
 }
 
 # Helper for comparing inputVals to lkVals
-compareVals <- function(compCols, templateInfo, lookupsDF, cv = FALSE){
-    res <- sapply(compCols, function(x){
-        lkVals <- getLkVals(x, templateInfo, lookupsDF, cv)
-        all(df[[x]] %in% lkVals)
-    })
-    if( any(res == FALSE) ){
-        message("Columns with lookups having non-preferred or controlled values: ")
-        message(paste(res[res == TRUE], collapse = "\n"))
-    }
-    return(res)
+compareVals <- function(compCols, templateInfo, lookupsDF, cv = FALSE) {
+  res <- sapply(compCols, function(x) {
+    lkVals <- getLkVals(x, templateInfo, lookupsDF, cv)
+    all(df[[x]] %in% lkVals)
+  })
+
+  if (any(!res)) {
+    message("Columns with lookups having non-preferred or controlled values: ")
+    message(paste(res[res], collapse = "\n"))
+  }
+
+  res
 }
 
-checkFormat <- function(df, templateInfo, lookupsDF, ImmPortTemplateName){
-    resPv <- resCv <- NULL
+checkFormat <- function(df, templateInfo, lookupsDF, ImmPortTemplateName) {
+  resPv <- NULL
+  resCv <- NULL
 
-    pvCols <- templateInfo$templateColumn[ !is.na(templateInfo$pvTableName) ]
-    if( length(pvCols) > 0){
-        resPv <- compareVals(pvCols, templateInfo, lookupsDF, cv = FALSE)
-    }
-    cvCols <- templateInfo$templateColumn[ !is.na(templateInfo$cvTableName) ]
-    if( length(pvCols) > 0){
-        resCv <- compareVals(cvCols, templateInfo, lookupsDF, cv = TRUE)
-    }
+  pvCols <- templateInfo$templateColumn[!is.na(templateInfo$pvTableName)]
+  if (length(pvCols) > 0) {
+    resPv <- compareVals(pvCols, templateInfo, lookupsDF, cv = FALSE)
+  }
 
-    res <- c(resPv, resCv)
+  cvCols <- templateInfo$templateColumn[!is.na(templateInfo$cvTableName)]
+  if (length(pvCols) > 0) {
+    resCv <- compareVals(cvCols, templateInfo, lookupsDF, cv = TRUE)
+  }
 
-    if( !is.null(res) && any(res == FALSE) ){
-        stop(paste0(ImmPortTemplateName, " has non-controlled terms."))
-    }
+  res <- c(resPv, resCv)
+
+  if (!is.null(res) && any(!res)) {
+    stop(paste(ImmPortTemplateName, "has non-controlled terms."))
+  }
 }
 
 ###########################################
@@ -106,33 +124,34 @@ checkFormat <- function(df, templateInfo, lookupsDF, ImmPortTemplateName){
 #' @param df data frame with user entered data
 #' @param ImmPortTemplateName Name of ImmPort Template to compare against
 #' @export
-checkTemplate <- function(df, ImmPortTemplateName){
+checkTemplate <- function(df, ImmPortTemplateName) {
+  templateInfo <- getSingleTemplate(ImmPortTemplateName)
 
-    templateInfo <- getSingleTemplate(ImmPortTemplateName)
+  # template checks
+  checkClass(df, ImmPortTemplateName)
+  checkDim(df, templateInfo, ImmPortTemplateName)
+  checkColnames(df, templateInfo, ImmPortTemplateName)
+  checkTypes(df, templateInfo, ImmPortTemplateName)
 
-    # template checks
-    checkClass(df, ImmPortTemplateName)
-    checkDim(df, templateInfo, ImmPortTemplateName)
-    checkColnames(df, ImmPortTemplateName, templateInfo)
-    checkTypes(df, templateInfo, ImmPortTemplateName)
+  # Allow empty tables for certain non-required sub-tables in BSD
+  if (ImmPortTemplateName %in% c("study_file", "study_link", "study_pubmed")) {
+    tmp <- unique(unname(unlist(df[1, ])))
 
-    # Allow empty tables for certain non-required sub-tables in BSD
-    if( ImmPortTemplateName %in% c("study_file","study_link","study_pubmed")){
-        tmp <- unique(unname(unlist(df[1,])))
-        if( all(tmp == "" | is.na(tmp)) ){
-            message(paste0("skipping empty ", ImmPortTemplateName, " table"))
-            return()
-        }
+    if (all(tmp == "" | is.na(tmp))) {
+      message(paste0("skipping empty ", ImmPortTemplateName, " table"))
+      return()
     }
+  }
 
-    checkRequired(df, templateInfo, ImmPortTemplateName)
+  checkRequired(df, templateInfo, ImmPortTemplateName)
 
-    # format check using lookups
-    pv <- templateInfo$pvTableName[ !is.na(templateInfo$pvTableName) ]
-    cv <- templateInfo$cvTableName[ !is.na(templateInfo$cvTableName) ]
-    allLookups <- c(pv,cv)
-    if( length(allLookups) > 0 ){
-        lookupsDF <- ImmPortLookups[ ImmPortLookups$lookup %in% allLookups, ]
-        checkFormat(df, templateInfo, lookupsDF, ImmPortTemplateName)
-    }
+  # format check using lookups
+  pv <- templateInfo$pvTableName[!is.na(templateInfo$pvTableName)]
+  cv <- templateInfo$cvTableName[!is.na(templateInfo$cvTableName)]
+  allLookups <- c(pv,cv)
+    
+  if (length(allLookups) > 0) {
+    lookupsDF <- ImmPortLookups[ImmPortLookups$lookup %in% allLookups, ]
+    checkFormat(df, templateInfo, lookupsDF, ImmPortTemplateName)
+  }
 }
