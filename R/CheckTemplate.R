@@ -9,7 +9,7 @@ checkClass <- function(df, dfName) {
     stop(dfName, " data must be input as a data frame. Please re-format.")
   }
 
-  NULL
+  invisible(NULL)
 }
 
 checkDim <- function(df, templateInfo, ImmPortTemplateName) {
@@ -18,8 +18,8 @@ checkDim <- function(df, templateInfo, ImmPortTemplateName) {
   if (!res) {
     stop("Number of columns in ", ImmPortTemplateName, " is not correct.")
   }
-  
-  NULL
+
+  invisible(NULL)
 }
 
 checkColnames <- function(df, templateInfo, ImmPortTemplateName) {
@@ -29,7 +29,7 @@ checkColnames <- function(df, templateInfo, ImmPortTemplateName) {
     stop("Colnames of ", ImmPortTemplateName, " are not correct.")
   }
 
-  NULL
+  invisible(NULL)
 }
 
 checkTypes <- function(df, templateInfo, ImmPortTemplateName) {
@@ -46,7 +46,7 @@ checkTypes <- function(df, templateInfo, ImmPortTemplateName) {
     )
   }
 
-  NULL
+  invisible(NULL)
 }
 
 checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
@@ -61,7 +61,7 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
     )
   }
 
-  NULL
+  invisible(NULL)
 }
 
 # Helper for getting vector of lookup values
