@@ -1,18 +1,26 @@
 ---
-title: "basicStudyDesign"
-output: html_document
+title: "Create the Basic Study Design Template"
+output: rmarkdown::html_document
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Create Basic Study Design Template}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+options(DT.options = list(paginate = FALSE,
+                          info = FALSE,
+                          filter = FALSE))
 ```
-# OVERVIEW
+
+### OVERVIEW
 The purpose of this vignette is to demonstrate how to use the functions and data in the 
 `import2ImmPort` package to create the basicStudyDesign.csv that must be submitted along 
 with assay and other metaData to the public ImmPort database at NIH.  When creating your own
 submission documents, you can create a similar vignette so that the whole process is 
 reproducible.
 
+### PREPARING THE STUDY DATA FRAME
 First, we will load the `import2ImmPort` library, which has the functions and templates we need.
 
 ```{r load-library}
@@ -20,30 +28,31 @@ library(Import2ImmPort)
 ```
 
 Next, we need to create the 9 dataframes that will be put together to form the larger csv:
-- study
-- arm_or_cohort
-- inclusion_exclusion
-- planned_visit
-- study_2_protocol
-- study_file
-- study_link
-- study_personnel
-- study_pubmed
 
-The first dataframe, called *study* is unique in that it has two columns, one with names 
+1. study
+2. arm_or_cohort
+3. inclusion_exclusion
+4. planned_visit
+5. study_2_protocol
+6. study_file
+7. study_link
+8. study_personnel
+9. study_pubmed
+
+The first dataframe, called **study** is unique in that it has two columns, one with names 
 and the other with values.  In this way it functions more like a named list and is treated 
 differently from most other dataframes that have a typical format with column headers and 
 unlimited rows allowed.
 
-In order to get a pre-made dataframe for *study* we use the `getTemplateDF()` function.  
+In order to get a pre-made dataframe for **study** we use the `getTemplateDF()` function.  
 The only argument is the name of the template.
 
 ```{r create-study-df}
 study <- getTemplateDF("study")
-DT::datatable(study)
+DT::datatable(study, options = list(scrollX = TRUE))
 ```
 
-Now that we have the *study* dataframe, the easiest way to edit the dataframe by hand is to 
+Now that we have the **study** dataframe, the easiest way to edit the dataframe by hand is to 
 use the `edit()` function and save the output by clicking "quit" in the editor.  This function 
 is found in the `utils` package, but depends on the `X11` library.  If you are on a newer mac 
 you may need to install XQuartz from the project's website as it is no longer bundled.  If for 
@@ -57,7 +66,7 @@ edit(study)
 An R-based approach example:
 
 ```{r R-based-approach-to-editing}
-study[ 1, ] <- list("SdyID",
+study[ 1, ] <- list(NA,
                     "myBriefTitle",
                     "myOfficialTitle",
                     "Interventional",
@@ -76,12 +85,27 @@ study[ 1, ] <- list("SdyID",
                     "01/01/2018")
 ```
 
-We can check the *study* template to see if it passes the basic checks for class, dimension,
-data types, and controlled terms by using `checkTemplate()`.  This function takes in the
-data frame we have created as well as the template name.  Any problems will throw an error,
-so for demonstration purposes we wrap the function in a `tryCatch()` method here.
+We can check the **study** template to see if it passes the basic checks for class, dimension,
+required columns, data types, and controlled terms by using `checkTemplate()`.  This function 
+takes in the data frame we have created as well as the template name.  Any problems will throw 
+an error, so for demonstration purposes we wrap the function in a `tryCatch()` method here.
 
-```{r check-template}
+```{r check-template-required-error}
+# NOTE: messages are printed out
+results <- tryCatch(checkTemplate(df = study,
+                                  ImmPortTemplateName = "study"),
+                    error = function(e){ return(e) })
+
+# to see error statement
+results$message
+```
+
+It looks like we have an `NA` value for `study$'User Defined ID'`.  Let's correct this and
+re-run our checks.
+
+```{r correct-study-user-defined-id}
+study$`User Defined ID` <- "sdyID"
+
 # NOTE: messages are printed out
 results <- tryCatch(checkTemplate(df = study,
                                   ImmPortTemplateName = "study"),
@@ -95,15 +119,15 @@ It seems we are using a non-controlled term in one of the columns.  Many templat
 controlled or preferred terms to help maintain standardized terms across studies, so
 it is important for us to correct this before writing out the template.
 
-In the case of *study*, we can see which columns have such terms by using the `getLookups()` 
+In the case of **study**, we can see which columns have such terms by using the `getLookups()` 
 function. This function's only argument is the ImmPort Template Name.
 
 ```{r get-lookups}
 getLookups(ImmPortTemplateName = "study")
 ```
 
-It appears that *study* has two columns with controlled terms, **Type** and **Age Unit**. To 
-see what values are allowed for **Age Unit** we can use the `getLookupValues()` function. This
+It appears that **study** has two columns with controlled terms, *Type* and *Age Unit*. To 
+see what values are allowed for *Age Unit* we can use the `getLookupValues()` function. This
 function takes in the ImmPort Template Name and the column name as arguments, then returns
 a vector of allowed values.
 
@@ -119,12 +143,13 @@ later on.
 study$`Age Unit` <- "Years"
 ```
 
-Similar to *study*, the other 8 dataframes that make up the basicStudyDesign.csv can be accessed 
+### PREPARING OTHER DATA FRAMES
+Similar to **study**, the other 8 dataframes that make up the basicStudyDesign.csv can be accessed 
 with the `getTemplateDF()` function.  Depending on the amount of information that needs to be
 entered, it may be easier to use `edit()` or base R.  For the purpose of the vignette, an R-based
 approach is used for reproducibiity and demonstration.
 
-The next one we focus on is called *arm_or_cohort*. In this
+The next one we focus on is called **arm_or_cohort**. In this
 demonstration case, we have a csv already of the information needed and just want to bind this
 new information to correct headers.  Therefore we use the arm_or_cohort dataframe only for the
 colnames() call.
@@ -134,13 +159,15 @@ arm_or_cohort <- getTemplateDF("arm_or_cohort")
 aocImport <- read.table("arm_or_cohort_demo.tsv", sep = "\t", stringsAsFactors = FALSE)
 colnames(aocImport) <- colnames(arm_or_cohort)
 aocImport <- aocImport[ aocImport$`User Defined ID` != "", ]
-DT::datatable(aocImport)
+DT::datatable(aocImport, options = list(scrollX = TRUE))
 
 # to be consistent we rename aocImport for use in the 'write' functions later
 arm_or_cohort <- aocImport
 ```
 
-Making *study_personnel*:
+------
+
+Making **study_personnel**:
 
 ```{r }
 study_personnel <- getTemplateDF("study_personnel")
@@ -154,10 +181,12 @@ study_personnel[1,] <- c("Principal Investigator",
                        "PI",
                        "Principal Investigator",
                        "Major University")
-DT::datatable(study_personnel)
+DT::datatable(study_personnel, options = list(scrollX = TRUE))
 ```
 
-Making *planned_visit*:
+------
+
+Making **planned_visit**:
 
 ```{r }
 planned_visit <- getTemplateDF("planned_visit")
@@ -189,7 +218,9 @@ planned_visit[3,] <- list(3,
 DT::datatable(planned_visit)
 ```
 
-Making *inclusion_exclusion*: 
+------
+
+Making **inclusion_exclusion**: 
 
 ```{r make-inclusion-exclusion-df}
 inclusion_exclusion <- getTemplateDF("inclusion_exclusion")
@@ -199,8 +230,10 @@ inclusion_exclusion[1,] <- c("InclExcl1",
 DT::datatable(inclusion_exclusion)
 ```
 
-*study_2_protocol* is different than other templates.  It is a small dataframe with only 1 row and two columns
-with the first column being a name and the second being he value.  
+------
+
+**study_2_protocol** is different than other templates.  It is a small dataframe with only 1 row 
+and two columns with the first column being a name and the second being he value.  
 
 ```{r make-study-2-protocol}
 study_2_protocol <- getTemplateDF("study_2_protocol")
@@ -208,7 +241,9 @@ study_2_protocol[1,] <- "protocol 3445"
 DT::datatable(study_2_protocol)
 ```
 
-Making *study_file*:
+------
+
+Making **study_file**:
 
 ```{r make-study-file}
 study_file <- getTemplateDF("study_file")
@@ -218,16 +253,20 @@ study_file[1,] <- list("Appendix.txt",
 DT::datatable(study_file)
 ```
 
-Making *study_link*:
+------
+
+Making **study_link**:
 
 ```{r make-study-link}
 study_link <- getTemplateDF("study_link")
 study_link[1,] <- c("main website",
                    "https://drkhannalab.major.edu/NewStudy1")
-DT::datatable(study_link)
+DT::datatable(study_link, options = list(autoWidth = TRUE))
 ```
 
-*study_pubmed* is going to be left blank as a demonstration since some studies may need to be 
+------
+
+**study_pubmed** is going to be left blank as a demonstration since some studies may need to be 
 imported prior to being published.  Publication information can be entered later using an update
 template.
 
@@ -235,7 +274,8 @@ template.
 study_pubmed <- getTemplateDF("study_pubmed")
 ```
 
-To create the csv that will be included in the ImmPort submission, we use the `transform_basicStudyDesign()` function that takes the 9 dataframes as arguments, as well as 
+### CREATING THE OUTPUT TSV
+To create the tsv that will be included in the ImmPort submission, we use the `transform_basicStudyDesign()` function that takes the 9 dataframes as arguments, as well as 
 `outputDir` and `validate`.  The `outputDir` argument is the filepath for the output directory 
 where the csv should be saved.  `validate` is a boolean with `TRUE` as the default that uses the
 validator scripts from ImmPort's web application to ensure that the csv meets the criteria 

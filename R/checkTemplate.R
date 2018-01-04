@@ -55,7 +55,7 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
   res <- sapply(required, function(x) any(is.na(df[[x]]) || df[[x]] == ""))
 
   if (any(res)) {
-    stop("Check data for ", ImmPortTemplateName, "\n",
+    stop("Check data for ", ImmPortTemplateName, ". ",
          "Required columns with NA or blank values: ",
          paste(required[res], collapse = ", ")
     )
