@@ -33,13 +33,13 @@ updateTypes <- function(jsonDataType) {
 # can change with each data release.  Therefore using a function ensures that latest
 # changes are all coming from same json files (templates and lookups) in the zip file
 # at `http://www.immport.org/downloads/data/upload/templates/ImmPortTemplates.zip`.
-getTemplateDF <- function(ImmPortTemplateName, rowLen) {
+getTemplateDF <- function(ImmPortTemplateName, rowNum = 1) {
   templateInfo <- getSingleTemplate(ImmPortTemplateName)
 
   templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
 
   # create a temp data frame with template columns
-  tmpDF <- data.frame(matrix("", ncol = nrow(templateInfo), nrow = rowLen),
+  tmpDF <- data.frame(matrix("", ncol = nrow(templateInfo), nrow = rowNum),
                       stringsAsFactors = FALSE)
   colnames(tmpDF) <- templateInfo$templateColumn
 
