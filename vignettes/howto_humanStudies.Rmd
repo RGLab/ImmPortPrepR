@@ -1,0 +1,71 @@
+---
+title: "subjectsHuman"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# OVERVIEW
+The purpose of this vignette is to demonstrate how to use the functions and data in the 
+`import2ImmPort` package to create the subjectHuman.csv that must be submitted along 
+with assay and other metaData to the public ImmPort database at NIH for projects with patients. Animal subjects require a different template (subjectsAnimal).  
+
+When creating your own submission documents, you can create a similar vignette so that the whole process is 
+reproducible.
+
+First, we will load the `import2ImmPort` library, which has the functions and templates we need.
+
+```{r load-library}
+library(Import2ImmPort)
+```
+
+We will need to create a data frame with the following variables:  
+- User Defined ID  
+- Arm Or Cohort ID  
+- Protocol  
+- Gender  
+- Min Subject Age  
+- Max Subject Age  
+- Age Unit  
+- Age Event  
+- Age Event Specify  
+- Subject Phenotype  
+- Subject Location  
+- Ancestry Populations  
+- Ethnicity  
+- Race  
+- Race Specify  
+- Description  
+  
+In order to get a pre-made dataframe for subjectsHuman we use the `getTemplateDF()` function.  
+The only argument is the name of the template.
+
+```{r create-df}
+subjectsHuman <- getTemplateDF("subjectsHuman", 5)
+DT::datatable(subjectsHuman)
+```
+
+Now that we have the *study* dataframe, the easiest way to edit the dataframe by hand is to 
+use the `edit()` function and save the output by clicking "quit" in the editor.  This function 
+is found in the `utils` package, but depends on the `X11` library.  If you are on a newer mac 
+you may need to install XQuartz from the project's website as it is no longer bundled.  If for 
+some reason `edit()` does not save the output correctly on your machine, then you will have to 
+input information using an R-based approach.
+
+```{r input-to-study, eval=FALSE}
+str(subjectsHuman)
+subjectsHuman$`Ancestry Population(s)` <- as.character(subjectsHuman$`Ancestry Population(s)`) ## Why is it read in like that?
+edit(subjectsHuman)
+```
+
+An R-based approach example:
+
+```{r R-based-approach-to-editing}
+subjectsHuman$`User Defined ID` <- c(1:5)
+subjectsHuman$`Arm Or Cohort ID` <-
+
+DT::datatable(subjectsHuman)
+
+```
+
