@@ -8,7 +8,7 @@ test_that("checkClass", {
       dfName = "a data.frame"
     )
   )
-  
+
   # fail case
   expect_error(
     Import2ImmPort:::checkClass(
@@ -34,7 +34,7 @@ test_that("checkDim", {
       ImmPortTemplateName = "case #2"
     )
   )
-  
+
   # fail cases
   expect_error(
     Import2ImmPort:::checkDim(
@@ -62,7 +62,7 @@ test_that("checkColnames", {
       ImmPortTemplateName = "case #1"
     )
   )
-  
+
   # fail case
   expect_error(Import2ImmPort:::checkColnames(data.frame(x = 1, y = 2, z = 3),
                                               data.frame(templateColumn = c("x", "y", "w"),
@@ -74,20 +74,28 @@ test_that("checkTypes", {
   # success case
   expect_null(
     Import2ImmPort:::checkTypes(
-      df = data.frame("", "", NA_character_, NA_real_, 0,
+      df = data.frame("", "", NA, NA, 0,
                       stringsAsFactors = FALSE),
-      templateInfo = data.frame(jsonDataType = c("string", "date", "enum", "number", "positive"),
+      templateInfo = data.frame(columnType = c("varchar(100)",
+                                               "date",
+                                               NA,
+                                               NA,
+                                               "float"),
                                 stringsAsFactors = FALSE),
       ImmPortTemplateName = "case #1"
     )
   )
-  
+
   # fail case
   expect_error(
     Import2ImmPort:::checkTypes(
       df = data.frame(1, "", "", 0, 0,
                       stringsAsFactors = FALSE),
-      templateInfo = data.frame(jsonDataType = c("string", "date", "enum", "number", "positive"),
+      templateInfo = data.frame(columnType = c("varchar(100)",
+                                               "date",
+                                               "clob",
+                                               "integer",
+                                               "float"),
                                 stringsAsFactors = FALSE),
       ImmPortTemplateName = "case #2"
     )
@@ -106,7 +114,7 @@ test_that("checkRequired", {
       ImmPortTemplateName = "case #1"
     )
   )
-  
+
   # fail case
   expect_error(
     Import2ImmPort:::checkRequired(
@@ -121,13 +129,13 @@ test_that("checkRequired", {
 })
 
 # test_that("compareValues", {
-#   
+#
 # })
-# 
+#
 # test_that("checkFormat", {
-#   
+#
 # })
-# 
+#
 # test_that("checkTemplate", {
-#   
+#
 # })

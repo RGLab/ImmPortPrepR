@@ -15,9 +15,9 @@ getSingleTemplate <- function(ImmPortTemplateName) {
 # Assume that that ImmPortTemplates$columnType is more accurate
 # than ImmPortTemplates$jsonDataType
 updateTypes <- function(columnType) {
-  columnType <- gsub("varchar.+", "character", columnType)
-  columnType <- gsub("float", "double", columnType)
-  columnType[ is.na(columnType) ] <- "character"
+  columnType <- gsub("varchar.+|clob|date", "character", columnType)
+  columnType <- gsub("float|integer", "double", columnType)
+  columnType[ is.na(columnType) ] <- "logical"
 
   columnType
 }

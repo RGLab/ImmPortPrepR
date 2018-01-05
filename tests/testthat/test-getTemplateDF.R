@@ -3,16 +3,16 @@ context("getTemplateDF functions")
 test_that("getSingleTemplate", {
   actual <- Import2ImmPort:::getSingleTemplate("study_pubmed")
   expected <- ImmPortTemplates[ImmPortTemplates$templateName == "study_pubmed", ]
-  
+
   expect_equal(actual, expected)
 })
 
 test_that("updateTypes", {
-  jsonDataType <- c("date", "enum", "number", "positive", "string")
-  
-  actual <- Import2ImmPort:::updateTypes(jsonDataType)
-  expected <- c("character", "character", "double", "double", "character")
-  
+  columnType <- c("varchar(100)", NA, "clob", "integer", "float", "date")
+
+  actual <- Import2ImmPort:::updateTypes(columnType)
+  expected <- c("character", "logical", "character", "double", "double", "character")
+
   expect_equal(actual, expected)
 })
 
@@ -27,6 +27,6 @@ test_that("getTemplateDF", {
                          "End Rule" = "",
                          check.names = FALSE,
                          stringsAsFactors = FALSE)
-  
+
   expect_equal(actual, expected)
 })
