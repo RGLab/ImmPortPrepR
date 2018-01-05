@@ -35,6 +35,9 @@ getLookups <- function(ImmPortTemplateName){
 getLookupValues <- function(ImmPortTemplateName, templateColname) {
     tmp <- ImmPortTemplates[ ImmPortTemplates$templateName == ImmPortTemplateName &
                                  ImmPortTemplates$templateColumn == templateColname, ]
+    #TODO: if( nrow(tmp) > 1 ){ warning("this table has two columns with the same name
+        # that use a lookup" )}
+        # make output list or df ... figure out what reads that in and change parsing
     lkTblNm <- c(tmp$pvTableName, tmp$cvTableName)
     lkTblNm <- lkTblNm[ !is.na(lkTblNm) ]
     lkVals <- ImmPortLookups$name[ImmPortLookups$lookup == lkTblNm]

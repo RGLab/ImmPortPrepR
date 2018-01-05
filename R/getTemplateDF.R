@@ -13,7 +13,7 @@ getSingleTemplate <- function(ImmPortTemplateName) {
 
 # Used in checkTemplate() and below
 updateTypes <- function(jsonDataType) {
-  jsonDataType <- gsub("string|date|enum", "character", jsonDataType)
+  jsonDataType <- gsub("string|date|enum|array", "character", jsonDataType)
   jsonDataType <- gsub("number|positive", "double", jsonDataType)
 
   jsonDataType

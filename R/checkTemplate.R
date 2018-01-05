@@ -65,32 +65,44 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
 }
 
 # Helper for comparing inputVals to lkVals
-compareValues <- function(compCols, ImmPortTemplateName, df) {
-  res <- sapply(compCols, function(x) {
-    lkVals <- getLookupValues(ImmPortTemplateName, x)
-    all(df[[x]] %in% lkVals)
-  })
+chkLookupVals <- function(metaByIdx, dfCol) {
+    lkTblNm <- c(metaByIdx$pvTableName, metaByIdx$cvTableName)
+    lkTblNm <- lkTblNm[ !is.na(lkTblNm) ]
+
+    if (length(lkTblNm) > 0) {
+        lkVals <- ImmPortLookups$name[ImmPortLookups$lookup == lkTblNm]
+
+        if (any(grepl(";", lkVals))) {
+            lkVals <- unname(unlist(sapply(lkVals, function(y) strsplit(y, ";"))))
+        }
+
+        res <- all(dfCol %in% lkVals)
+    }else{
+        res <- NULL
+    }
+
+    res
 }
 
+# TODO: rewrite to look for pv vs cv THEN do comparison and warnings / erros
 checkFormat <- function(df, templateInfo, ImmPortTemplateName) {
-  pvCols <- templateInfo$templateColumn[!is.na(templateInfo$pvTableName)]
-  if (length(pvCols) > 0) {
-    resPv <- compareValues(pvCols, ImmPortTemplateName, df)
-    if (any(!resPv)) {
-        message("'", ImmPortTemplateName, "' template using non-preferred terms in following cols:")
-        message(paste(names(resPv)[!resPv], collapse = "\n"))
-    }
-  }
 
-  cvCols <- templateInfo$templateColumn[!is.na(templateInfo$cvTableName)]
-  if (length(cvCols) > 0) {
-    resCv <- compareValues(cvCols, ImmPortTemplateName, df)
-    if (any(!resCv)) {
-        message("'", ImmPortTemplateName, "' template using non-controlled terms in following cols:")
-        message(paste(names(resCv)[!resCv], collapse = "\n"))
-        stop("Please correct and re-run.")
+  res <- sapply(seq(1:dim(df)[[2]]), function(index) {
+    metaByIdx <- templateInfo[index, ]
+    res <- chkLookupVals(metaByIdx, df[,index])
+    if (metaByIdx$pv == TRUE && res == FALSE) {
+        message("'", ImmPortTemplateName,
+                "' has non-preferred terms in ",
+                metaByIdx$templateColumn, " at index ",
+                index)
+    }else if (metaByIdx$cv == TRUE && res == FALSE) {
+        stop("'", ImmPortTemplateName,
+             "' has non-controlled terms in ",
+             metaByIdx$templateColumn, " at index ",
+             index)
     }
-  }
+  })
+
 }
 
 ###########################################
