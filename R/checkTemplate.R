@@ -33,9 +33,9 @@ checkColnames <- function(df, templateInfo, ImmPortTemplateName) {
 }
 
 checkTypes <- function(df, templateInfo, ImmPortTemplateName) {
-  templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
+  templateInfo$columnType <- updateTypes(templateInfo$columnType)
 
-  res <- mapply(function(x, y) typeof(x) == y, df, templateInfo$jsonDataType)
+  res <- mapply(function(x, y) typeof(x) == y, df, templateInfo$columnType)
 
   badColumns <- colnames(df)[!res]
 
