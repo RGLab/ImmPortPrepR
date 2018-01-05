@@ -6,6 +6,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 # OVERVIEW
 The purpose of this vignette is to demonstrate how to use the functions and data in the 
 `import2ImmPort` package to create the subjectHuman.csv that must be submitted along 
@@ -42,7 +43,7 @@ In order to get a pre-made dataframe for subjectsHuman we use the `getTemplateDF
 The only argument is the name of the template.
 
 ```{r create-df}
-subjectsHuman <- getTemplateDF("subjectsHuman", 5)
+subjectsHuman <- getTemplateDF("subjectsHuman", 3)
 DT::datatable(subjectsHuman)
 ```
 
@@ -54,18 +55,39 @@ some reason `edit()` does not save the output correctly on your machine, then yo
 input information using an R-based approach.
 
 ```{r input-to-study, eval=FALSE}
-str(subjectsHuman)
-subjectsHuman$`Ancestry Population(s)` <- as.character(subjectsHuman$`Ancestry Population(s)`) ## Why is it read in like that?
 edit(subjectsHuman)
 ```
 
 An R-based approach example:
 
 ```{r R-based-approach-to-editing}
-subjectsHuman$`User Defined ID` <- c(1:5)
-subjectsHuman$`Arm Or Cohort ID` <-
+subjectsHuman$`User Defined ID` <- paste("myID", seq(1:3), sep = "_")
+subjectsHuman$`Arm Or Cohort ID` <- paste("myArmAndCohortID", seq(1:3), sep = "_")
+subjectsHuman$Gender <- c("Male", "Female", "Male")
+subjectsHuman$`Min Subject Age` <- c(25, 22.3, 30)
+subjectsHuman$`Max Subject Age` <- c(27, 24.3, 32)
+subjectsHuman$`Age Unit` <- "Years"
+subjectsHuman$`Age Event` <- "Age at enrollment"
+subjectsHuman$`Age Event Specify` <- "study milestone for subject's age that is unsupported by ImmPort"
+subjectsHuman$`Subject Phenotype` <- "phenotype that captures subject disposition for the study"
+subjectsHuman$`Subject Location` <- "Fiji"
+subjectsHuman$`Ancestry Population(s)` <- "Oceania"
+subjectsHuman$Ethnicity <- "Other"
+subjectsHuman$Race <- "Asian"
+subjectsHuman$`Race Specify` <- "race description that is unsupported by ImmPort"
+subjectsHuman$Description <- ""
 
 DT::datatable(subjectsHuman)
 
 ```
 
+Now we can use the `checkTemplate()` function to ensure that our dataframe meets the ImmPort upload requirements.  
+```{r check-template}
+checkTemplate(subjectsHuman, "subjectsHuman")
+```
+
+If there are no errors, the subjectsHuman template is complete.  
+  
+------
+  
+### CREATING THE OUTPUT TSV
