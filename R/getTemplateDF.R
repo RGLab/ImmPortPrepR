@@ -30,6 +30,7 @@ updateTypes <- function(columnType) {
 #'     as part of the ImmPort submission development.
 #'
 #' @param ImmPortTemplateName name of the ImmPort Template to create
+#' @param rowNum sets the number of rows for the ImmPort Template. Defaults to one row.
 #' @export
 # Use method dynamically to generate DF for interactive work in preparing data.
 # Template DFs are not kept as rda objects because the ImmPort tables and lookups
