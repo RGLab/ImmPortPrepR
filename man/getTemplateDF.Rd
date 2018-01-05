@@ -4,10 +4,12 @@
 \alias{getTemplateDF}
 \title{generate a template data frame for a given ImmPort Template Name}
 \usage{
-getTemplateDF(ImmPortTemplateName)
+getTemplateDF(ImmPortTemplateName, rowNum = 1)
 }
 \arguments{
 \item{ImmPortTemplateName}{name of the ImmPort Template to create}
+
+\item{rowNum}{sets the number of rows for the ImmPort Template. Defaults to one row.}
 }
 \description{
 Based on ImmPort's specifications, the function creates an
