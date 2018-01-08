@@ -15,7 +15,7 @@ options(DT.options = list(paginate = FALSE,
 
 ### OVERVIEW
 The purpose of this vignette is to demonstrate how to use the functions and data in the 
-`import2ImmPort` package to create the basicStudyDesign.csv that must be submitted along 
+`import2ImmPort` package to create the basicStudyDesign.txt that must be submitted along 
 with assay and other metaData to the public ImmPort database at NIH.  When creating your own
 submission documents, you can create a similar vignette so that the whole process is 
 reproducible.
@@ -27,7 +27,7 @@ First, we will load the `import2ImmPort` library, which has the functions and te
 library(Import2ImmPort)
 ```
 
-Next, we need to create the 9 dataframes that will be put together to form the larger csv:
+Next, we need to create the 9 dataframes that will be put together to form the larger txt:
 
 1. study
 2. arm_or_cohort
@@ -144,7 +144,7 @@ study$`Age Unit` <- "Years"
 ```
 
 ### PREPARING OTHER DATA FRAMES
-Similar to **study**, the other 8 dataframes that make up the basicStudyDesign.csv can be accessed 
+Similar to **study**, the other 8 dataframes that make up the basicStudyDesign.txt can be accessed 
 with the `getTemplateDF()` function.  Depending on the amount of information that needs to be
 entered, it may be easier to use `edit()` or base R.  For the purpose of the vignette, an R-based
 approach is used for reproducibiity and demonstration.
@@ -277,12 +277,12 @@ study_pubmed <- getTemplateDF("study_pubmed")
 ### CREATING THE OUTPUT TSV
 To create the tsv that will be included in the ImmPort submission, we use the `transform_basicStudyDesign()` function that takes the 9 dataframes as arguments, as well as 
 `outputDir` and `validate`.  The `outputDir` argument is the filepath for the output directory 
-where the csv should be saved.  `validate` is a boolean with `TRUE` as the default that uses the
-validator scripts from ImmPort's web application to ensure that the csv meets the criteria 
+where the tsv should be saved.  `validate` is a boolean with `TRUE` as the default that uses the
+validator scripts from ImmPort's web application to ensure that the tsv meets the criteria 
 necessary for import.  To see more information about the `transform_basicStudyDesign()` function 
 you can always enter `?transform_basicStudyDesign` in the console.
 
-```{r transform-data-into-csv}
+```{r transform-data-into-tsv}
 transform_basicStudyDesign(study = study,
                            arm_or_cohort = arm_or_cohort,
                            study_personnel = study_personnel,
