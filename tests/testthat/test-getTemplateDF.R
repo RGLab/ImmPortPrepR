@@ -8,10 +8,10 @@ test_that("getSingleTemplate", {
 })
 
 test_that("updateTypes", {
-  columnType <- c("varchar(100)", NA, "clob", "integer", "float", "date")
+  jsonDataType <- c("date", "enum", "number", "positive", "string")
 
-  actual <- Import2ImmPort:::updateTypes(columnType)
-  expected <- c("character", "logical", "character", "double", "double", "character")
+  actual <- Import2ImmPort:::updateTypes(jsonDataType)
+  expected <- c("character", "character", "double", "double", "character")
 
   expect_equal(actual, expected)
 })

@@ -74,13 +74,9 @@ test_that("checkTypes", {
   # success case
   expect_null(
     Import2ImmPort:::checkTypes(
-      df = data.frame("", "", NA, NA, 0,
+      df = data.frame("", "", NA_character_, NA_real_, 0,
                       stringsAsFactors = FALSE),
-      templateInfo = data.frame(columnType = c("varchar(100)",
-                                               "date",
-                                               NA,
-                                               NA,
-                                               "float"),
+      templateInfo = data.frame(jsonDataType = c("string", "date", "enum", "number", "positive"),
                                 stringsAsFactors = FALSE),
       ImmPortTemplateName = "case #1"
     )
@@ -91,11 +87,7 @@ test_that("checkTypes", {
     Import2ImmPort:::checkTypes(
       df = data.frame(1, "", "", 0, 0,
                       stringsAsFactors = FALSE),
-      templateInfo = data.frame(columnType = c("varchar(100)",
-                                               "date",
-                                               "clob",
-                                               "integer",
-                                               "float"),
+      templateInfo = data.frame(jsonDataType = c("string", "date", "enum", "number", "positive"),
                                 stringsAsFactors = FALSE),
       ImmPortTemplateName = "case #2"
     )
