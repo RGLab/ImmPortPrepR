@@ -42,18 +42,53 @@ library(Import2ImmPort)
 
 ### 3. Work on MetaData
 
-For each of the following templates, follow the corresponding vignette to see examples of how to build, write out, and validate the ImmPort-ready tsv files.
+For each of the following templates, use the corresponding vignette to see examples of how to build, write out, and validate the ImmPort-ready tsv files.  These are the required common MetaData templates. The 
+templates should be created in the order they are listed below so that they can be correctly
+cross-referenced.  For example, the "basic_study_design" template needs the protocolID assigned in the
+"protocol" template, so it must be created after.
 
-* BasicStudyDesign
-* Protocol
-* Treatments
+* protocols
+* treatments
+* basic_study_design
+* subjects
 * bioSamples
-* Subjects
 
-### 4. Work on AssayData (repeat for each assay)
+Other MetaData templates that may apply to your study (also in order for cross-referencing):
 
-After identifying necessary templates with the help of an ImmPort colleague, use an example vignette as a guide for creating an assay tsv file.
+* adverseEvents
+* interventions
+* assessments
+* labTestPanels
+* labTests
+* labTests_Results
 
-* experimentSamples
-* Results
-* Reagents
+
+### 4. Work on AssayData
+
+For each assay that was performed you will need to first create "Reagents" template and 
+then an "experimentSamples" template that references ReagentIDs.  For some, you will also 
+need a "results" template.
+
+For example, if you did an ELISA assay, you would use the following templates:
+
+* reagents.elisa
+* experimentSamples.elisa
+* elisa_results
+
+Assays with result templates:
+* ELISA
+* ELISPOT
+* HAI
+* PCR
+* Virus Neutralization
+* HLA Typing
+* KIR Typing
+* RNAseq
+* MBAA
+* Flow Cytometry
+* CyTOF
+
+Assays without result templates:
+* Genotyping Array
+* Mass Spectrometry
+* Image Histology
