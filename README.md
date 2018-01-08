@@ -20,10 +20,13 @@ Tools for preparing ImmPort Submission
 
 ### R
 
-* `transform_<templateName>.R` scripts take in semi-standard dataframes  from user and generate tsv files in an output directory
+* `transform_<templateName>.R` scripts take in semi-standard dataframes from user and generate tsv files in an output directory
 * `validate_<templateName>.R` scripts are used to test tsv files according to ImmPort's online validator tool.
 * `write.R` is a script that contains functions used in writing out ImmPort templates
 * `utils.R` contains general helper functions used throughout package
+* `LookupFns.R` has interactive functions to make it easy to find columns with lookups and allowed values.
+* `checkTemplate.R` has the quality control function `checkTemplate()`.
+* `getTemplateDF.R` is for the interactive `getTemplateDF()` function for creating a blank template.
 
 
 ## Workflow
@@ -42,10 +45,11 @@ library(Import2ImmPort)
 
 ### 3. Work on MetaData
 
-For each of the following templates, use the corresponding vignette to see examples of how to build, write out, and validate the ImmPort-ready tsv files.  These are the required common MetaData templates. The 
-templates should be created in the order they are listed below so that they can be correctly
-cross-referenced.  For example, the "basic_study_design" template needs the protocolID assigned in the
-"protocol" template, so it must be created after.
+For each of the following templates, use the corresponding vignette to see examples of how to build,
+write out, and validate the ImmPort-ready tsv files.  These are the required common MetaData
+templates. The templates should be created in the order they are listed below so that they can be
+correctly cross-referenced.  For example, the "basic_study_design" template needs the protocolID
+assigned in the "protocol" template, so it must be created after.
 
 * protocols
 * treatments
@@ -92,3 +96,13 @@ Assays without result templates:
 * Genotyping Array
 * Mass Spectrometry
 * Image Histology
+
+### 5. Create Zip File from Output Directory
+
+to create the zip file needed for the ImmPort Submission website, use:
+`zip(zipfile = "my_file_name", files = "output_directory/")`
+
+### 6. Upload the Zip File to ImmPort
+
+https://immport.niaid.nih.gov/upload/data/uploadDataMain#!/uploadData
+
