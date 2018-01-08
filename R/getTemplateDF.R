@@ -14,12 +14,11 @@ getSingleTemplate <- function(ImmPortTemplateName) {
 # Used in checkTemplate() and below
 # Assume that that ImmPortTemplates$columnType is more accurate
 # than ImmPortTemplates$jsonDataType
-updateTypes <- function(columnType) {
-  columnType <- gsub("varchar.+|clob|date", "character", columnType)
-  columnType <- gsub("float|integer", "double", columnType)
-  columnType[ is.na(columnType) ] <- "logical"
-
-  columnType
+updateTypes <- function(jsonDataType) {
+  jsonDataType <- gsub("string|date|enum|array", "character", jsonDataType)
+  jsonDataType <- gsub("number|positive", "double", jsonDataType)
+  
+  jsonDataType
 }
 
 # ---- MAIN FN --------------------------------------------------------
@@ -40,7 +39,7 @@ updateTypes <- function(columnType) {
 getTemplateDF <- function(ImmPortTemplateName, rowNum = 1) {
   templateInfo <- getSingleTemplate(ImmPortTemplateName)
 
-  templateInfo$columnType <- updateTypes(templateInfo$columnType)
+  templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
 
   # create a temp data frame with template columns
   tmpDF <- data.frame(matrix("", ncol = nrow(templateInfo), nrow = rowNum),
@@ -48,8 +47,8 @@ getTemplateDF <- function(ImmPortTemplateName, rowNum = 1) {
   colnames(tmpDF) <- templateInfo$templateColumn
 
   # update column type
-  for (x in seq(1:length(templateInfo$columnType))) {
-    changeType <- get(paste0("as.", templateInfo$columnType[x]))
+  for (x in seq(1:length(templateInfo$jsonDataType))) {
+    changeType <- get(paste0("as.", templateInfo$jsonDataType[x]))
     tmpDF[, x] <- changeType(tmpDF[, x])
   }
 

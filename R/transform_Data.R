@@ -16,7 +16,7 @@ transform_Data <- function(dataName,
                            outputDir = NULL,
                            validate = TRUE){
 
-    if( !(dataName %in% unique(ImmPortTemplates$tableName)) ){
+    if( !(dataName %in% unique(ImmPortTemplates$templateName)) ){
         stop(paste0(dataName, " is not an option for transformation."))
     }
 
