@@ -21,7 +21,7 @@ First, we will load the `import2ImmPort` library, which has the functions and te
 library(Import2ImmPort)
 ```
 
-We will need to create a data frame with the following variables:  
+We will need to create a dataframe with the following variables:  
 - User Defined ID  
 - Arm Or Cohort ID  
 - Protocol  
@@ -66,36 +66,61 @@ subjectsHuman$`Arm Or Cohort ID` <- paste("myArmAndCohortID", seq(1:3), sep = "_
 subjectsHuman$Gender <- c("Male", "Female", "Male")
 subjectsHuman$`Min Subject Age` <- c(25, 22.3, 30)
 subjectsHuman$`Max Subject Age` <- c(27, 24.3, 32)
-subjectsHuman$`Age Unit` <- "Years"
-subjectsHuman$`Age Event` <- "Age at enrollment"
+subjectsHuman$`Age Unit` <- ""
+subjectsHuman$`Age Event` <- "Age at Enrollment"
 subjectsHuman$`Age Event Specify` <- "study milestone for subject's age that is unsupported by ImmPort"
 subjectsHuman$`Subject Phenotype` <- "phenotype that captures subject disposition for the study"
 subjectsHuman$`Subject Location` <- "United States of America"
 subjectsHuman$`Ancestry Population(s)` <- "North America"
 subjectsHuman$Ethnicity <- "Other"
 subjectsHuman$Race <- "Asian"
-subjectsHuman$`Race Specify` <- "race description that is unsupported by ImmPort"
+subjectsHuman$`Race Specify` <- ""
 subjectsHuman$Description <- ""
 
 DT::datatable(subjectsHuman)
 
 ```
 
-Now we can use the `checkTemplate()` function to ensure that our dataframe meets the ImmPort upload requirements.  
+Now we can use the `checkTemplate()` function to ensure that our dataframe meets the ImmPort upload requirements. For the purpose of this vignette we will wrap the function in a `tryCatch()` method.  
 ```{r check-template}
+results <- tryCatch(checkTemplate(subjectsHuman, "subjectsHuman"),
+                    error = function(e){ return(e) }) 
+
+# This will print out the error message
+results$message
+```
+
+The error tells us that the required column `subjectsHuman$'Age Unit'` has been left blank. We must correct the dataframe and re-run the check function.
+```{r fix-ageunit}
+subjectsHuman$`Age Unit` <- "Years"
+
+results <- tryCatch(checkTemplate(subjectsHuman, "subjectsHuman"),
+                    error = function(e){ return(e) }) 
+
+# This will print out the error message
+results$message
+```
+Here the error message is telling us that a non-controlled term is being used in the `subjectsHuman$'Age Event'` column. To look up controlled terms we can use the `getLookupValues()` function. This function takes the template name and column name as arguments and returns a vector of the allowed terms.
+
+```{r get-lookup}
+getLookupValues("subjectsHuman", "Age Event")
+```
+From the output we can see that our original entry ('Age at Enrollment') must be corrected to 'Age at enrollment'. We can then check the dataframe again.
+
+```{r correct-age-event}
+subjectsHuman$`Age Event` <- "Age at enrollment"
+
 checkTemplate(subjectsHuman, "subjectsHuman")
 ```
 
-If there are no errors, the subjectsHuman template is complete.  
+If there are no errors, the subjectsHuman dataframe is complete.  
   
 ------
   
 ### CREATING THE OUTPUT TSV
 
 ```{r transform-df}
-transform_Data(dataName = subjectsHuman,
-               outputDir = NULL,
+transform_Data(dataName = "subjectsHuman",
+               outputDir = "~/Documents/FHCRC/",
                validate = T)
-
-
 ```
