@@ -47,7 +47,7 @@ subjectsHuman <- getTemplateDF("subjectsHuman", 3)
 DT::datatable(subjectsHuman)
 ```
 
-Now that we have the *study* dataframe, the easiest way to edit the dataframe by hand is to 
+Now that we have the subjectsHuman dataframe, the easiest way to edit the dataframe by hand is to 
 use the `edit()` function and save the output by clicking "quit" in the editor.  This function 
 is found in the `utils` package, but depends on the `X11` library.  If you are on a newer mac 
 you may need to install XQuartz from the project's website as it is no longer bundled.  If for 
