@@ -22,11 +22,8 @@ transform_Data <- function(dataName,
 
     #----PreCheck DFs-------
     df <- get(dataName, envir = globalenv())
-    checkObj(df = df,
-             ImmPortTemplateName = dataName,
-             templatesDF = ImmPortTemplates,
-             lookupsDF = ImmPortLookups
-             )
+    checkTemplate(df = df,
+             ImmPortTemplateName = dataName)
 
     #----Generate tsv output-----
     blocks <- list(df)
@@ -37,7 +34,7 @@ transform_Data <- function(dataName,
 
     #-----Validate output------
 
-    return(output)
+    #return(output)
 }
 
 
