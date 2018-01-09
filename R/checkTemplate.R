@@ -65,11 +65,13 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
 
 # Helper for comparing inputVals to lkVals
 chkLookupVals <- function(metaByIdx, dfCol) {
+    ipl <- Import2ImmPort::ImmPortLookups
+
     lkTblNm <- c(metaByIdx$pvTableName, metaByIdx$cvTableName)
     lkTblNm <- lkTblNm[ !is.na(lkTblNm) ]
 
     if (length(lkTblNm) > 0) {
-        lkVals <- ImmPortLookups$name[ImmPortLookups$lookup == lkTblNm]
+        lkVals <- ipl$name[ipl$lookup == lkTblNm]
 
         if (any(grepl(";", lkVals))) {
             lkVals <- unname(unlist(sapply(lkVals, function(y) strsplit(y, ";"))))
@@ -113,8 +115,7 @@ checkFormat <- function(df, templateInfo, ImmPortTemplateName) {
 #' @description Check template data frame based on class, dimensions, colnames,
 #'     data types, and format.
 #'
-#' @param df data frame with user entered data
-#' @param ImmPortTemplateName Name of ImmPort Template to compare against
+#' @param df data frame with user entered data and 'templateName' attribute
 #' @export
 checkTemplate <- function(df) {
   ImmPortTemplateName <- attr(df, "templateName")

@@ -4,12 +4,10 @@
 \alias{checkTemplate}
 \title{Check template data frame}
 \usage{
-checkTemplate(df, ImmPortTemplateName)
+checkTemplate(df)
 }
 \arguments{
-\item{df}{data frame with user entered data}
-
-\item{ImmPortTemplateName}{Name of ImmPort Template to compare against}
+\item{df}{data frame with user entered data and 'templateName' attribute}
 }
 \description{
 Check template data frame based on class, dimensions, colnames,

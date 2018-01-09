@@ -16,14 +16,13 @@ transform_Data <- function(dataName,
                            outputDir = NULL,
                            validate = TRUE){
 
-    if( !(dataName %in% unique(ImmPortTemplates$templateName)) ){
+    if( !(dataName %in% unique(Import2ImmPort::ImmPortTemplates$templateName)) ){
         stop(paste0(dataName, " is not an option for transformation."))
     }
 
     #----PreCheck DFs-------
     df <- get(dataName, envir = globalenv())
-    checkTemplate(df = df,
-             ImmPortTemplateName = dataName)
+    checkTemplate(df = df)
 
     #----Generate tsv output-----
     blocks <- list(df)

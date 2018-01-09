@@ -8,7 +8,8 @@
 #' @export
 # Helper for showing user which columns have lookups in a template
 getLookups <- function(ImmPortTemplateName){
-    tmp <- ImmPortTemplates[ ImmPortTemplates$templateName == ImmPortTemplateName, ]
+    ipt <- Import2ImmPort::ImmPortTemplates
+    tmp <- ipt[ ipt$templateName == ImmPortTemplateName, ]
     pvLookups <- tmp$templateColumn[ tmp$pv == TRUE ]
     if (length(pvLookups) > 0){
         message("Columns with Preferred Values:")
@@ -33,14 +34,19 @@ getLookups <- function(ImmPortTemplateName){
 #' @export
 # Helper for getting vector of lookup values from template and column names
 getLookupValues <- function(ImmPortTemplateName, templateColname) {
-    tmp <- ImmPortTemplates[ ImmPortTemplates$templateName == ImmPortTemplateName &
-                                 ImmPortTemplates$templateColumn == templateColname, ]
+    ipt <- Import2ImmPort::ImmPortTemplates
+    ipl <- Import2ImmPort::ImmPortLookups
+
+    tmp <- ipt[ ipt$templateName == ImmPortTemplateName &
+                ipt$templateColumn == templateColname, ]
+
     #TODO: if( nrow(tmp) > 1 ){ warning("this table has two columns with the same name
         # that use a lookup" )}
         # make output list or df ... figure out what reads that in and change parsing
+
     lkTblNm <- c(tmp$pvTableName, tmp$cvTableName)
     lkTblNm <- lkTblNm[ !is.na(lkTblNm) ]
-    lkVals <- ImmPortLookups$name[ImmPortLookups$lookup == lkTblNm]
+    lkVals <- ipl$name[ipl$lookup == lkTblNm]
 
     if (any(grepl(";", lkVals))) {
         lkVals <- unname(unlist(sapply(lkVals, function(y) strsplit(y, ";"))))
