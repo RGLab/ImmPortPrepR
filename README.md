@@ -51,11 +51,11 @@ templates. The templates should be created in the order they are listed below so
 correctly cross-referenced.  For example, the "basic_study_design" template needs the protocolID
 assigned in the "protocol" template, so it must be created after.
 
-* protocols
-* treatments
-* basic_study_design
-* subjects
-* bioSamples
+1. protocols
+2. treatments
+3. basic_study_design
+4. subjects
+5. bioSamples
 
 Other MetaData templates that may apply to your study (also in order for cross-referencing):
 

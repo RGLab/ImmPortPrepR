@@ -27,6 +27,7 @@ test_that("getTemplateDF", {
                          "End Rule" = "",
                          check.names = FALSE,
                          stringsAsFactors = FALSE)
+  attr(expected, "templateName") <- "planned_visit"
 
   expect_equal(actual, expected)
 })

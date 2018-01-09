@@ -92,8 +92,7 @@ an error, so for demonstration purposes we wrap the function in a `tryCatch()` m
 
 ```{r check-template-required-error}
 # NOTE: messages are printed out
-results <- tryCatch(checkTemplate(df = study,
-                                  ImmPortTemplateName = "study"),
+results <- tryCatch(checkTemplate(df = study),
                     error = function(e){ return(e) })
 
 # to see error statement
@@ -107,8 +106,7 @@ re-run our checks.
 study$`User Defined ID` <- "sdyID"
 
 # NOTE: messages are printed out
-results <- tryCatch(checkTemplate(df = study,
-                                  ImmPortTemplateName = "study"),
+results <- tryCatch(checkTemplate(df = study),
                     error = function(e){ return(e) })
 
 # to see error statement

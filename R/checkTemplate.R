@@ -116,7 +116,9 @@ checkFormat <- function(df, templateInfo, ImmPortTemplateName) {
 #' @param df data frame with user entered data
 #' @param ImmPortTemplateName Name of ImmPort Template to compare against
 #' @export
-checkTemplate <- function(df, ImmPortTemplateName) {
+checkTemplate <- function(df) {
+  ImmPortTemplateName <- attr(df, "templateName")
+
   templateInfo <- getSingleTemplate(ImmPortTemplateName)
 
   # template checks

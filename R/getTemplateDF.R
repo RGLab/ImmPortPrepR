@@ -17,7 +17,7 @@ getSingleTemplate <- function(ImmPortTemplateName) {
 updateTypes <- function(jsonDataType) {
   jsonDataType <- gsub("string|date|enum|array", "character", jsonDataType)
   jsonDataType <- gsub("number|positive", "double", jsonDataType)
-  
+
   jsonDataType
 }
 
@@ -51,6 +51,9 @@ getTemplateDF <- function(ImmPortTemplateName, rowNum = 1) {
     changeType <- get(paste0("as.", templateInfo$jsonDataType[x]))
     tmpDF[, x] <- changeType(tmpDF[, x])
   }
+
+  # add name attribute for use in other fn
+  attr(tmpDF, "templateName") <- ImmPortTemplateName
 
   tmpDF
 }
