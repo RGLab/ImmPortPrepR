@@ -70,8 +70,8 @@ subjectsHuman$`Age Unit` <- "Years"
 subjectsHuman$`Age Event` <- "Age at enrollment"
 subjectsHuman$`Age Event Specify` <- "study milestone for subject's age that is unsupported by ImmPort"
 subjectsHuman$`Subject Phenotype` <- "phenotype that captures subject disposition for the study"
-subjectsHuman$`Subject Location` <- "Fiji"
-subjectsHuman$`Ancestry Population(s)` <- "Oceania"
+subjectsHuman$`Subject Location` <- "United States of America"
+subjectsHuman$`Ancestry Population(s)` <- "North America"
 subjectsHuman$Ethnicity <- "Other"
 subjectsHuman$Race <- "Asian"
 subjectsHuman$`Race Specify` <- "race description that is unsupported by ImmPort"
@@ -91,3 +91,11 @@ If there are no errors, the subjectsHuman template is complete.
 ------
   
 ### CREATING THE OUTPUT TSV
+
+```{r transform-df}
+transform_Data(dataName = subjectsHuman,
+               outputDir = NULL,
+               validate = T)
+
+
+```
