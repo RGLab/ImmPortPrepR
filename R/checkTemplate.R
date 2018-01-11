@@ -65,7 +65,7 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
 
 # Helper for comparing inputVals to lkVals
 chkLookupVals <- function(metaByIdx, dfCol) {
-    ipl <- Import2ImmPort::ImmPortLookups
+    ipl <- R2i::ImmPortLookups
 
     lkTblNm <- c(metaByIdx$pvTableName, metaByIdx$cvTableName)
     lkTblNm <- lkTblNm[ !is.na(lkTblNm) ]

@@ -15,16 +15,16 @@ options(DT.options = list(paginate = FALSE,
 
 ### OVERVIEW
 The purpose of this vignette is to demonstrate how to use the functions and data in the 
-`import2ImmPort` package to create the basicStudyDesign.txt that must be submitted along 
+`R2i` package to create the basicStudyDesign.txt that must be submitted along 
 with assay and other metaData to the public ImmPort database at NIH.  When creating your own
 submission documents, you can create a similar vignette so that the whole process is 
 reproducible.
 
 ### PREPARING THE STUDY DATA FRAME
-First, we will load the `import2ImmPort` library, which has the functions and templates we need.
+First, we will load the `R2i` library, which has the functions and templates we need.
 
 ```{r load-library}
-library(Import2ImmPort)
+library(R2i)
 ```
 
 Next, we need to create the 9 dataframes that will be put together to form the larger txt:
@@ -280,7 +280,7 @@ study_pubmed <- getTemplateDF("study_pubmed")
 ------
 
 Before transforming our data frames and writing the tsv output, we can also do some quality assurance
-checks of the text in our data frames using the text cleaning functions in the `Import2ImmPort` package.
+checks of the text in our data frames using the text cleaning functions in the `R2i` package.
 
 We will use `planned_visit$Name` as an example to first check fir spelling errors using 
 the `checkSpelling()` function that imports the `hunspell` package.

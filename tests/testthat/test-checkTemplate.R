@@ -3,7 +3,7 @@ context("checkTemplate functions")
 test_that("checkClass", {
   # success case
   expect_null(
-    Import2ImmPort:::checkClass(
+    R2i:::checkClass(
       df = data.frame(),
       dfName = "a data.frame"
     )
@@ -11,7 +11,7 @@ test_that("checkClass", {
 
   # fail case
   expect_error(
-    Import2ImmPort:::checkClass(
+    R2i:::checkClass(
       df = list(),
       dfName = "a list"
     )
@@ -21,14 +21,14 @@ test_that("checkClass", {
 test_that("checkDim", {
   # success cases
   expect_null(
-    Import2ImmPort:::checkDim(
+    R2i:::checkDim(
       df = data.frame(1, 2, 3),
       templateInfo = data.frame(1:3),
       ImmPortTemplateName = "case #1"
     )
   )
   expect_null(
-    Import2ImmPort:::checkDim(
+    R2i:::checkDim(
       df = data.frame(1),
       templateInfo = data.frame(1),
       ImmPortTemplateName = "case #2"
@@ -37,14 +37,14 @@ test_that("checkDim", {
 
   # fail cases
   expect_error(
-    Import2ImmPort:::checkDim(
+    R2i:::checkDim(
       df = data.frame(1, 2, 3),
       templateInfo = data.frame(1:2),
       ImmPortTemplateName = "case #3"
     )
   )
   expect_error(
-    Import2ImmPort:::checkDim(
+    R2i:::checkDim(
       df = data.frame(1, 2),
       templateInfo = data.frame(1:3),
       ImmPortTemplateName = "case #4"
@@ -55,7 +55,7 @@ test_that("checkDim", {
 test_that("checkColnames", {
   # success case
   expect_null(
-    Import2ImmPort:::checkColnames(
+    R2i:::checkColnames(
       df = data.frame(x = 1, y = 2, z = 3),
       templateInfo = data.frame(templateColumn = c("x", "y", "z"),
                                 stringsAsFactors = FALSE),
@@ -64,7 +64,7 @@ test_that("checkColnames", {
   )
 
   # fail case
-  expect_error(Import2ImmPort:::checkColnames(data.frame(x = 1, y = 2, z = 3),
+  expect_error(R2i:::checkColnames(data.frame(x = 1, y = 2, z = 3),
                                               data.frame(templateColumn = c("x", "y", "w"),
                                                          stringsAsFactors = FALSE),
                                               "case #2"))
@@ -73,7 +73,7 @@ test_that("checkColnames", {
 test_that("checkTypes", {
   # success case
   expect_null(
-    Import2ImmPort:::checkTypes(
+    R2i:::checkTypes(
       df = data.frame("", "", NA_character_, NA_real_, 0,
                       stringsAsFactors = FALSE),
       templateInfo = data.frame(jsonDataType = c("string", "date", "enum", "number", "positive"),
@@ -84,7 +84,7 @@ test_that("checkTypes", {
 
   # fail case
   expect_error(
-    Import2ImmPort:::checkTypes(
+    R2i:::checkTypes(
       df = data.frame(1, "", "", 0, 0,
                       stringsAsFactors = FALSE),
       templateInfo = data.frame(jsonDataType = c("string", "date", "enum", "number", "positive"),
@@ -97,7 +97,7 @@ test_that("checkTypes", {
 test_that("checkRequired", {
   # success case
   expect_null(
-    Import2ImmPort:::checkRequired(
+    R2i:::checkRequired(
       df = data.frame(a = "a", b = "b", c = "", d = 1, e = NA_real_,
                       stringsAsFactors = FALSE),
       templateInfo = data.frame(templateColumn = c("a", "b", "c", "d", "e"),
@@ -109,7 +109,7 @@ test_that("checkRequired", {
 
   # fail case
   expect_error(
-    Import2ImmPort:::checkRequired(
+    R2i:::checkRequired(
       df = data.frame(a = "a", b = "b", c = "", d = 1, e = NA_real_,
                       stringsAsFactors = FALSE),
       templateInfo = data.frame(templateColumn = c("a", "b", "c", "d", "e"),

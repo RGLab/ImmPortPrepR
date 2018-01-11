@@ -1,7 +1,7 @@
 context("getTemplateDF functions")
 
 test_that("getSingleTemplate", {
-  actual <- Import2ImmPort:::getSingleTemplate("study_pubmed")
+  actual <- R2i:::getSingleTemplate("study_pubmed")
   expected <- ImmPortTemplates[ImmPortTemplates$templateName == "study_pubmed", ]
 
   expect_equal(actual, expected)
@@ -10,7 +10,7 @@ test_that("getSingleTemplate", {
 test_that("updateTypes", {
   jsonDataType <- c("date", "enum", "number", "positive", "string")
 
-  actual <- Import2ImmPort:::updateTypes(jsonDataType)
+  actual <- R2i:::updateTypes(jsonDataType)
   expected <- c("character", "character", "double", "double", "character")
 
   expect_equal(actual, expected)

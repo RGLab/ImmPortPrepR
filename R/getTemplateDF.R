@@ -4,7 +4,7 @@
 # ---- HELPER FN --------------------------
 # Used in checkTemplate() and below
 getSingleTemplate <- function(ImmPortTemplateName) {
-  ipt <- Import2ImmPort::ImmPortTemplates
+  ipt <- R2i::ImmPortTemplates
   if (!(ImmPortTemplateName %in% unique(ipt$templateName))) {
     stop("Given template name is not in ImmPortTemplates$templateName. Please re-run.")
   }

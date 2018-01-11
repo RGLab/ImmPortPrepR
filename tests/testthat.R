@@ -1,4 +1,4 @@
 library(testthat)
-library(Import2ImmPort)
+library(R2i)
 
-test_check("Import2ImmPort")
+test_check("R2i")

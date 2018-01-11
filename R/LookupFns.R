@@ -7,7 +7,7 @@
 #' @param ImmPortTemplateName name of the ImmPort Template to check
 #' @export
 getLookups <- function(ImmPortTemplateName){
-    ipt <- Import2ImmPort::ImmPortTemplates
+    ipt <- R2i::ImmPortTemplates
     tmp <- ipt[ ipt$templateName == ImmPortTemplateName, ]
     pvLookups <- tmp$templateColumn[ tmp$pv == TRUE ]
     if (length(pvLookups) > 0){
@@ -32,8 +32,8 @@ getLookups <- function(ImmPortTemplateName){
 #' @param templateColname column name in template
 #' @export
 getLookupValues <- function(ImmPortTemplateName, templateColname) {
-    ipt <- Import2ImmPort::ImmPortTemplates
-    ipl <- Import2ImmPort::ImmPortLookups
+    ipt <- R2i::ImmPortTemplates
+    ipl <- R2i::ImmPortLookups
 
     tmp <- ipt[ ipt$templateName == ImmPortTemplateName &
                 ipt$templateColumn == templateColname, ]

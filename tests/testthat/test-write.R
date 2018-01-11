@@ -3,7 +3,7 @@ context("write functions")
 test_that("write_header", {
   name <- "basic_study_design"
   file <- tempfile()
-  Import2ImmPort:::write_header(name, file)
+  R2i:::write_header(name, file)
 
   actual <- readLines(file)
   expected <- c(
@@ -17,7 +17,7 @@ test_that("write_header", {
 test_that("write_line", {
   file <- tempfile()
 
-  Import2ImmPort:::write_line(file)
+  R2i:::write_line(file)
 
   actual <- readLines(file)
   expected <- c(
@@ -31,7 +31,7 @@ test_that("write_blockName", {
   blockName <- "study"
   file <- tempfile()
 
-  Import2ImmPort:::write_blockName(blockName, file)
+  R2i:::write_blockName(blockName, file)
 
   actual <- readLines(file)
   expected <- c(
@@ -60,7 +60,7 @@ test_that("write_table", {
   )
   file <- tempfile()
 
-  Import2ImmPort:::write_table(table, file)
+  R2i:::write_table(table, file)
 
   actual <- readLines(file)
   expected <- c(
@@ -80,7 +80,7 @@ test_that("write_list", {
   )
   file <- tempfile()
 
-  Import2ImmPort:::write_list(list, file)
+  R2i:::write_list(list, file)
 
   actual <- readLines(file)
   expected <- c(
@@ -100,7 +100,7 @@ test_that("write_emptyTable", {
   )
   file <- tempfile()
 
-  Import2ImmPort:::write_emptyTable(varNames, file)
+  R2i:::write_emptyTable(varNames, file)
 
   actual <- readLines(file)
   expected <- c(
@@ -114,7 +114,7 @@ test_that("write_txt", {
   name <- "basic_study_design"
   file <- tempfile()
 
-  Import2ImmPort:::write_txt(name, demoData, file)
+  R2i:::write_txt(name, demoData, file)
 
   actual <- readLines(file)
   expected <- readLines("basic_study_design.txt")
