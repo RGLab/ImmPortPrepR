@@ -6,7 +6,6 @@
 #'
 #' @param ImmPortTemplateName name of the ImmPort Template to check
 #' @export
-# Helper for showing user which columns have lookups in a template
 getLookups <- function(ImmPortTemplateName){
     ipt <- Import2ImmPort::ImmPortTemplates
     tmp <- ipt[ ipt$templateName == ImmPortTemplateName, ]
@@ -32,7 +31,6 @@ getLookups <- function(ImmPortTemplateName){
 #' @param ImmPortTemplateName ImmPort Template Name
 #' @param templateColname column name in template
 #' @export
-# Helper for getting vector of lookup values from template and column names
 getLookupValues <- function(ImmPortTemplateName, templateColname) {
     ipt <- Import2ImmPort::ImmPortTemplates
     ipl <- Import2ImmPort::ImmPortLookups

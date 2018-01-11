@@ -118,7 +118,11 @@ checkFormat <- function(df, templateInfo, ImmPortTemplateName) {
 #' @param df data frame with user entered data and 'templateName' attribute
 #' @export
 checkTemplate <- function(df) {
+
   ImmPortTemplateName <- attr(df, "templateName")
+  if (is.null(ImmPortTemplateName)) {
+      stop("'templateName' attribute is not present. Please set with attr().")
+  }
 
   templateInfo <- getSingleTemplate(ImmPortTemplateName)
 

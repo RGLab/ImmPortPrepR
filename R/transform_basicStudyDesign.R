@@ -45,8 +45,7 @@ transform_basicStudyDesign <- function(study,
 
     # Any errors in checkObj will stop transformation.
     mapply(checkTemplate,
-           df = blocks,
-           ImmPortTemplateName = names(blocks))
+           df = blocks)
 
     # ----- Convert to Vector / Lists -------
     # Convert to vector if empty DF so that no

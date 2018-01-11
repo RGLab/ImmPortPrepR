@@ -150,7 +150,9 @@ approach is used for reproducibiity and demonstration.
 The next one we focus on is called **arm_or_cohort**. In this
 demonstration case, we have a csv already of the information needed and just want to bind this
 new information to correct headers.  Therefore we use the arm_or_cohort dataframe only for the
-colnames() call.
+colnames() call.  An important note: the `checkTemplate()` function needs the "templateName"
+attribute in the data frame in order to run the necessary checks.  This is easily done by
+using `attr(arm_or_cohort, "templateName") <- "arm_or_cohort"`.
 
 ```{r make-arm-or-cohort-df}
 arm_or_cohort <- getTemplateDF("arm_or_cohort")
@@ -161,6 +163,9 @@ DT::datatable(aocImport, options = list(scrollX = TRUE))
 
 # to be consistent we rename aocImport for use in the 'write' functions later
 arm_or_cohort <- aocImport
+
+# Set "templateName" attribute to pass `checkTemplate()` fn
+attr(arm_or_cohort, "templateName") <- "arm_or_cohort"
 ```
 
 ------
@@ -198,7 +203,7 @@ planned_visit[1,] <- list(1,
                       "")
 
 planned_visit[2,] <- list(2,
-                      "Immunization",
+                      "Immunazation",
                       2,
                       0,
                       0,
@@ -206,7 +211,7 @@ planned_visit[2,] <- list(2,
                       "")
 
 planned_visit[3,] <- list(3,
-                      "Challenge",
+                      "Chellenge",
                       3,
                       100,
                       110,
@@ -272,6 +277,29 @@ template.
 study_pubmed <- getTemplateDF("study_pubmed")
 ```
 
+------
+
+Before transforming our data frames and writing the tsv output, we can also do some quality assurance
+checks of the text in our data frames using the text cleaning functions in the `Import2ImmPort` package.
+
+We will use `planned_visit$Name` as an example to first check fir spelling errors using 
+the `checkSpelling()` function that imports the `hunspell` package.
+
+```{r finding-spelling-errors}
+checkSpelling(input = planned_visit$Name)
+```
+
+If working interactively, you can use `interactiveReplace()` to go through each error found
+with checkSpelling() and input a replacement at the prompt.  In this case, we will simply use
+the `findReplace()` function to fix *Immunazation* and *Chellenge*.
+```{r correcting-spelling-errors}
+tmp <- findReplace(input = planned_visit$Name, find = "Immunazation", replace = "Immunization")
+tmp <- findReplace(input = tmp, find = "Chellenge", replace = "Challenge")
+
+planned_visit$Name <- tmp
+DT::datatable(planned_visit)
+```
+------
 ### CREATING THE OUTPUT TSV
 To create the tsv that will be included in the ImmPort submission, we use the `transform_basicStudyDesign()` function that takes the 9 dataframes as arguments, as well as 
 `outputDir` and `validate`.  The `outputDir` argument is the filepath for the output directory 
