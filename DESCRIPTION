@@ -1,4 +1,4 @@
-Package: Import2ImmPort
+Package: R2i
 Type: Package
 Title: Tools for preparing an ImmPort Data Submission
 Version: 3.15.0
@@ -8,10 +8,10 @@ Authors@R: c(person("Evan", "Henrich", role = "aut"),
              person("ImmuneSpace Package Maintainer",
                     email = "immunespace@gmail.com",
                     role = c("cre", "cph")))
-Description: Import2ImmPort contains functions that allow users to transform semi-standardized
+Description: R2i contains functions that allow users to transform semi-standardized
     R data into the csv templates required for ImmPort Data Submission and validate
     these csvs using ImmPort's validator criteria.
-URL: https://github.com/RGLab/Import2ImmPort
+URL: https://github.com/RGLab/R2i
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
