@@ -57,3 +57,18 @@ interactiveReplace <- function(checkSpellingOutput, inputVector){
 
     return(unname(inputVector))
 }
+
+# contextCleaning ... need to create reference from previous studies for non-controlled columns
+cleanByContext <- function(input){
+    # assume all words are spelled correct after running through checkSpelling()
+    words <- unique(unlist(strsplit(input, " "))) # make into one giant vector
+    words <- words[ nchar(words) > 2 ] # assume less than three char not worth looking at
+    wordMx <- stringdistmatrix(words, words) # create matrix of distance between all words
+    tmp <- data.frame(which(wordMx < 3 & wordMx > 0, arr.ind = T)) # find close word pairs
+    tmp <- unique(t(apply(tmp, 1, function(x){ return(x[order(x)]) }))) # remove reverse-matches
+    tmp <- apply(tmp, 2, function(x){ words[x] }) # convert back to words
+
+    # remove non-context words ("the", "this", "that", "would", "could")
+    # recommend more common-in-context word based on 10 studies worth of meta-data
+
+}
