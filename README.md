@@ -1,8 +1,8 @@
 # R to ImmPort (R2i)
 
-[![Travis-CI Build Status](https://travis-ci.org/RGLab/Import2ImmPort.svg?branch=master)](https://travis-ci.org/RGLab/Import2ImmPort)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/RGLab/Import2ImmPort?branch=master&svg=true)](https://ci.appveyor.com/project/RGLab/Import2ImmPort)
-[![Coverage Status](https://img.shields.io/codecov/c/github/RGLab/Import2ImmPort/master.svg)](https://codecov.io/github/RGLab/Import2ImmPort?branch=master)
+[![Travis-CI Build Status](https://travis-ci.org/RGLab/R2i.svg?branch=master)](https://travis-ci.org/RGLab/R2i)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/RGLab/R2i?branch=master&svg=true)](https://ci.appveyor.com/project/RGLab/R2i)
+[![Coverage Status](https://img.shields.io/codecov/c/github/RGLab/R2i/master.svg)](https://codecov.io/github/RGLab/R2i?branch=master)
 
 
 Tools for preparing ImmPort Submission
@@ -34,13 +34,13 @@ Tools for preparing ImmPort Submission
 ### 1. Install package
 
 ```
-devtools::install_github("RGlab/Import2ImmPort")
+devtools::install_github("RGlab/R2i")
 ```
 
 ### 2. Load package 
 
 ```
-library(Import2ImmPort)
+library(R2i)
 ```
 
 ### 3. Work on MetaData

@@ -9,16 +9,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # OVERVIEW
 The purpose of this vignette is to demonstrate how to use the functions and data in the 
-`import2ImmPort` package to create the subjectHuman.csv that must be submitted along 
+`R2i` package to create the subjectHuman.csv that must be submitted along 
 with assay and other metaData to the public ImmPort database at NIH for projects with patients. Animal subjects require a different template (subjectsAnimal).  
 
 When creating your own submission documents, you can create a similar vignette so that the whole process is 
 reproducible.
 
-First, we will load the `import2ImmPort` library, which has the functions and templates we need.
+First, we will load the `R2i` library, which has the functions and templates we need.
 
 ```{r load-library}
-library(Import2ImmPort)
+library(R2i)
 ```
 
 We will need to create a dataframe with the following variables:  
