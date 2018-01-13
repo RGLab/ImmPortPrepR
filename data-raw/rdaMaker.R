@@ -46,39 +46,17 @@ json2DF <- function(jsonFile, writeCSV = FALSE){
     return(df)
 }
 
-# build this using the ImmuneSpaceR in the /SDYXXX/ImmPort path
-# pull meta-data for IS studies (basicStudyDesign, bioSamples$description?)
-# 1. study
-# brief_description, brief_condition, condition_studies, description, hypothesis, official_title, sponsoring_organization, intervention_agent
-# 2. arm_or_cohort
-# 3. inclusion_exclusion
-# 4. planned_visit
-# 5. study_2_protocol
-# 6. study_file
-# 7. study_link
-# 8. study_personnel
-# 9. study_pubmed
-# biosamples$description
-# for each study ...
-# create vector for each tbl-col - rda obj = list of lists
-# do frequency counts
-# create master list that combines all words - rda obj
-# combine all studies
-#
-
-#' @import Rlabkey
+#' @importFrom Rlabkey labkey.selectRows
 makeContextVector <- function(tableName, colName){
-    tmp <- labkey.selectRows(baseUrl = "https://www.immunespace.org",
-                      folderPath = "/Studies/",
-                      schemaName = "ImmPort",
-                      queryName = tableName,
-                      colSelect = c(colName))
-    tmp <- tmp[ !is.na(tmp) ] # rm NAs
-    tmp <- gsub("\\d+|[[:punct:]]","",tmp) # rm digits
-    tmp <- gsub("\\s{2,4}", " ", tmp) # rm extra spaces
-    tmp <- tolower(unique(tmp)) # want to have frequency within different contexts
-    words <- table(unlist(strsplit(tmp, " "))) # generate frequency count table
-
+  print(paste0(tableName, "-", colName))
+  tmp <- labkey.selectRows(baseUrl = "https://www.immunespace.org",
+                             folderPath = "/Studies/",
+                             schemaName = "ImmPort",
+                             queryName = tableName,
+                             colSelect = c(colName),
+                             colNameOpt = "fieldname")
+  words <- vec2Words(tmp)
+  words <- words[ !(words %in% stopwords(source = "smart")) ]
 }
 
 
@@ -86,6 +64,7 @@ makeContextVector <- function(tableName, colName){
 ###            MAIN FUNCTIONS           ###
 ###########################################
 
+# Generate template info and lookup objects
 dmpTbl <- json2DF("data-raw/lkTables.json", writeCSV = TRUE)
 dmpTpls <- json2DF("data-raw/templates.json", writeCSV = TRUE)
 
@@ -95,6 +74,17 @@ save(ImmPortTemplates, file = "data/ImmPortTemplates.rda")
 ImmPortLookups <- read.csv("data-raw/lkTables.csv", stringsAsFactors = FALSE)
 save(ImmPortLookups, file = "data/ImmPortLookups.rda")
 
+# Create demo data set for basic study design
 source("data-raw/demoData.R")
 save(demoData, file = "data/demoData.rda")
 
+# Create word frequencies list object
+ISqueries <- read.csv("data-raw/ImmuneSpaceQueries.csv", stringsAsFactors = F)
+lsWords <- mapply(makeContextVector, 
+                  tableName = ISqueries$tableName,
+                  colName = ISqueries$columnName)
+names(lsWords) <- paste0(ISqueries$tableName, "-", ISqueries$columnName)
+ISFreqsByNm <- sapply(lsWords, table)
+save(ISFreqsByNm, file = "data/ISFreqsByNm.rda")
+ISFreqsAll <- table(unlist(lsWords))
+save(ISFreqsAll, file = "data/ISFreqsAll.rda")

@@ -1,3 +1,21 @@
+###########################################
+###          HELPER FUNCTIONS           ###
+###########################################
+
+# turn a character vector into a list of words
+vec2Words <- function(charVec){
+  charVec <- charVec[ !is.na(charVec) ] # rm NAs
+  charVec <- gsub("[[:punct:]]|\\d+", " ", charVec) # rm all punctuation and digits
+  charVec <- gsub("\\s{2,}", " ", charVec) # rm extra spaces
+  charVec <- unique(tolower(charVec)) # want unique within vector b/c comparing across sdy
+  words <- unlist(strsplit(charVec, " ")) # make list of words
+  words <- words[ nchar(words) > 2 ] # not trying to work with chopped up modifers e.g. IL or cd
+}
+
+###########################################
+###            MAIN FUNCTIONS           ###
+###########################################
+
 #' @title check for spelling errors in a character vector
 #'
 #' @description takes character and returns list of problematic
@@ -58,17 +76,26 @@ interactiveReplace <- function(checkSpellingOutput, inputVector){
     return(unname(inputVector))
 }
 
-# contextCleaning ... need to create reference from previous studies for non-controlled columns
-cleanByContext <- function(input){
-    # assume all words are spelled correct after running through checkSpelling()
-    words <- unique(unlist(strsplit(input, " "))) # make into one giant vector
-    words <- words[ nchar(words) > 2 ] # assume less than three char not worth looking at
-    wordMx <- stringdistmatrix(words, words) # create matrix of distance between all words
-    tmp <- data.frame(which(wordMx < 3 & wordMx > 0, arr.ind = T)) # find close word pairs
-    tmp <- unique(t(apply(tmp, 1, function(x){ return(x[order(x)]) }))) # remove reverse-matches
-    tmp <- apply(tmp, 2, function(x){ words[x] }) # convert back to words
-
-    # remove non-context words ("the", "this", "that", "would", "could")
-    # recommend more common-in-context word based on 10 studies worth of meta-data
-
+#' @title Check a character vector against words in ImmuneSpace 
+#'
+#' @description checkByContext compares non-stopwords in a vector to those
+#'     already in ImmuneSpace. Any words not already in ImmuneSpace are analyzed
+#'     via stringdist to find closest matches.  These matches are returned in a 
+#'     named list.
+#'
+#' @param input character vector
+#' @importFrom stopwords stopwords
+#' @importFrom stringdist stringdist
+#' @export
+checkByContext <- function(input){
+    # assume that user has run checkSpelling and no mis-spellings in input
+    # so this looks for issues like "does" in place of "doses"
+    # TODO: take closer look at stopwords!
+    words <- vec2Words(input)
+    words <- words[ !(words %in% stopwords(source = "smart")) ] # remove stopwords / non-analytical words
+    words <- words[ !(words %in% names(R2i::ISFreqsAll)) ] # rm words that are in IS dbase
+    res <- sapply(words, function(x){
+        dists <- stringdist(x, names(R2i::ISFreqsAll)) # get string distances using OSA method
+        poss <- names(R2i::ISFreqsAll)[ dists == min(dists) ]
+    })
 }
