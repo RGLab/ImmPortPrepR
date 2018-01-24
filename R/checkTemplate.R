@@ -1,6 +1,8 @@
 ###########################################
 ###          Helper Functions           ###
 ###########################################
+
+# CLASS
 checkClass <- function(df, dfName) {
   res <- class(df)[1] == "data.frame"
 
@@ -11,6 +13,7 @@ checkClass <- function(df, dfName) {
   invisible(NULL)
 }
 
+# DIM
 checkDim <- function(df, templateInfo, ImmPortTemplateName) {
   res <- ncol(df) == nrow(templateInfo)
 
@@ -21,6 +24,7 @@ checkDim <- function(df, templateInfo, ImmPortTemplateName) {
   invisible(NULL)
 }
 
+# COLNAMES
 checkColnames <- function(df, templateInfo, ImmPortTemplateName) {
   res <- identical(colnames(df), templateInfo$templateColumn)
 
@@ -31,23 +35,23 @@ checkColnames <- function(df, templateInfo, ImmPortTemplateName) {
   invisible(NULL)
 }
 
+# TYPES
+#' @importFrom utils capture.output
 checkTypes <- function(df, templateInfo, ImmPortTemplateName) {
-  templateInfo$jsonDataType <- updateTypes(templateInfo$jsonDataType)
+  demoDF <- data.frame(current = sapply(df, typeof), 
+                       target = updateTypes(templateInfo$jsonDataType),
+                       stringsAsFactors = F)
+  demoDF <- demoDF[ demoDF$current != demoDF$target, ]
 
-  res <- mapply(function(x, y) typeof(x) == y, df, templateInfo$jsonDataType)
-
-  badColumns <- colnames(df)[!res]
-
-  if (any(!res)) {
-    stop("Check data types for ", ImmPortTemplateName, "\n",
-         "Type errors found in following columns: ",
-         paste(badColumns, collapse = ", ")
-    )
+  if (nrow(demoDF) > 0) {
+    stop("Correct data types for '", ImmPortTemplateName, "'\n",
+         paste(capture.output(print(demoDF)), collapse = "\n"))
   }
 
   invisible(NULL)
 }
 
+# REQUIRED
 checkRequired <- function(df, templateInfo, ImmPortTemplateName) {
   required <- templateInfo$templateColumn[templateInfo$required]
 
