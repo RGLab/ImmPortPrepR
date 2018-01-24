@@ -13,6 +13,10 @@ subsetBSD <- function(tblName, bsdDF){
   
   colnames(subDF) <- subDF[1, ]
   subDF <- subDF[-1, ] 
+  
+  attr(subDF, "templateName") <- tblName # Important for checkTemplate()!
+  
+  return(subDF)
 }
 
 
