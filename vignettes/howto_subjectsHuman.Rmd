@@ -103,7 +103,7 @@ results$message
 Here the error message is telling us that a non-controlled term is being used in the `subjectsHuman$'Age Event'` column. To look up controlled terms we can use the `getLookupValues()` function. This function takes the template name and column name as arguments and returns a vector of the allowed terms.
 
 ```{r get-lookup}
-getLookupValues("subjectsHuman", "Age Event")
+getIPLookupValues("subjectsHuman", "Age Event")
 ```
 From the output we can see that our original entry ('Age at Enrollment') must be corrected to 'Age at enrollment'. We can then check the dataframe again.
 

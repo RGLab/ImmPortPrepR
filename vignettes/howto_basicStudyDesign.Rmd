@@ -121,7 +121,7 @@ In the case of **study**, we can see which columns have such terms by using the 
 function. This function's only argument is the ImmPort Template Name.
 
 ```{r get-lookups}
-getLookups(ImmPortTemplateName = "study")
+getIPLookups(ImmPortTemplateName = "study")
 ```
 
 It appears that **study** has two columns with controlled terms, *Type* and *Age Unit*. To 
@@ -130,7 +130,7 @@ function takes in the ImmPort Template Name and the column name as arguments, th
 a vector of allowed values.
 
 ```{r get-lookup-vals}
-getLookupValues(ImmPortTemplateName = "study", templateColname = "Age Unit")
+getIPLookupValues(ImmPortTemplateName = "study", templateColname = "Age Unit")
 ```
 
 Since it looks like the original entry for **Age Unit** ('years') is not in the vector,
@@ -301,23 +301,26 @@ DT::datatable(planned_visit)
 ```
 ------
 ### CREATING THE OUTPUT TSV
-To create the tsv that will be included in the ImmPort submission, we use the `transform_basicStudyDesign()` function that takes the 9 dataframes as arguments, as well as 
-`outputDir` and `validate`.  The `outputDir` argument is the filepath for the output directory 
-where the tsv should be saved.  `validate` is a boolean with `TRUE` as the default that uses the
-validator scripts from ImmPort's web application to ensure that the tsv meets the criteria 
-necessary for import.  To see more information about the `transform_basicStudyDesign()` function 
-you can always enter `?transform_basicStudyDesign` in the console.
+To create the tsv that will be included in the ImmPort submission, we use the
+`transform_basicStudyDesign()` function that takes a named list of the 9 dataframes as the first
+argument, as well as `outputDir` and `validate`.  The `outputDir` argument is the filepath for the
+output directory where the tsv should be saved.  `validate` is a boolean with `TRUE` as the default
+that uses the validator scripts from ImmPort's web application to ensure that the tsv meets the
+criteria necessary for import.  To see more information about the `transform_basicStudyDesign()`
+function you can always enter `?transform_basicStudyDesign` in the console.
 
 ```{r transform-data-into-tsv}
-transform_basicStudyDesign(study = study,
-                           arm_or_cohort = arm_or_cohort,
-                           study_personnel = study_personnel,
-                           planned_visit = planned_visit,
-                           inclusion_exclusion = inclusion_exclusion,
-                           study_2_protocol = study_2_protocol,
-                           study_file = study_file,
-                           study_link = study_link,
-                           study_pubmed = study_pubmed,
+blocks <- list("study" = study,
+               "arm_or_cohort" = arm_or_cohort,
+               "study_personnel" = study_personnel,
+               "planned_visit" = planned_visit,
+               "inclusion_exclusion" = inclusion_exclusion,
+               "study_2_protocol" = study_2_protocol,
+               "study_file" = study_file,
+               "study_link" = study_link,
+               "study_pubmed" = study_pubmed)
+
+transform_basicStudyDesign(blocks = blocks,
                            outputDir = NULL,
                            validate = TRUE)
 ```
