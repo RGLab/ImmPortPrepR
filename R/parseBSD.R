@@ -2,11 +2,17 @@
 subsetBSD <- function(tblName, bsdDF){
   blanks <- grep("^$", bsdDF[[1]])
   startLn <- grep(paste0("^", tblName, "$"), bsdDF[[1]]) + 1
-  endLn <- blanks[ blanks > startLn ][[1]] - 1
-  subDF <- bsdDF[ startLn : endLn, ]
+  
+  if(tblName != "study_pubmed"){
+    endLn <- blanks[ blanks > startLn ][[1]] - 1
+  }else{
+    endLn <- nrow(bsdDF)
+  }
+  
+  subDF <- data.frame(bsdDF[ startLn : endLn, ], stringsAsFactors = F)
   
   if(tblName == "study"){
-    subDF <- subDF[ , !(grepl("^X", colnames(subDF))) ]
+    subDF <- subDF[ , !(grepl("^V", colnames(subDF))) ]
     subDF <- data.frame(t(subDF), stringsAsFactors = F)
     rownames(subDF) <- NULL
     colnames(subDF) <- subDF[1, ]
@@ -14,7 +20,7 @@ subsetBSD <- function(tblName, bsdDF){
   }else{
     colnames(subDF) <- subDF[1, ]
     subDF <- subDF[-1, ] 
-    subDF <- subDF[ , !(grepl("^$|^\\.", colnames(subDF))) ]
+    subDF <- subDF[ , !(grepl("^$|\\.", colnames(subDF))) ]
   }
   
   attr(subDF, "templateName") <- tblName # Important for checkTemplate()!
@@ -35,7 +41,7 @@ subsetBSD <- function(tblName, bsdDF){
 #' @export
 parseBSD <- function(filePath){
   # read in csv, txt
-  bsdDF <- fread(filePath, fill = T, stringsAsFactors = F)
+  bsdDF <- data.table::fread(filePath, fill = T, stringsAsFactors = F)
   
   # break up into segments and generate return object
   tbls <- c("study", 
