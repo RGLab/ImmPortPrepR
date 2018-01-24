@@ -18,7 +18,9 @@ LazyData: true
 Imports: hunspell,
     stopwords,
     stringdist,
-    Rlabkey
+    Rlabkey,
+    utils,
+    data.table
 Suggests: testthat,
     covr
 RoxygenNote: 6.0.1

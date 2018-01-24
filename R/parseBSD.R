@@ -4,15 +4,18 @@ subsetBSD <- function(tblName, bsdDF){
   startLn <- grep(paste0("^", tblName, "$"), bsdDF[[1]]) + 1
   endLn <- blanks[ blanks > startLn ][[1]] - 1
   subDF <- bsdDF[ startLn : endLn, ]
-  subDF <- subDF[ , !(grepl("^X", colnames(subDF))) ]
   
   if(tblName == "study"){
+    subDF <- subDF[ , !(grepl("^X", colnames(subDF))) ]
     subDF <- data.frame(t(subDF), stringsAsFactors = F)
     rownames(subDF) <- NULL
+    colnames(subDF) <- subDF[1, ]
+    subDF <- subDF[-1, ] 
+  }else{
+    colnames(subDF) <- subDF[1, ]
+    subDF <- subDF[-1, ] 
+    subDF <- subDF[ , !(grepl("^$|^\\.", colnames(subDF))) ]
   }
-  
-  colnames(subDF) <- subDF[1, ]
-  subDF <- subDF[-1, ] 
   
   attr(subDF, "templateName") <- tblName # Important for checkTemplate()!
   
@@ -28,10 +31,11 @@ subsetBSD <- function(tblName, bsdDF){
 #'
 #' @param filePath file path for basic study design csv. Cannot be excel spreadsheet.
 #' @importFrom utils read.csv
+#' @importFrom data.table fread
 #' @export
 parseBSD <- function(filePath){
-  # read in csv
-  bsdDF <- read.csv(filePath, fill = T, stringsAsFactors = F)
+  # read in csv, txt
+  bsdDF <- fread(filePath, fill = T, stringsAsFactors = F)
   
   # break up into segments and generate return object
   tbls <- c("study", 
