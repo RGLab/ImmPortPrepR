@@ -35,7 +35,7 @@ checkDim <- function(df, templateInfo, ImmPortTemplateName, quiet) {
 # COLNAMES
 checkColnames <- function(df, templateInfo, ImmPortTemplateName, quiet) {
   res <- identical(colnames(df), templateInfo$templateColumn)
-  
+
   if (!res) {
     if (quiet) {
       return(FALSE)
@@ -50,7 +50,7 @@ checkColnames <- function(df, templateInfo, ImmPortTemplateName, quiet) {
 # TYPES
 #' @importFrom utils capture.output
 checkTypes <- function(df, templateInfo, ImmPortTemplateName, quiet) {
-  demoDF <- data.frame(current = sapply(df, typeof), 
+  demoDF <- data.frame(current = sapply(df, typeof),
                        target = updateTypes(templateInfo$jsonDataType),
                        stringsAsFactors = F)
   demoDF <- demoDF[ demoDF$current != demoDF$target, ]
@@ -129,12 +129,12 @@ checkFormat <- function(df, templateInfo, ImmPortTemplateName, quiet) {
       }
     }
   })
-  
+
   names(res) <- colnames(df)
   res <- res[ !(sapply(res, is.null)) ]
-  
+
   if (length(res) == 0) { res <- NULL }
-  
+
   return(res)
 
 }
@@ -163,24 +163,25 @@ checkTemplate <- function(df, chkTypes = TRUE, quiet = TRUE) {
 
   # return object
   ret <- list()
-  
+
   # template checks
   ret$class <- R2i:::checkClass(df, ImmPortTemplateName, quiet)
   ret$dim <- R2i:::checkDim(df, templateInfo, ImmPortTemplateName, quiet)
   ret$colnames <- R2i:::checkColnames(df, templateInfo, ImmPortTemplateName, quiet)
-  
+
   if(chkTypes == TRUE){
     ret$types <- R2i:::checkTypes(df, templateInfo, ImmPortTemplateName, quiet)
   }
-  
 
-  # Allow empty tables for certain non-required sub-tables in BSD
+
+  # Allow empty tables for certain non-required sub-tables in BSD only
+  # after checking they have not been modified from the getTemplate() output.
   if (ImmPortTemplateName %in% c("study_file", "study_link", "study_pubmed")) {
     tmp <- unique(unname(unlist(df[1, ])))
 
     if (all(tmp == "" | is.na(tmp))) {
       message(paste0("skipping empty ", ImmPortTemplateName, " table"))
-      return(ret)
+      return(NULL)
     }
   }
 
@@ -190,6 +191,11 @@ checkTemplate <- function(df, chkTypes = TRUE, quiet = TRUE) {
   if (any(templateInfo$pv | templateInfo$cv)) {
     ret$format <- R2i:::checkFormat(df, templateInfo, ImmPortTemplateName, quiet)
   }
-  
+
+  # Feedback
+  message(paste0(ImmPortTemplateName, ": ", length(ret), " Errors"))
+
+  if(length(ret) == 0 ){ return(NULL) }
+
   return(ret)
 }
