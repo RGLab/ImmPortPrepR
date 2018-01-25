@@ -4,10 +4,14 @@
 \alias{checkTemplate}
 \title{Check template data frame}
 \usage{
-checkTemplate(df)
+checkTemplate(df, chkTypes = TRUE, quiet = TRUE)
 }
 \arguments{
 \item{df}{data frame with user entered data and 'templateName' attribute}
+
+\item{chkTypes}{boolean, TRUE by default, checks types of data by column}
+
+\item{quiet}{boolean, TRUE by default, instead of errors, returns problems}
 }
 \description{
 Check template data frame based on class, dimensions, colnames,
