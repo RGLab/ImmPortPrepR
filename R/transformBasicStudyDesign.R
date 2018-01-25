@@ -14,11 +14,14 @@
 #' @export
 transform_basicStudyDesign <- function(blocks,
                                        outputDir = NULL,
-                                       validate = TRUE){
+                                       validate = TRUE,
+                                       ...){
 
-    # Any errors in checkObj will stop transformation.
-    mapply(checkTemplate,
-           df = blocks)
+    # Any errors in checkObj will stop transformation
+    # if quiet = FALSE.
+    res <- mapply(checkTemplate,
+                  df = blocks,
+                  ...)
 
     # ----- Convert to Vector / Lists -------
     # Convert to vector if empty DF so that no
@@ -57,4 +60,5 @@ transform_basicStudyDesign <- function(blocks,
     # ---------- Validate output -----------------
     # TODO: waiting on patrick for scripts
 
+    return(res)
 }
