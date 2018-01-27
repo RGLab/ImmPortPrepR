@@ -4,7 +4,7 @@
 \alias{transform_basicStudyDesign}
 \title{Transform R dataframes into ImmPort basicStudyDesign.csv format}
 \usage{
-transform_basicStudyDesign(blocks, outputDir = NULL, validate = TRUE)
+transform_basicStudyDesign(blocks, outputDir = NULL, validate = TRUE, ...)
 }
 \arguments{
 \item{blocks}{a named list of the 9 data frames that comprise basic study design template}

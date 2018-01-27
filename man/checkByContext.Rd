@@ -12,6 +12,6 @@ checkByContext(input)
 \description{
 checkByContext compares non-stopwords in a vector to those
     already in ImmuneSpace. Any words not already in ImmuneSpace are analyzed
-    via stringdist to find closest matches.  These matches are returned in a 
+    via stringdist to find closest matches.  These matches are returned in a
     named list.
 }
