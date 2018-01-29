@@ -112,43 +112,6 @@ InteractiveFindReplace.vector <- function(misspelledWords, inputVector, outFile 
     return(ret)
 }
 
-#' @title Interactively find and replace problematic words in a data frame
-#'
-#' @description For each word in the output list from checkSpelling()
-#'     find the word in the inputVector and allow the user to enter a
-#'     replacement word
-#'
-#' @param misspelledWords named list of problematic words and suggested replacements
-#' @param inputDF character vector
-#' @param outFile filepath for where to append lines of code
-#' @export
-InteractiveFindReplace.df <- function(misspelledWords, inputDF, outFile = NULL){
-    ret <- inputDF
-    message("NOTE: leaving the replacement field blank means do not replace.")
-
-    for( nm in names(misspelledWords) ){
-        message(paste0("word not found: ", nm))
-        message("Possible suggestions: ")
-        print(misspelledWords[[nm]])
-        rep <- readline(prompt = paste0("enter replacement for ", nm, ": "))
-        if(rep == ""){ rep <- misspelledWords[[nm]]}
-        message("")
-
-        ret <- data.frame(lapply(inputDF, function(x){
-                                    gsub(pattern = nm,
-                                    replacement = rep,
-                                    x)}))
-        colnames(ret) <- colnames(inputDF)
-
-        if(!is.null(outFile)){
-            codeLn <- paste0("\ndata.frame(lapply(inputDF, function(x){ gsub(pattern = '",
-                             nm, "', replacement = '", rep, "', x) }))")
-            cat(codeLn, file = outFile, append = TRUE)
-        }
-    }
-
-    return(ret)
-}
 
 #' @title Interactively check spelling against dictionary and ImmuneSpace-specific words
 #'
@@ -181,18 +144,18 @@ interactiveSpellCheck.vector <- function(inputVector, vectorName, outputDir){
     misspelledWords <- checkSpelling(inputVector)
 
     # do findReplace
-    tmpVec <- InteractiveFindReplace(misspelledWords,
-                                     inputVector,
-                                     outFile)
+    tmpVec <- InteractiveFindReplace.vector(misspelledWords,
+                                            inputVector,
+                                            outFile)
 
     # run checkByContext
     message("---- Running Context Check ---- \n")
     contextWords <- checkByContext(tmpVec) # fix to not flag regular words like mosquito
 
     # do findReplace
-    resVec <- InteractiveFindReplace(contextWords,
-                                     tmpVec,
-                                     outFile)
+    resVec <- InteractiveFindReplace.vector(contextWords,
+                                            tmpVec,
+                                            outFile)
 
     # Add newlines in case wrapped in sapply statement
     cat("\n\n", file = outFile, append = TRUE)
@@ -203,59 +166,90 @@ interactiveSpellCheck.vector <- function(inputVector, vectorName, outputDir){
 
 }
 
+#' @title Interactively find and replace problematic words in a data frame
+#'
+#' @description For each word in the output list from checkSpelling()
+#'     find the word in the inputVector and allow the user to enter a
+#'     replacement word
+#'
+#' @param misspelledWords named list of problematic words and suggested replacements
+#' @param inputDF character vector
+#' @param outFile filepath for where to append lines of code
+#' @export
+InteractiveFindReplace.df <- function(misspelledWords, inputDF, outFile = NULL){
+  ret <- inputDF
+  message("NOTE: leaving the replacement field blank means do not replace.")
+  
+  for( nm in names(misspelledWords) ){
+    message(paste0("word not found: ", nm))
+    message("Possible suggestions: ")
+    print(misspelledWords[[nm]])
+    rep <- readline(prompt = paste0("enter replacement for ", nm, ": "))
+    if(rep == ""){ rep <- misspelledWords[[nm]]}
+    message("")
+    
+    ret <- data.frame(lapply(inputDF, function(x){ # need to deal with case issues
+      gsub(pattern = nm,
+           replacement = rep,
+           x)}))
+    colnames(ret) <- colnames(inputDF)
+    
+    if(!is.null(outFile)){
+      codeLn <- paste0("\ndata.frame(lapply(inputDF, function(x){ gsub(pattern = '",
+                       nm, "', replacement = '", rep, "', x) }))")
+      cat(codeLn, file = outFile, append = TRUE)
+    }
+  }
+  
+  return(ret)
+}
+
 #' @title Interactively check spelling against dictionary and ImmuneSpace-specific words
 #'
-#' @description Given an input vector and output directory, the user may
+#' @description Given an input dataframe and output directory, the user may
 #'     correct words that are not found in a standard dictionary or a
 #'     current list of ImmuneSpace specific terms.
 #'
 #' @param inputDF dataframe, only character type will be worked on
-#' @param vectorName name of vector for use in output R doc
-#' @param outFile filepath for where to append lines of code
+#' @param outputDir filepath for where to append lines of code
+#' @param dfName name of df for use in output R doc, default NULL uses "templateName" attribute
 #' @export
-interactiveSpellCheck.df <- function(inputDF, vectorName, outputDir){
-
+interactiveSpellCheck.df <- function(inputDF, outputDir, dfName = NULL){
+    
+    if(is.null(dfName)){ dfName <- attr(inputDF, "templateName")}
+  
     # Want file to be executable
-    outFile <- paste0(outputDir, "/", vectorName, ".R")
+    outFile <- paste0(outputDir, "/", dfName, ".R")
 
     # write first lines of file
-    header <- paste0("# Changes made to ", vectorName, " using interactiveSpellCheck() \n",
+    header <- paste0("# Changes made to ", dfName, " using interactiveSpellCheck() \n",
                      "# at ", Sys.time(), "\n")
     cat(header, file = outFile, append = TRUE)
 
     # get all unique words from entire DF into one vector
     words <- unique(unlist(apply(inputDF, 2, vec2Words)))
 
-    # Run vector through checkSpelling
+    # run regular spell-check first
+    message("---- Running Spell Check ---- \n")
     misspelledWords <- checkSpelling(words)
 
     # do InteractivefindReplace.DF ... creates named list of find:replace pairs and then iterates
-        # through findReplace after all are chosen
-
-    # run regular spell-check first
-    message("---- Running Spell Check ---- \n")
-    misspelledWords <- checkSpelling(inputVector)
-
-    # do findReplace in apply loop
-    tmpVec <- InteractiveFindReplace(misspelledWords,
-                                     inputVector,
-                                     outFile)
+    tmpDF <- InteractiveFindReplace.df(misspelledWords, inputDF, outFile)
 
     # run checkByContext
     message("---- Running Context Check ---- \n")
-    contextWords <- checkByContext(tmpVec) # fix to not flag regular words like mosquito
+    tmpWords <- unique(unlist(apply(tmpDF, 2, vec2Words)))
+    contextWords <- checkByContext(tmpWords) # fix to not flag regular words like mosquito
 
     # do findReplace
-    resVec <- InteractiveFindReplace(contextWords,
-                                     tmpVec,
-                                     outFile)
+    resDF <- InteractiveFindReplace.df(contextWords, tmpDF, outFile)
 
     # Add newlines in case wrapped in sapply statement
     cat("\n\n", file = outFile, append = TRUE)
 
-    names(resVec) <- vectorName
+    names(resDF) <- dfName
 
-    return(resVec)
+    return(resDF)
 }
 
 
