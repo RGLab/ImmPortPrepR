@@ -48,6 +48,7 @@ checkSpelling <- function(input){
 #' @param input character vector
 #' @importFrom stopwords stopwords
 #' @importFrom stringdist stringdist
+#' @importFrom SnowballC wordStem
 #' @export
 checkByContext <- function(input){
     # assume that user has run checkSpelling and no mis-spellings in input
@@ -77,7 +78,7 @@ checkByContext <- function(input){
     res <- sapply(words, USE.NAMES = T, function(x){
         # get string distances using OSA method
         dists <- stringdist::stringdist(SnowballC::wordStem(x), freqDF$stems)
-        poss <- freqDF$fullWord[ dists == min(dists) ]
+        poss <- as.vector(freqDF$fullWord[ dists == min(dists) ]) # get rid of levels
     })
 }
 
@@ -256,10 +257,10 @@ interactiveSpellCheck.df <- function(inputDF, outputDir, dfName = NULL){
     # do InteractivefindReplace.DF ... creates named list of find:replace pairs and then iterates
     tmpDF <- InteractiveFindReplace.df(misspelledWords, inputDF, outFile)
 
-    # run checkByContext
+    # run checkByContext to look at words that are in dictionary, but not accurate (e.g. mistyped)
     message("---- Running Context Check ---- \n")
-    chkdWords <- words[ !(words %in% names(misspelledWords)) ] # don't want to look at words already checked
-    contextWords <- checkByContext(chkdWords) # fix to not flag regular words like mosquito
+    chkdWords <- words[ !(words %in% names(misspelledWords)) ]
+    contextWords <- checkByContext(chkdWords)
 
     # do findReplace
     resDF <- InteractiveFindReplace.df(contextWords, tmpDF, outFile)

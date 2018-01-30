@@ -4,17 +4,17 @@
 \alias{interactiveSpellCheck.df}
 \title{Interactively check spelling against dictionary and ImmuneSpace-specific words}
 \usage{
-interactiveSpellCheck.df(inputDF, vectorName, outputDir)
+interactiveSpellCheck.df(inputDF, outputDir, dfName = NULL)
 }
 \arguments{
 \item{inputDF}{dataframe, only character type will be worked on}
 
-\item{vectorName}{name of vector for use in output R doc}
+\item{outputDir}{filepath for where to append lines of code}
 
-\item{outFile}{filepath for where to append lines of code}
+\item{dfName}{name of df for use in output R doc, default NULL uses "templateName" attribute}
 }
 \description{
-Given an input vector and output directory, the user may
+Given an input dataframe and output directory, the user may
     correct words that are not found in a standard dictionary or a
     current list of ImmuneSpace specific terms.
 }
