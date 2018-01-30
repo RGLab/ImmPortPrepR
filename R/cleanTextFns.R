@@ -2,14 +2,15 @@
 ###          HELPER FUNCTIONS           ###
 ###########################################
 
-# turn a character vector into a list of words
+# turn a character vector into a named list of words with the
+# original being the name/key and the value being the lowered / non-punctuation version
 vec2Words <- function(charVec){
-  charVec <- charVec[ !is.na(charVec) ] # rm NAs
+  charVec <- unique(charVec)
+  charVec <- charVec[ !is.na(charVec) ]
   charVec <- gsub("[[:punct:]]|\\d+", " ", charVec) # rm all punctuation and digits
   charVec <- gsub("\\s{2,}", " ", charVec) # rm extra spaces
-  charVec <- unique(tolower(charVec)) # want unique within vector b/c comparing across sdy
   words <- unlist(strsplit(charVec, " ")) # make list of words
-  words <- words[ nchar(words) > 2 ] # not trying to work with chopped up modifers e.g. IL or cd
+  words <- words[ nchar(words) > 1 ]
 }
 
 ###########################################
@@ -52,12 +53,31 @@ checkByContext <- function(input){
     # assume that user has run checkSpelling and no mis-spellings in input
     # so this looks for issues like "does" in place of "doses"
     # TODO: take closer look at stopwords!
-    words <- unique(vec2Words(input))
-    words <- words[ !(words %in% stopwords(source = "smart")) ] # remove stopwords / non-analytical words
+
+    if( length(input) == 1 ){
+        words <- unique(vec2Words(input))
+    }else{
+        words <- input
+    }
+
+    # for ease of use
+    freqDF <- data.frame(R2i::ISFreqsAll, stringsAsFactors = F)
+    colnames(freqDF) <- c("fullWord", "frequency")
+
+    # remove non-analytical words
+    names(words) <- words <- words[ !(words %in% stopwords::stopwords(source = "smart")) ]
+    words <- tolower(words)
     words <- words[ !(words %in% names(R2i::ISFreqsAll)) ] # rm words that are in IS dbase
-    res <- sapply(words, function(x){
-        dists <- stringdist(x, names(R2i::ISFreqsAll)) # get string distances using OSA method
-        poss <- names(R2i::ISFreqsAll)[ dists == min(dists) ]
+
+    # Make DF for relating stems and most likely full words
+    freqDF$stems <- SnowballC::wordStem(names(R2i::ISFreqsAll))
+    freqDF <- freqDF[ order(freqDF$stems, -freqDF$frequency), ]
+
+    # find closest stems and return possible fullwords in frequency order
+    res <- sapply(words, USE.NAMES = T, function(x){
+        # get string distances using OSA method
+        dists <- stringdist::stringdist(SnowballC::wordStem(x), freqDF$stems)
+        poss <- freqDF$fullWord[ dists == min(dists) ]
     })
 }
 
@@ -94,7 +114,7 @@ InteractiveFindReplace.vector <- function(misspelledWords, inputVector, outFile 
         message("Possible suggestions: ")
         print(misspelledWords[[nm]])
         rep <- readline(prompt = paste0("enter replacement for ", nm, ": "))
-        if(rep == ""){ rep <- misspelledWords[[nm]]}
+        if(rep == ""){ rep <- nm }
         message("")
 
         ret <- gsub(pattern = nm, replacement = rep, x = ret)
@@ -177,30 +197,30 @@ interactiveSpellCheck.vector <- function(inputVector, vectorName, outputDir){
 #' @param outFile filepath for where to append lines of code
 #' @export
 InteractiveFindReplace.df <- function(misspelledWords, inputDF, outFile = NULL){
-  ret <- inputDF
   message("NOTE: leaving the replacement field blank means do not replace.")
-  
-  for( nm in names(misspelledWords) ){
-    message(paste0("word not found: ", nm))
-    message("Possible suggestions: ")
-    print(misspelledWords[[nm]])
-    rep <- readline(prompt = paste0("enter replacement for ", nm, ": "))
-    if(rep == ""){ rep <- misspelledWords[[nm]]}
-    message("")
-    
-    ret <- data.frame(lapply(inputDF, function(x){ # need to deal with case issues
-      gsub(pattern = nm,
-           replacement = rep,
-           x)}))
-    colnames(ret) <- colnames(inputDF)
-    
-    if(!is.null(outFile)){
-      codeLn <- paste0("\ndata.frame(lapply(inputDF, function(x){ gsub(pattern = '",
-                       nm, "', replacement = '", rep, "', x) }))")
-      cat(codeLn, file = outFile, append = TRUE)
-    }
+
+  ret <- inputDF
+  for(nm in names(misspelledWords)){
+      message(paste0("word not found: ", nm))
+      message("Possible suggestions: ")
+      print(misspelledWords[[nm]])
+      rep <- readline(prompt = paste0("enter replacement for ", nm, ": "))
+      if(rep == ""){ rep <- nm }
+      message("")
+
+      ret <- data.frame(lapply(ret, function(x){ # need to deal with case issues
+          gsub(pattern = nm,
+               replacement = rep,
+               x)}))
+      colnames(ret) <- colnames(inputDF)
+
+      if(!is.null(outFile)){
+          codeLn <- paste0("\ndata.frame(lapply(inputDF, function(x){ gsub(pattern = '",
+                           nm, "', replacement = '", rep, "', x) }))")
+          cat(codeLn, file = outFile, append = TRUE)
+      }
   }
-  
+
   return(ret)
 }
 
@@ -215,9 +235,9 @@ InteractiveFindReplace.df <- function(misspelledWords, inputDF, outFile = NULL){
 #' @param dfName name of df for use in output R doc, default NULL uses "templateName" attribute
 #' @export
 interactiveSpellCheck.df <- function(inputDF, outputDir, dfName = NULL){
-    
+
     if(is.null(dfName)){ dfName <- attr(inputDF, "templateName")}
-  
+
     # Want file to be executable
     outFile <- paste0(outputDir, "/", dfName, ".R")
 
@@ -238,8 +258,8 @@ interactiveSpellCheck.df <- function(inputDF, outputDir, dfName = NULL){
 
     # run checkByContext
     message("---- Running Context Check ---- \n")
-    tmpWords <- unique(unlist(apply(tmpDF, 2, vec2Words)))
-    contextWords <- checkByContext(tmpWords) # fix to not flag regular words like mosquito
+    chkdWords <- words[ !(words %in% names(misspelledWords)) ] # don't want to look at words already checked
+    contextWords <- checkByContext(chkdWords) # fix to not flag regular words like mosquito
 
     # do findReplace
     resDF <- InteractiveFindReplace.df(contextWords, tmpDF, outFile)
