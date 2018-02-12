@@ -4,6 +4,7 @@ language: R
 warnings_are_errors: false
 sudo: false
 cache: packages
+use_bioc: true
 notifications:
   email: false
   slack:

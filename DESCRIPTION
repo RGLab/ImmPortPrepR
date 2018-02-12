@@ -11,11 +11,11 @@ Authors@R: c(person("Evan", "Henrich", role = "aut"),
 Description: R2i contains functions that allow users to transform semi-standardized
     R data into the csv templates required for ImmPort Data Submission and validate
     these csvs using ImmPort's validator criteria.
+biocViews: dataImport, Infrastructure
 URL: https://github.com/RGLab/R2i
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-biocViews: dataImport, Infrastructure
 Imports: hunspell,
     stopwords,
     stringdist,
