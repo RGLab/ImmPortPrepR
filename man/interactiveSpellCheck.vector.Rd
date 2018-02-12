@@ -11,7 +11,7 @@ interactiveSpellCheck.vector(inputVector, vectorName, outputDir)
 
 \item{vectorName}{name of vector for use in output R doc}
 
-\item{outFile}{filepath for where to append lines of code}
+\item{outputDir}{filepath for where to append lines of code}
 }
 \description{
 Given an input vector and output directory, the user may

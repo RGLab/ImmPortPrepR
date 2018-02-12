@@ -4,12 +4,14 @@
 \alias{geo2ImmPort}
 \title{Output ImmPort-compliant tsv files for gene expression matrices from GEO}
 \usage{
-geo2ImmPort(geoGSE, outputFile = NULL)
+geo2ImmPort(geoGSE, outputDir = NULL, stdNorm = TRUE)
 }
 \arguments{
 \item{geoGSE}{string, GEO Series accession}
 
-\item{outputFile}{string, filepath for output. default is NULL.}
+\item{outputDir}{string, filepath for output. default is NULL.}
+
+\item{stdNorm}{boolean, standardize and normalize exprMx.}
 }
 \description{
 Given a GEO Series accession, geo2ImmPort will output a

@@ -114,7 +114,7 @@ checkFormat <- function(df, templateInfo, ImmPortTemplateName, quiet) {
 
   res <- sapply(seq(1:dim(df)[[2]]), function(index) {
     metaByIdx <- templateInfo[index, ]
-    res <- R2i:::chkLookupVals(metaByIdx, df[,index])
+    res <- chkLookupVals(metaByIdx, df[,index])
     if( quiet == FALSE ){
       if (metaByIdx$pv == TRUE && res == FALSE) {
         message("'", ImmPortTemplateName,
@@ -159,18 +159,18 @@ checkTemplate <- function(df, chkTypes = TRUE, quiet = TRUE) {
       stop("'templateName' attribute is not present. Please set with attr().")
   }
 
-  templateInfo <- R2i:::getSingleTemplate(ImmPortTemplateName) # for easier debugging
+  templateInfo <- getSingleTemplate(ImmPortTemplateName) # for easier debugging
 
   # return object
   ret <- list()
 
   # template checks
-  ret$class <- R2i:::checkClass(df, ImmPortTemplateName, quiet)
-  ret$dim <- R2i:::checkDim(df, templateInfo, ImmPortTemplateName, quiet)
-  ret$colnames <- R2i:::checkColnames(df, templateInfo, ImmPortTemplateName, quiet)
+  ret$class <- checkClass(df, ImmPortTemplateName, quiet)
+  ret$dim <- checkDim(df, templateInfo, ImmPortTemplateName, quiet)
+  ret$colnames <- checkColnames(df, templateInfo, ImmPortTemplateName, quiet)
 
   if(chkTypes == TRUE){
-    ret$types <- R2i:::checkTypes(df, templateInfo, ImmPortTemplateName, quiet)
+    ret$types <- checkTypes(df, templateInfo, ImmPortTemplateName, quiet)
   }
 
 
@@ -185,11 +185,11 @@ checkTemplate <- function(df, chkTypes = TRUE, quiet = TRUE) {
     }
   }
 
-  ret$required <- R2i:::checkRequired(df, templateInfo, ImmPortTemplateName, quiet)
+  ret$required <- checkRequired(df, templateInfo, ImmPortTemplateName, quiet)
 
   # format check using lookups
   if (any(templateInfo$pv | templateInfo$cv)) {
-    ret$format <- R2i:::checkFormat(df, templateInfo, ImmPortTemplateName, quiet)
+    ret$format <- checkFormat(df, templateInfo, ImmPortTemplateName, quiet)
   }
 
   # Feedback

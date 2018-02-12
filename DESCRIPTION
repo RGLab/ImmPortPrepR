@@ -21,7 +21,11 @@ Imports: hunspell,
     SnowballC,
     Rlabkey,
     utils,
-    data.table
+    data.table,
+    GEOquery,
+    preprocessCore,
+    jsonlite,
+    plyr
 Suggests: testthat,
     covr
 RoxygenNote: 6.0.1

@@ -11,6 +11,7 @@
 #' @param blocks a named list of the 9 data frames that comprise basic study design template
 #' @param outputDir filepath to directory for output csv
 #' @param validate boolean determining whether to use ImmPort validation scripts on output csv
+#' @param ... other arguments to pass down
 #' @export
 transform_basicStudyDesign <- function(blocks,
                                        outputDir = NULL,

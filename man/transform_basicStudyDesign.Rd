@@ -12,6 +12,8 @@ transform_basicStudyDesign(blocks, outputDir = NULL, validate = TRUE, ...)
 \item{outputDir}{filepath to directory for output csv}
 
 \item{validate}{boolean determining whether to use ImmPort validation scripts on output csv}
+
+\item{...}{other arguments to pass down}
 }
 \description{
 Based on ImmPort's specifications, the function validates
