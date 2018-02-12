@@ -26,7 +26,8 @@ Imports: hunspell,
     GEOquery,
     preprocessCore,
     jsonlite,
-    plyr
+    plyr,
+    Biobase
 Suggests: testthat,
     covr
 RoxygenNote: 6.0.1
