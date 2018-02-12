@@ -15,6 +15,7 @@ URL: https://github.com/RGLab/R2i
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
+biocViews: dataImport, Infrastructure
 Imports: hunspell,
     stopwords,
     stringdist,
