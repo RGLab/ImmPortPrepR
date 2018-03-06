@@ -4,10 +4,10 @@
 \alias{geo2ImmPort}
 \title{Output ImmPort-compliant tsv files for gene expression matrices from GEO}
 \usage{
-geo2ImmPort(geoGSE, outputDir = NULL, stdNorm = TRUE)
+geo2ImmPort(softGzPath, outputDir = NULL, stdNorm = TRUE)
 }
 \arguments{
-\item{geoGSE}{string, GEO Series accession}
+\item{softGzPath}{string, GEO .soft.gz local filepath}
 
 \item{outputDir}{string, filepath for output. default is NULL.}
 
