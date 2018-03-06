@@ -7,7 +7,6 @@
 #' @param stdNorm boolean, standardize and normalize exprMx.
 #' @importFrom GEOquery getGEO getGEOfile
 #' @importFrom preprocessCore normalize.quantiles
-#' @import ImmuneSpaceR
 #' @export
 geo2ImmPort <- function(softGzPath, outputDir = NULL, stdNorm = TRUE){
 
@@ -38,7 +37,8 @@ geo2ImmPort <- function(softGzPath, outputDir = NULL, stdNorm = TRUE){
     # write to outputFile
     if(!is.null(outputDir)){
         write.table(exprs,
-                    file = paste0(outputDir, "/", geoGSE, "_exprs.txt"),
+                    file = paste0(outputDir, "/",
+                                  tmp@header$geo_accession, "_exprs.txt"),
                     sep = "\t",
                     quote = FALSE,
                     row.names = TRUE)
