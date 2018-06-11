@@ -45,7 +45,15 @@ subsetBSD <- function(tblName, bsdDF){
 #' @export
 parseBSD <- function(filePath){
   # read in csv, txt
-  bsdDF <- data.table::fread(filePath, fill = T, stringsAsFactors = F)
+  type <- tools::file_ext(filePath)
+  if(type == "txt"){
+      bsdDF <- read.table(filePath, fill = T, stringsAsFactors = F, sep = "\t")
+  }else if(type == "csv"){
+      bsdDF <- read.csv(filePath, fill = T, stringsAsFactors = F)
+  }else{
+      stop("File extension unrecognized.  Must be either txt or csv.")
+  }
+
 
   # break up into segments and generate return object
   tbls <- c("study",
@@ -59,6 +67,5 @@ parseBSD <- function(filePath){
             "study_pubmed")
 
   res <- sapply(tbls, subsetBSD, bsdDF = bsdDF )
-
 }
 
