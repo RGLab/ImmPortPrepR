@@ -5,6 +5,9 @@
 write_header <- function(name, file, version = get_version(), extras = FALSE) {
   schema_version <- paste("Schema Version", version)
 
+  # Update in v3.18
+  name <- ifelse(name == "experimentSamples.RNA_Sequencing", "rna_sequencing", name)
+
   cat(name, schema_version,
       file = file, sep = "\t", fill = TRUE)
   cat("Please do not delete or edit this column",
@@ -32,7 +35,7 @@ write_table <- function(table, file, addColumnName = TRUE) {
   if (addColumnName) {
     table <- cbind(data.frame("Column Name" = "", check.names = FALSE), table)
   }
-  
+
   suppressWarnings(
     write.table(table, file = file, append = TRUE, quote = FALSE,
                 sep = "\t", row.names = FALSE, na = "")
@@ -53,11 +56,11 @@ write_list <- function(list, file) {
 
 write_emptyTable <- function(varNames, file, addColumnName = TRUE) {
   stopifnot(is.character(varNames))
-  
+
   if (addColumnName) {
     varNames <- c("Column Name" = "", varNames)
   }
-  
+
   cat(varNames, file = file, sep = "\t", fill = TRUE, append = TRUE)
 }
 
@@ -79,12 +82,14 @@ write_txt <- function(name, blocks, file) {
 
   addColumnName <- name != "basic_study_design"
   extras <- name == "basic_study_design"
-  
+
   write_header(name, file, extras = extras)
 
   lapply(names(blocks), function(blockName) {
-    write_line(file)
-    write_blockName(blockName, file)
+    if( name == "basic_study_design" ){
+        write_line(file)
+        write_blockName(blockName, file)
+    }
 
     block <- blocks[[blockName]]
     blockClass <- class(block)[1]
