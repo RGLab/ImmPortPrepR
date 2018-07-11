@@ -8,20 +8,20 @@
 #' a data frame holding meta or assay data and then outputs a csv
 #' for submission to the database.
 #'
-#' @param dataName name of the data frame object to retrieve from the global environment
+#' @param df dataframe holding non-header template information
 #' @param outputDir filepath to directory for output csv
 #' @param validate boolean determining whether to use ImmPort validation scripts on output csv
 #' @export
-transform_Data <- function(dataName,
+transform_Data <- function(df,
                            outputDir = NULL,
                            validate = TRUE){
 
+    dataName <- attr(df, 'templateName')
     if( !(dataName %in% unique(R2i::ImmPortTemplates$templateName)) ){
         stop(paste0(dataName, " is not an option for transformation."))
     }
 
     #----PreCheck DFs-------
-    df <- get(dataName, envir = globalenv())
     checkTemplate(df = df)
 
     #----Generate tsv output-----
