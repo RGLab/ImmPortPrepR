@@ -6,7 +6,11 @@ write_header <- function(name, file, version = get_version(), extras = FALSE) {
   schema_version <- paste("Schema Version", version)
 
   # Update in v3.18
-  name <- ifelse(name == "experimentSamples.RNA_Sequencing", "rna_sequencing", name)
+  if(name == "experimentSamples.RNA_Sequencing"){
+      name <- "rna_sequencing"
+  }else if(name == "reagents.Sequencing"){
+      name <- "sequencing_reagents"
+  }
 
   cat(name, schema_version,
       file = file, sep = "\t", fill = TRUE)

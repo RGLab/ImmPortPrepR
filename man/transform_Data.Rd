@@ -4,10 +4,10 @@
 \alias{transform_Data}
 \title{Transform R dataframe into ImmPort csv format for non-Basic Study Design templates}
 \usage{
-transform_Data(dataName, outputDir = NULL, validate = TRUE)
+transform_Data(df, outputDir = NULL, validate = TRUE)
 }
 \arguments{
-\item{dataName}{name of the data frame object to retrieve from the global environment}
+\item{df}{dataframe holding non-header template information}
 
 \item{outputDir}{filepath to directory for output csv}
 

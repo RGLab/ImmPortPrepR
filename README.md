@@ -20,30 +20,36 @@ Tools for preparing ImmPort Submission
 
 ### R
 
-* `transform_<templateName>.R` scripts take in semi-standard dataframes from user and generate tsv files in an output directory
-* `validate_<templateName>.R` scripts are used to test tsv files according to ImmPort's online validator tool.
-* `write.R` is a script that contains functions used in writing out ImmPort templates
-* `utils.R` contains general helper functions used throughout package
-* `LookupFns.R` has interactive functions to make it easy to find columns with lookups and allowed values.
-* `checkTemplate.R` has the quality control function `checkTemplate()`.
-* `getTemplateDF.R` is for the interactive `getTemplateDF()` function for creating a blank template.
-
+* Scripts for the public and helper functions
 
 ## Workflow
 
-### 1. Install package
+### 1. Setup of Accounts and Infrastructure
+
+* Create a login for ImmPort.org
+https://immport-user-admin.niaid.nih.gov:8443/registrationuser/registration
+
+* Create or get access to appropriate workspace on ImmPort.org
+Each study starts as a “workspace” where collaborators have permission to upload documents related 
+to the future study.  Workspaces are accessed via the “private” data icon on the immport home page.
+To create or get access to the workspace, connect with the ImmPort curation team.
+
+* Create a dataPackageR skeleton to hold your work in an R package.
+DataPackageR is a framework developed by Dr. Greg Finak in the Gottardo Lab to manage the input files, output files, and scripts associated with data processing to ensure reproducibility via versioning.  To learn more see: https://github.com/RGLab/DataPackageR
+
+### 2. Install R2i package
 
 ```
 devtools::install_github("RGlab/R2i")
 ```
 
-### 2. Load package 
+### 3. Load package 
 
 ```
 library(R2i)
 ```
 
-### 3. Work on MetaData
+### 4. Work on MetaData
 
 For each of the following templates, use the corresponding vignette to see examples of how to build,
 write out, and validate the ImmPort-ready tsv files.  These are the required common MetaData
@@ -52,13 +58,14 @@ correctly cross-referenced.  For example, the "basic_study_design" template need
 assigned in the "protocol" template, so it must be created after.
 
 1. protocols
-2. treatments
-3. basic_study_design
-4. subjects
-5. bioSamples
+2. basic_study_design
+3. subjects
+
 
 Other MetaData templates that may apply to your study (also in order for cross-referencing):
 
+* reagents
+* treatments
 * adverseEvents
 * interventions
 * assessments
@@ -67,11 +74,11 @@ Other MetaData templates that may apply to your study (also in order for cross-r
 * labTests_Results
 
 
-### 4. Work on AssayData
+### 5. Work on AssayData
 
-For each assay that was performed you will need to first create "Reagents" template and 
-then an "experimentSamples" template that references ReagentIDs.  For some, you will also 
-need a "results" template.
+For each assay that was performed you will need to first create "Reagents" and "treatment" templates.
+Then you will be able to generate an "experimentSamples" template that references User Defined Ids in
+your reagent and treatment templates.  For some, you will also need a "results" template.
 
 For example, if you did an ELISA assay, you would use the following templates:
 
@@ -80,6 +87,7 @@ For example, if you did an ELISA assay, you would use the following templates:
 * elisa_results
 
 Assays with result templates:
+
 * ELISA
 * ELISPOT
 * HAI
@@ -97,12 +105,17 @@ Assays without result templates:
 * Mass Spectrometry
 * Image Histology
 
-### 5. Create Zip File from Output Directory
+### 6. Upload Files to ImmPort via Aspera
 
-to create the zip file needed for the ImmPort Submission website, use:
-`zip(zipfile = "my_file_name", files = "output_directory/")`
+Upload these templates to ImmPort using the `Validate Data` tab within the appropriate ImmPort workspace.
+You will need to login and navigate to the Private data section of the website, then look for `Validate Data` in the top right.
 
-### 6. Upload the Zip File to ImmPort
+* Templates will have the user-defined IDs "digested" and then new unique IDs will be given for things like Subject, Planned Visit, etc. Therefore, it is important to do the meta-data first so you have the ImmPort
+digested IDs that should be referenced instead of the User-Defined IDs.
+
+* To see previous validation attempts in validation history you have to press "search" button otherwise the table of results will be blank.
+
+* If your validation fails, then you can see the report by clicking on the Validation Ticket Details in the validation history and looking for the “Download Database Report” link next to “rejected validation” in the status row.
 
 https://immport.niaid.nih.gov/upload/data/uploadDataMain#!/uploadData
 

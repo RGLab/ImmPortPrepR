@@ -1,4 +1,4 @@
-basic_study_design	Schema Version 3.15
+basic_study_design	Schema Version 3.18
 Please do not delete or edit this column
 Validation Level	Standard
 Column Name

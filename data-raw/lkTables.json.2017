@@ -73,11 +73,6 @@
     "link" : "http://bioportal.bioontology.org/ontologies/OBI?p=classes&conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FPATO_0000011",
     "description" : "Age Event is some Other value not in CV Terms.",
     "id" : ""
-  }, {
-    "name" : "Postmenstrual age",
-    "link" : "http://purl.obolibrary.org/obo/NCIT_C114090",
-    "description" : "Best estimate of the first day of last menstrual period to birth plus time elapsed from day of birth. [def-source: NCI][attr: NICHD]",
-    "id" : ""
   } ]
 }, {
   "name" : "lk_amount_unit",
@@ -250,50 +245,15 @@
     "description" : "-",
     "id" : "174"
   }, {
-    "name" : "B7 ; CD80 ; ANA866",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/941",
-    "description" : "T-lymphocyte activation antigen CD80 (human)",
-    "id" : "941"
-  }, {
-    "name" : "B7-2 ; CD86 ; ANA868",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/942",
-    "description" : "T-lymphocyte activation antigen CD86 (human)",
-    "id" : "942"
-  }, {
     "name" : "BAFF ; TNFSF13B ; ANA241",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=10673",
     "description" : "tumor necrosis factor ligand superfamily member 13B",
     "id" : "10673"
   }, {
-    "name" : "BCL2 ; BCL2 ; ANA904",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/596",
-    "description" : "Bcl2-associated agonist of cell death (human)",
-    "id" : "596"
-  }, {
-    "name" : "BDCA1 ; CD1C ; ANA895",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/911",
-    "description" : "T-cell surface glycoprotein CD1c (human)",
-    "id" : "911"
-  }, {
-    "name" : "BDCA2, CD303 ; CLEC4C ; ANA870",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/170482",
-    "description" : "C-type lectin domain family 4 member C (human)",
-    "id" : "170482"
-  }, {
-    "name" : "BDCA3 ; THBD ; ANA894",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/7056",
-    "description" : "thrombomodulin (human)",
-    "id" : "7056"
-  }, {
     "name" : "BDNF ; BDNF ; ANA701",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=627",
     "description" : "-",
     "id" : "627"
-  }, {
-    "name" : "BOB ; GPR15 ; ANA896",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/2838",
-    "description" : "G-protein coupled receptor 15 (human)",
-    "id" : "2838"
   }, {
     "name" : "CCL1 ; CCL1 ; ANA2",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6346",
@@ -304,6 +264,16 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20290",
     "description" : "C-C motif chemokine 1",
     "id" : "20290"
+  }, {
+    "name" : "Ccl11 ; Ccl11 ; ANA477",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20292",
+    "description" : "eotaxin",
+    "id" : "20292"
+  }, {
+    "name" : "CCL13 ; CCL13 ; ANA4",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6357",
+    "description" : "C-C motif chemokine 13",
+    "id" : "6357"
   }, {
     "name" : "CCL14 ; CCL14 ; ANA5",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6358",
@@ -339,6 +309,11 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=24047",
     "description" : "C-C motif chemokine 19",
     "id" : "24047"
+  }, {
+    "name" : "CCL2 ; CCL2 ; ANA11",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6347",
+    "description" : "C-C motif chemokine 2",
+    "id" : "6347"
   }, {
     "name" : "Ccl2 ; Ccl2 ; ANA480",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20296",
@@ -434,6 +409,11 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=390788",
     "description" : "-",
     "id" : "390788"
+  }, {
+    "name" : "Ccl4 ; Ccl4 ; ANA489",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20303",
+    "description" : "C-C motif chemokine 4",
+    "id" : "20303"
   }, {
     "name" : "CCL4L1 ; CCL4L1 ; ANA25",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=388372",
@@ -555,130 +535,40 @@
     "description" : "C-C chemokine receptor type 8",
     "id" : "12776"
   }, {
+    "name" : "CCR9 ; CCR9 ; ANA39",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=10803",
+    "description" : "C-C chemokine receptor type 9",
+    "id" : "10803"
+  }, {
     "name" : "Ccr9 ; Ccr9 ; ANA502",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=12769",
     "description" : "C-C chemokine receptor type 9",
     "id" : "12769"
-  }, {
-    "name" : "CCR9 ; CCR9 ; ANA824",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/10803",
-    "description" : "C-C chemokine receptor type 9 (human)",
-    "id" : "10803"
-  }, {
-    "name" : "CCRL1 ; CX3CR1 ; ANA59",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=1524",
-    "description" : "CX3C chemokine receptor 1",
-    "id" : "1524"
-  }, {
-    "name" : "CD103 ; ITGAE ; ANA877",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3682",
-    "description" : "integrin alpha-E (human)",
-    "id" : "3682"
-  }, {
-    "name" : "CD107a ; LAMP1 ; ANA887",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3916",
-    "description" : "lysosome-associated membrane glycoprotein 1 (human)",
-    "id" : "3916"
-  }, {
-    "name" : "CD11b ; ITGAM ; ANA878",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3684",
-    "description" : "integrin alpha-M (human)",
-    "id" : "3684"
   }, {
     "name" : "CD11c ; ITAX ; ANA814",
     "link" : "",
     "description" : "integrin alpha-X",
     "id" : "3687"
   }, {
-    "name" : "CD123 ; IL3RA ; ANA173",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3563",
-    "description" : "interleukin-3 receptor class 2 alpha chain",
-    "id" : "3563"
-  }, {
-    "name" : "CD127 ; IL7R ; ANA182",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3575",
-    "description" : "interleukin-7 receptor subunit alpha",
-    "id" : "3575"
-  }, {
-    "name" : "CD138 ; SDC1 ; ANA891",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/6382",
-    "description" : "syndecan-1 (human)",
-    "id" : "6382"
-  }, {
     "name" : "CD14 ; CD14 ; ANA804",
     "link" : "",
     "description" : "CD14 molecule",
     "id" : "929"
-  }, {
-    "name" : "CD15 ; FUT4 ; ANA875",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/2526",
-    "description" : "alpha-(1,3)-fucosyltransferase FUT4 (human)",
-    "id" : "2526"
-  }, {
-    "name" : "CD152 ; CTLA4 ; ANA871",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/1493",
-    "description" : "cytotoxic T-lymphocyte protein 4 (human)",
-    "id" : "1493"
-  }, {
-    "name" : "CD154 ; CD40LG ; ANA43",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=959",
-    "description" : "tumor necrosis factor ligand superfamily member 5",
-    "id" : "959"
-  }, {
-    "name" : "CD158A ; KIR2DL1 ; ANA879",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3802",
-    "description" : "killer cell immunoglobulin-like receptor 2DL1 (human)",
-    "id" : "3802"
-  }, {
-    "name" : "CD158B1 ; KIR2DL2 ; ANA880",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3803",
-    "description" : "killer cell immunoglobulin-like receptor 2DL2 (human)",
-    "id" : "3803"
-  }, {
-    "name" : "CD158B2 ; KIR2DL3 ; ANA881",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3804",
-    "description" : "killer cell immunoglobulin-like receptor 2DL3 (human)",
-    "id" : "3804"
-  }, {
-    "name" : "CD158E1 ; KIR3DL1 ; ANA882",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3811",
-    "description" : "killer cell immunoglobulin-like receptor 3DL1 (human)",
-    "id" : "3811"
   }, {
     "name" : "CD16 ; FCG3A ; ANA811",
     "link" : "",
     "description" : "low affinity immunoglobulin gamma Fc region receptor III-A",
     "id" : "2214"
   }, {
-    "name" : "CD161 ; KLRB1 ; ANA883",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3820",
-    "description" : "killer cell lectin-like receptor subfamily B member 1 (human)",
-    "id" : "3820"
-  }, {
     "name" : "CD19 ; CD19 ; ANA805",
     "link" : "",
     "description" : "CD19 molecule",
     "id" : "930"
   }, {
-    "name" : "CD2 ; CD2 ; ANA860",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/914",
-    "description" : "T-cell surface antigen CD2 (human)",
-    "id" : "914"
-  }, {
     "name" : "CD20 ; CD20 ; ANA806",
     "link" : "",
     "description" : "membrane-spanning 4-domains subfamily A member 1",
     "id" : "931"
-  }, {
-    "name" : "CD213A1 ; IL13RA1 ; ANA128",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3597",
-    "description" : "interleukin-13 receptor subunit alpha-1",
-    "id" : "3597"
-  }, {
-    "name" : "CD213A2 ; IL13RA2 ; ANA129",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3598",
-    "description" : "interleukin-13 receptor subunit alpha-2",
-    "id" : "3598"
   }, {
     "name" : "CD24 ; CD24 ; ANA807",
     "link" : "",
@@ -695,30 +585,10 @@
     "description" : "CD27 molecule",
     "id" : "21940"
   }, {
-    "name" : "CD278 ; ICOS ; ANA898",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/29851",
-    "description" : "ICOS ligand (human)",
-    "id" : "29851"
-  }, {
-    "name" : "CD28 ; CD28 ; ANA863",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/940",
-    "description" : "T-cell-specific surface glycoprotein CD28 (human)",
-    "id" : "940"
-  }, {
-    "name" : "CD295 ; LEPR ; ANA899",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3953",
-    "description" : "leptin receptor (human)",
-    "id" : "3953"
-  }, {
     "name" : "CD3 ; CD3E ; ANA809",
     "link" : "",
     "description" : "CD3 epsilon",
     "id" : "916"
-  }, {
-    "name" : "CD314 ; KLRK1 ; ANA886",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/22914",
-    "description" : "NKG2-D type II integral membrane protein (human)",
-    "id" : "22914"
   }, {
     "name" : "CD38 ; CD38 ; ANA808",
     "link" : "",
@@ -745,60 +615,25 @@
     "description" : "tumor necrosis factor receptor superfamily member 5",
     "id" : "21939"
   }, {
+    "name" : "CD40LG ; CD40LG ; ANA43",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=959",
+    "description" : "tumor necrosis factor ligand superfamily member 5",
+    "id" : "959"
+  }, {
     "name" : "Cd40lg ; Cd40lg ; ANA506",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=21947",
     "description" : "tumor necrosis factor ligand superfamily member 5",
     "id" : "21947"
-  }, {
-    "name" : "CD43 ; SPN ; ANA893",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/6693",
-    "description" : "leukosialin (human)",
-    "id" : "6693"
   }, {
     "name" : "CD45RA ; PTPRC ; ANA816",
     "link" : "",
     "description" : "receptor-type tyrosine-protein phosphatase C isoform CD45RA",
     "id" : "5788"
   }, {
-    "name" : "CD45RO ; PTPRC ; ANA822",
-    "link" : "",
-    "description" : "receptor-type tyrosine-protein phosphatase C isoform CD45RO",
-    "id" : "5788"
-  }, {
-    "name" : "CD49 ; ITGA6 ; ANA876",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3655",
-    "description" : "integrin alpha-6 (human)",
-    "id" : "3655"
-  }, {
     "name" : "CD56 ; NCAM1 ; ANA815",
     "link" : "",
     "description" : "neural cell adhesion molecule 1",
     "id" : "4684"
-  }, {
-    "name" : "CD57 ; B3GAT1 ; ANA823",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/27087",
-    "description" : "galactosylgalactosylxylosylprotein 3-beta-glucuronosyltransferase 1 (human)",
-    "id" : "27087"
-  }, {
-    "name" : "CD62L ; SELE ; ANA712",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6401",
-    "description" : "-",
-    "id" : "6401"
-  }, {
-    "name" : "CD63 ; CD63 ; ANA902",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/967",
-    "description" : "CD63 antigen (human)",
-    "id" : "967"
-  }, {
-    "name" : "CD64 ; FCGR1A ; ANA873",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/2209",
-    "description" : "high affinity immunoglobulin gamma Fc receptor I (human)",
-    "id" : "2209"
-  }, {
-    "name" : "CD69 ; CD69 ; ANA865",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/969",
-    "description" : "early activation antigen CD69 (human)",
-    "id" : "969"
   }, {
     "name" : "CD70 ; CD70 ; ANA44",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=970",
@@ -815,26 +650,6 @@
     "description" : "T-cell surface glycoprotein CD8 alpha chain",
     "id" : "925"
   }, {
-    "name" : "CD85J ; LILRB1 ; ANA888",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/10859",
-    "description" : "leukocyte immunoglobulin-like receptor subfamily B member 1 (human)",
-    "id" : "10859"
-  }, {
-    "name" : "CD94 ; KLRD1 ; ANA884",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3824",
-    "description" : "natural killer cells antigen CD94 (human)",
-    "id" : "3824"
-  }, {
-    "name" : "CD95 ; FAS ; ANA85",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=355",
-    "description" : "tumor necrosis factor receptor superfamily member 6",
-    "id" : "355"
-  }, {
-    "name" : "CENPB ; CENPB ; ANA821",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=1059",
-    "description" : "CENPB DNA-binding domain-containing protein 1",
-    "id" : "1059"
-  }, {
     "name" : "CKLF ; CKLF ; ANA45",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=51192",
     "description" : "chemokine-like factor",
@@ -844,11 +659,6 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=75458",
     "description" : "chemokine-like factor",
     "id" : "75458"
-  }, {
-    "name" : "CLA, CD162 ; SELPLG ; ANA903",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/6404",
-    "description" : "P-selectin glycoprotein ligand 1 (human)",
-    "id" : "6404"
   }, {
     "name" : "CLCF1 ; CLCF1 ; ANA46",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=23529",
@@ -965,15 +775,30 @@
     "description" : "C-C motif chemokine 27",
     "id" : "10850"
   }, {
+    "name" : "Cx3cl1 ; Cx3cl1 ; ANA521",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20312",
+    "description" : "fractalkine",
+    "id" : "20312"
+  }, {
     "name" : "Cx3cr1 ; Cx3cr1 ; ANA522",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=13051",
     "description" : "CX3C chemokine receptor 1",
     "id" : "13051"
   }, {
+    "name" : "CX3CR1 ; CX3CR1 ; ANA59",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=1524",
+    "description" : "CX3C chemokine receptor 1",
+    "id" : "1524"
+  }, {
     "name" : "Cxcl1 ; Cxcl1 ; ANA523",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=14825",
     "description" : "growth-regulated alpha protein",
     "id" : "14825"
+  }, {
+    "name" : "Cxcl10 ; Cxcl10 ; ANA524",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=15945",
+    "description" : "C-X-C motif chemokine 10",
+    "id" : "15945"
   }, {
     "name" : "Cxcl11 ; Cxcl11 ; ANA525",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=56066",
@@ -1135,11 +960,6 @@
     "description" : "C-X-C chemokine receptor type 6",
     "id" : "10663"
   }, {
-    "name" : "DC-SIGN1 ; CD209 ; ANA869",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/30835",
-    "description" : "CD209 antigen (human)",
-    "id" : "30835"
-  }, {
     "name" : "Ebi3 ; Ebi3 ; ANA541",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=50498",
     "description" : "interleukin-27 subunit beta",
@@ -1175,11 +995,6 @@
     "description" : "eotaxin",
     "id" : "6356"
   }, {
-    "name" : "Eotaxin ; Ccl11 ; ANA477",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20292",
-    "description" : "eotaxin",
-    "id" : "20292"
-  }, {
     "name" : "Epo ; Epo ; ANA544",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=13856",
     "description" : "erythropoietin",
@@ -1205,6 +1020,11 @@
     "description" : "tumor necrosis factor receptor superfamily member 6",
     "id" : "14102"
   }, {
+    "name" : "FAS ; FAS ; ANA85",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=355",
+    "description" : "tumor necrosis factor receptor superfamily member 6",
+    "id" : "355"
+  }, {
     "name" : "Fasl ; Fasl ; ANA547",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=14103",
     "description" : "fas ligand, TNF-like",
@@ -1225,12 +1045,12 @@
     "description" : "heparin-binding growth factor 1",
     "id" : "2246"
   }, {
-    "name" : "Fgfb ; Fgf2 ; ANA549",
+    "name" : "Fgf2 ; Fgf2 ; ANA549",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=14173",
     "description" : "fibroblast growth factor 2",
     "id" : "14173"
   }, {
-    "name" : "FGFB ; FGF2 ; ANA88",
+    "name" : "FGF2 ; FGF2 ; ANA88",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=2247",
     "description" : "fibroblast growth factor 2",
     "id" : "2247"
@@ -1260,16 +1080,6 @@
     "description" : "fms-related tyrosine kinase 3 ligand",
     "id" : "2323"
   }, {
-    "name" : "FOXP3 ; FOXP3 ; ANA874",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/50943",
-    "description" : "forkhead box protein P3 (human)",
-    "id" : "50943"
-  }, {
-    "name" : "Fractalkine ; Cx3cl1 ; ANA521",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20312",
-    "description" : "fractalkine",
-    "id" : "20312"
-  }, {
     "name" : "FRACTALKINE ; CX3CL1 ; ANA58",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6376",
     "description" : "fractalkine",
@@ -1289,11 +1099,6 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=1437",
     "description" : "granulocyte-macrophage colony-stimulating factor",
     "id" : "1437"
-  }, {
-    "name" : "GranB ; GZMB ; ANA897",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3002",
-    "description" : "granzyme B (human)",
-    "id" : "3002"
   }, {
     "name" : "GRO ; CXCL1 ; ANA60",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=2919",
@@ -1530,6 +1335,11 @@
     "description" : "interleukin-29",
     "id" : "282618"
   }, {
+    "name" : "IFNL2 ; IFNL2 ; ANA115",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=282616",
+    "description" : "interleukin-28A",
+    "id" : "282616"
+  }, {
     "name" : "Ifnl2 ; Ifnl2 ; ANA573",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=330496",
     "description" : "interleukin-28A",
@@ -1555,16 +1365,6 @@
     "description" : "interleukin-28 receptor alpha chain",
     "id" : "242700"
   }, {
-    "name" : "IgA1 ; IGHA1 ; ANA820",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3493",
-    "description" : "Ig alpha-1 chain C region",
-    "id" : "3493"
-  }, {
-    "name" : "IgA2 ; IGHA2 ; ANA819",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3494",
-    "description" : "Ig alpha-2 chain C region",
-    "id" : "3494"
-  }, {
     "name" : "IgD ; IGHD ; ANA813",
     "link" : "",
     "description" : "Ig delta chain C region",
@@ -1579,11 +1379,6 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3486",
     "description" : "-",
     "id" : "3486"
-  }, {
-    "name" : "IgM ; IGHM ; ANA817",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3507",
-    "description" : "immunoglobulin heavy constant mu",
-    "id" : "3507"
   }, {
     "name" : "IL10 ; IL10 ; ANA118",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3586",
@@ -1635,22 +1430,22 @@
     "description" : "interleukin-11 receptor subunit alpha",
     "id" : "16157"
   }, {
-    "name" : "IL12p35 ; IL12A ; ANA123",
+    "name" : "IL12A ; IL12A ; ANA123",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3592",
     "description" : "interleukin-12 subunit alpha",
     "id" : "3592"
   }, {
-    "name" : "Il12p35 ; Il12a ; ANA581",
+    "name" : "Il12a ; Il12a ; ANA581",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16159",
     "description" : "interleukin-12 subunit alpha",
     "id" : "16159"
   }, {
-    "name" : "IL12p40 ; IL12B ; ANA124",
+    "name" : "IL12B ; IL12B ; ANA124",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3593",
     "description" : "interleukin-12 subunit beta",
     "id" : "3593"
   }, {
-    "name" : "IL12p40 ; Il12b ; ANA582",
+    "name" : "Il12b ; Il12b ; ANA582",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16160",
     "description" : "interleukin-12 subunit beta",
     "id" : "16160"
@@ -1690,10 +1485,20 @@
     "description" : "interleukin-13",
     "id" : "16163"
   }, {
+    "name" : "IL13RA1 ; IL13RA1 ; ANA128",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3597",
+    "description" : "interleukin-13 receptor subunit alpha-1",
+    "id" : "3597"
+  }, {
     "name" : "Il13ra1 ; Il13ra1 ; ANA586",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16164",
     "description" : "interleukin-13 receptor subunit alpha-1",
     "id" : "16164"
+  }, {
+    "name" : "IL13RA2 ; IL13RA2 ; ANA129",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3598",
+    "description" : "interleukin-13 receptor subunit alpha-2",
+    "id" : "3598"
   }, {
     "name" : "Il13ra2 ; Il13ra2 ; ANA587",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16165",
@@ -2040,11 +1845,6 @@
     "description" : "interleukin-27 subunit alpha",
     "id" : "246779"
   }, {
-    "name" : "IL28A ; IFNL2 ; ANA115",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=282616",
-    "description" : "interleukin-28A",
-    "id" : "282616"
-  }, {
     "name" : "IL2RA ; IL2RA ; ANA163",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3559",
     "description" : "interleukin-2 receptor subunit alpha",
@@ -2129,6 +1929,11 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=26525",
     "description" : "interleukin-1 family member 5",
     "id" : "26525"
+  }, {
+    "name" : "IL3RA ; IL3RA ; ANA173",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3563",
+    "description" : "interleukin-3 receptor class 2 alpha chain",
+    "id" : "3563"
   }, {
     "name" : "Il3ra ; Il3ra ; ANA627",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16188",
@@ -2215,6 +2020,11 @@
     "description" : "interleukin-7",
     "id" : "16196"
   }, {
+    "name" : "IL7R ; IL7R ; ANA182",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3575",
+    "description" : "interleukin-7 receptor subunit alpha",
+    "id" : "3575"
+  }, {
     "name" : "Il7r ; Il7r ; ANA636",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16197",
     "description" : "interleukin-7 receptor subunit alpha",
@@ -2245,20 +2055,10 @@
     "description" : "interleukin-9 receptor",
     "id" : "16199"
   }, {
-    "name" : "IP-10 ; Cxcl10 ; ANA524",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=15945",
-    "description" : "C-X-C motif chemokine 10",
-    "id" : "15945"
-  }, {
     "name" : "IP-10 ; CXCL10 ; ANA61",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3627",
     "description" : "C-X-C motif chemokine 10",
     "id" : "3627"
-  }, {
-    "name" : "Ki67 ; MKI67 ; ANA889",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/4288",
-    "description" : "proliferation marker protein Ki-67 (human)",
-    "id" : "4288"
   }, {
     "name" : "KIT ; KIT ; ANA185",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=3815",
@@ -2330,6 +2130,16 @@
     "description" : "leukemia inhibitory factor receptor",
     "id" : "16880"
   }, {
+    "name" : "LTA ; LTA ; ANA192",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=4049",
+    "description" : "lymphotoxin-alpha",
+    "id" : "4049"
+  }, {
+    "name" : "Lta ; Lta ; ANA645",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16992",
+    "description" : "lymphotoxin-alpha",
+    "id" : "16992"
+  }, {
     "name" : "Ltb ; Ltb ; ANA646",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16994",
     "description" : "lymphotoxin-beta",
@@ -2345,20 +2155,10 @@
     "description" : "tumor necrosis factor receptor superfamily member 3",
     "id" : "17000"
   }, {
-    "name" : "MCP1 ; CCL2 ; ANA11",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6347",
-    "description" : "C-C motif chemokine 2",
-    "id" : "6347"
-  }, {
     "name" : "MCP3 ; CCL7 ; ANA28",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6354",
     "description" : "C-C motif chemokine 7",
     "id" : "6354"
-  }, {
-    "name" : "MCP4 ; CCL13 ; ANA4",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6357",
-    "description" : "C-C motif chemokine 13",
-    "id" : "6357"
   }, {
     "name" : "MCSF ; CSF1 ; ANA51",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=1435",
@@ -2394,11 +2194,6 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6351",
     "description" : "C-C motif chemokine 4",
     "id" : "6351"
-  }, {
-    "name" : "Mip1b ; Ccl4 ; ANA489",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20303",
-    "description" : "C-C motif chemokine 4",
-    "id" : "20303"
   }, {
     "name" : "MIP2 ; CXCL2 ; ANA68",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=2920",
@@ -2445,16 +2240,6 @@
     "description" : "-",
     "id" : "4803"
   }, {
-    "name" : "NKG2A ; KLRC1 ; ANA861",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/3821",
-    "description" : "NKG2-A/NKG2-B type II integral membrane protein (human)",
-    "id" : "3821"
-  }, {
-    "name" : "NKP44 ; NCR2 ; ANA885",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/9436",
-    "description" : "natural cytotoxicity triggering receptor 2 (human)",
-    "id" : "9436"
-  }, {
     "name" : "OPG ; TNFRSF11B ; ANA226",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=4982",
     "description" : "tumor necrosis factor receptor superfamily member 11B",
@@ -2489,11 +2274,6 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=5069",
     "description" : "-",
     "id" : "5069"
-  }, {
-    "name" : "PD1 ; PDCD1 ; ANA818",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=5133",
-    "description" : "programmed cell death protein 1",
-    "id" : "5133"
   }, {
     "name" : "PDGF ; PDGF ; ANA803",
     "link" : "",
@@ -2539,11 +2319,6 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=18596",
     "description" : "beta-type platelet-derived growth factor receptor",
     "id" : "18596"
-  }, {
-    "name" : "Perforin ; PRF1 ; ANA890",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/5551",
-    "description" : "perforin-1 (human)",
-    "id" : "5551"
   }, {
     "name" : "PF4 ; PF4 ; ANA205",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=5196",
@@ -2600,20 +2375,10 @@
     "description" : "resistin",
     "id" : "57264"
   }, {
-    "name" : "SIGLEC-2 ; CD22 ; ANA862",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/933",
-    "description" : "B-cell receptor CD22 (human)",
-    "id" : "933"
-  }, {
-    "name" : "SIGLEC-3 ; CD33 ; ANA864",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/945",
-    "description" : "myeloid cell surface antigen CD33 (human)",
-    "id" : "945"
-  }, {
-    "name" : "SLAN ; SECISBP2L ; ANA906",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/9728",
-    "description" : "selenocysteine insertion sequence-binding protein 2-like (human)",
-    "id" : "9728"
+    "name" : "SELE ; SELE ; ANA712",
+    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6401",
+    "description" : "-",
+    "id" : "6401"
   }, {
     "name" : "SPP1 ; SPP1 ; ANA209",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6696",
@@ -2624,21 +2389,6 @@
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=20750",
     "description" : "osteopontin",
     "id" : "20750"
-  }, {
-    "name" : "STAT1 ; STAT1 ; ANA892",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/6772",
-    "description" : "signal transducer and activator of transcription 1-alpha/beta (human)",
-    "id" : "6772"
-  }, {
-    "name" : "STAT3 ; STAT3 ; ANA900",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/6774",
-    "description" : "signal transducer and activator of transcription 3 (human)",
-    "id" : "6774"
-  }, {
-    "name" : "STAT5 ; STAT5A ; ANA901",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/6776",
-    "description" : "signal transducer and activator of transcription 5A (human)",
-    "id" : "6776"
   }, {
     "name" : "TARC ; CCL17 ; ANA8",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=6361",
@@ -2735,40 +2485,15 @@
     "description" : "thrombopoietin",
     "id" : "21832"
   }, {
-    "name" : "TLR5 ; TLR5 ; ANA872",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/7100",
-    "description" : "Toll-like receptor 5 (human)",
-    "id" : "7100"
-  }, {
-    "name" : "TLR6 ; TLR6 ; ANA867",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/10333",
-    "description" : "Toll-like receptor 6 (human)",
-    "id" : "10333"
-  }, {
-    "name" : "TLR7 ; TLR7 ; ANA39",
-    "link" : "https://www.ncbi.nlm.nih.gov/gene/51284",
-    "description" : "Toll-like receptor 7 (human)",
-    "id" : "51284"
-  }, {
-    "name" : "TNFA ; TNF ; ANA220",
+    "name" : "TNF ; TNF ; ANA220",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=7124",
     "description" : "tumor necrosis factor alpha",
     "id" : "7124"
   }, {
-    "name" : "Tnfa ; Tnf ; ANA671",
+    "name" : "Tnf ; Tnf ; ANA671",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=21926",
     "description" : "tumor necrosis factor alpha",
     "id" : "21926"
-  }, {
-    "name" : "TNFB ; LTA ; ANA192",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=4049",
-    "description" : "lymphotoxin-alpha",
-    "id" : "4049"
-  }, {
-    "name" : "Tnfb ; Lta ; ANA645",
-    "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=16992",
-    "description" : "lymphotoxin-alpha",
-    "id" : "16992"
   }, {
     "name" : "TNFRSF10A ; TNFRSF10A ; ANA221",
     "link" : "http://www.ncbi.nlm.nih.gov/gene/?term=8797",
@@ -3114,6 +2839,239 @@
     "id" : ""
   } ]
 }, {
+  "name" : "lk_base_pop_name",
+  "rows" : [ {
+    "name" : "parent_population_preferred",
+    "link" : "",
+    "description" : "",
+    "id" : ""
+  }, {
+    "name" : "activated CCR4+ Treg",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001048",
+    "description" : "activated CD4-positive, CD25-positive, CCR4-positive, alpha-beta regulatory T cell, human",
+    "id" : null
+  }, {
+    "name" : "activated CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001043",
+    "description" : "activated CD4-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "activated CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001049",
+    "description" : "activated CD8-positive, alpha-beta T cell, human",
+    "id" : null
+  }, {
+    "name" : "B cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000236",
+    "description" : "B cell",
+    "id" : null
+  }, {
+    "name" : "BB cell",
+    "link" : "",
+    "description" : "BB cell",
+    "id" : null
+  }, {
+    "name" : "CCR4+ Treg",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001045",
+    "description" : "naive CCR4-positive regulatory T cell",
+    "id" : null
+  }, {
+    "name" : "CD16+ CD56+  NK cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000939",
+    "description" : "CD16-positive, CD56-dim natural killer cell",
+    "id" : null
+  }, {
+    "name" : "CD16+ monocyte",
+    "link" : "http://purl.obolibrary.org/obo/CL_0002397",
+    "description" : "CD14-positive, CD16-positive monocyte",
+    "id" : null
+  }, {
+    "name" : "CD16- CD56bright NK cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000938",
+    "description" : "CD16-negative, CD56-bright natural killer cell",
+    "id" : null
+  }, {
+    "name" : "CD16- monocyte",
+    "link" : "http://purl.obolibrary.org/obo/CL_0002057",
+    "description" : "CD14-positive, CD16-negative classical monocyte",
+    "id" : null
+  }, {
+    "name" : "CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000624",
+    "description" : "CD4-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000625",
+    "description" : "CD8-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "central memory CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000904",
+    "description" : "central memory CD4-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "central memory CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000907",
+    "description" : "central memory CD8-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "dendritic cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000451",
+    "description" : "dendritic cell",
+    "id" : null
+  }, {
+    "name" : "effector CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001044",
+    "description" : "effector CD4-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "effector CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001050",
+    "description" : "effector CD8-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "effector memory CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000905",
+    "description" : "effector memory CD4-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "effector memory CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000913",
+    "description" : "effector memory CD8-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "IgD+ memory B cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000970",
+    "description" : "unswitched memory B cell",
+    "id" : null
+  }, {
+    "name" : "IgD- memory B cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001053",
+    "description" : "IgD-negative memory B cell",
+    "id" : null
+  }, {
+    "name" : "Live/Dead",
+    "link" : "http://purl.obolibrary.org/obo/PATO_0000169",
+    "description" : "Viable cells",
+    "id" : null
+  }, {
+    "name" : "memory B cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000787",
+    "description" : "memory B cell",
+    "id" : null
+  }, {
+    "name" : "memory CCR4+ Treg",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001046",
+    "description" : "memory CCR4-positive regulatory T cell",
+    "id" : null
+  }, {
+    "name" : "monocyte",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000576",
+    "description" : "monocyte",
+    "id" : null
+  }, {
+    "name" : "myeloid dendritic cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000782",
+    "description" : "myeloid dendritic cell",
+    "id" : null
+  }, {
+    "name" : "naive B cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000788",
+    "description" : "naive B cell",
+    "id" : null
+  }, {
+    "name" : "naive CCR4+ Treg",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001045",
+    "description" : "naive CCR4-positive regulatory T cell",
+    "id" : null
+  }, {
+    "name" : "naive CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000895",
+    "description" : "naive thymus-derived CD4-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "naive CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000900",
+    "description" : "naive thymus-derived CD8-positive, alpha-beta T cell",
+    "id" : null
+  }, {
+    "name" : "NK cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000623",
+    "description" : "natural killer cell",
+    "id" : null
+  }, {
+    "name" : "NK T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000814",
+    "description" : "mature NK T cell",
+    "id" : null
+  }, {
+    "name" : "non-Tc1/Tc17 CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001052;http://purl.obolibrary.org/obo/CL_0000918 ",
+    "description" : "Tc2 cell",
+    "id" : null
+  }, {
+    "name" : "non-Th1/Th17  CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000546",
+    "description" : "T-helper 2 cell",
+    "id" : null
+  }, {
+    "name" : "PBMC",
+    "link" : "http://purl.obolibrary.org/obo/CL_2000001",
+    "description" : "peripheral blood mononuclear cell",
+    "id" : null
+  }, {
+    "name" : "plasmablast",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000980",
+    "description" : "plasmablast",
+    "id" : null
+  }, {
+    "name" : "plasmacytoid dendritic cell",
+    "link" : " http://purl.obolibrary.org/obo/CL_0000784",
+    "description" : "plasmacytoid dendritic cell",
+    "id" : null
+  }, {
+    "name" : "T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000084",
+    "description" : "T cell",
+    "id" : null
+  }, {
+    "name" : "Tc1 CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000917",
+    "description" : "Tc1 cell",
+    "id" : null
+  }, {
+    "name" : "Tc17 CD8+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0002128",
+    "description" : "Tc17 cell",
+    "id" : null
+  }, {
+    "name" : "Th1 CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000545",
+    "description" : "T-helper 1 cell",
+    "id" : null
+  }, {
+    "name" : "Th17 CD4+ T cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000899",
+    "description" : "T-helper 17 cell",
+    "id" : null
+  }, {
+    "name" : "Total Cells",
+    "link" : "NA",
+    "description" : "NA",
+    "id" : null
+  }, {
+    "name" : "transitional B cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000818",
+    "description" : "transitional stage B cell",
+    "id" : null
+  }, {
+    "name" : "Treg",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000792",
+    "description" : "CD4-positive, CD25+, alpha-beta regulatory T cell",
+    "id" : null
+  } ]
+}, {
   "name" : "lk_cell_pop_statistic_unit",
   "rows" : [ {
     "name" : "statistic_unit_preferred",
@@ -3154,229 +3112,234 @@
 }, {
   "name" : "lk_cell_population",
   "rows" : [ {
-    "name" : "population_name_preferred",
+    "name" : "population_name_preferred ;\npopulation_defnition_preferred",
     "link" : "",
     "description" : "",
     "id" : ""
   }, {
-    "name" : "B: B cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000236",
-    "description" : "B cell",
-    "id" : null
-  }, {
-    "name" : "B: IgD+ memory B cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000970",
-    "description" : "unswitched memory B cell",
-    "id" : null
-  }, {
-    "name" : "B: IgD- memory B cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001053",
-    "description" : "IgD-negative memory B cell",
-    "id" : null
-  }, {
-    "name" : "B: memory B cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000787",
-    "description" : "memory B cell",
-    "id" : null
-  }, {
-    "name" : "B: naive B cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000788",
-    "description" : "naive B cell",
-    "id" : null
-  }, {
-    "name" : "B: plasmablast",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000980",
-    "description" : "plasmablast",
-    "id" : null
-  }, {
-    "name" : "B: transitional B cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000818",
-    "description" : "transitional stage B cell",
-    "id" : null
-  }, {
-    "name" : "DC: dendritic cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000451",
-    "description" : "dendritic cell",
-    "id" : null
-  }, {
-    "name" : "DC: myeloid dendritic cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000782",
-    "description" : "myeloid dendritic cell",
-    "id" : null
-  }, {
-    "name" : "DC: plasmacytoid dendritic cell",
-    "link" : " http://purl.obolibrary.org/obo/CL_0000784",
-    "description" : "plasmacytoid dendritic cell",
-    "id" : null
-  }, {
-    "name" : "Live/Dead",
-    "link" : "http://purl.obolibrary.org/obo/PATO_0000169",
-    "description" : "Viable cells",
-    "id" : null
-  }, {
-    "name" : "M: CD16+ monocyte",
-    "link" : "http://purl.obolibrary.org/obo/CL_0002397",
-    "description" : "CD14-positive, CD16-positive monocyte",
-    "id" : null
-  }, {
-    "name" : "M: CD16- monocyte",
-    "link" : "http://purl.obolibrary.org/obo/CL_0002057",
-    "description" : "CD14-positive, CD16-negative classical monocyte",
-    "id" : null
-  }, {
-    "name" : "M: monocyte",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000576",
-    "description" : "monocyte",
-    "id" : null
-  }, {
-    "name" : "NK: CD16+ CD56+  NK cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000939",
-    "description" : "CD16-positive, CD56-dim natural killer cell",
-    "id" : null
-  }, {
-    "name" : "NK: CD16- CD56bright NK cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000938",
-    "description" : "CD16-negative, CD56-bright natural killer cell",
-    "id" : null
-  }, {
-    "name" : "NK: NK cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000623",
-    "description" : "natural killer cell",
-    "id" : null
-  }, {
-    "name" : "PBMC",
-    "link" : "http://purl.obolibrary.org/obo/CL_2000001",
-    "description" : "peripheral blood mononuclear cell",
-    "id" : null
-  }, {
-    "name" : "T: activated CCR4+ Treg",
+    "name" : "activated CCR4+ Treg ; CD3+, CD4+, CD127lo, CD25+, CCR4+, HLA-DR+",
     "link" : "http://purl.obolibrary.org/obo/CL_0001048",
     "description" : "activated CD4-positive, CD25-positive, CCR4-positive, alpha-beta regulatory T cell, human",
     "id" : null
   }, {
-    "name" : "T: activated CD4+ T cell",
+    "name" : "activated CD4+ T cell ; CD3+, CD4+, CD8-, CD38+, HLA-DR+",
     "link" : "http://purl.obolibrary.org/obo/CL_0001043",
     "description" : "activated CD4-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: activated CD8+ T cell",
+    "name" : "activated CD8+ T cell ; CD3+, CD4-, CD8+, CD38+, HLA-DR+",
     "link" : "http://purl.obolibrary.org/obo/CL_0001049",
     "description" : "activated CD8-positive, alpha-beta T cell, human",
     "id" : null
   }, {
-    "name" : "T: CCR4+ Treg",
+    "name" : "B cell ; CD3-, CD19+ , CD20+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000236",
+    "description" : "B cell",
+    "id" : null
+  }, {
+    "name" : "BB cell ; CD3+, CD19+ , CD20+",
+    "link" : "",
+    "description" : "BB cell",
+    "id" : null
+  }, {
+    "name" : "CCR4+ Treg ; CD3+, CD4+, CD127lo, CD25+, CCR4+",
     "link" : "http://purl.obolibrary.org/obo/CL_0001045",
     "description" : "naive CCR4-positive regulatory T cell",
     "id" : null
   }, {
-    "name" : "T: CD4+ T cell",
+    "name" : "CD16+ CD56+  NK cell ; CD3-, Lin-, CD14-, HLA-DR-, CD16+, CD56+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000939",
+    "description" : "CD16-positive, CD56-dim natural killer cell",
+    "id" : null
+  }, {
+    "name" : "CD16+ monocyte ; Lin-, CD14+, CD16+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0002397",
+    "description" : "CD14-positive, CD16-positive monocyte",
+    "id" : null
+  }, {
+    "name" : "CD16- CD56bright NK cell ; CD3-, Lin-, CD14-, HLA-DR-, CD16-, CD56++",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000938",
+    "description" : "CD16-negative, CD56-bright natural killer cell",
+    "id" : null
+  }, {
+    "name" : "CD16- monocyte ; Lin-, CD14+, CD16-",
+    "link" : "http://purl.obolibrary.org/obo/CL_0002057",
+    "description" : "CD14-positive, CD16-negative classical monocyte",
+    "id" : null
+  }, {
+    "name" : "CD4+ T cell ; CD3+, CD4+",
     "link" : "http://purl.obolibrary.org/obo/CL_0000624",
     "description" : "CD4-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: CD8+ T cell",
+    "name" : "CD8+ T cell ; CD3+, CD8+",
     "link" : "http://purl.obolibrary.org/obo/CL_0000625",
     "description" : "CD8-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: central memory CD4+ T cell",
+    "name" : "central memory CD4+ T cell ; CD3+, CD4+, CD8-, CCR7+, CD45RA-",
     "link" : "http://purl.obolibrary.org/obo/CL_0000904",
     "description" : "central memory CD4-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: central memory CD8+ T cell",
+    "name" : "central memory CD8+ T cell ; CD3+, CD4-, CD8+, CCR7+, CD45RA-",
     "link" : "http://purl.obolibrary.org/obo/CL_0000907",
     "description" : "central memory CD8-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: effector CD4+ T cell",
+    "name" : "dendritic cell ; Lin-, CD14-, CD16-, CD56-, HLA-DR+(?)",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000451",
+    "description" : "dendritic cell",
+    "id" : null
+  }, {
+    "name" : "effector CD4+ T cell ; CD3+, CD4+, CD8-, CCR7-, CD45RA+",
     "link" : "http://purl.obolibrary.org/obo/CL_0001044",
     "description" : "effector CD4-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: effector CD8+ T cell",
+    "name" : "effector CD8+ T cell ; CD3+, CD4-, CD8+, CCR7-, CD45RA+",
     "link" : "http://purl.obolibrary.org/obo/CL_0001050",
     "description" : "effector CD8-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: effector memory CD4+ T cell",
+    "name" : "effector memory CD4+ T cell ; CD3+, CD4+, CD8-, CCR7-, CD45RA-",
     "link" : "http://purl.obolibrary.org/obo/CL_0000905",
     "description" : "effector memory CD4-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: effector memory CD8+ T cell",
+    "name" : "effector memory CD8+ T cell ; CD3+, CD4-, CD8+, CCR7-, CD45RA-",
     "link" : "http://purl.obolibrary.org/obo/CL_0000913",
     "description" : "effector memory CD8-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: memory CCR4+ Treg",
+    "name" : "IgD+ memory B cell ; CD3-, CD19+, CD20+, CD27+, IgD+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000970",
+    "description" : "unswitched memory B cell",
+    "id" : null
+  }, {
+    "name" : "IgD- memory B cell ; CD3-, CD19+, CD20+, CD27+, IgD-",
+    "link" : "http://purl.obolibrary.org/obo/CL_0001053",
+    "description" : "IgD-negative memory B cell",
+    "id" : null
+  }, {
+    "name" : "Live/Dead ; Living cells gated from dead cells",
+    "link" : "http://purl.obolibrary.org/obo/PATO_0000169",
+    "description" : "Viable cells",
+    "id" : null
+  }, {
+    "name" : "memory B cell ; CD3-, CD19+, CD20+, CD27+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000787",
+    "description" : "memory B cell",
+    "id" : null
+  }, {
+    "name" : "memory CCR4+ Treg ; CD3+, CD4+, CD127lo, CD25+, CCR4+, CD45RO+",
     "link" : "http://purl.obolibrary.org/obo/CL_0001046",
     "description" : "memory CCR4-positive regulatory T cell",
     "id" : null
   }, {
-    "name" : "T: naive CCR4+ Treg",
+    "name" : "monocyte ; Lin-, CD14+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000576",
+    "description" : "monocyte",
+    "id" : null
+  }, {
+    "name" : "myeloid dendritic cell ; Lin-, CD14-, CD16-, CD56-, HLA-DR+, CD11c+, CD123-",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000782",
+    "description" : "myeloid dendritic cell",
+    "id" : null
+  }, {
+    "name" : "naive B cell ; CD3-, CD19+, CD20+, CD27-, IgD+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000788",
+    "description" : "naive B cell",
+    "id" : null
+  }, {
+    "name" : "naive CCR4+ Treg ; CD3+, CD4+, CD127lo, CD25+, CCR4+, CD45RO-",
     "link" : "http://purl.obolibrary.org/obo/CL_0001045",
     "description" : "naive CCR4-positive regulatory T cell",
     "id" : null
   }, {
-    "name" : "T: naive CD4+ T cell",
+    "name" : "naive CD4+ T cell ; CD3+, CD4+, CD8-, CCR7+, CD45RA+",
     "link" : "http://purl.obolibrary.org/obo/CL_0000895",
     "description" : "naive thymus-derived CD4-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: naive CD8+ T cell",
+    "name" : "naive CD8+ T cell ; CD3+, CD4-, CD8+, CCR7+, CD45RA+",
     "link" : "http://purl.obolibrary.org/obo/CL_0000900",
     "description" : "naive thymus-derived CD8-positive, alpha-beta T cell",
     "id" : null
   }, {
-    "name" : "T: NK T cell",
+    "name" : "NK cell ; CD3-, CD56+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000623",
+    "description" : "natural killer cell",
+    "id" : null
+  }, {
+    "name" : "NK T cell ; CD3+, CD56+, CD14-, CD33-",
     "link" : "http://purl.obolibrary.org/obo/CL_0000814",
     "description" : "mature NK T cell",
     "id" : null
   }, {
-    "name" : "T: non-Tc1/Tc17 CD8+ T cell",
+    "name" : "non-Tc1/Tc17 CD8+ T cell ; CD3+, CD4-, CD8+, CXCR3-, CCR6-",
     "link" : "http://purl.obolibrary.org/obo/CL_0001052;http://purl.obolibrary.org/obo/CL_0000918 ",
     "description" : "Tc2 cell",
     "id" : null
   }, {
-    "name" : "T: non-Th1/Th17  CD4+ T cell",
+    "name" : "non-Th1/Th17  CD4+ T cell ; CD3+, CD4+, CD8-, CXCR3-, CCR6-",
     "link" : "http://purl.obolibrary.org/obo/CL_0000546",
     "description" : "T-helper 2 cell",
     "id" : null
   }, {
-    "name" : "T: T cell",
+    "name" : "PBMC ; A leukocyte with a single non-segmented nucleus in the mature form found in the circulatory pool of blood.",
+    "link" : "http://purl.obolibrary.org/obo/CL_2000001",
+    "description" : "peripheral blood mononuclear cell",
+    "id" : null
+  }, {
+    "name" : "plasmablast ; CD3-, CD19+, CD20-, CD27hi, CD38hi",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000980",
+    "description" : "plasmablast",
+    "id" : null
+  }, {
+    "name" : "plasmacytoid dendritic cell ; Lin-, CD14-, CD16-, CD56-, HLA-DR+, CD11c-, CD123+",
+    "link" : " http://purl.obolibrary.org/obo/CL_0000784",
+    "description" : "plasmacytoid dendritic cell",
+    "id" : null
+  }, {
+    "name" : "T cell ; CD3+",
     "link" : "http://purl.obolibrary.org/obo/CL_0000084",
     "description" : "T cell",
     "id" : null
   }, {
-    "name" : "T: Tc1 CD8+ T cell",
+    "name" : "Tc1 CD8+ T cell ; CD3+, CD4-, CD8+, CXCR3+, CCR6-",
     "link" : "http://purl.obolibrary.org/obo/CL_0000917",
     "description" : "Tc1 cell",
     "id" : null
   }, {
-    "name" : "T: Tc17 CD8+ T cell",
+    "name" : "Tc17 CD8+ T cell ; CD3+, CD4-, CD8+, CXCR3-, CCR6+",
     "link" : "http://purl.obolibrary.org/obo/CL_0002128",
     "description" : "Tc17 cell",
     "id" : null
   }, {
-    "name" : "T: Th1 CD4+ T cell",
+    "name" : "Th1 CD4+ T cell ; CD3+, CD4+, CD8-, CXCR3+, CCR6-",
     "link" : "http://purl.obolibrary.org/obo/CL_0000545",
     "description" : "T-helper 1 cell",
     "id" : null
   }, {
-    "name" : "T: Th17 CD4+ T cell",
+    "name" : "Th17 CD4+ T cell ; CD3+, CD4+, CD8-, CXCR3-, CCR6+",
     "link" : "http://purl.obolibrary.org/obo/CL_0000899",
     "description" : "T-helper 17 cell",
     "id" : null
   }, {
-    "name" : "T: Treg",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000792",
-    "description" : "CD4-positive, CD25+, alpha-beta regulatory T cell",
-    "id" : null
-  }, {
-    "name" : "Total Cells",
+    "name" : "Total Cells ; All cells in a sample",
     "link" : "NA",
     "description" : "NA",
+    "id" : null
+  }, {
+    "name" : "transitional B cell ; CD3-, CD19+, CD20+, CD24hi, CD38hi",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000818",
+    "description" : "transitional stage B cell",
+    "id" : null
+  }, {
+    "name" : "Treg ; CD3+, CD4+, CD127lo, CD25+",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000792",
+    "description" : "CD4-positive, CD25+, alpha-beta regulatory T cell",
     "id" : null
   } ]
 }, {
@@ -3946,84 +3909,84 @@
     "description" : "",
     "id" : ""
   }, {
-    "name" : "administering substance in vivo",
-    "link" : "http://purl.obolibrary.org/obo/OBI_0600007",
-    "description" : "A planned process by which a material is intentionally given to an organism resulting in exposure of the organism to that substance.",
-    "id" : null
-  }, {
-    "name" : "documented exposure without evidence for disease",
+    "name" : "Administration",
     "link" : "",
-    "description" : "A process in which an organism is exposed to a substance which is evident from that process having been observed or documented.",
+    "description" : "Administration",
     "id" : null
   }, {
-    "name" : "environmental exposure to endemic/ubiquitous agent without evidence for disease",
+    "name" : "Allergic Disease",
     "link" : "",
-    "description" : "A process in which an organism's  exposure to a material entity is assumed from that material being commonly present in the environment of the organism.",
+    "description" : "Allergic Disease",
     "id" : null
   }, {
-    "name" : "exposure to substance without evidence for disease",
+    "name" : "Asymptomatic Infection/Colonization",
     "link" : "",
-    "description" : "An unplanned process in which an organism comes into contact with a substance without evidence for a disease caused by that exposure.",
+    "description" : "Asymptomatic Infection/Colonization",
     "id" : null
   }, {
-    "name" : "exposure with existing immune reactivity without evidence for disease",
-    "link" : "http://purl.obolibrary.org/obo/OBI_1110061",
-    "description" : "A process in which an organism is exposed to a material entity which is evident by a detectable immune reactivity against it.",
-    "id" : null
-  }, {
-    "name" : "infectious challenge",
-    "link" : "http://purl.obolibrary.org/obo/OBI_0000712",
-    "description" : "Administering an infectious agent to an organism in order to test if and how an infection will occur.",
-    "id" : null
-  }, {
-    "name" : "no exposure",
+    "name" : "Autoimmune Disease",
     "link" : "",
-    "description" : "An organism's lifspan which does not include exposure to a substance of interest.",
+    "description" : "Autoimmune Disease",
     "id" : null
   }, {
-    "name" : "occurrence of allergy",
-    "link" : "http://purl.obolibrary.org/obo/OBI_1110012",
-    "description" : "The process in which an allergic disease unfolds.",
-    "id" : null
-  }, {
-    "name" : "occurrence of asymptomatic infection",
+    "name" : "Cancer",
     "link" : "",
-    "description" : "A process in which an infectious agent is in or on the body of an organism without causing detectable disease .",
+    "description" : "Cancer",
     "id" : null
   }, {
-    "name" : "occurrence of autoimmune disease",
-    "link" : "http://purl.obolibrary.org/obo/OBI_1110054",
-    "description" : "The process in which an autoimmune disease unfolds.",
-    "id" : null
-  }, {
-    "name" : "occurrence of cancer",
-    "link" : "http://purl.obolibrary.org/obo/OBI_1110053",
-    "description" : "The process in which cancer unfolds",
-    "id" : null
-  }, {
-    "name" : "occurrence of disease",
-    "link" : "http://purl.obolibrary.org/obo/OGMS_0000063",
-    "description" : "The process in which a disease unfolds.",
-    "id" : null
-  }, {
-    "name" : "occurrence of infectious disease",
-    "link" : "http://purl.obolibrary.org/obo/OBI_1110008",
-    "description" : "The process in which an infectious disease unfolds.",
-    "id" : null
-  }, {
-    "name" : "transplantation or transfusion",
-    "link" : "http://purl.obolibrary.org/obo/OBI_0000105",
-    "description" : "Transfering a solid tissue (transplant) or bodily fluid (transfusion) to an organism.",
-    "id" : null
-  }, {
-    "name" : "unknown",
+    "name" : "Disease",
     "link" : "",
-    "description" : "An organism's lifespan for which there is no available information on an exposure to a material entity of interest.",
+    "description" : "Disease",
     "id" : null
   }, {
-    "name" : "vaccination",
+    "name" : "Exposure To Endemic/Ubiquitous Agent",
     "link" : "",
-    "description" : "Adminstering a vaccine to an organism with the intention of inducing immunity against antigen components of the vaccine.",
+    "description" : "Exposure To Endemic/Ubiquitous Agent",
+    "id" : null
+  }, {
+    "name" : "Exposure With Documentation",
+    "link" : "",
+    "description" : "Exposure With Documentation",
+    "id" : null
+  }, {
+    "name" : "Exposure With Immune Reactivity",
+    "link" : "",
+    "description" : "Exposure With Immune Reactivity",
+    "id" : null
+  }, {
+    "name" : "Exposure Without Disease",
+    "link" : "",
+    "description" : "Exposure Without Disease",
+    "id" : null
+  }, {
+    "name" : "Infectious Challenge",
+    "link" : "",
+    "description" : "Infectious Challenge",
+    "id" : null
+  }, {
+    "name" : "Infectious Disease",
+    "link" : "",
+    "description" : "Infectious Disease",
+    "id" : null
+  }, {
+    "name" : "No Exposure",
+    "link" : "",
+    "description" : "No Exposure",
+    "id" : null
+  }, {
+    "name" : "Transplant/Transfusion",
+    "link" : "",
+    "description" : "Transplant/Transfusion",
+    "id" : null
+  }, {
+    "name" : "Unknown",
+    "link" : "",
+    "description" : "Unknown",
+    "id" : null
+  }, {
+    "name" : "Vaccination",
+    "link" : "",
+    "description" : "Vaccination",
     "id" : null
   } ]
 }, {
@@ -5698,11 +5661,6 @@
     "description" : "Ensembl gene repository",
     "id" : ""
   }, {
-    "name" : "FlowRepository",
-    "link" : "http://flowrepository.org",
-    "description" : "A database of flow cytometry experiments where you can query and download data collected and annotated according to the MIFlowCyt standard.",
-    "id" : ""
-  }, {
     "name" : "GenBank",
     "link" : "https://www.ncbi.nlm.nih.gov/genbank/",
     "description" : "GenBank is the NIH genetic sequence database, an annotated collection of all publicly available DNA sequences.",
@@ -5715,7 +5673,7 @@
   }, {
     "name" : "ImmPort",
     "link" : "http://www.immport.org/immport-open/public/home/home",
-    "description" : "Immunology Database and Analysis Portal (ImmPort).",
+    "description" : "Immunology Database and Analysis Portal (ImmPort)",
     "id" : ""
   }, {
     "name" : "NCBI Gene",
@@ -5880,11 +5838,6 @@
 }, {
   "name" : "lk_sample_type",
   "rows" : [ {
-    "name" : "Amniotic Fluid",
-    "link" : "http://purl.obolibrary.org/obo/UBERON_0000173",
-    "description" : "Amniotic fluid is a bodily fluid consisting of watery liquid surrounding and cushioning a growing fetus within the amnion. It allows the fetus to move freely without the walls of the uterus being too tight against its body. Buoyancy is also provided. The composition of the fluid changes over the course of gestation. Initially, amniotic fluid is similar to maternal plasma, mainly water with electrolytes. As the fetus develops, proteins, carbohydrates, lipids, phospholipids originating from the lungs, fetal cells, and urea are deposited in the fluid. database_cross_reference: MP:MPdatabase_cross_reference: ENVO:02000021",
-    "id" : ""
-  }, {
     "name" : "B cell",
     "link" : "http://purl.obolibrary.org/obo/CL_0000236",
     "description" : "CD3-, CD19+, CD20+",
@@ -5915,6 +5868,11 @@
     "description" : "Any member of the class of organooxygen compounds that is a polyhydroxy-aldehyde or -ketone or a lactol resulting from their intramolecular condensation (monosaccharides); substances derived from these by reduction of the carbonyl group (alditols), by oxidation of one or more hydroxy groups to afford the corresponding aldehydes, ketones, or carboxylic acids, or by replacement of one or more hydroxy group(s) by a hydrogen atom; and polymeric products arising by intermolecular acetal formation between two or more such molecules (disaccharides, polysaccharides and oligosaccharides). Carbohydrates contain only carbon, hydrogen and oxygen atoms; prior to any oxidation or reduction, most have the empirical formula Cm(H2O)n. Compounds obtained from carbohydrates by substitution, etc., are known as carbohydrate derivatives and may contain other elements. Cyclitols are generally not regarded as carbohydrates.",
     "id" : ""
   }, {
+    "name" : "Cell",
+    "link" : "http://purl.obolibrary.org/obo/CL_0000000",
+    "description" : "A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane.",
+    "id" : ""
+  }, {
     "name" : "Cell culture supernatant",
     "link" : "http://purl.obolibrary.org/obo/OBI_1000023",
     "description" : "Supernatant of a cell culture is a material entity which contains media, supplements, and secreted products of the cells and becomes the environment of cultivated cell.",
@@ -5935,11 +5893,6 @@
     "description" : "A lamina propria that is part of a colonic mucosa.",
     "id" : ""
   }, {
-    "name" : "Cord blood",
-    "link" : "http://purl.obolibrary.org/obo/UBERON_0012168",
-    "description" : "Blood that remains in the placenta and in the attached umbilical cord after childbirthWP. database_cross_reference: http://en.wikipedia.org/wiki/Cord_blood",
-    "id" : ""
-  }, {
     "name" : "Dendritic cell",
     "link" : "http://purl.obolibrary.org/obo/CL_0000451",
     "description" : "CD3-, CD19, CD20, CD14-, CD16-, CD56-, HLA-DR+",
@@ -5957,7 +5910,7 @@
   }, {
     "name" : "Epithelium",
     "link" : "http://purl.obolibrary.org/obo/UBERON_0000483",
-    "description" : "Portion of tissue, that consists of one or more layers of epithelial cells connected to each other by cell junctions and which is underlain by a basal lamina. Examples: simple squamous epithelium, glandular cuboidal epithelium, transitional epithelium, myoepithelium[CARO].",
+    "description" : "Portion of tissue, that consists of one or more layers of epithelial cells connected to each other by cell junctions and which is underlain by a basal lamina. Examples: simple squamous epithelium, glandular cuboidal epithelium, transitional epithelium, myoepitheliumCARO.",
     "id" : ""
   }, {
     "name" : "Gastric lamina propria",
@@ -5992,7 +5945,7 @@
   }, {
     "name" : "Liver",
     "link" : "http://purl.obolibrary.org/obo/UBERON_0002107",
-    "description" : "An exocrine gland which secretes bile and functions in metabolism of protein and carbohydrate and fat, synthesizes substances involved in the clotting of the blood, synthesizes vitamin A, detoxifies poisonous substances, stores glycogen, and breaks down worn-out erythrocytes[GO].",
+    "description" : "An exocrine gland which secretes bile and functions in metabolism of protein and carbohydrate and fat, synthesizes substances involved in the clotting of the blood, synthesizes vitamin A, detoxifies poisonous substances, stores glycogen, and breaks down worn-out erythrocytesGO.",
     "id" : ""
   }, {
     "name" : "Lung",
@@ -6010,16 +5963,6 @@
     "description" : "Any of the rounded masses of lymphoid tissue that are surrounded by a capsule of connective tissue, are distributed along the lymphatic vessels, and contain numerous lymphocytes which filter the flow of lymph.",
     "id" : ""
   }, {
-    "name" : "Lymphocyte",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000542",
-    "description" : "A lymphocyte is a leukocyte commonly found in the blood and lymph that has the characteristics of a large nucleus, a neutral staining cytoplasm, and prominent heterochromatin. [database_cross_reference: GOC:add][database_cross_reference: ISBN:0781735149][database_cross_reference: ISBN:0683073696]",
-    "id" : ""
-  }, {
-    "name" : "Macrophage",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000235",
-    "description" : "A mononuclear phagocyte present in variety of tissues, typically differentiated from monocytes, capable of phagocytosing a variety of extracellular particulate material, including immune complexes, microorganisms, and dead cells. Morphology: Diameter 30_M-80 _M, abundant cytoplasm, low N/C ratio, eccentric nucleus. Irregular shape with pseudopods, highly adhesive. Contain vacuoles and phagosomes, may contain azurophilic granules; markers: Mouse and: CD68, in most cases CD11b. Mouse: in most cases F4/80+; role or process: immune, antigen presentation, and remodelling; lineage: hematopoietic, myeloid.",
-    "id" : ""
-  }, {
     "name" : "Mesenteric lymph node",
     "link" : "http://purl.obolibrary.org/obo/UBERON_0002509",
     "description" : "The lymph nodes located in the mesentery, of which there are 3 classes: ileocolic, juxtaintestinal mesenteric, and central superior group.",
@@ -6030,24 +5973,14 @@
     "description" : "CD3-, CD19, CD20, CD56-, CD14+",
     "id" : ""
   }, {
-    "name" : "Nasal lavage fluid",
-    "link" : "http://purl.obolibrary.org/obo/BTO_0004977",
-    "description" : "Fluid obtained by irrigation or washout of the nasal cavity and nasal mucosa. [database_cross_reference: Mondofacto_Dictionary:http://www.mondofacto.com/facts/dictionary?]",
-    "id" : ""
-  }, {
-    "name" : "Neutrophil",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000775",
-    "description" : "has_broad_synonym: polynuclear neutrophilic leucocyte; poly; polymorphonuclear leucocyte; PMN; polymorphonuclear neutrophil; polymorphonuclear leukocyte; polynuclear neutrophilic leukocyte  Any of the immature or mature forms of a granular leukocyte that in its mature form has a nucleus with three to five lobes connected by slender threads of chromatin, and cytoplasm containing fine inconspicuous granules and stainable by neutral dyes. database_cross_reference: FMA:62860; BTO:0000130; CALOHA:TS-0688 [database_cross_reference: ISBN:0721601464]",
-    "id" : ""
-  }, {
-    "name" : "NK cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000623",
-    "description" : "A lymphocyte that can spontaneously kill a variety of target cells without prior antigenic activation via germline encoded activation receptors and also regulate immune responses via cytokine release and direct contact with other cells.",
-    "id" : ""
-  }, {
     "name" : "Not Specified",
     "link" : "",
     "description" : "Sample Type is not specified or not received. If no Sample Type value is received, then this is the system default value.",
+    "id" : ""
+  }, {
+    "name" : "Organ",
+    "link" : "http://purl.obolibrary.org/obo/UBERON_0000062",
+    "description" : "Anatomical structure that performs a specific function or group of functions.",
     "id" : ""
   }, {
     "name" : "Other",
@@ -6058,11 +5991,6 @@
     "name" : "PBMC",
     "link" : "http://purl.obolibrary.org/obo/CL_0000842",
     "description" : "Peripheral Blood Mononuclear Cell- A leukocyte with a single non-segmented nucleus in the mature form.",
-    "id" : ""
-  }, {
-    "name" : "Placenta",
-    "link" : "http://purl.obolibrary.org/obo/UBERON_0001987",
-    "description" : "Organ of metabolic interchange between fetus and mother, partly of embryonic origin and partly of maternal origin. The fetal portion of the placenta is known as the villous chorion. The maternal portion is known as the decidua basalis. The two portions are held together by anchoring villi that are anchored to the decidua basalis by the cytotrophoblastic shell. database_cross_reference: http://en.wikipedia.org/wiki/Placenta[database_cross_reference: http://www.med.umich.edu/lrc/coursepages/m1/embryology/embryo/06placenta.htm]",
     "id" : ""
   }, {
     "name" : "Plasma",
@@ -6080,9 +6008,9 @@
     "description" : "A biological macromolecule minimally consisting of one polypeptide chain synthesized at the ribosome.",
     "id" : ""
   }, {
-    "name" : "Red Blood Cell",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000232",
-    "description" : "A red blood cell. In mammals, mature erythrocytes are biconcave disks containing hemoglobin whose function is to transport oxygen. database_cross_reference: MESH:A11.118.290database_cross_reference: GOC:tfm",
+    "name" : "RNA",
+    "link" : "http://purl.obolibrary.org/obo/CHEBI_33697",
+    "description" : "High molecular weight, linear polymers, composed of nucleotides containing ribose and linked by phosphodiester bonds; RNA is central to the synthesis of proteins.",
     "id" : ""
   }, {
     "name" : "Saliva",
@@ -6130,24 +6058,19 @@
     "description" : "Anatomical structure of largely lymphoid tissue that functions in cell-mediated immunity by being the site where T cells develop.",
     "id" : ""
   }, {
+    "name" : "Tissue",
+    "link" : "http://purl.obolibrary.org/obo/UBERON_0000479",
+    "description" : "Multicellular anatomical structure that consists of many cells of one or a few types, arranged in an extracellular matrix such that their long-range organisation is at least partly a repetition of their short-range organisation.",
+    "id" : ""
+  }, {
     "name" : "Tonsil",
     "link" : "http://purl.obolibrary.org/obo/UBERON_0002372",
     "description" : "Either of the two small almond-shaped masses of lymph tissue found on either side of the oropharynx.",
     "id" : ""
   }, {
-    "name" : "Umbilical cord blood",
-    "link" : "http://purl.obolibrary.org/obo/UBERON_0012168",
-    "description" : "Blood that remains in the placenta and in the attached umbilical cord after childbirth[WP]. [database_cross_reference: http://en.wikipedia.org/wiki/Cord_blood]",
-    "id" : ""
-  }, {
-    "name" : "Urinary bladder",
-    "link" : "http://purl.obolibrary.org/obo/UBERON_0001255",
-    "description" : "Distensible musculomembranous organ situated in the anterior part of the pelvic cavity in which urine collects before excretion",
-    "id" : ""
-  }, {
     "name" : "Urine",
     "link" : "http://purl.obolibrary.org/obo/UBERON_0001088",
-    "description" : "Excretion that is the output of a kidney database_cross_reference: http://en.wikipedia.org/wiki/Urine[database_cross_reference: https://github.com/geneontology/go-ontology/issues/11025]",
+    "description" : "Excretion that is the output of a kidney.",
     "id" : ""
   }, {
     "name" : "Vagina",
@@ -6185,11 +6108,6 @@
     "link" : "http://www.ncbi.nlm.nih.gov/taxonomy/?term=8839[uid]",
     "description" : "Mallard duck",
     "id" : "8839"
-  }, {
-    "name" : "Canis lupus familiaris",
-    "link" : "https://www.ncbi.nlm.nih.gov/taxonomy/?term=9615[uid]",
-    "description" : "dog",
-    "id" : "9615"
   }, {
     "name" : "Drosophila melanogaster",
     "link" : "http://www.ncbi.nlm.nih.gov/taxonomy/?term=7227[uid]",
@@ -6345,6 +6263,11 @@
 }, {
   "name" : "lk_subject_location",
   "rows" : [ {
+    "name" : "[Former] Yugoslavia",
+    "link" : "http://purl.obolibrary.org/obo/GAZ_00052663",
+    "description" : "A former state. The six countries that were once part of Yugoslavia are Bosnia-Herzegovina, Croatia, Macedonia, Montenegro, Serbia, and Slovenia.",
+    "id" : ""
+  }, {
     "name" : "Afghanistan",
     "link" : "http://purl.obolibrary.org/obo/GAZ_00006882",
     "description" : "A landlocked country that is located approximately in the center of Asia. It is bordered by Pakistan in the south and east Iran in the west, Turkmenistan, Uzbekistan and Tajikistan in the north, and China in the far northeast. Afghanistan is administratively divided into thirty-four (34) provinces (welayats). Each province is then divided into many provincial districts, and each district normally covers a city or several townships.",
@@ -7620,11 +7543,6 @@
     "description" : "A country located on the Arabian Peninsula in Southwest Asia. Yemen is bordered by Saudi Arabia to the North, the Red Sea to the West, the Arabian Sea and Gulf of Aden to the South, and Oman to the east. Yemen's territory includes over 200 islands, the largest of which is Socotra, about 415 km to the south of Yemen, off the coast of Somalia. As of 2004-02, Yemen is divided into twenty governorates (muhafazah) and one municipality. The population of each governorate is listed in the table below. The governorates of Yemen are divided into 333 districts (muderiah). The districts are subdivided into 2,210 sub-districts, and then into 38,284 villages (as of 2001).",
     "id" : ""
   }, {
-    "name" : "Yugoslavia (formerly)",
-    "link" : "http://purl.obolibrary.org/obo/GAZ_00052663",
-    "description" : "A former state. The six countries that were once part of Yugoslavia are Bosnia-Herzegovina, Croatia, Macedonia, Montenegro, Serbia, and Slovenia.",
-    "id" : ""
-  }, {
     "name" : "Zambia",
     "link" : "http://purl.obolibrary.org/obo/GAZ_00001107",
     "description" : "A landlocked country in Southern Africa. The neighbouring countries are the Democratic Republic of the Congo to the north, Tanzania to the north-east, Malawi to the east, Mozambique, Zimbabwe, Botswana, and Namibia to the south, and Angola to the west. The capital city is Lusaka. Zambia is divided into nine provinces. Each province is subdivided into several districts with a total of 73 districts.",
@@ -8041,25 +7959,30 @@
     "description" : "The virus strain name is: 'A/California/04/2009'. The virus name : 'H1N1', and season_list is: 'NA'.",
     "id" : "0"
   }, {
-    "name" : "A/California/7/2004",
-    "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
-    "description" : "The virus strain name is: 'A/California/7/2004'. The virus name : 'H3N2', and season_list is: '2005-2006'.",
-    "id" : "0"
-  }, {
     "name" : "A/California/7/2009",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/California/7/2009'. The virus name : 'H1N1', and season_list is: '2010-2011,2011-2012,2012-2013'.",
     "id" : "1316510"
   }, {
-    "name" : "A/New Caledonia/20/99",
+    "name" : "A/Indonesia/5/2005",
+    "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=400788",
+    "description" : "A/Indonesia/5/2005(H5N1)",
+    "id" : "400788"
+  }, {
+    "name" : "A/New Caledonia/20/1999",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
-    "description" : "The virus strain name is: 'A/New Caledonia/20/99'. The virus name : 'H1N1', and season_list is: '2005-2006, 2006-2007'.",
+    "description" : "The virus strain name is: 'A/New Caledonia/20/1999'. The virus name : 'H1N1', and season_list is: '2005-2006, 2006-2007'.",
     "id" : "381512"
   }, {
     "name" : "A/Perth/16/2009",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/Perth/16/2009'. The virus name : 'H3N2', and season_list is: '2010-2011,2011-2012'.",
     "id" : "654811"
+  }, {
+    "name" : "A/Puerto Rico/8/1934",
+    "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=183764",
+    "description" : "A/Puerto Rico/8/1934(H1N1)",
+    "id" : "211044"
   }, {
     "name" : "A/Solomon Islands/3/2006",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
@@ -8084,7 +8007,7 @@
     "name" : "A/Victoria/3/1975",
     "link" : "https://www.fludb.org/brc/fluStrainDetails.spg?strainName=A%2FVictoria%2F3%2F1975%28H3N2%29",
     "description" : "The virus strain name is: 'A/Victoria/3/1975'. The virus name : 'H3N2', and season_list is: 'NA'.",
-    "id" : "0"
+    "id" : "392809"
   }, {
     "name" : "A/Victoria/361/2011",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
@@ -8095,6 +8018,16 @@
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/Wisconsin/67/2005'. The virus name : 'H3N2', and season_list is: '2006-2007,2007-2008'.",
     "id" : "393902"
+  }, {
+    "name" : "A/X-31",
+    "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=132504",
+    "description" : "A/X-31(H3N2)",
+    "id" : "132504"
+  }, {
+    "name" : "B/Brisbane/03/2007",
+    "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1600158",
+    "description" : "B/Brisbane/03/2007",
+    "id" : "1600158"
   }, {
     "name" : "B/Brisbane/60/2008",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
@@ -8116,9 +8049,9 @@
     "description" : "The virus strain name is: 'B/Malaysia/2506/2004'. The virus name : 'B', and season_list is: '2006-2007,2007-2008'.",
     "id" : "464417"
   }, {
-    "name" : "B/Massachusetts/2/2012",
+    "name" : "B/Massachusetts/02/2012",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
-    "description" : "The virus strain name is: 'B/Massachusetts/2/2012'. The virus name : 'B', and season_list is: '2012-2013'.",
+    "description" : "The virus strain name is: 'B/Massachusetts/02/2012'. The virus name : 'B', and season_list is: '2012-2013'.",
     "id" : "1321139"
   }, {
     "name" : "B/Shanghai/361/2002",
@@ -8126,9 +8059,9 @@
     "description" : "The virus strain name is: 'B/Shangai/361/2002'. The virus name : 'B', and season_list is: '2005-2006'.",
     "id" : "335812"
   }, {
-    "name" : "B/Wisconsin/1/2010",
+    "name" : "B/Wisconsin/01/2010",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
-    "description" : "The virus strain name is: 'B/Wisconsin/1/2010'. The virus name : 'B', and season_list is: '2012-2013'.",
+    "description" : "The virus strain name is: 'B/Wisconsin/01/2010'. The virus name : 'B', and season_list is: '2012-2013'.",
     "id" : "1089607"
   } ]
 }, {

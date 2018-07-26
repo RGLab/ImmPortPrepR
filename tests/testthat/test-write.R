@@ -7,7 +7,7 @@ test_that("write_header", {
 
   actual <- readLines(file)
   expected <- c(
-    "basic_study_design\tSchema Version 3.15",
+    "basic_study_design\tSchema Version 3.18",
     "Please do not delete or edit this column"
   )
 
@@ -114,7 +114,7 @@ test_that("write_txt", {
   name <- "basic_study_design"
   file <- tempfile()
 
-  R2i:::write_txt(name, demoData, file)
+  R2i:::write_txt(name, demoData, file) # demoData comes from data-raw/demoData.R
 
   actual <- readLines(file)
   expected <- readLines("basic_study_design.txt")

@@ -40,7 +40,7 @@ subsetBSD <- function(tblName, bsdDF){
 #'     the quality control functions in the package.
 #'
 #' @param filePath file path for basic study design csv. Cannot be excel spreadsheet.
-#' @importFrom utils read.csv
+#' @importFrom utils read.csv read.table
 #' @importFrom data.table fread
 #' @export
 parseBSD <- function(filePath){

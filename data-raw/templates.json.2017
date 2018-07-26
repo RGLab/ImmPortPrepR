@@ -1,7 +1,7 @@
 [ {
   "templateType" : "single",
   "fileName" : "adverseEvents.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "adverseEvents.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -388,7 +388,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "assessments.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "assessments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -901,7 +901,7 @@
 }, {
   "templateType" : "compound",
   "fileName" : "basic_study_design.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "basic_study_design.json",
   "validationLevel" : "",
   "templates" : [ {
@@ -2131,7 +2131,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "bioSamples.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "bioSamples.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2413,7 +2413,7 @@
 }, {
   "templateType" : "combined",
   "fileName" : "controlSamples.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "controlSamples.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2758,7 +2758,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "CyTOF_Derived_data.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "CyTOF_Derived_data.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2786,46 +2786,25 @@
     "pvTableName" : "lk_cell_population",
     "pv" : true,
     "conditionalRequired" : false,
-    "description" : "The drop down list provides a list of cell population names. Please select a name if it matches your cell population name or enter a population name if there is not an appropriate one provided. The population name has a limit of 150 characters.",
+    "description" : "The drop down list provides a list of cell population name, gating definition pairs separated by a semi-colon as recommended by the HIPC Standards Working Group and based on Cell Ontology terms. Please select a name, gating definition pair if it matches your cell population name, gating definition or enter a name, gating definition pair separated by a semi-colon (;) if there is not an appropriate one provided. The population name and gating definition each have a limit of 500 characters.",
     "conditionalDuplicateRequired" : false,
-    "jsonAttribute" : "populationNameReported",
+    "jsonAttribute" : "populationNameGatingDefinition",
     "jsonDataType" : "enum",
     "foreignKeyTableName" : null,
     "required" : true,
     "combinedColumn" : false,
     "metaResultDataType" : null,
-    "tableName" : "fcs_analyzed_result",
-    "columnType" : "varchar(150)",
+    "tableName" : null,
+    "columnType" : null,
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "The population name is the type of cells whose count is reported. Please select a population name from the drop down list if it matches your cell population name or enter a name if there is not an appropriate one provided.",
-    "tableColumn" : "population_name_reported",
-    "templateColumn" : "Population Name Reported",
+    "comment" : "This column combines the population name and gating definition. The population name is the type of cells whose count is reported. The gating definition is the marker gating definition of the cell type whose count is reported. Please select a 'population name ; gating definition' from the drop down list if it matches your cell population name and gating definition separated by a semi-colon(;) or enter a name and gating definition separated by a semi-colon (;) if there is not an appropriate one provided. The population name and gating definition each have a limit of 500 characters.",
+    "tableColumn" : null,
+    "templateColumn" : "Population Name Gating Definition",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "population_name_preferred"
+    "pvPreferredTableColumn" : "population_name_preferred and population_defnition_preferred"
   }, {
-    "pvTableName" : null,
-    "pv" : false,
-    "conditionalRequired" : false,
-    "description" : "he gating definition is the set of markers and their expression profile that describes a cell population name. Please select a gating definition from the drop down list if it matches your gating definition or enter a gating definition if there is not an appropriate one provided. The marker names should conform to standard names as described in the LK_ANALYTE table. Note that a comma, forward slash or pipe may be used as marker delimiter. The expression values are '+','','-',hi','lo','dim'. The gating definition has a limit of 150 characters.",
-    "conditionalDuplicateRequired" : false,
-    "jsonAttribute" : "gatingDefinitionReported",
-    "jsonDataType" : "string",
-    "foreignKeyTableName" : null,
-    "required" : true,
-    "combinedColumn" : false,
-    "metaResultDataType" : null,
-    "tableName" : "fcs_analyzed_result",
-    "columnType" : "varchar(150)",
-    "cv" : false,
-    "cvTableName" : null,
-    "comment" : "The gating definition is the set of markers and their expression profile. Please select a gating definition from the drop down list or enter a gating definition. Please see the ImmPort Upload Templates for details on representing marker names, delimiters and expression values. ",
-    "tableColumn" : "population_defnition_reported",
-    "templateColumn" : "Gating Definition Reported",
-    "foreignKey" : false,
-    "pvPreferredTableColumn" : null
-  }, {
-    "pvTableName" : "lk_cell_population",
+    "pvTableName" : "lk_base_pop_name",
     "pv" : true,
     "conditionalRequired" : false,
     "description" : "The drop down provides the base parent population. Please select a name if it matches your base parent population name or enter a name if there is not an appropriate one provided.",
@@ -2844,7 +2823,7 @@
     "tableColumn" : "parent_population_reported",
     "templateColumn" : "Parent Population Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "population_name_preferred"
+    "pvPreferredTableColumn" : "parent_population_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -2935,7 +2914,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "ELISA_Results.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "ELISA_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3049,7 +3028,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "ELISPOT_Results.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "ELISPOT_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3163,7 +3142,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "experiments.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experiments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3319,7 +3298,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.CYTOF.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.CYTOF.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3832,7 +3811,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.ELISA.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.ELISA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -4429,7 +4408,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.ELISPOT.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.ELISPOT.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -5026,7 +5005,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Flow_Cytometry.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.Flow_Cytometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -5581,7 +5560,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Gene_Expression_Array.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.Gene_Expression_Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -6115,7 +6094,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Genotyping_Array.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.Genotyping_Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -6649,7 +6628,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.HAI.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.HAI.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -7246,7 +7225,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.HLA.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.HLA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -7780,7 +7759,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Image_Histology.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.Image_Histology.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -8293,7 +8272,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.KIR.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.KIR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -8827,7 +8806,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Mass_Spectrometry.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.Mass_Spectrometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -9340,7 +9319,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.MBAA.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.MBAA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -9958,7 +9937,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.Neutralizing_Antibody_Titer.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.Neutralizing_Antibody_Titer.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -10555,7 +10534,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Other.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.Other.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -11068,7 +11047,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.QRT-PCR.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.QRT-PCR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -11728,7 +11707,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.RNA_Sequencing.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.RNA_Sequencing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -12304,7 +12283,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.Virus_Neutralization.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "experimentSamples.Virus_Neutralization.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -12901,7 +12880,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "FCM_Derived_data.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "FCM_Derived_data.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -12929,46 +12908,25 @@
     "pvTableName" : "lk_cell_population",
     "pv" : true,
     "conditionalRequired" : false,
-    "description" : "The drop down list provides a list of cell population names. Please select a name if it matches your cell population name or enter a population name if there is not an appropriate one provided. The population name has a limit of 150 characters.",
+    "description" : "The drop down list provides a list of cell population name, gating definition pairs separated by a semi-colon as recommended by the HIPC Standards Working Group and based on Cell Ontology terms. Please select a name, gating definition pair if it matches your cell population name, gating definition or enter a name, gating definition pair separated by a semi-colon (;) if there is not an appropriate one provided. The population name and gating definition each have a limit of 500 characters.",
     "conditionalDuplicateRequired" : false,
-    "jsonAttribute" : "populationNameReported",
+    "jsonAttribute" : "populationNameGatingDefinition",
     "jsonDataType" : "enum",
     "foreignKeyTableName" : null,
     "required" : true,
     "combinedColumn" : false,
     "metaResultDataType" : null,
-    "tableName" : "fcs_analyzed_result",
-    "columnType" : "varchar(150)",
+    "tableName" : null,
+    "columnType" : null,
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "The population name is the type of cells whose count is reported. Please select a population name from the drop down list if it matches your cell population name or enter a name if there is not an appropriate one provided.",
-    "tableColumn" : "population_name_reported",
-    "templateColumn" : "Population Name Reported",
+    "comment" : "This column combines the population name and gating definition. The population name is the type of cells whose count is reported. The gating definition is the marker gating definition of the cell type whose count is reported. Please select a 'population name ; gating definition' from the drop down list if it matches your cell population name and gating definition separated by a semi-colon(;) or enter a name and gating definition separated by a semi-colon (;) if there is not an appropriate one provided. The population name and gating definition each have a limit of 500 characters.",
+    "tableColumn" : null,
+    "templateColumn" : "Population Name Gating Definition",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "population_name_preferred"
+    "pvPreferredTableColumn" : "population_name_preferred and population_defnition_preferred"
   }, {
-    "pvTableName" : null,
-    "pv" : false,
-    "conditionalRequired" : false,
-    "description" : "he gating definition is the set of markers and their expression profile that describes a cell population name. Please select a gating definition from the drop down list if it matches your gating definition or enter a gating definition if there is not an appropriate one provided. The marker names should conform to standard names as described in the LK_ANALYTE table. Note that a comma, forward slash or pipe may be used as marker delimiter. The expression values are '+','','-',hi','lo','dim'. The gating definition has a limit of 150 characters.",
-    "conditionalDuplicateRequired" : false,
-    "jsonAttribute" : "gatingDefinitionReported",
-    "jsonDataType" : "string",
-    "foreignKeyTableName" : null,
-    "required" : true,
-    "combinedColumn" : false,
-    "metaResultDataType" : null,
-    "tableName" : "fcs_analyzed_result",
-    "columnType" : "varchar(150)",
-    "cv" : false,
-    "cvTableName" : null,
-    "comment" : "The gating definition is the set of markers and their expression profile. Please select a gating definition from the drop down list or enter a gating definition. Please see the ImmPort Upload Templates for details on representing marker names, delimiters and expression values. ",
-    "tableColumn" : "population_defnition_reported",
-    "templateColumn" : "Gating Definition Reported",
-    "foreignKey" : false,
-    "pvPreferredTableColumn" : null
-  }, {
-    "pvTableName" : "lk_cell_population",
+    "pvTableName" : "lk_base_pop_name",
     "pv" : true,
     "conditionalRequired" : false,
     "description" : "The drop down provides the base parent population. Please select a name if it matches your base parent population name or enter a name if there is not an appropriate one provided.",
@@ -12987,7 +12945,7 @@
     "tableColumn" : "parent_population_reported",
     "templateColumn" : "Parent Population Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "population_name_preferred"
+    "pvPreferredTableColumn" : "parent_population_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -13078,7 +13036,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "HAI_Results.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "HAI_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13192,7 +13150,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "HLA_Typing.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "HLA_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13726,7 +13684,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "immuneExposure.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "immuneExposure.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13903,7 +13861,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "interventions.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "interventions.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14353,7 +14311,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "KIR_Typing.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "KIR_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14467,7 +14425,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "labTest_Results.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "labTest_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14602,7 +14560,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "labTestPanels.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "labTestPanels.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14695,7 +14653,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "labTests.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "labTests.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15124,7 +15082,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "MBAA_Results.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "MBAA_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15343,7 +15301,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "PCR_Results.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "PCR_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15520,7 +15478,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "protocols.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "protocols.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15634,7 +15592,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "publicRepositories.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "publicRepositories.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15706,7 +15664,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "Reagent_Sets.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "Reagent_Sets.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15820,7 +15778,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Array.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15992,12 +15950,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "array_reagents",
+  "name" : "array",
   "description" : "The array reagent template defines and annotates microarrays assay platforms."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.CyTOF.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.CyTOF.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16253,12 +16211,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "cytof_reagents",
+  "name" : "cytof",
   "description" : "The mass cytometry reagent template defines and annotates the mass tagged antibody reagents used for CyTOF."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.ELISA.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.ELISA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16472,12 +16430,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "elisa_reagents",
+  "name" : "elisa",
   "description" : "The ELISA reagent template defines and annotates the antibody reagents assay platforms for ELISA."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.ELISPOT.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.ELISPOT.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16691,12 +16649,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "elispot_reagents",
+  "name" : "elispot",
   "description" : "The ELISPOT reagent template defines and annotates the antibody reagents assay platforms for ELISPOT."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Flow_Cytometry.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.Flow_Cytometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16952,12 +16910,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "flow_cytometry_reagents",
+  "name" : "flow_cytometry",
   "description" : "The flow cytometry reagent template defines and annotates the antibody reagents used for flow cytometry."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.HAI.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.HAI.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17129,12 +17087,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "hai_reagents",
+  "name" : "hai",
   "description" : "The HAI reagent template defines and annotates reagents for hemagglutination inhibition assays. These include the cell type used. The viral stain and concentration would be defined in the treatments.txt template."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.HLA_Typing.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.HLA_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17306,12 +17264,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "hla_typing_reagents",
+  "name" : "hla_typing",
   "description" : "The HLA typing system reagents template defines and annotates the assay platforms for HLA typing. These reagents will be linked to HLA experiment sample records."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.KIR_Typing.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.KIR_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17483,12 +17441,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "kir_typing_reagents",
+  "name" : "kir_typing",
   "description" : "The KIR typing system reagents template defines and annotates the assay platforms for KIR typing. These reagents will be linked to KIR experiment sample records."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.MBAA.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.MBAA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17681,12 +17639,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   } ],
-  "name" : "mbaa_reagents",
+  "name" : "mbaa",
   "description" : "The MBAA reagent template defines and annotates the assay platforms for MBAA. This should include a row for each of the analytes assayed by the MBAA array."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Neutralizing_Antibody_Titer.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.Neutralizing_Antibody_Titer.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17858,12 +17816,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "neutralizing_antibody_titer_reagents",
+  "name" : "neutralizing_antibody_titer",
   "description" : "The neutralizing antibody titer reagent template defines and annotates reagents used for neutralizing antibody titer including the cell types, and antibodies if an ELISA approach is employed."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Other.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.Other.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18035,12 +17993,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "other_reagents",
+  "name" : "other",
   "description" : "This reagent template is used to define and annotate reagents that are not described by other reagent templates."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.PCR.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.PCR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18212,12 +18170,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "pcr_reagents",
+  "name" : "pcr",
   "description" : "The PCR reagent template defines and annotates the reagents used for PCR assays."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Sequencing.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.Sequencing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18389,12 +18347,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "sequencing_reagents",
+  "name" : "sequencing",
   "description" : "The sequencing reagent template defines and annotates the assay platforms used for sequencing."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Virus_Neutralization.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "reagents.Virus_Neutralization.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18566,12 +18524,12 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   } ],
-  "name" : "virus_neutralization_reagents",
+  "name" : "virus_neutralization",
   "description" : "The virus neutralization reagent template defines and annotates reagents used for virus neutralization including the cell types, and antibodies if an ELISA approach is employed."
 }, {
   "templateType" : "multiple",
   "fileName" : "RNA_SEQ_Results.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "RNA_SEQ_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18685,19 +18643,19 @@
     "conditionalRequired" : false,
     "description" : "The transcripts or gene count for the transcript.",
     "conditionalDuplicateRequired" : false,
-    "jsonAttribute" : "valueReported",
+    "jsonAttribute" : "value",
     "jsonDataType" : "number",
     "foreignKeyTableName" : null,
     "required" : true,
     "combinedColumn" : false,
     "metaResultDataType" : null,
     "tableName" : "rna_seq_result",
-    "columnType" : "varchar(50)",
+    "columnType" : "float",
     "cv" : false,
     "cvTableName" : null,
     "comment" : "The count or gene count for the transcript.",
-    "tableColumn" : "value_reported",
-    "templateColumn" : "Value Reported",
+    "tableColumn" : "value",
+    "templateColumn" : "Value",
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   }, {
@@ -18727,7 +18685,7 @@
 }, {
   "templateType" : "combined",
   "fileName" : "standardCurves.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "standardCurves.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -19114,7 +19072,7 @@
 }, {
   "templateType" : "compound",
   "fileName" : "study_design_edit.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "study_design_edit.json",
   "validationLevel" : "",
   "templates" : [ {
@@ -20543,7 +20501,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "subjectAnimals.immuneExposure.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "subjectAnimals.immuneExposure.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -20972,7 +20930,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "subjectHumans.immuneExposure.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "subjectHumans.immuneExposure.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -21162,6 +21120,27 @@
     "comment" : "Please choose from the drop down list.",
     "tableColumn" : "location",
     "templateColumn" : "Subject Location",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : true,
+    "description" : "One or more identifiers can be entered. Separate identifiers by semicolon (;).Immunogenomics Data analysis Working Group (IDAWG) and HLA-NET recommends using population names as defined at http://www.allelefrequencies.net/datasets.asp#tag_4.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ancestryPopulations",
+    "jsonDataType" : "array",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : "metaData",
+    "tableName" : "subject",
+    "columnType" : "varchar(100)",
+    "cv" : true,
+    "cvTableName" : "lk_ancestral_population",
+    "comment" : "Immunogenomics Data analysis Working Group (IDAWG) and HLA-NET recommends using population names (ethnic groups or geographic region) listed in http://www.allelefrequencies.net/datasets.asp#tag_4 . Separate the individual population names with a semi-colon.",
+    "tableColumn" : "ancestral_population",
+    "templateColumn" : "Ancestry Population(s)",
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   }, {
@@ -21422,7 +21401,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "subjectsAnimal.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "subjectsAnimal.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -21704,7 +21683,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "subjectsHuman.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "subjectsHuman.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -21921,6 +21900,27 @@
     "pvTableName" : null,
     "pv" : false,
     "conditionalRequired" : false,
+    "description" : "One or more identifiers can be entered. Separate identifiers by semicolon (;).Immunogenomics Data analysis Working Group (IDAWG) and HLA-NET recommends using population names as defined at http://www.allelefrequencies.net/datasets.asp#tag_4.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ancestryPopulations",
+    "jsonDataType" : "array",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(100)",
+    "cv" : true,
+    "cvTableName" : "lk_ancestral_population",
+    "comment" : "Immunogenomics Data analysis Working Group (IDAWG) and HLA-NET recommends using population names (ethnic groups or geographic region) listed in http://www.allelefrequencies.net/datasets.asp#tag_4 . Separate the individual population names with a semi-colon.",
+    "tableColumn" : "ancestral_population",
+    "templateColumn" : "Ancestry Population(s)",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
     "description" : "A list of preferred terms is available.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "ethnicity",
@@ -22007,7 +22007,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "treatments.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "treatments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -22226,7 +22226,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "Virus_Neutralization_Results.txt",
-  "schemaVersion" : "3.18",
+  "schemaVersion" : "3.15",
   "jsonFileName" : "Virus_Neutralization_Results.json",
   "validationLevel" : "",
   "columns" : [ {

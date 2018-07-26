@@ -5,5 +5,5 @@
 #'
 #' @export
 getTemplateNames <- function(){
-    return( unique(ImmPortTemplates$templateName) )
+    return( unique(R2i::ImmPortTemplates$templateName) )
 }

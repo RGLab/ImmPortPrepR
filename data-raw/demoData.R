@@ -144,3 +144,5 @@ demoData <- list(
         "Authors"
     )
 )
+
+save(demoData, file = "data/demoData.rda")
