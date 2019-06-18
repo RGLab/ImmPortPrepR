@@ -82,16 +82,6 @@
 }, {
   "name" : "lk_amount_unit",
   "rows" : [ {
-    "name" : "AI",
-    "link" : "https://www.aacc.org/publications/cln/articles/2014/june/ana-testing",
-    "description" : "Antibody Index",
-    "id" : ""
-  }, {
-    "name" : "DK units/ml",
-    "link" : "https://repository.niddk.nih.gov/studies/aab-calibrators/",
-    "description" : "The NIDDK calibrators were tested together with dilutions of the WHO reference serum using harmonized assays on five occasions in the BDC, Bristol, and Munich laboratories and reported as WHO units/ml by calibration as previously described. For each of the NIDDK calibrators, the median value of the WHO units/ml obtained for the 15 measurements was assigned as its calibrator unit. The assigned units were termed digestive and kidney units (DK units)/ml.",
-    "id" : ""
-  }, {
     "name" : "gm",
     "link" : "http://purl.obolibrary.org/obo/UO_0000021",
     "description" : "gram",
@@ -105,11 +95,6 @@
     "name" : "IU",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C48579&ns=NCI_Thesaurus",
     "description" : "The unitage assigned by the WHO to International Biological Standards - substances, classed as biological according to the criteria provided by WHO Expert Committee on Biological Standardization (e.g. hormones, enzymes, and vaccines), to enable the results of biological and immunological assay procedures to be expressed in the same way throughout the world. The definition of an international unit is generally arbitrary and technical, and has to be officially approved by the International Conference for Unification of Formulae.",
-    "id" : ""
-  }, {
-    "name" : "IU/ml",
-    "link" : "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=18.06d&ns=ncit&code=C67377",
-    "description" : "A unit of arbitrary substance concentration (biologic activity concentration) defined as the concentration of one international unit per one milliliter of system volume.",
     "id" : ""
   }, {
     "name" : "M",
@@ -3395,234 +3380,6 @@
     "id" : null
   } ]
 }, {
-  "name" : "lk_cell_population_definition",
-  "rows" : [ {
-    "name" : "population_defnition_preferred",
-    "link" : "",
-    "description" : "",
-    "id" : ""
-  }, {
-    "name" : "A leukocyte with a single non-segmented nucleus in the mature form found in the circulatory pool of blood.",
-    "link" : "http://purl.obolibrary.org/obo/CL_2000001",
-    "description" : "peripheral blood mononuclear cell",
-    "id" : null
-  }, {
-    "name" : "All cells in a sample",
-    "link" : "NA",
-    "description" : "NA",
-    "id" : null
-  }, {
-    "name" : "CD3+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000084",
-    "description" : "T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000624",
-    "description" : "CD4-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD127lo, CD25+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000792",
-    "description" : "CD4-positive, CD25+, alpha-beta regulatory T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD127lo, CD25+, CCR4+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001045",
-    "description" : "naive CCR4-positive regulatory T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD127lo, CD25+, CCR4+, CD45RO+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001046",
-    "description" : "memory CCR4-positive regulatory T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD127lo, CD25+, CCR4+, CD45RO-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001045",
-    "description" : "naive CCR4-positive regulatory T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD127lo, CD25+, CCR4+, HLA-DR+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001048",
-    "description" : "activated CD4-positive, CD25-positive, CCR4-positive, alpha-beta regulatory T cell, human",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD8-, CCR7+, CD45RA+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000895",
-    "description" : "naive thymus-derived CD4-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD8-, CCR7+, CD45RA-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000904",
-    "description" : "central memory CD4-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD8-, CCR7-, CD45RA+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001044",
-    "description" : "effector CD4-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD8-, CCR7-, CD45RA-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000905",
-    "description" : "effector memory CD4-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD8-, CD38+, HLA-DR+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001043",
-    "description" : "activated CD4-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD8-, CXCR3+, CCR6-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000545",
-    "description" : "T-helper 1 cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD8-, CXCR3-, CCR6+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000899",
-    "description" : "T-helper 17 cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4+, CD8-, CXCR3-, CCR6-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000546",
-    "description" : "T-helper 2 cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4-, CD8+, CCR7+, CD45RA+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000900",
-    "description" : "naive thymus-derived CD8-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4-, CD8+, CCR7+, CD45RA-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000907",
-    "description" : "central memory CD8-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4-, CD8+, CCR7-, CD45RA+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001050",
-    "description" : "effector CD8-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4-, CD8+, CCR7-, CD45RA-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000913",
-    "description" : "effector memory CD8-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4-, CD8+, CD38+, HLA-DR+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001049",
-    "description" : "activated CD8-positive, alpha-beta T cell, human",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4-, CD8+, CXCR3+, CCR6-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000917",
-    "description" : "Tc1 cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4-, CD8+, CXCR3-, CCR6+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0002128",
-    "description" : "Tc17 cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD4-, CD8+, CXCR3-, CCR6-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001052;http://purl.obolibrary.org/obo/CL_0000918 ",
-    "description" : "Tc2 cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD56+, CD14-, CD33-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000814",
-    "description" : "mature NK T cell",
-    "id" : null
-  }, {
-    "name" : "CD3+, CD8+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000625",
-    "description" : "CD8-positive, alpha-beta T cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19+ , CD20+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000236",
-    "description" : "B cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19+, CD20+, CD24hi, CD38hi",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000818",
-    "description" : "transitional stage B cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19+, CD20+, CD27+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000787",
-    "description" : "memory B cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19+, CD20+, CD27+, IgD+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000970",
-    "description" : "unswitched memory B cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19+, CD20+, CD27+, IgD-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0001053",
-    "description" : "IgD-negative memory B cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19+, CD20+, CD27-, IgD+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000788",
-    "description" : "naive B cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19+, CD20-, CD27hi, CD38hi",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000980",
-    "description" : "plasmablast",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19-, CD20-, CD14+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000576",
-    "description" : "monocyte",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19-, CD20-, CD14+, CD16+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0002397",
-    "description" : "CD14-positive, CD16-positive monocyte",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19-, CD20-, CD14+, CD16-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0002057",
-    "description" : "CD14-positive, CD16-negative classical monocyte",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19-, CD20-, CD14-, CD16-, CD56-, HLA-DR+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000451",
-    "description" : "dendritic cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19-, CD20-, CD14-, CD16-, CD56-, HLA-DR+, CD11c+, CD123-",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000782",
-    "description" : "myeloid dendritic cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19-, CD20-, CD14-, CD16-, CD56-, HLA-DR+, CD11c-, CD123+",
-    "link" : " http://purl.obolibrary.org/obo/CL_0000784",
-    "description" : "plasmacytoid dendritic cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19-, CD20-, CD14-, HLA-DR-, CD16+, CD56+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000939",
-    "description" : "CD16-positive, CD56-dim natural killer cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD19-, CD20-, CD14-, HLA-DR-, CD16-, CD56++",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000938",
-    "description" : "CD16-negative, CD56-bright natural killer cell",
-    "id" : null
-  }, {
-    "name" : "CD3-, CD56+",
-    "link" : "http://purl.obolibrary.org/obo/CL_0000623",
-    "description" : "natural killer cell",
-    "id" : null
-  }, {
-    "name" : "Living cells gated from dead cells",
-    "link" : "http://purl.obolibrary.org/obo/PATO_0000169",
-    "description" : "Viable cells",
-    "id" : null
-  } ]
-}, {
   "name" : "lk_compound_role",
   "rows" : [ {
     "name" : "Concomitant Medication",
@@ -3653,24 +3410,9 @@
     "description" : "",
     "id" : ""
   }, {
-    "name" : "AI",
-    "link" : "https://www.aacc.org/publications/cln/articles/2014/june/ana-testing",
-    "description" : "Antibody Index",
-    "id" : null
-  }, {
-    "name" : "DK units/ml",
-    "link" : "https://repository.niddk.nih.gov/studies/aab-calibrators/",
-    "description" : "The NIDDK calibrators were tested together with dilutions of the WHO reference serum using harmonized assays on five occasions in the BDC, Bristol, and Munich laboratories and reported as WHO units/ml by calibration as previously described. For each of the NIDDK calibrators, the median value of the WHO units/ml obtained for the 15 measurements was assigned as its calibrator unit. The assigned units were termed digestive and kidney units (DK units)/ml.",
-    "id" : null
-  }, {
     "name" : "HAU",
     "link" : "http://en.wikipedia.org/wiki/Virus_quantification",
     "description" : "hemagglutination units",
-    "id" : null
-  }, {
-    "name" : "IU/ml",
-    "link" : "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=18.06d&ns=ncit&code=C67377",
-    "description" : "A unit of arbitrary substance concentration (biologic activity concentration) defined as the concentration of one international unit per one milliliter of system volume.",
     "id" : null
   }, {
     "name" : "M",
@@ -4136,11 +3878,6 @@
     "description" : "",
     "id" : ""
   }, {
-    "name" : "Alzheimer's disease ; DOID:10652",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_10652",
-    "description" : "Alzheimer's disease",
-    "id" : null
-  }, {
     "name" : "BCG Vaccine ; VO_0000771",
     "link" : "http://www.ontobee.org/ontology/VO?iri=http://purl.obolibrary.org/obo/VO_0000771",
     "description" : "BCG Vaccine",
@@ -4149,11 +3886,6 @@
     "name" : "Borrelia burgdorferi ; NCBITaxon_139",
     "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=139",
     "description" : "Borrelia burgdorferi",
-    "id" : null
-  }, {
-    "name" : "Crohn's disease ; DOID:8778",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_8778",
-    "description" : "Crohn's disease",
     "id" : null
   }, {
     "name" : "Dengue virus 1 ; NCBITaxon_11053",
@@ -4171,11 +3903,6 @@
     "description" : "Dengue virus",
     "id" : null
   }, {
-    "name" : "Diabetes Mellitus ; DOID:9351",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_9351",
-    "description" : "Diabetes Mellitus",
-    "id" : null
-  }, {
     "name" : "Human alphaherpesvirus 3 ; NCBITaxon_10335",
     "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=10335",
     "description" : "Human alphaherpesvirus 3",
@@ -4191,69 +3918,14 @@
     "description" : "Influenza A virus",
     "id" : null
   }, {
-    "name" : "Lupus Erythematosus ; DOID:9074",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_9074",
-    "description" : "Lupus Erythematosus",
-    "id" : null
-  }, {
-    "name" : "Multiple Sclerosis ; DOID:2377",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_2377",
-    "description" : "Multiple Sclerosis",
-    "id" : null
-  }, {
-    "name" : "Myasthenia Gravis ; DOID:437",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_437",
-    "description" : "Myasthenia Gravis",
-    "id" : null
-  }, {
     "name" : "Mycobacterium tuberculosis ; NCBITaxon_1773",
     "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=1773",
     "description" : "Mycobacterium tuberculosis",
     "id" : null
   }, {
-    "name" : "Neuromyelitis Optica ; DOID:8869",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_8869",
-    "description" : "Neuromyelitis Optica",
-    "id" : null
-  }, {
-    "name" : "Parkinson's disease ; DOID:14330",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_14330",
-    "description" : "Parkinson's disease",
-    "id" : null
-  }, {
-    "name" : "Pemphigus Vulgaris ; DOID:0060851",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_0060851",
-    "description" : "Pemphigus Vulgaris",
-    "id" : null
-  }, {
-    "name" : "Psoriasis ; DOID:8893",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_8893",
-    "description" : "Psoriasis",
-    "id" : null
-  }, {
     "name" : "Purified Protein Derivative ; Unknown ID",
     "link" : "",
     "description" : "Purified Protein Derivative",
-    "id" : null
-  }, {
-    "name" : "Rheumatoid Arthritis ; DOID:7148",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_7148",
-    "description" : "Rheumatoid Arthritis",
-    "id" : null
-  }, {
-    "name" : "Sjogren's syndrome ; DOID:12894",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_12894",
-    "description" : "Sjogren's syndrome",
-    "id" : null
-  }, {
-    "name" : "Systemic Scleroderma ; DOID:418",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_418",
-    "description" : "Systemic Scleroderma",
-    "id" : null
-  }, {
-    "name" : "Ulcerative Colitis ; DOID:8577",
-    "link" : "http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_8577",
-    "description" : "Ulcerative Colitis",
     "id" : null
   }, {
     "name" : "Varicella-zoster virus vaccine ; VO_0000669",
@@ -4329,11 +4001,6 @@
     "description" : "The process in which cancer unfolds",
     "id" : null
   }, {
-    "name" : "Occurrence of Cancer Associated With Virus",
-    "link" : "https://ontology.iedb.org/ontology/ONTIE:0003313",
-    "description" : "An occurence of cancer where there is evidence for the presence of a cancer causing oncovirus in the tumor.",
-    "id" : null
-  }, {
     "name" : "occurrence of disease",
     "link" : "http://purl.obolibrary.org/obo/OGMS_0000063",
     "description" : "The process in which a disease unfolds.",
@@ -4342,16 +4009,6 @@
     "name" : "occurrence of infectious disease",
     "link" : "http://purl.obolibrary.org/obo/OBI_1110008",
     "description" : "The process in which an infectious disease unfolds.",
-    "id" : null
-  }, {
-    "name" : "Solid Tissue Transplantation",
-    "link" : "https://ontology.iedb.org/ontology/ONTIE:0003311",
-    "description" : "A planned process in which solid tissue is transferred to an organism",
-    "id" : null
-  }, {
-    "name" : "Transfusion",
-    "link" : "https://ontology.iedb.org/ontology/ONTIE:0003312",
-    "description" : "A planned process in which a bodily fluid is transferred into an organism",
     "id" : null
   }, {
     "name" : "transplantation or transfusion",
@@ -4410,11 +4067,6 @@
     "description" : "A measurement of the total inactive Vitamin D in a biological specimen.",
     "id" : "VITDIT"
   }, {
-    "name" : "A/G RATIO",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002402",
-    "description" : "Blood Albumin Level to Blood Globulin Level Ratio",
-    "id" : ""
-  }, {
     "name" : "Acanthocytes",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74699",
     "description" : "A measurement of the acanthocytes per unit of a biological specimen.",
@@ -4449,16 +4101,6 @@
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=15.12d&code=C64432",
     "description" : "A measurement of the alkaline phosphatase in a biological specimen.",
     "id" : "ALP"
-  }, {
-    "name" : "Amylase",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000280",
-    "description" : "Urine Amylase Level",
-    "id" : ""
-  }, {
-    "name" : "Anion Gap",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000067",
-    "description" : "Anion Gap",
-    "id" : ""
   }, {
     "name" : "Anisocytes",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74797",
@@ -4525,16 +4167,6 @@
     "description" : "A measurement of the antinuclear antibodies (antibodies that attack the body's own tissue) in a biological specimen.",
     "id" : "ANA"
   }, {
-    "name" : "Apolipoprotein A1",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000520",
-    "description" : "Blood Apolipoprotein A1 Level",
-    "id" : ""
-  }, {
-    "name" : "Apolipoprotein B",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000522",
-    "description" : "Blood Apoliprotein B Level",
-    "id" : ""
-  }, {
     "name" : "Aspartate Aminotransferase",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=15.12d&code=C64467",
     "description" : "A measurement of the aspartate aminotransferase in a biological specimen.",
@@ -4555,16 +4187,6 @@
     "description" : "The quantitative determination of bacterial populations. The two most widely used methods for determining bacterial numbers are: 1) the standard, or viable, plate count method and 2) spectrophotometric (turbidimetric) analysis.",
     "id" : "BACT"
   }, {
-    "name" : "Band",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002336",
-    "description" : "Blood Band Neutrophil Count",
-    "id" : ""
-  }, {
-    "name" : "Basophil % of WBC",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000368",
-    "description" : "Blood Basophil Count to Total Leukocyte Count Ratio",
-    "id" : ""
-  }, {
     "name" : "Basophils",
     "link" : "http://purl.bioontology.org/ontology/SNOMEDCT/42351005;http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C64470",
     "description" : "A measurement of the basophils per unit of a biological specimen.",
@@ -4574,11 +4196,6 @@
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C64471",
     "description" : "A relative measurement (ratio or percentage) of the basophils to leukocytes in a biological specimen.",
     "id" : "BASOLE"
-  }, {
-    "name" : "BC_GLUC (GLUC)",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000046",
-    "description" : "Blood Glucose Level",
-    "id" : ""
   }, {
     "name" : "Beta-2 Glycoprotein Antibody",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C81979",
@@ -4619,11 +4236,6 @@
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=15.12d&code=C61019",
     "description" : "A measurement of the urea nitrogen in a blood specimen.",
     "id" : "BUN"
-  }, {
-    "name" : "BUN",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000049",
-    "description" : "Blood Urea Nitrogen Level",
-    "id" : ""
   }, {
     "name" : "Burr Cells",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74701",
@@ -4815,11 +4427,6 @@
     "description" : "A measurement of dacryocytes in unit of a biological specimen.",
     "id" : "TEARDCY"
   }, {
-    "name" : "Differential Segment (percent)",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002337",
-    "description" : "Blood Segmented Neutrophil Count to Total Leukocyte Count Ratio",
-    "id" : ""
-  }, {
     "name" : "Dohle Bodies",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74610",
     "description" : "A measurement of the Dohle bodie (blue-gray, basophilic, leukocyte inclusions located in the peripheral cytoplasm of neutrophils) in a biological specimen.",
@@ -4829,16 +4436,6 @@
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C64549",
     "description" : "A measurement of the elliptically shaped erythrocytes in a biological specimen.",
     "id" : "ELLIPCY"
-  }, {
-    "name" : "Eosinophil",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000033",
-    "description" : "Blood Eosinophil Count",
-    "id" : ""
-  }, {
-    "name" : "Eosinophil % of WBC",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000369",
-    "description" : "Blood Eosinophil Count to Total Leukocyte Count Ratio",
-    "id" : ""
   }, {
     "name" : "Eosinophil Metamyelocytes",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C84819",
@@ -4895,16 +4492,6 @@
     "description" : "A value derived from mean corpuscular volume and the standard deviation of the red blood cell volume in a whole blood specimen.",
     "id" : "RDW"
   }, {
-    "name" : "Estimated GFR by Cockcroft-Gault",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000490",
-    "description" : "Blood Glomerular Filtration Rate",
-    "id" : ""
-  }, {
-    "name" : "Estimated GFR by MDRD",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000491",
-    "description" : "Blood Glomerular Filtration Rate, Diet in Renal Disease Formula (MDRD)",
-    "id" : ""
-  }, {
     "name" : "Gamma Glutamyl Transpeptidase",
     "link" : "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=15.10d&ns=NCI_Thesaurus&code=C64847",
     "description" : "A quantitative measurement of the amount of gamma glutamyl transpeptidase present in a sample.",
@@ -4915,20 +4502,10 @@
     "description" : "A measurement of the giant (larger than 7um in diameter) platelets in a biological specimen.",
     "id" : "PLATGNT"
   }, {
-    "name" : "Globulin",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002398",
-    "description" : "Blood Globulin Level",
-    "id" : ""
-  }, {
     "name" : "Glomerular Filtration Rate",
     "link" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C90505",
     "description" : "A kidney function test that measures the fluid volume that is filtered from the kidney glomeruli to the Bowman's capsule per unit of time.",
     "id" : "GFR"
-  }, {
-    "name" : "GLUC (GLUC)",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000046",
-    "description" : "Blood Glucose Level",
-    "id" : ""
   }, {
     "name" : "Glucose",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=15.12d&code=C105585",
@@ -5040,25 +4617,10 @@
     "description" : "An observation which indicates that the hemoglobin concentration in a red blood cell specimen has fallen below a specified level.",
     "id" : "HPOCROM"
   }, {
-    "name" : "IgG1",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002115",
-    "description" : "Serum Immunoglobulin G1 Level",
-    "id" : ""
-  }, {
-    "name" : "IgG2",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002116",
-    "description" : "Serum Immunoglobulin G2a Level",
-    "id" : ""
-  }, {
     "name" : "Immunoglobulin A",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C81969",
     "description" : "A measurement of the Immunoglobulin A in a biological specimen.",
     "id" : "IGA"
-  }, {
-    "name" : "Immunoglobulin D",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002093",
-    "description" : "Blood Immunoglobulin D Level",
-    "id" : ""
   }, {
     "name" : "Immunoglobulin E",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C81970",
@@ -5330,21 +4892,6 @@
     "description" : "A measurement of the leukocytes per unit of a biological specimen.",
     "id" : "WBC"
   }, {
-    "name" : "Lmphocytes",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000031",
-    "description" : "Blood Lymphocyte Count",
-    "id" : ""
-  }, {
-    "name" : "Lymphocyte % of WBC",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000371",
-    "description" : "Blood Lymphocyte Count to Total Leukocyte Count Ratio",
-    "id" : ""
-  }, {
-    "name" : "Lymphocyte count",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000031",
-    "description" : "Blood Lymphocyte Count",
-    "id" : ""
-  }, {
     "name" : "Lymphocytes",
     "link" : "http://purl.bioontology.org/ontology/SNOMEDCT/74765001;http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C51949",
     "description" : "A measurement of the lymphocytes per unit of a biological specimen.",
@@ -5430,16 +4977,6 @@
     "description" : "A measurement of the microcytes per unit of a biological specimen.",
     "id" : "MICROCY"
   }, {
-    "name" : "Milk protein",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000789",
-    "description" : "Milk Protein Measurement",
-    "id" : ""
-  }, {
-    "name" : "Milk protein CAP-Klasse",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000789",
-    "description" : "Milk Protein Measurement",
-    "id" : ""
-  }, {
     "name" : "Monoblasts",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74631",
     "description" : "A measurement of the monoblast cells per unit of a biological specimen.",
@@ -5449,11 +4986,6 @@
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74646",
     "description" : "A relative measurement (ratio or percentage) of monoblast cells to all leukocytes in a biological specimen.",
     "id" : "MONOBLLE"
-  }, {
-    "name" : "Monocyte % of WBC",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000374",
-    "description" : "Blood Monocyte Count to Total Leukocyte Count Ratio",
-    "id" : ""
   }, {
     "name" : "Monocytes",
     "link" : "http://purl.bioontology.org/ontology/SNOMEDCT/67776007;http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C64823",
@@ -5489,11 +5021,6 @@
     "link" : "http://purl.bioontology.org/ontology/SNOMEDCT/33606006;http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C79436",
     "description" : "A measurement of myoglobin in a biological specimen.",
     "id" : "MGB"
-  }, {
-    "name" : "Neutrophil % of WBC",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000370",
-    "description" : "Blood Neutrophil Count to Total Leukocyte Count Ratio",
-    "id" : ""
   }, {
     "name" : "Neutrophilic Metamyelocytes",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C84822",
@@ -5539,11 +5066,6 @@
     "link" : "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=15.10d&ns=NCI_Thesaurus&code=C64810",
     "description" : "A quantitative measurement of the amount of nitrite present in a sample.",
     "id" : "NITRITE"
-  }, {
-    "name" : "Non-HDL Cholesterol, calc",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002283",
-    "description" : "Plasma Non-HDL, Non-LDL Cholesterol Level",
-    "id" : ""
   }, {
     "name" : "Nucleated Erythrocytes",
     "link" : "http://purl.bioontology.org/ontology/SNOMEDCT/104098008;http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74705",
@@ -5614,11 +5136,6 @@
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C81989",
     "description" : "A measurement of the plasminogen activator inhibitor-1 antigen in a biological specimen.",
     "id" : "PAI1AG"
-  }, {
-    "name" : "Platelet count",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000029",
-    "description" : "Platelet Count",
-    "id" : ""
   }, {
     "name" : "Platelet Distribution Width",
     "link" : "http://purl.bioontology.org/ontology/SNOMEDCT/250313005;http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C81962",
@@ -5745,11 +5262,6 @@
     "description" : "A relative measurement (ratio or percentage) of reticulocytes to erythrocytes in a biological specimen.",
     "id" : "RETIRBC"
   }, {
-    "name" : "RF",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0002609",
-    "description" : "Serum Immunoglobulin M-type Rheumatoid Factor Level",
-    "id" : ""
-  }, {
     "name" : "Rheumatoid Factor",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74717",
     "description" : "A measurement of the rheumatoid factor antibody in a biological specimen.",
@@ -5774,16 +5286,6 @@
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74655",
     "description" : "A relative measurement (ratio or percentage) of the Sezary cells (atypical lymphocytes with cerebriform nuclei) to all lymphocytes in a biological specimen.",
     "id" : "SEZCELY"
-  }, {
-    "name" : "SGOT",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000580",
-    "description" : "Blood Aspartate Aminotransferase Activity Level",
-    "id" : ""
-  }, {
-    "name" : "SGPT",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000574",
-    "description" : "Blood Alanine Aminotransferase Activity Level",
-    "id" : ""
   }, {
     "name" : "Sickle Cells",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74626",
@@ -5850,20 +5352,10 @@
     "description" : "A measurement of the tissue plasminogen activator antigen in a biological specimen.",
     "id" : "TPAAG"
   }, {
-    "name" : "TNFA",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0001435",
-    "description" : "Inflammatory Exudate Tumor Necrosis Factor Level",
-    "id" : ""
-  }, {
     "name" : "Triglycerides",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=15.12d&code=C64812",
     "description" : "A measurement of the triglycerides in a biological specimen..",
     "id" : "TRIG"
-  }, {
-    "name" : "Triiodothryonine",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0001291",
-    "description" : "Blood Triiodothyronine Level",
-    "id" : ""
   }, {
     "name" : "Triiodothyronine",
     "link" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C2303",
@@ -5875,16 +5367,6 @@
     "description" : "A quantitative measurement of the amount of urate present in a sample.",
     "id" : "URATE"
   }, {
-    "name" : "Urea Nitrogen, Serum/Plasma",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000049",
-    "description" : "Blood Urea Nitrogen Level",
-    "id" : ""
-  }, {
-    "name" : "Uric Acid",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000501",
-    "description" : "Blood Uric Acid Level",
-    "id" : ""
-  }, {
     "name" : "Urobilinogen",
     "link" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C64816",
     "description" : "A quantitative measurement of the amount of urobilinogen present in a sample.",
@@ -5894,11 +5376,6 @@
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=14.11d&code=C74628",
     "description" : "A measurement of the neutrophils containing small vacuoles in a biological specimen.",
     "id" : "NEUTVAC"
-  }, {
-    "name" : "White Blood Cell Count",
-    "link" : "http://purl.obolibrary.org/obo/CMO_0000027",
-    "description" : "White Blood Cell Count",
-    "id" : ""
   } ]
 }, {
   "name" : "lk_lab_test_panel_name",
@@ -6153,19 +5630,9 @@
     "description" : "Protocol used to prepare or modify a biological sample",
     "id" : ""
   }, {
-    "name" : "Case Report Form",
-    "link" : "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.10e&code=C40988",
-    "description" : "Case Report Form",
-    "id" : ""
-  }, {
     "name" : "Clinical",
     "link" : "",
     "description" : "Clinical",
-    "id" : ""
-  }, {
-    "name" : "Clinical Study Protocol",
-    "link" : "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.10e&code=C25320",
-    "description" : "Clinical Study Protocol",
     "id" : ""
   }, {
     "name" : "Data Processing",
@@ -6196,11 +5663,6 @@
     "name" : "Other",
     "link" : "",
     "description" : "Other",
-    "id" : ""
-  }, {
-    "name" : "Statistical Analysis Documentation",
-    "link" : "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.10e&code=C115732",
-    "description" : "Statistical Analysis Documentation",
     "id" : ""
   }, {
     "name" : "Study Protocol",
@@ -6259,11 +5721,6 @@
     "name" : "NCBI Gene",
     "link" : "",
     "description" : "NCBI gene repository",
-    "id" : ""
-  }, {
-    "name" : "PRIDE",
-    "link" : "https://www.ebi.ac.uk/pride/archive/",
-    "description" : "The PRIDE PRoteomics IDEntifications (PRIDE) database is a centralized, standards compliant, public data repository for proteomics data, including protein and peptide identifications, post-translational modifications and supporting spectral evidence. PRIDE is a core member in the ProteomeXchange (PX) consortium, which provides a single point for submitting mass spectrometry based proteomics data to public-domain repositories. Datasets are submitted to PRIDE via ProteomeXchange and are handled by expert biocurators.",
     "id" : ""
   }, {
     "name" : "SRA",
@@ -6390,72 +5847,6 @@
     "name" : "Virus Neutralization",
     "link" : "http://purl.obolibrary.org/obo/OBI_0000872",
     "description" : "Block a viral function.",
-    "id" : ""
-  } ]
-}, {
-  "name" : "lk_release_status",
-  "rows" : [ {
-    "name" : "Initial",
-    "link" : "",
-    "description" : "The Initial Data Release for the study",
-    "id" : ""
-  }, {
-    "name" : "Unknown",
-    "link" : "",
-    "description" : "The Data Release for the study is not known",
-    "id" : ""
-  }, {
-    "name" : "Updated",
-    "link" : "",
-    "description" : "The Data Release for the study is an update",
-    "id" : ""
-  } ]
-}, {
-  "name" : "lk_research_focus",
-  "rows" : [ {
-    "name" : "Atopy/Allergy",
-    "link" : "https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C41366&ns=NCI_Thesaurus;URL: https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=OBI&code=OBI_1110049&ns=obo",
-    "description" : "Atopy or Allergy research focus.",
-    "id" : ""
-  }, {
-    "name" : "Autoimmune",
-    "link" : "https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=OBI&code=OBI_1110054&ns=obo",
-    "description" : "Autoimmune research focus.",
-    "id" : ""
-  }, {
-    "name" : "Immune Response",
-    "link" : "https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=OBI&code=GO_0006955&ns=obo",
-    "description" : "Immune Response research focus.",
-    "id" : ""
-  }, {
-    "name" : "Infection Response",
-    "link" : "https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=SNOMED%20Clinical%20Terms%20US%20Edition&code=252101002&ns=SNOMED",
-    "description" : "Infection Response research focus.",
-    "id" : ""
-  }, {
-    "name" : "No Research Focus Specified",
-    "link" : "",
-    "description" : "No Research Focus currently specified.",
-    "id" : ""
-  }, {
-    "name" : "Oncology",
-    "link" : "https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=17.04d&ns=NCI_Thesaurus&code=C17837&key=n608142342&m=1&b=1&n=null",
-    "description" : "The study of tumors encompassing the physical, chemical, and biologic properties.",
-    "id" : ""
-  }, {
-    "name" : "Preterm Birth",
-    "link" : "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=18.06d&ns=ncit&code=C92861&key=620784314&b=1&n=null",
-    "description" : "Birth when a fetus is less than 37 weeks and 0 days gestational age.",
-    "id" : ""
-  }, {
-    "name" : "Transplantation",
-    "link" : "https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=OBI&code=OBI_0000105&ns=obo",
-    "description" : "Transplantation research focus.",
-    "id" : ""
-  }, {
-    "name" : "Vaccine Response",
-    "link" : "http://www.ebi.ac.uk/efo/EFO_0004645",
-    "description" : "Vaccine Response research focus.",
     "id" : ""
   } ]
 }, {
@@ -6908,21 +6299,6 @@
     "description" : "Study file type is Lab Test Results (e.g. CBC, chemistry, cytokine).",
     "id" : ""
   }, {
-    "name" : "Medical History Data",
-    "link" : "http://immport.org/immport-open/public/home/documentation; https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=18.09d&ns=ncit&code=C18772",
-    "description" : "Study file type is Medical History Data",
-    "id" : ""
-  }, {
-    "name" : "Protocol Deviation Data",
-    "link" : "http://immport.org/immport-open/public/home/documentation; https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=18.09d&ns=ncit&code=C50996",
-    "description" : "Study file type is Protocol Deviation Data",
-    "id" : ""
-  }, {
-    "name" : "Screening Data",
-    "link" : "http://immport.org/immport-open/public/home/documentation; https://nciterms.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=18.09d&code=C48262",
-    "description" : "Study file type is Screening Data",
-    "id" : ""
-  }, {
     "name" : "Study Data",
     "link" : "http://immport.org/immport-open/public/home/documentation",
     "description" : "Data associated with a study. For studies at a data curation level 0, this is the default setting for data linked to a study.",
@@ -6941,6 +6317,29 @@
     "name" : "Substance Use",
     "link" : "http://immport.org/immport-open/public/home/documentation; https://nciterms.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C49615&ns=NCI_Thesaurus",
     "description" : "Study file type is Substance Use.",
+    "id" : ""
+  } ]
+}, {
+  "name" : "lk_study_type",
+  "rows" : [ {
+    "name" : "Intervention Longitudinal",
+    "link" : "http://bioportal.bioontology.org/ontologies/NCIT/?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C98388&jump_to_nav=true",
+    "description" : "An Intervention Longitudinal study involves repeated observations of the same variables over long periods of time during an intervention study. It is to Interventional study as Longitudinal is to Observational study.",
+    "id" : ""
+  }, {
+    "name" : "Interventional",
+    "link" : "http://bioportal.bioontology.org/ontologies/NCIT/?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C98388&jump_to_nav=true",
+    "description" : "In an interventional study, the investigators give the research subjects a particular medicine or other intervention. Usually, they compare the treated subjects to subjects who receive no treatment or standard treatment. Then the researchers measure how the subjects' health changes.",
+    "id" : ""
+  }, {
+    "name" : "Longitudinal",
+    "link" : "http://bioportal.bioontology.org/ontologies/NCIT/?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C15273&jump_to_nav=true",
+    "description" : "A longitudinal study is a correlational research study that involves repeated observations of the same variables over long periods of time - often many decades. It is a type of observational study.",
+    "id" : ""
+  }, {
+    "name" : "Observational",
+    "link" : "http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C16084",
+    "description" : "An observational study draws inferences about the possible effect of a treatment on subjects, where the assignment of subjects into a treated group versus a control group is outside the control of the investigator.",
     "id" : ""
   } ]
 }, {
@@ -8394,11 +7793,6 @@
     "description" : "",
     "id" : ""
   }, {
-    "name" : "AI",
-    "link" : "https://www.aacc.org/publications/cln/articles/2014/june/ana-testing",
-    "description" : "Antibody Index",
-    "id" : null
-  }, {
     "name" : "Antibody titer",
     "link" : "http://purl.obolibrary.org/obo/VO_0000150",
     "description" : "Antibody titer is a titer of antibody that shows how much antibody an organism has produced that recognizes a particular epitope, expressed as the greatest dilution ratio (or its reciprocal) that still gives a positive result. ELISA is a common means of determining antibody titers.",
@@ -8439,11 +7833,6 @@
     "description" : "Difference between the Delta Ct target gene of the treated sample and the Delta Ct of the target gene of the untreated sample.",
     "id" : null
   }, {
-    "name" : "DK units/ml",
-    "link" : "https://repository.niddk.nih.gov/studies/aab-calibrators/",
-    "description" : "The NIDDK calibrators were tested together with dilutions of the WHO reference serum using harmonized assays on five occasions in the BDC, Bristol, and Munich laboratories and reported as WHO units/ml by calibration as previously described. For each of the NIDDK calibrators, the median value of the WHO units/ml obtained for the 15 measurements was assigned as its calibrator unit. The assigned units were termed digestive and kidney units (DK units)/ml.",
-    "id" : null
-  }, {
     "name" : "F",
     "link" : "http://purl.obolibrary.org/obo/UO_0000195",
     "description" : "Fahrenheit",
@@ -8467,11 +7856,6 @@
     "name" : "IU",
     "link" : "http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C48579&ns=NCI_Thesaurus",
     "description" : "The unitage assigned by the WHO to International Biological Standards - substances, classed as biological according to the criteria provided by WHO Expert Committee on Biological Standardization (e.g. hormones, enzymes, and vaccines), to enable the results of biological and immunological assay procedures to be expressed in the same way throughout the world. The definition of an international unit is generally arbitrary and technical, and has to be officially approved by the International Conference for Unification of Formulae.",
-    "id" : null
-  }, {
-    "name" : "IU/ml",
-    "link" : "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=18.06d&ns=ncit&code=C67377",
-    "description" : "A unit of arbitrary substance concentration (biologic activity concentration) defined as the concentration of one international unit per one milliliter of system volume.",
     "id" : null
   }, {
     "name" : "K",
@@ -8642,11 +8026,6 @@
     "description" : "",
     "id" : ""
   }, {
-    "name" : "A/Anhui/1/2005",
-    "link" : "https://www.fludb.org/brc/fluStrainDetails.spg?strainName=A%2FAnhui%2F1%2F2005%28H5N1",
-    "description" : "A/Anhui/1/2005",
-    "id" : "0"
-  }, {
     "name" : "A/Brisbane/10/2007",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/Brisbane/10/2007'. The virus name : 'H3N2', and season_list is: '2008-2009,2009-2010'.",
@@ -8662,35 +8041,25 @@
     "description" : "The virus strain name is: 'A/California/04/2009'. The virus name : 'H1N1', and season_list is: 'NA'.",
     "id" : "0"
   }, {
+    "name" : "A/California/7/2004",
+    "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
+    "description" : "The virus strain name is: 'A/California/7/2004'. The virus name : 'H3N2', and season_list is: '2005-2006'.",
+    "id" : "0"
+  }, {
     "name" : "A/California/7/2009",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/California/7/2009'. The virus name : 'H1N1', and season_list is: '2010-2011,2011-2012,2012-2013'.",
     "id" : "1316510"
   }, {
-    "name" : "A/Egypt/306",
-    "link" : "https://www.fludb.org/brc/fluStrainDetails.spg?strainName=A%2FEgypt%2F306%28H1N1",
-    "description" : "A/Egypt/306",
-    "id" : "0"
-  }, {
-    "name" : "A/Indonesia/5/2005",
-    "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=400788",
-    "description" : "A/Indonesia/5/2005(H5N1)",
-    "id" : "400788"
-  }, {
-    "name" : "A/New Caledonia/20/1999",
+    "name" : "A/New Caledonia/20/99",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
-    "description" : "The virus strain name is: 'A/New Caledonia/20/1999'. The virus name : 'H1N1', and season_list is: '2005-2006, 2006-2007'.",
+    "description" : "The virus strain name is: 'A/New Caledonia/20/99'. The virus name : 'H1N1', and season_list is: '2005-2006, 2006-2007'.",
     "id" : "381512"
   }, {
     "name" : "A/Perth/16/2009",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/Perth/16/2009'. The virus name : 'H3N2', and season_list is: '2010-2011,2011-2012'.",
     "id" : "654811"
-  }, {
-    "name" : "A/Puerto Rico/8/1934",
-    "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=183764",
-    "description" : "A/Puerto Rico/8/1934(H1N1)",
-    "id" : "211044"
   }, {
     "name" : "A/Solomon Islands/3/2006",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
@@ -8707,11 +8076,6 @@
     "description" : "The virus strain name is: 'A/Texas/50/2012'. The virus name : 'H3N2', and season_list is: '2013-2014, 2014-2015'.",
     "id" : "0"
   }, {
-    "name" : "A/Turkey/15/2006",
-    "link" : "https://www.fludb.org/brc/fluStrainDetails.spg?strainName=A%2FTurkey%2F15%2F2006%28H5N1",
-    "description" : "A/Turkey/15/2006",
-    "id" : "0"
-  }, {
     "name" : "A/Uruguay/716/2007",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/Uruguay/716/2007'. The virus name : 'H3N2', and season_list is: '2008-2009,2009-2010'.",
@@ -8720,32 +8084,17 @@
     "name" : "A/Victoria/3/1975",
     "link" : "https://www.fludb.org/brc/fluStrainDetails.spg?strainName=A%2FVictoria%2F3%2F1975%28H3N2%29",
     "description" : "The virus strain name is: 'A/Victoria/3/1975'. The virus name : 'H3N2', and season_list is: 'NA'.",
-    "id" : "392809"
+    "id" : "0"
   }, {
     "name" : "A/Victoria/361/2011",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/Victoria/361/2011'. The virus name : 'H3N2', and season_list is: '2012-2013'.",
     "id" : "1268360"
   }, {
-    "name" : "A/Vietnam/1196/2004",
-    "link" : "https://www.fludb.org/brc/fluStrainDetails.spg?strainName=A%2FVietnam%2F1196%2F2004%28H5N1",
-    "description" : "A/Vietnam/1196/2004",
-    "id" : "0"
-  }, {
     "name" : "A/Wisconsin/67/2005",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
     "description" : "The virus strain name is: 'A/Wisconsin/67/2005'. The virus name : 'H3N2', and season_list is: '2006-2007,2007-2008'.",
     "id" : "393902"
-  }, {
-    "name" : "A/X-31",
-    "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=132504",
-    "description" : "A/X-31(H3N2)",
-    "id" : "132504"
-  }, {
-    "name" : "B/Brisbane/03/2007",
-    "link" : "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1600158",
-    "description" : "B/Brisbane/03/2007",
-    "id" : "1600158"
   }, {
     "name" : "B/Brisbane/60/2008",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
@@ -8767,9 +8116,9 @@
     "description" : "The virus strain name is: 'B/Malaysia/2506/2004'. The virus name : 'B', and season_list is: '2006-2007,2007-2008'.",
     "id" : "464417"
   }, {
-    "name" : "B/Massachusetts/02/2012",
+    "name" : "B/Massachusetts/2/2012",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
-    "description" : "The virus strain name is: 'B/Massachusetts/02/2012'. The virus name : 'B', and season_list is: '2012-2013'.",
+    "description" : "The virus strain name is: 'B/Massachusetts/2/2012'. The virus name : 'B', and season_list is: '2012-2013'.",
     "id" : "1321139"
   }, {
     "name" : "B/Shanghai/361/2002",
@@ -8777,9 +8126,9 @@
     "description" : "The virus strain name is: 'B/Shangai/361/2002'. The virus name : 'B', and season_list is: '2005-2006'.",
     "id" : "335812"
   }, {
-    "name" : "B/Wisconsin/01/2010",
+    "name" : "B/Wisconsin/1/2010",
     "link" : "http://www.fda.gov/BiologicsBloodVaccines/GuidanceComplianceRegulatoryInformation/Post-MarketActivities/LotReleases/ucm062928.htm",
-    "description" : "The virus strain name is: 'B/Wisconsin/01/2010'. The virus name : 'B', and season_list is: '2012-2013'.",
+    "description" : "The virus strain name is: 'B/Wisconsin/1/2010'. The virus name : 'B', and season_list is: '2012-2013'.",
     "id" : "1089607"
   } ]
 }, {

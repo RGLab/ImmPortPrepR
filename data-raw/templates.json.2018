@@ -1,7 +1,7 @@
 [ {
   "templateType" : "single",
   "fileName" : "adverseEvents.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "adverseEvents.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -388,7 +388,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "assessments.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "assessments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -901,7 +901,7 @@
 }, {
   "templateType" : "compound",
   "fileName" : "basic_study_design.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "basic_study_design.json",
   "validationLevel" : "",
   "templates" : [ {
@@ -966,6 +966,27 @@
       "comment" : "The official study title may be the same as the brief title, but is often more descriptive.",
       "tableColumn" : "official_title",
       "templateColumn" : "Official Title",
+      "foreignKey" : false,
+      "pvPreferredTableColumn" : null
+    }, {
+      "pvTableName" : null,
+      "pv" : false,
+      "conditionalRequired" : false,
+      "description" : "The study types are adapted from Clinicaltrials.gov terms.",
+      "conditionalDuplicateRequired" : false,
+      "jsonAttribute" : "type",
+      "jsonDataType" : "enum",
+      "foreignKeyTableName" : null,
+      "required" : true,
+      "combinedColumn" : false,
+      "metaResultDataType" : null,
+      "tableName" : "study",
+      "columnType" : "varchar(50)",
+      "cv" : true,
+      "cvTableName" : "lk_study_type",
+      "comment" : "Please choose from the drop down list.",
+      "tableColumn" : "type",
+      "templateColumn" : "Type",
       "foreignKey" : false,
       "pvPreferredTableColumn" : null
     }, {
@@ -1203,7 +1224,7 @@
       "pvTableName" : null,
       "pv" : false,
       "conditionalRequired" : false,
-      "description" : "The date format is either dd-MMM-yy or dd-MMM-yyyy where day (dd) is one or two digits 1..31 appropriate to the month, month (MMM) is case-insensitive value (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec), and year is either (yy) two digits, for example 05 means 2005, and 96 means 1996, or (yyyy) is four digit year, for example 2005.",
+      "description" : "The date format is either dd-MMM-yy or dd-MMM-yyyy wwhere day (dd) is one or two digits 1..31 appropriate to the month, month (MMM) is case-insensitive value (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec), and year is either (yy) two digits, for example 05 means 2005, and 96 means 1996, or (yyyy) is four digit year, for example 2005.",
       "conditionalDuplicateRequired" : false,
       "jsonAttribute" : "actualStartDate",
       "jsonDataType" : "date",
@@ -1244,32 +1265,6 @@
     } ],
     "name" : "study",
     "jsonCompoundAttribute" : "study",
-    "templateRequired" : "yes"
-  }, {
-    "columns" : [ {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "A research focus for the study from the drop down list",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "researchFocus",
-      "jsonDataType" : "enum",
-      "foreignKeyTableName" : null,
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_categorization",
-      "columnType" : "varchar(50)",
-      "cv" : true,
-      "cvTableName" : "lk_research_focus",
-      "comment" : "Please use the drop down list",
-      "tableColumn" : "research_focus",
-      "templateColumn" : "Research Focus",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : null
-    } ],
-    "name" : "study_categorization",
-    "jsonCompoundAttribute" : "studyCategorization",
     "templateRequired" : "yes"
   }, {
     "columns" : [ {
@@ -2136,7 +2131,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "bioSamples.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "bioSamples.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2418,7 +2413,7 @@
 }, {
   "templateType" : "combined",
   "fileName" : "controlSamples.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "controlSamples.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2763,7 +2758,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "CyTOF_Derived_data.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "CyTOF_Derived_data.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2809,13 +2804,13 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : "population_name_preferred"
   }, {
-    "pvTableName" : "lk_cell_population_definition",
-    "pv" : true,
+    "pvTableName" : null,
+    "pv" : false,
     "conditionalRequired" : false,
-    "description" : "he gating definition is the set of markers and their expression profile that describes a cell population name. Please select a gating definition from the drop down list if it matches your gating definition or enter a gating definition if there is not an appropriate one provided. The marker names should conform to standard names as described in the LK_ANALYTE table. Note that a comma, forward slash or pipe may be used as marker delimiter. The expression values are '-', '+', '+-', '+~', '++', or ''. The gating definition has a limit of 150 characters.",
+    "description" : "he gating definition is the set of markers and their expression profile that describes a cell population name. Please select a gating definition from the drop down list if it matches your gating definition or enter a gating definition if there is not an appropriate one provided. The marker names should conform to standard names as described in the LK_ANALYTE table. Note that a comma, forward slash or pipe may be used as marker delimiter. The expression values are '+','','-',hi','lo','dim'. The gating definition has a limit of 150 characters.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "gatingDefinitionReported",
-    "jsonDataType" : "enum",
+    "jsonDataType" : "string",
     "foreignKeyTableName" : null,
     "required" : true,
     "combinedColumn" : false,
@@ -2828,7 +2823,7 @@
     "tableColumn" : "population_defnition_reported",
     "templateColumn" : "Gating Definition Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "population_defnition_preferred"
+    "pvPreferredTableColumn" : null
   }, {
     "pvTableName" : "lk_cell_population",
     "pv" : true,
@@ -2936,11 +2931,11 @@
     "pvPreferredTableColumn" : null
   } ],
   "name" : "cytof_derived_data",
-  "description" : "The CYTOF derived data template captures and annotates the assay results for a sample by linking sample, experiment, and interpreted results together."
+  "description" : "The CYTOF experiment sample template defines and annotates the assay results for a sample by linking sample, experiment, and results together."
 }, {
   "templateType" : "multiple",
   "fileName" : "ELISA_Results.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "ELISA_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3007,7 +3002,7 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   }, {
-    "pvTableName" : "lk_concentration_unit",
+    "pvTableName" : "lk_unit_of_measure",
     "pv" : true,
     "conditionalRequired" : false,
     "description" : "The analyte's concentration unit.",
@@ -3026,7 +3021,7 @@
     "tableColumn" : "unit_reported",
     "templateColumn" : "Unit Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "concentration_unit_preferred"
+    "pvPreferredTableColumn" : "unit_of_measure_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -3054,7 +3049,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "ELISPOT_Results.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "ELISPOT_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3168,7 +3163,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "experiments.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experiments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3324,7 +3319,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.CYTOF.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.CYTOF.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3837,7 +3832,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.ELISA.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.ELISA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -4387,7 +4382,7 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   }, {
-    "pvTableName" : "lk_concentration_unit",
+    "pvTableName" : "lk_unit_of_measure",
     "pv" : true,
     "conditionalRequired" : false,
     "description" : "The analyte's concentration unit.",
@@ -4406,7 +4401,7 @@
     "tableColumn" : "unit_reported",
     "templateColumn" : "Unit Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "concentration_unit_preferred"
+    "pvPreferredTableColumn" : "unit_of_measure_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -4434,7 +4429,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.ELISPOT.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.ELISPOT.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -5031,7 +5026,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Flow_Cytometry.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.Flow_Cytometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -5586,7 +5581,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Gene_Expression_Array.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.Gene_Expression_Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -6120,7 +6115,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Genotyping_Array.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.Genotyping_Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -6654,7 +6649,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.HAI.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.HAI.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -7251,7 +7246,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.HLA.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.HLA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -7785,7 +7780,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Image_Histology.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.Image_Histology.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -8298,7 +8293,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.KIR.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.KIR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -8832,7 +8827,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Mass_Spectrometry.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.Mass_Spectrometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -9345,7 +9340,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.MBAA.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.MBAA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -9963,7 +9958,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.Neutralizing_Antibody_Titer.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.Neutralizing_Antibody_Titer.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -10560,7 +10555,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Other.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.Other.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -11073,7 +11068,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.QRT-PCR.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.QRT-PCR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -11733,7 +11728,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.RNA_Sequencing.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.RNA_Sequencing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -12309,7 +12304,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.Virus_Neutralization.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "experimentSamples.Virus_Neutralization.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -12906,7 +12901,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "FCM_Derived_data.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "FCM_Derived_data.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -12952,13 +12947,13 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : "population_name_preferred"
   }, {
-    "pvTableName" : "lk_cell_population_definition",
-    "pv" : true,
+    "pvTableName" : null,
+    "pv" : false,
     "conditionalRequired" : false,
-    "description" : "he gating definition is the set of markers and their expression profile that describes a cell population name. Please select a gating definition from the drop down list if it matches your gating definition or enter a gating definition if there is not an appropriate one provided. The marker names should conform to standard names as described in the LK_ANALYTE table. Note that a comma, forward slash or pipe may be used as marker delimiter. The expression values are '-', '+', '+-', '+~', '++', or ''. The gating definition has a limit of 150 characters.",
+    "description" : "he gating definition is the set of markers and their expression profile that describes a cell population name. Please select a gating definition from the drop down list if it matches your gating definition or enter a gating definition if there is not an appropriate one provided. The marker names should conform to standard names as described in the LK_ANALYTE table. Note that a comma, forward slash or pipe may be used as marker delimiter. The expression values are '+','','-',hi','lo','dim'. The gating definition has a limit of 150 characters.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "gatingDefinitionReported",
-    "jsonDataType" : "enum",
+    "jsonDataType" : "string",
     "foreignKeyTableName" : null,
     "required" : true,
     "combinedColumn" : false,
@@ -12971,7 +12966,7 @@
     "tableColumn" : "population_defnition_reported",
     "templateColumn" : "Gating Definition Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "population_defnition_preferred"
+    "pvPreferredTableColumn" : null
   }, {
     "pvTableName" : "lk_cell_population",
     "pv" : true,
@@ -13079,11 +13074,11 @@
     "pvPreferredTableColumn" : null
   } ],
   "name" : "fcm_derived_data",
-  "description" : "The flow cytometry derived data template captures and annotates the assay results for a sample by linking sample, experiment, and interpreted results together."
+  "description" : "The flow cytometry experiment sample template defines and annotates the assay results for a sample by linking sample, experiment, and results together."
 }, {
   "templateType" : "multiple",
   "fileName" : "HAI_Results.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "HAI_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13197,7 +13192,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "HLA_Typing.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "HLA_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13731,7 +13726,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "immuneExposure.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "immuneExposure.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13904,11 +13899,11 @@
     "pvPreferredTableColumn" : "disease_stage_preferred"
   } ],
   "name" : "immuneexposure",
-  "description" : "The subjectHuman and subjectAnimals templates define and annotate the subjects in studies with respect to immune exposure. The Immune Exposure template updates the subjects previously defined in studies with respect to immune exposure."
+  "description" : "The Immune Exposure template defines and annotates the subjects in studies with respect to immune exposure."
 }, {
   "templateType" : "single",
   "fileName" : "interventions.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "interventions.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14358,7 +14353,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "KIR_Typing.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "KIR_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14472,7 +14467,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "labTest_Results.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "labTest_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14607,7 +14602,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "labTestPanels.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "labTestPanels.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14700,7 +14695,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "labTests.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "labTests.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15129,7 +15124,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "MBAA_Results.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "MBAA_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15348,7 +15343,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "PCR_Results.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "PCR_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15525,7 +15520,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "protocols.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "protocols.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15639,7 +15634,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "publicRepositories.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "publicRepositories.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15711,7 +15706,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "Reagent_Sets.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "Reagent_Sets.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15825,7 +15820,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Array.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16002,7 +15997,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.CyTOF.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.CyTOF.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16263,7 +16258,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.ELISA.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.ELISA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16482,7 +16477,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.ELISPOT.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.ELISPOT.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16701,7 +16696,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Flow_Cytometry.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.Flow_Cytometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16962,7 +16957,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.HAI.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.HAI.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17139,7 +17134,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.HLA_Typing.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.HLA_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17316,7 +17311,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.KIR_Typing.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.KIR_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17493,7 +17488,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.MBAA.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.MBAA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17691,7 +17686,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Neutralizing_Antibody_Titer.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.Neutralizing_Antibody_Titer.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17868,7 +17863,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Other.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.Other.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18045,7 +18040,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.PCR.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.PCR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18222,7 +18217,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Sequencing.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.Sequencing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18399,7 +18394,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Virus_Neutralization.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "reagents.Virus_Neutralization.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18576,7 +18571,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "RNA_SEQ_Results.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "RNA_SEQ_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18732,7 +18727,7 @@
 }, {
   "templateType" : "combined",
   "fileName" : "standardCurves.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "standardCurves.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -19119,146 +19114,10 @@
 }, {
   "templateType" : "compound",
   "fileName" : "study_design_edit.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "study_design_edit.json",
   "validationLevel" : "",
   "templates" : [ {
-    "columns" : [ {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "The study ID can be either the study user defined ID or a study accession.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "studyId",
-      "jsonDataType" : "string",
-      "foreignKeyTableName" : "study",
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_categorization",
-      "columnType" : "varchar(15)",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "The study ID can be either the study user defined ID or a study accession.",
-      "tableColumn" : "study_accession",
-      "templateColumn" : "Study ID",
-      "foreignKey" : true,
-      "pvPreferredTableColumn" : null
-    }, {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "A research focus for the study from the drop down list",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "researchFocus",
-      "jsonDataType" : "enum",
-      "foreignKeyTableName" : null,
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_categorization",
-      "columnType" : "varchar(50)",
-      "cv" : true,
-      "cvTableName" : "lk_research_focus",
-      "comment" : "Please use the drop down list",
-      "tableColumn" : "research_focus",
-      "templateColumn" : "Research Focus",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : null
-    } ],
-    "name" : "study_categorization",
-    "jsonCompoundAttribute" : "studyCategorization",
-    "templateRequired" : "no"
-  }, {
-    "columns" : [ {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "The study ID can be either the study user defined ID or a study accession.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "studyId",
-      "jsonDataType" : "string",
-      "foreignKeyTableName" : "study",
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_data_release",
-      "columnType" : "varchar(15)",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "The study ID can be either the study user defined ID or a study accession.",
-      "tableColumn" : "study_accession",
-      "templateColumn" : "Study ID",
-      "foreignKey" : true,
-      "pvPreferredTableColumn" : null
-    }, {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "The version of the study data release.  It is a positive integer.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "dataReleaseVersion",
-      "jsonDataType" : "positive",
-      "foreignKeyTableName" : null,
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_data_release",
-      "columnType" : "integer",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "The version of the study data release. It is a positive integer.",
-      "tableColumn" : "data_release_version",
-      "templateColumn" : "Data Release Version",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : null
-    }, {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "The date format is either dd-MMM-yy or dd-MMM-yyyy where day (dd) is one or two digits 1..31 appropriate to the month, month (MMM) is case-insensitive value (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec), and year is either (yy) two digits, for example 05 means 2005, and 96 means 1996, or (yyyy) is four digit year, for example 2005.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "dataReleaseDate",
-      "jsonDataType" : "date",
-      "foreignKeyTableName" : null,
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_data_release",
-      "columnType" : "date",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "The release date for the given version (Data Release Version) study. The date format is either dd-MMM-yy or dd-MMM-yyyy.",
-      "tableColumn" : "data_release_date",
-      "templateColumn" : "Data Release Date",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : null
-    }, {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "The status of the data release for the study.  Either it is the 'Initial' release or an 'Updated' release.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "dataReleaseStatus",
-      "jsonDataType" : "enum",
-      "foreignKeyTableName" : null,
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_data_release",
-      "columnType" : "varchar(50)",
-      "cv" : true,
-      "cvTableName" : "lk_release_status",
-      "comment" : "The status of the data release for the study.  Either it is the 'Initial' release or an 'Updated' release.",
-      "tableColumn" : "status",
-      "templateColumn" : "Data Release Status",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : null
-    } ],
-    "name" : "study_data_release",
-    "jsonCompoundAttribute" : "studyDataRelease",
-    "templateRequired" : "no"
-  }, {
     "columns" : [ {
       "pvTableName" : null,
       "pv" : false,
@@ -20683,9 +20542,9 @@
   "description" : "The optional basic study design template defines and annotates elements of a study that are optional when it is initially defined (e.g. weblinks, publications) and for which updates are available after the initial design is uploaded. Use the study_design_edit template to add additional information for a study after a study is defined in ImmPort. If any of the following sections are not used they should be deleted from the template: arm_or_cohort, subject_2_arm_or_cohort, period, planned_visit, study_personnel, inclusion_exclusion, study_2_protocol prior to uploading the template."
 }, {
   "templateType" : "combined-result",
-  "fileName" : "subjectAnimals.txt",
-  "schemaVersion" : "3.19",
-  "jsonFileName" : "subjectAnimals.json",
+  "fileName" : "subjectAnimals.immuneExposure.txt",
+  "schemaVersion" : "3.18",
+  "jsonFileName" : "subjectAnimals.immuneExposure.json",
   "validationLevel" : "",
   "columns" : [ {
     "pvTableName" : null,
@@ -21108,13 +20967,13 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : "disease_stage_preferred"
   } ],
-  "name" : "subjectanimals",
+  "name" : "subjectanimals_immuneexposure",
   "description" : "The subject animal template defines and annotates key elements of study subjects including demographics and links subjects to an arm within a study. In mouse studies, data providers may choose to define a single subject to represent a set of inbred mice treated the same way rather than describe each mouse (i.e. a cage of mice treated the same way). This approach is driven by how the assay results are recorded: if assay results are available for individual animals, then each animal should be defined to ImmPort."
 }, {
   "templateType" : "combined-result",
-  "fileName" : "subjectHumans.txt",
-  "schemaVersion" : "3.19",
-  "jsonFileName" : "subjectHumans.json",
+  "fileName" : "subjectHumans.immuneExposure.txt",
+  "schemaVersion" : "3.18",
+  "jsonFileName" : "subjectHumans.immuneExposure.json",
   "validationLevel" : "",
   "columns" : [ {
     "pvTableName" : null,
@@ -21558,12 +21417,597 @@
     "foreignKey" : false,
     "pvPreferredTableColumn" : "disease_stage_preferred"
   } ],
-  "name" : "subjecthumans",
+  "name" : "subjecthumans_immuneexposure",
+  "description" : "The subject human template defines and annotates key elements of study subjects including demographics and links subjects to an arm within a study."
+}, {
+  "templateType" : "multiple",
+  "fileName" : "subjectsAnimal.txt",
+  "schemaVersion" : "3.18",
+  "jsonFileName" : "subjectsAnimal.json",
+  "validationLevel" : "",
+  "columns" : [ {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject defined ID is an identifier chosen by the data provider to refer to a subject. This ID may be referenced by other data records (e.g. biological sample). The user defined ID is not shared. For human subjects, the ID should not be identifying.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "userDefinedId",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(100)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "The identifier should be unique to the ImmPort workspace to which the data will be uploaded.",
+    "tableColumn" : "user_defined_id",
+    "templateColumn" : "User Defined ID",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A subject may be assigned to a single arm within a study. When subjects are initially uploaded to ImmPort, they may be assigned to a single study's arm.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "armOrCohortId",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : "arm_or_cohort",
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(15)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Please enter either a study arm or cohort user defined ID or ImmPort accession. When subjects are initially uploaded to ImmPort, they may be assigned to a single study's arm.",
+    "tableColumn" : "arm_accession",
+    "templateColumn" : "Arm Or Cohort ID",
+    "foreignKey" : true,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "gender",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(20)",
+    "cv" : true,
+    "cvTableName" : "lk_gender",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "gender",
+    "templateColumn" : "Gender",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject age at the outset of the study may be determined form one of several study milestones as indicated in the Age Event column.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "minSubjectAge",
+    "jsonDataType" : "number",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "float",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Please enter a number.",
+    "tableColumn" : "min_subject_age",
+    "templateColumn" : "Min Subject Age",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject age at the end of the study may be determined form one of several study milestones.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "maxSubjectAge",
+    "jsonDataType" : "number",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "float",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Please enter a number.",
+    "tableColumn" : "max_subject_age",
+    "templateColumn" : "Max Subject Age",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ageUnit",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(50)",
+    "cv" : true,
+    "cvTableName" : "lk_time_unit",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "age_unit",
+    "templateColumn" : "Age Unit",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ageEvent",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(50)",
+    "cv" : true,
+    "cvTableName" : "lk_age_event",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "age_event",
+    "templateColumn" : "Age Event",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "This column supports providing study milestones for subject's age determination that ImmPort does not support.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ageEventSpecify",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(50)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "If \"Age Event\" = Other, this field specifies the age event (free text). Otherwise, leave this column blank.",
+    "tableColumn" : "age_event_specify",
+    "templateColumn" : "Age Event Specify",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject phenotype captures key aspects of the subject's disposition for the study.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "subjectPhenotype",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(200)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Enter a description of the subject.",
+    "tableColumn" : "subject_phenotype",
+    "templateColumn" : "Subject Phenotype",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of subject locations is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "subjectLocation",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : null,
+    "cv" : true,
+    "cvTableName" : "lk_subject_location",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "location",
+    "templateColumn" : "Subject Location",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available. Macaca fascicularis is also commonly called cynomologus monkey, crab eating macaque, long-tailed macaque. Macaca mulatta is also commonly called rhesus macaque",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "species",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(50)",
+    "cv" : true,
+    "cvTableName" : "lk_species",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "species",
+    "templateColumn" : "Species",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "Please provide strain and breed information as available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "strain",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(50)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Please provide strain and breed information as available.",
+    "tableColumn" : "strain",
+    "templateColumn" : "Strain",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "Strain or breed characteristics that are relevant for the study (e.g. susceptibility).",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "strainCharacteristics",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(500)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Strain or breed characteristics that are relevant for the study (e.g. susceptibility).",
+    "tableColumn" : "strain_characteristics",
+    "templateColumn" : "Strain Characteristics",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  } ],
+  "name" : "subjectsanimal",
+  "description" : "The subject animal template defines and annotates key elements of study subjects including demographics and links subjects to an arm within a study. In mouse studies, data providers may choose to define a single subject to represent a set of inbred mice treated the same way rather than describe each mouse (i.e. a cage of mice treated the same way). This approach is driven by how the assay results are recorded: if assay results are available for individual animals, then each animal should be defined to ImmPort."
+}, {
+  "templateType" : "multiple",
+  "fileName" : "subjectsHuman.txt",
+  "schemaVersion" : "3.18",
+  "jsonFileName" : "subjectsHuman.json",
+  "validationLevel" : "",
+  "columns" : [ {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject defined ID is an identifier chosen by the data provider to refer to a subject. This ID may be referenced by other data records (e.g. biological sample). The user defined ID is not shared. For human subjects, the ID should not be identifying.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "userDefinedId",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(100)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "The identifier should be unique to the ImmPort workspace to which the data will be uploaded.",
+    "tableColumn" : "user_defined_id",
+    "templateColumn" : "User Defined ID",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A subject may be assigned to a single arm within a study. When subjects are initially uploaded to ImmPort, they may be assigned to a single study's arm.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "armOrCohortId",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : "arm_or_cohort",
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(15)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Please enter either a study arm or cohort user defined ID or ImmPort accession. When subjects are initially uploaded to ImmPort, they may be assigned to a single study's arm.",
+    "tableColumn" : "arm_accession",
+    "templateColumn" : "Arm Or Cohort ID",
+    "foreignKey" : true,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "gender",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(20)",
+    "cv" : true,
+    "cvTableName" : "lk_gender",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "gender",
+    "templateColumn" : "Gender",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject age at the outset of the study may be determined form one of several study milestones as indicated in the Age Event column.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "minSubjectAge",
+    "jsonDataType" : "number",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "float",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Please enter a number.",
+    "tableColumn" : "min_subject_age",
+    "templateColumn" : "Min Subject Age",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject age at the end of the study may be determined form one of several study milestones.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "maxSubjectAge",
+    "jsonDataType" : "number",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "float",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Please enter a number.",
+    "tableColumn" : "max_subject_age",
+    "templateColumn" : "Max Subject Age",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ageUnit",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(50)",
+    "cv" : true,
+    "cvTableName" : "lk_time_unit",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "age_unit",
+    "templateColumn" : "Age Unit",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ageEvent",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(50)",
+    "cv" : true,
+    "cvTableName" : "lk_age_event",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "age_event",
+    "templateColumn" : "Age Event",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "This column supports providing study milestones for subject's age determination that ImmPort does not support.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ageEventSpecify",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(50)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "If \"Age Event\" = Other, this field specifies the age event (free text). Otherwise, leave this column blank.",
+    "tableColumn" : "age_event_specify",
+    "templateColumn" : "Age Event Specify",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject phenotype captures key aspects of the subject's disposition for the study.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "subjectPhenotype",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "arm_2_subject",
+    "columnType" : "varchar(200)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "Enter a description of the subject.",
+    "tableColumn" : "subject_phenotype",
+    "templateColumn" : "Subject Phenotype",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of subject locations is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "subjectLocation",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : null,
+    "cv" : true,
+    "cvTableName" : "lk_subject_location",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "location",
+    "templateColumn" : "Subject Location",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "ethnicity",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(50)",
+    "cv" : true,
+    "cvTableName" : "lk_ethnicity",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "ethnicity",
+    "templateColumn" : "Ethnicity",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "A list of preferred terms is available.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "race",
+    "jsonDataType" : "enum",
+    "foreignKeyTableName" : null,
+    "required" : true,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(50)",
+    "cv" : true,
+    "cvTableName" : "lk_race",
+    "comment" : "Please choose from the drop down list.",
+    "tableColumn" : "race",
+    "templateColumn" : "Race",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "This column supports providing subject race descriptions that ImmPort does not support.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "raceSpecify",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(1000)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "If Race='Other', the race should be specified, otherwise leave blank.",
+    "tableColumn" : "race_specify",
+    "templateColumn" : "Race Specify",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The subject description may be used to augment the arm or cohort based description of a subject.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "description",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : "subject",
+    "columnType" : "varchar(4000)",
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "The subject description may be used to augment the arm or cohort based description of a subject. ",
+    "tableColumn" : "description",
+    "templateColumn" : "Description",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  } ],
+  "name" : "subjectshuman",
   "description" : "The subject human template defines and annotates key elements of study subjects including demographics and links subjects to an arm within a study."
 }, {
   "templateType" : "single",
   "fileName" : "treatments.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "treatments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -21782,7 +22226,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "Virus_Neutralization_Results.txt",
-  "schemaVersion" : "3.19",
+  "schemaVersion" : "3.18",
   "jsonFileName" : "Virus_Neutralization_Results.json",
   "validationLevel" : "",
   "columns" : [ {
