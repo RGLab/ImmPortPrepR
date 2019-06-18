@@ -1,5 +1,5 @@
 ---
-title: "subjectsHuman"
+title: "subjectHumans"
 output: html_document
 ---
 
@@ -39,15 +39,15 @@ We will need to create a dataframe with the following variables:
 - Race Specify  
 - Description  
   
-In order to get a pre-made dataframe for subjectsHuman we use the `getTemplateDF()` function.  
+In order to get a pre-made dataframe for subjectHumans we use the `getTemplateDF()` function.  
 The only argument is the name of the template.
 
 ```{r create-df}
-subjectsHuman <- getTemplateDF("subjectsHuman", 3)
-DT::datatable(subjectsHuman)
+subjectHumans <- getTemplateDF("subjectHumans", 3)
+DT::datatable(subjectHumans)
 ```
 
-Now that we have the subjectsHuman dataframe, the easiest way to edit the dataframe by hand is to 
+Now that we have the subjectHumans dataframe, the easiest way to edit the dataframe by hand is to 
 use the `edit()` function and save the output by clicking "quit" in the editor.  This function 
 is found in the `utils` package, but depends on the `X11` library.  If you are on a newer mac 
 you may need to install XQuartz from the project's website as it is no longer bundled.  If for 
@@ -55,72 +55,80 @@ some reason `edit()` does not save the output correctly on your machine, then yo
 input information using an R-based approach.
 
 ```{r input-to-study, eval=FALSE}
-edit(subjectsHuman)
+edit(subjectHumans)
 ```
 
 An R-based approach example:
 
 ```{r R-based-approach-to-editing}
-subjectsHuman$`User Defined ID` <- paste("myID", seq(1:3), sep = "_")
-subjectsHuman$`Arm Or Cohort ID` <- paste("myArmAndCohortID", seq(1:3), sep = "_")
-subjectsHuman$Gender <- c("Male", "Female", "Male")
-subjectsHuman$`Min Subject Age` <- c(25, 22.3, 30)
-subjectsHuman$`Max Subject Age` <- c(27, 24.3, 32)
-subjectsHuman$`Age Unit` <- ""
-subjectsHuman$`Age Event` <- "Age at Enrollment"
-subjectsHuman$`Age Event Specify` <- "study milestone for subject's age that is unsupported by ImmPort"
-subjectsHuman$`Subject Phenotype` <- "phenotype that captures subject disposition for the study"
-subjectsHuman$`Subject Location` <- "United States of America"
-subjectsHuman$`Ancestry Population(s)` <- "North America"
-subjectsHuman$Ethnicity <- "Other"
-subjectsHuman$Race <- "Asian"
-subjectsHuman$`Race Specify` <- ""
-subjectsHuman$Description <- ""
+subjectHumans$`Arm Or Cohort ID` <- paste("myArmAndCohortID", seq(1:3), sep = "_")
+subjectHumans$Gender <- c("Male", "Female", "Male")
+subjectHumans$`Min Subject Age` <- c(25, 22.3, 30)
+subjectHumans$`Max Subject Age` <- c(27, 24.3, 32)
+subjectHumans$`Age Event` <- "Age at Enrollment"
+subjectHumans$`Age Event Specify` <- "study milestone for subject's age that is unsupported by ImmPort"
+subjectHumans$`Subject Phenotype` <- "phenotype that captures subject disposition for the study"
+subjectHumans$`Subject Location` <- "United States of America"
+subjectHumans$Ethnicity <- "Other"
+subjectHumans$Race <- "Asian"
+subjectHumans$`Race Specify` <- ""
+subjectHumans$Description <- ""
+subjectHumans$`Subject ID` <- paste("myID", seq(1:3), sep = "_")
 
-DT::datatable(subjectsHuman)
+DT::datatable(subjectHumans)
 
 ```
 
 Now we can use the `checkTemplate()` function to ensure that our dataframe meets the ImmPort upload requirements. For the purpose of this vignette we will wrap the function in a `tryCatch()` method.  
 ```{r check-template}
-results <- tryCatch(checkTemplate(subjectsHuman, "subjectsHuman"),
+results <- tryCatch(checkTemplate(subjectHumans, "subjectHumans"),
                     error = function(e){ return(e) }) 
 
-# This will print out the error message
-results$message
+# This will print out which required columns are missing values
+results$required
 ```
 
-The error tells us that the required column `subjectsHuman$'Age Unit'` has been left blank. We must correct the dataframe and re-run the check function.
+The error tells us that the required column `subjectHumans$'Exposure Process Reported'` has been left blank. We must correct the dataframe and re-run the check function.
 ```{r fix-ageunit}
-subjectsHuman$`Age Unit` <- "Years"
+subjectHumans$`Exposure Process Reported` <- "Vaccine"
 
-results <- tryCatch(checkTemplate(subjectsHuman, "subjectsHuman"),
+results <- tryCatch(checkTemplate(subjectHumans, "subjectHumans"),
                     error = function(e){ return(e) }) 
 
 # This will print out the error message
-results$message
+results$format
 ```
-Here the error message is telling us that a non-controlled term is being used in the `subjectsHuman$'Age Event'` column. To look up controlled terms we can use the `getLookupValues()` function. This function takes the template name and column name as arguments and returns a vector of the allowed terms.
+Here the error message is telling us that a non-controlled term is being used in the `subjectHumans$'Age Event'` column, which requires controlled terms. To look up controlled terms we can use the `getLookupValues()` function. This function takes the template name and column name as arguments and returns a vector of the allowed terms.
 
 ```{r get-lookup}
-getIPLookupValues("subjectsHuman", "Age Event")
+getIPLookupValues("subjectHumans", "Age Event")
 ```
-From the output we can see that our original entry ('Age at Enrollment') must be corrected to 'Age at enrollment'. We can then check the dataframe again.
+From the output we can see that our original entry 'Age at Enrollment' must be corrected to 'Age at enrollment'. We can then check the dataframe again.
 
 ```{r correct-age-event}
-subjectsHuman$`Age Event` <- "Age at enrollment"
+subjectHumans$`Age Event` <- "Age at enrollment"
 
-checkTemplate(subjectsHuman, "subjectsHuman")
+checkTemplate(subjectHumans, "subjectHumans")
 ```
 
-If there are no errors, the subjectsHuman dataframe is complete.  
+Now we can see that `Age Unit` is not present and should be, so we can look that up and correct it.
+
+```{r correct-age-unit}
+getIPLookupValues("subjectHumans", "Age Unit")
+
+subjectHumans$`Age Unit` <- "Years"
+
+checkTemplate(subjectHumans, "subjectHumans")
+```
+
+If there are no errors, the subjectHumans dataframe is complete.  
   
 ------
   
 ### CREATING THE OUTPUT TSV
 
 ```{r transform-df}
-transform_Data(dataName = "subjectsHuman",
-               outputDir = "~/Documents/FHCRC/",
-               validate = T)
+transform_Data(df = subjectHumans,
+               outputDir = "~/R/Gen_Test/",
+               validate = TRUE)
 ```

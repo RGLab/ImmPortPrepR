@@ -72,10 +72,11 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName, quiet) {
   required <- templateInfo$templateColumn[templateInfo$required]
 
   res <- sapply(required, function(x) any(is.na(df[[x]]) || df[[x]] == ""))
+  res <- res[ res == TRUE ]
 
   if (any(res)) {
     if (quiet) {
-      return(res)
+      return(names(res))
     }else{
       stop("Check data for ", ImmPortTemplateName, ". ",
            "Required columns with NA or blank values: ",
@@ -109,12 +110,26 @@ chkLookupVals <- function(metaByIdx, dfCol) {
     res
 }
 
-# TODO: rewrite to look for pv vs cv THEN do comparison and warnings / erros
+# Only Throws error for controlled values being incorrect.
+# Otherwise, to determine abnormal preferred values, quiet == FALSE
 checkFormat <- function(df, templateInfo, ImmPortTemplateName, quiet) {
 
   res <- sapply(seq(1:dim(df)[[2]]), function(index) {
     metaByIdx <- templateInfo[index, ]
-    res <- chkLookupVals(metaByIdx, df[,index])
+
+    valType <- if (metaByIdx$cv == TRUE) {
+        "Controlled"
+    } else if (metaByIdx$pv == TRUE) {
+        "Preferred"
+    } else {
+        NA
+    }
+    if( !is.na(valType)) {
+        res <- chkLookupVals(metaByIdx, df[,index])
+    }else{
+        res <- NA
+    }
+
     if( quiet == FALSE ){
       if (metaByIdx$pv == TRUE && res == FALSE) {
         message("'", ImmPortTemplateName,
@@ -128,15 +143,18 @@ checkFormat <- function(df, templateInfo, ImmPortTemplateName, quiet) {
              index)
       }
     }
+    return(c(valType, res))
   })
 
-  names(res) <- colnames(df)
-  res <- res[ !(sapply(res, is.null)) ]
+  colnames(res) <- colnames(df)
+  res <- res[ , res[2,] == FALSE & !is.na(res[2,])]
+  cv <- colnames(res)[ res[1,] == "Controlled" ]
 
-  if (length(res) == 0) { res <- NULL }
-
-  return(res)
-
+  if (length(cv) == 0) {
+      return(NULL)
+  } else {
+      return(cv)
+  }
 }
 
 ###########################################
