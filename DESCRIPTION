@@ -1,10 +1,10 @@
 Package: R2i
 Type: Package
 Title: Tools for preparing an ImmPort Data Submission
-Version: 3.18.0
+Version: 3.19.0
 Authors@R: c(person("Evan", "Henrich", role = "aut"),
              person("Ju Yeong", "Kim", role = "aut"),
-             person("Lauren", "Wolfe", role = "aut"),
+             person("Helen", "Miller", role = "aut"),
              person("ImmuneSpace Package Maintainer",
                     email = "immunespace@gmail.com",
                     role = c("cre", "cph")))
