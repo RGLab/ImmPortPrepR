@@ -22,6 +22,9 @@ Age Unit	Years
 Actual Start Date	06-Feb-2005
 Intervention Agent	example human study
 
+study_categorization
+Research Focus	Immune Response
+
 arm_or_cohort
 User Defined ID	Name	Description	Type
 example arm vaccine 1	example human study vaccine 1	vaccine type 001	Intervention
@@ -33,8 +36,8 @@ example human study 1	Dr.	last	first	jr	college	first.name@address.org	Principal
 
 planned_visit
 User Defined ID	Name	Order Number	Min Start Day	Max Start Day	Start Rule	End Rule
-example human study v1	example human study v1	1	1
-example human study v2	example human study v2	2	10
+example human study v1	example human study v1	1	1			
+example human study v2	example human study v2	2	10			
 
 inclusion_exclusion
 User Defined ID	Criterion	Criterion Category

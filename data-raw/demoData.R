@@ -18,6 +18,9 @@ demoData <- list(
         "Actual Start Date" = "06-Feb-2005",
         "Intervention Agent" = "example human study"
     ),
+    study_categorization = list(
+        "Research Focus" = "Immune Response"
+    ),
     arm_or_cohort = data.frame(
         "User Defined ID" = c(
             "example arm vaccine 1",
