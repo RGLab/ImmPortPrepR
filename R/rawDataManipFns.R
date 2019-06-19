@@ -26,7 +26,24 @@
         # The basicStudyDesign template is found unparsed in another
         # element within the json output and must be constructed.
         bsd <- plyr::ldply(tmp$templates, data.frame)
-        bsd <- bsd[1:9,] # duplicate tables created otherwise
+        bsdSubTbls <- c("study",
+                        "study_categorization",
+                        "arm_or_cohort",
+                        "study_personnel",
+                        "planned_visit",
+                        "inclusion_exclusion",
+                        "study_2_protocol",
+                        "study_file",
+                        "study_link",
+                        "study_pubmed")
+        bsd <- bsd[ bsd$name %in% bsdSubTbls,]
+        for( templateName in bsdSubTbls ){
+            loc <- grep( paste0("^", templateName, "$"), bsd$name)
+            if( length(loc) > 1 ){
+                badLoc <- loc[2:length(loc)]
+                bsd <- bsd[-badLoc,]
+            }
+        }
         bsd <- plyr::ldply(lapply(bsd$columns, data.frame), rbind)
         bsd$templateName <- bsd$tableName
 
