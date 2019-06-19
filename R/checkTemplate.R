@@ -147,7 +147,7 @@ checkFormat <- function(df, templateInfo, ImmPortTemplateName, quiet) {
   })
 
   colnames(res) <- colnames(df)
-  res <- res[ , res[2,] == FALSE & !is.na(res[2,])]
+  res <- res[ , res[2,] == FALSE & !is.na(res[2,]), drop = FALSE]
   cv <- colnames(res)[ res[1,] == "Controlled" ]
 
   if (length(cv) == 0) {

@@ -27,17 +27,18 @@ First, we will load the `R2i` library, which has the functions and templates we 
 library(R2i)
 ```
 
-Next, we need to create the 9 dataframes that will be put together to form the larger txt:
+Next, we need to create the 10 dataframes that will be put together to form the larger txt:
 
 1. study
-2. arm_or_cohort
-3. inclusion_exclusion
-4. planned_visit
-5. study_2_protocol
-6. study_file
-7. study_link
-8. study_personnel
-9. study_pubmed
+2. study_categorization
+3. arm_or_cohort
+4. inclusion_exclusion
+5. planned_visit
+6. study_2_protocol
+7. study_file
+8. study_link
+9. study_personnel
+10. study_pubmed
 
 The first dataframe, called **study** is unique in that it has two columns, one with names 
 and the other with values.  In this way it functions more like a named list and is treated 
@@ -66,23 +67,22 @@ edit(study)
 An R-based approach example:
 
 ```{r R-based-approach-to-editing}
-study[ 1, ] <- list(NA,
-                    "myBriefTitle",
-                    "myOfficialTitle",
-                    "Interventional",
-                    "This is a study",
-                    "This is a longer description of the study",
-                    "We hypothesize ... ",
-                    "The objectives were ... ",
-                    "Endpoints are ... ",
-                    "NIH",
-                    50,
-                    "disease",
-                    10,
-                    30,
-                    "years",
-                    "doctor",
-                    "01/01/2018")
+study[1, ] <- list(NA,
+                  "myBriefTitle",
+                  "myOfficialTitle",
+                  "This is a study",
+                  "This is a longer description of the study",
+                  "We hypothesize ... ",
+                  "The objectives were ... ",
+                  "Endpoints are ... ",
+                  "NIH",
+                  50,
+                  "disease",
+                  10,
+                  30,
+                  "years",
+                  "doctor",
+                  "01/01/2018")
 ```
 
 We can check the **study** template to see if it passes the basic checks for class, dimension,
@@ -96,7 +96,7 @@ results <- tryCatch(checkTemplate(df = study),
                     error = function(e){ return(e) })
 
 # to see error statement
-results$message
+results
 ```
 
 It looks like we have an `NA` value for `study$'User Defined ID'`.  Let's correct this and
@@ -110,12 +110,16 @@ results <- tryCatch(checkTemplate(df = study),
                     error = function(e){ return(e) })
 
 # to see error statement
-results$message
+results
 ```
 
-It seems we are using a non-controlled term in one of the columns.  Many templates use 
-controlled or preferred terms to help maintain standardized terms across studies, so
+It seems we are using a non-controlled term in `Age Unit` column, which requires a controlled value.  
+Many templates use  controlled or preferred terms to help maintain standardized terms across studies, so
 it is important for us to correct this before writing out the template.
+
+`R2i::checkTemplate()` will throw an error for columns with non-matching controlled values.  However,
+to see preferred value columns with issues, you must change the default `quiet` argument to `FALSE`
+to receive messages.
 
 In the case of **study**, we can see which columns have such terms by using the `getLookups()` 
 function. This function's only argument is the ImmPort Template Name.
@@ -124,7 +128,7 @@ function. This function's only argument is the ImmPort Template Name.
 getIPLookups(ImmPortTemplateName = "study")
 ```
 
-It appears that **study** has two columns with controlled terms, *Type* and *Age Unit*. To 
+It appears that **study** has one column with controlled terms: *Age Unit*. To 
 see what values are allowed for *Age Unit* we can use the `getLookupValues()` function. This
 function takes in the ImmPort Template Name and the column name as arguments, then returns
 a vector of allowed values.
@@ -135,17 +139,31 @@ getIPLookupValues(ImmPortTemplateName = "study", templateColname = "Age Unit")
 
 Since it looks like the original entry for **Age Unit** ('years') is not in the vector,
 we must correct it with a capitalized version so it passes the `checkTemplate()` function
-later on.
+later on.  We can then see if our data frame passes our checks again.
 
 ```{r fix-years}
 study$`Age Unit` <- "Years"
+
+# NOTE: messages are printed out
+results <- tryCatch(checkTemplate(df = study),
+                    error = function(e){ return(e) })
+
+# to see error statement
+results
 ```
 
 ### PREPARING OTHER DATA FRAMES
-Similar to **study**, the other 8 dataframes that make up the basicStudyDesign.txt can be accessed 
+Similar to **study**, the other 9 dataframes that make up the basicStudyDesign.txt can be accessed 
 with the `getTemplateDF()` function.  Depending on the amount of information that needs to be
 entered, it may be easier to use `edit()` or base R.  For the purpose of the vignette, an R-based
 approach is used for reproducibiity and demonstration.
+
+The next one is a simple one called **study_categorization** that defines the type of study performed
+```{r study-categorization}
+study_categorization <- getTemplateDF("study_categorization")
+study_categorization[1,] <- c("Immune Response")
+DT::datatable(study_categorization, options = list(scrollX = TRUE))
+```
 
 The next one we focus on is called **arm_or_cohort**. In this
 demonstration case, we have a csv already of the information needed and just want to bind this
@@ -311,6 +329,7 @@ function you can always enter `?transform_basicStudyDesign` in the console.
 
 ```{r transform-data-into-tsv}
 blocks <- list("study" = study,
+               "study_categorization" = study_categorization,
                "arm_or_cohort" = arm_or_cohort,
                "study_personnel" = study_personnel,
                "planned_visit" = planned_visit,
