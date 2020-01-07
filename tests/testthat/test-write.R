@@ -7,7 +7,7 @@ test_that("write_header", {
 
   actual <- readLines(file)
   expected <- c(
-    "basic_study_design\tSchema Version 3.19",
+    "basic_study_design\tSchema Version 3.20",
     "Please do not delete or edit this column"
   )
 

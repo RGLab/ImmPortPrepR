@@ -1,7 +1,7 @@
 [ {
   "templateType" : "single",
   "fileName" : "adverseEvents.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "adverseEvents.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -388,7 +388,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "assessments.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "assessments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -901,7 +901,7 @@
 }, {
   "templateType" : "compound",
   "fileName" : "basic_study_design.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "basic_study_design.json",
   "validationLevel" : "",
   "templates" : [ {
@@ -1119,6 +1119,27 @@
       "pvTableName" : null,
       "pv" : false,
       "conditionalRequired" : false,
+      "description" : "A short description of what is being researched or evaluated in the study (e.g. influenza).",
+      "conditionalDuplicateRequired" : false,
+      "jsonAttribute" : "conditionStudied",
+      "jsonDataType" : "string",
+      "foreignKeyTableName" : null,
+      "required" : true,
+      "combinedColumn" : false,
+      "metaResultDataType" : null,
+      "tableName" : "study",
+      "columnType" : "varchar(1000)",
+      "cv" : false,
+      "cvTableName" : null,
+      "comment" : "A short description of what is being researched or evaluated in the study (e.g. influenza vaccine).",
+      "tableColumn" : "condition_studied",
+      "templateColumn" : "Condition Studied",
+      "foreignKey" : false,
+      "pvPreferredTableColumn" : null
+    }, {
+      "pvTableName" : null,
+      "pv" : false,
+      "conditionalRequired" : false,
       "description" : "The minimum age of subjects enrolled in the study.",
       "conditionalDuplicateRequired" : false,
       "jsonAttribute" : "minimumAge",
@@ -1161,7 +1182,7 @@
       "pvTableName" : null,
       "pv" : false,
       "conditionalRequired" : false,
-      "description" : "The unit of time used to describe the subject's age in the study.  The unit of time for a subject must conform to this unit.",
+      "description" : "The unit of time used to describe the subject's age in the study.",
       "conditionalDuplicateRequired" : false,
       "jsonAttribute" : "ageUnit",
       "jsonDataType" : "enum",
@@ -1173,7 +1194,7 @@
       "columnType" : "varchar(25)",
       "cv" : true,
       "cvTableName" : "lk_time_unit",
-      "comment" : "The unit of time used to describe the subject's age in the study.  The unit of time for a subject must conform to this unit.",
+      "comment" : "The unit of time used to describe the subject's age in the study.",
       "tableColumn" : "age_unit",
       "templateColumn" : "Age Unit",
       "foreignKey" : false,
@@ -1249,32 +1270,6 @@
     } ],
     "name" : "study_categorization",
     "jsonCompoundAttribute" : "studyCategorization",
-    "templateRequired" : "yes"
-  }, {
-    "columns" : [ {
-      "pvTableName" : "lk_disease_condition",
-      "pv" : true,
-      "conditionalRequired" : false,
-      "description" : "The condition(s)/disease(s) that is (are) being researched or evaluated in the study.  Please select condition or disease from the list provided if the condition or disease matches yours or enter a condition or disease if there is not an appropriate one provided.  Values provided by the user are further checked against the pref mapping table lk_study_condition_pref_mappng.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "conditionReported",
-      "jsonDataType" : "enum",
-      "foreignKeyTableName" : null,
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_2_condition_or_disease",
-      "columnType" : "varchar(550)",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "The condition(s)/disease(s) that is (are) being researched or evaluated in the study.  Please select condition or disease from the list provided if the condition or disease matches yours or enter a condition or disease if there is not an appropriate one provided.  Values provided by the user are further checked against the pref mapping table lk_study_condition_pref_mappng.",
-      "tableColumn" : "condition_reported",
-      "templateColumn" : "Condition Reported",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : "condition_preferred"
-    } ],
-    "name" : "study_2_condition_or_disease",
-    "jsonCompoundAttribute" : "study2ConditionOrDisease",
     "templateRequired" : "yes"
   }, {
     "columns" : [ {
@@ -1490,27 +1485,6 @@
       "comment" : "The organization with whom the study personnel being described is affiliated.",
       "tableColumn" : "organization",
       "templateColumn" : "Organization",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : null
-    }, {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "ORCID (Open Researcher and Contributor Identification), a non-profit organization that promotes the use of its unique digital identifier to connect researchers with their science contributions over time and across changes of name, location and institutional affiliation.  The NIH encourages use of this ID.  See the link https://nexus.od.nih.gov/all/2019/08/05/linking-orcid-identifiers-to-era-profiles-to-streamline-application-processes-and-to-enhance-tracking-of-career-outcomes/.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "orcidId",
-      "jsonDataType" : "string",
-      "foreignKeyTableName" : null,
-      "required" : false,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_personnel",
-      "columnType" : "varchar(1000)",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "ORCID (Open Researcher and Contributor Identification), a non-profit organization that promotes the use of its unique digital identifier to connect researchers with their science contributions over time and across changes of name, location and institutional affiliation.  The NIH encourages use of this ID.",
-      "tableColumn" : "orcid",
-      "templateColumn" : "ORCID ID",
       "foreignKey" : false,
       "pvPreferredTableColumn" : null
     }, {
@@ -2162,7 +2136,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "bioSamples.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "bioSamples.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2444,7 +2418,7 @@
 }, {
   "templateType" : "combined",
   "fileName" : "controlSamples.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "controlSamples.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2789,7 +2763,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "CyTOF_Derived_data.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "CyTOF_Derived_data.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -2910,7 +2884,7 @@
     "combinedColumn" : false,
     "metaResultDataType" : null,
     "tableName" : "fcs_analyzed_result",
-    "columnType" : "varchar(100)",
+    "columnType" : "varchar(50)",
     "cv" : false,
     "cvTableName" : null,
     "comment" : "The unit used to describe the cell count. Please select a unit from the list provided if the definition matches your unit name or enter a unit if there is not an appropriate one provided.",
@@ -2966,7 +2940,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "ELISA_Results.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "ELISA_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3010,7 +2984,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -3080,7 +3054,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "ELISPOT_Results.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "ELISPOT_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3124,7 +3098,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -3194,7 +3168,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "experiments.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experiments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3350,7 +3324,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.CYTOF.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.CYTOF.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -3863,7 +3837,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.ELISA.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.ELISA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -4390,7 +4364,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -4460,7 +4434,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.ELISPOT.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.ELISPOT.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -4987,7 +4961,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -5057,7 +5031,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Flow_Cytometry.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.Flow_Cytometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -5247,6 +5221,27 @@
     "comment" : "Flow cytometry assay runs include compensation and/or control files. The set of compensation/control files from an assay run should be linked to the experiment sample that is linked to the assayed sample's fcs file. The file size name limit is 240 characters.",
     "tableColumn" : null,
     "templateColumn" : "Compensation Or Control File Name(s)",
+    "foreignKey" : false,
+    "pvPreferredTableColumn" : null
+  }, {
+    "pvTableName" : null,
+    "pv" : false,
+    "conditionalRequired" : false,
+    "description" : "The marker information file format is described in the ImmPort flow cytometry analysis module. The file size name limit is 240 characters.",
+    "conditionalDuplicateRequired" : false,
+    "jsonAttribute" : "markerInformationFile",
+    "jsonDataType" : "string",
+    "foreignKeyTableName" : null,
+    "required" : false,
+    "combinedColumn" : false,
+    "metaResultDataType" : null,
+    "tableName" : null,
+    "columnType" : null,
+    "cv" : false,
+    "cvTableName" : null,
+    "comment" : "The marker information file provides the opportunity to describe in greater detail the markers (antibodies, antibody targets or analytes, and conjugated fluorochromes) used in a flow cytometry assay. The file size name limit is 240 characters.",
+    "tableColumn" : null,
+    "templateColumn" : "Marker Information File",
     "foreignKey" : false,
     "pvPreferredTableColumn" : null
   }, {
@@ -5591,7 +5586,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Gene_Expression_Array.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.Gene_Expression_Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -6125,7 +6120,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Genotyping_Array.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.Genotyping_Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -6659,7 +6654,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.HAI.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.HAI.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -7256,7 +7251,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.HLA.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.HLA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -7790,7 +7785,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Image_Histology.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.Image_Histology.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -8303,7 +8298,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.KIR.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.KIR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -8837,7 +8832,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Mass_Spectrometry.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.Mass_Spectrometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -9350,7 +9345,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.MBAA.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.MBAA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -9968,7 +9963,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.Neutralizing_Antibody_Titer.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.Neutralizing_Antibody_Titer.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -10565,7 +10560,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.Other.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.Other.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -11078,7 +11073,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.QRT-PCR.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.QRT-PCR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -11605,7 +11600,7 @@
     "tableColumn" : null,
     "templateColumn" : "Gene Symbol Name",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -11738,7 +11733,7 @@
 }, {
   "templateType" : "combined-multiple",
   "fileName" : "experimentSamples.RNA_Sequencing.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.RNA_Sequencing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -12314,7 +12309,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "experimentSamples.Virus_Neutralization.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "experimentSamples.Virus_Neutralization.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -12911,7 +12906,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "FCM_Derived_data.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "FCM_Derived_data.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13032,7 +13027,7 @@
     "combinedColumn" : false,
     "metaResultDataType" : null,
     "tableName" : "fcs_analyzed_result",
-    "columnType" : "varchar(100)",
+    "columnType" : "varchar(50)",
     "cv" : false,
     "cvTableName" : null,
     "comment" : "The unit used to describe the cell count. Please select a unit from the list provided if the definition matches your unit name or enter a unit if there is not an appropriate one provided.",
@@ -13088,7 +13083,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "HAI_Results.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "HAI_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13202,7 +13197,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "HLA_Typing.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "HLA_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13736,7 +13731,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "immuneExposure.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "immuneExposure.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -13806,7 +13801,7 @@
     "pvTableName" : "lk_exposure_material",
     "pv" : true,
     "conditionalRequired" : false,
-    "description" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.  The value provided by the user is further checked against the pref mapping table lk_exposure_material_pref_map.",
+    "description" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "exposureMaterialReported",
     "jsonDataType" : "enum",
@@ -13815,10 +13810,10 @@
     "combinedColumn" : false,
     "metaResultDataType" : null,
     "tableName" : "immune_exposure",
-    "columnType" : "varchar(200)",
+    "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.  The value provided by the user is further checked against the pref mapping table lk_exposure_material_pref_map.",
+    "comment" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.",
     "tableColumn" : "exposure_material_reported",
     "templateColumn" : "Exposure Material Reported",
     "foreignKey" : false,
@@ -13827,7 +13822,7 @@
     "pvTableName" : null,
     "pv" : false,
     "conditionalRequired" : false,
-    "description" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be automatically be the ID associated with the preferred value and user will NOT need to supply this ID.",
+    "description" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be the ID associated with the preferred value.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "exposureMaterialId",
     "jsonDataType" : "string",
@@ -13839,7 +13834,7 @@
     "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be automatically be the ID associated with the preferred value and user will NOT need to supply this ID.",
+    "comment" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be the ID associated with the preferred value.",
     "tableColumn" : "exposure_material_id",
     "templateColumn" : "Exposure Material ID",
     "foreignKey" : false,
@@ -13848,7 +13843,7 @@
     "pvTableName" : "lk_disease",
     "pv" : true,
     "conditionalRequired" : false,
-    "description" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.  The value provided by the user is further checked against the pref mapping table lk_exposure_material_pref_map.",
+    "description" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "diseaseReported",
     "jsonDataType" : "enum",
@@ -13857,10 +13852,10 @@
     "combinedColumn" : false,
     "metaResultDataType" : null,
     "tableName" : "immune_exposure",
-    "columnType" : "varchar(550)",
+    "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.  The Value provide by the user is further checked against the pref mapping table lk_study_condition_pref_mappng.",
+    "comment" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.",
     "tableColumn" : "disease_reported",
     "templateColumn" : "Disease Reported",
     "foreignKey" : false,
@@ -13913,7 +13908,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "interventions.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "interventions.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14363,7 +14358,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "KIR_Typing.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "KIR_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14477,7 +14472,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "labTest_Results.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "labTest_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14612,7 +14607,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "labTestPanels.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "labTestPanels.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -14705,7 +14700,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "labTests.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "labTests.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15134,7 +15129,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "MBAA_Results.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "MBAA_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15241,7 +15236,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -15353,7 +15348,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "PCR_Results.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "PCR_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15397,7 +15392,7 @@
     "tableColumn" : null,
     "templateColumn" : "Gene Symbol Name",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -15530,7 +15525,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "protocols.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "protocols.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15644,7 +15639,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "publicRepositories.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "publicRepositories.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15716,7 +15711,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "Reagent_Sets.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "Reagent_Sets.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -15830,7 +15825,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Array.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.Array.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16007,7 +16002,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.CyTOF.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.CyTOF.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16198,7 +16193,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -16268,7 +16263,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.ELISA.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.ELISA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16459,7 +16454,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -16487,7 +16482,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.ELISPOT.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.ELISPOT.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16678,7 +16673,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -16706,7 +16701,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Flow_Cytometry.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.Flow_Cytometry.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -16897,7 +16892,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -16967,7 +16962,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.HAI.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.HAI.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17144,7 +17139,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.HLA_Typing.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.HLA_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17321,7 +17316,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.KIR_Typing.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.KIR_Typing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17498,7 +17493,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.MBAA.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.MBAA.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17689,14 +17684,14 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   } ],
   "name" : "mbaa_reagents",
   "description" : "The MBAA reagent template defines and annotates the assay platforms for MBAA. This should include a row for each of the analytes assayed by the MBAA array."
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Neutralizing_Antibody_Titer.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.Neutralizing_Antibody_Titer.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -17873,7 +17868,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Other.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.Other.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18050,7 +18045,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.PCR.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.PCR.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18227,7 +18222,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Sequencing.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.Sequencing.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18404,7 +18399,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "reagents.Virus_Neutralization.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "reagents.Virus_Neutralization.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18581,7 +18576,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "RNA_SEQ_Results.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "RNA_SEQ_Results.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18737,7 +18732,7 @@
 }, {
   "templateType" : "combined",
   "fileName" : "standardCurves.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "standardCurves.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -18802,7 +18797,7 @@
     "tableColumn" : "analyte_reported",
     "templateColumn" : "Analyte Reported",
     "foreignKey" : false,
-    "pvPreferredTableColumn" : "immunology_symbol and short_label and analyte_preferred"
+    "pvPreferredTableColumn" : "immunology_gene_symbol and gene_symbol and analyte_preferred"
   }, {
     "pvTableName" : null,
     "pv" : false,
@@ -19124,7 +19119,7 @@
 }, {
   "templateType" : "compound",
   "fileName" : "study_design_edit.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "study_design_edit.json",
   "validationLevel" : "",
   "templates" : [ {
@@ -19173,53 +19168,6 @@
     } ],
     "name" : "study_categorization",
     "jsonCompoundAttribute" : "studyCategorization",
-    "templateRequired" : "no"
-  }, {
-    "columns" : [ {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
-      "description" : "The study ID can be either the study user defined ID or a study accession.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "studyId",
-      "jsonDataType" : "string",
-      "foreignKeyTableName" : "study",
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_2_condition_or_disease",
-      "columnType" : "varchar(15)",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "The study ID can be either the study user defined ID or a study accession.",
-      "tableColumn" : "study_accession",
-      "templateColumn" : "Study ID",
-      "foreignKey" : true,
-      "pvPreferredTableColumn" : null
-    }, {
-      "pvTableName" : "lk_disease_condition",
-      "pv" : true,
-      "conditionalRequired" : false,
-      "description" : "The condition(s)/disease(s) that is (are) being researched or evaluated in the study.  Please select condition or disease from the list provided if the condition or disease matches yours or enter a condition or disease if there is not an appropriate one provided.  Values provided by the user are further checked against the pref mapping table lk_study_condition_pref_mappng.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "conditionReported",
-      "jsonDataType" : "enum",
-      "foreignKeyTableName" : null,
-      "required" : true,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_2_condition_or_disease",
-      "columnType" : "varchar(550)",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "The condition(s)/disease(s) that is (are) being researched or evaluated in the study.  Please select condition or disease from the list provided if the condition or disease matches yours or enter a condition or disease if there is not an appropriate one provided.  Values provided by the user are further checked against the pref mapping table lk_study_condition_pref_mappng.",
-      "tableColumn" : "condition_reported",
-      "templateColumn" : "Condition Reported",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : "condition_preferred"
-    } ],
-    "name" : "study_2_condition_or_disease",
-    "jsonCompoundAttribute" : "study2ConditionOrDisease",
     "templateRequired" : "no"
   }, {
     "columns" : [ {
@@ -19970,7 +19918,7 @@
       "pvTableName" : null,
       "pv" : false,
       "conditionalRequired" : false,
-      "description" : "A list of preferred terms is available..  The age unit must conform to the age unit assigned to the study.",
+      "description" : "A list of preferred terms is available.",
       "conditionalDuplicateRequired" : false,
       "jsonAttribute" : "ageUnit",
       "jsonDataType" : "enum",
@@ -19982,7 +19930,7 @@
       "columnType" : "varchar(50)",
       "cv" : true,
       "cvTableName" : "lk_time_unit",
-      "comment" : "Please choose from the drop down list.  The age unit must conform to the age unit assigned to the study.",
+      "comment" : "Please choose from the drop down list.",
       "tableColumn" : "age_unit",
       "templateColumn" : "Age Unit",
       "foreignKey" : false,
@@ -20510,27 +20458,6 @@
       "pvTableName" : null,
       "pv" : false,
       "conditionalRequired" : false,
-      "description" : "ORCID (Open Researcher and Contributor Identification), a non-profit organization that promotes the use of its unique digital identifier to connect researchers with their science contributions over time and across changes of name, location and institutional affiliation.  The NIH encourages use of this ID.  See the link https://nexus.od.nih.gov/all/2019/08/05/linking-orcid-identifiers-to-era-profiles-to-streamline-application-processes-and-to-enhance-tracking-of-career-outcomes/.",
-      "conditionalDuplicateRequired" : false,
-      "jsonAttribute" : "orcidId",
-      "jsonDataType" : "string",
-      "foreignKeyTableName" : null,
-      "required" : false,
-      "combinedColumn" : false,
-      "metaResultDataType" : null,
-      "tableName" : "study_personnel",
-      "columnType" : "varchar(1000)",
-      "cv" : false,
-      "cvTableName" : null,
-      "comment" : "ORCID (Open Researcher and Contributor Identification), a non-profit organization that promotes the use of its unique digital identifier to connect researchers with their science contributions over time and across changes of name, location and institutional affiliation.  The NIH encourages use of this ID.",
-      "tableColumn" : "orcid",
-      "templateColumn" : "ORCID ID",
-      "foreignKey" : false,
-      "pvPreferredTableColumn" : null
-    }, {
-      "pvTableName" : null,
-      "pv" : false,
-      "conditionalRequired" : false,
       "description" : "Contact information of the study personnel being described.",
       "conditionalDuplicateRequired" : false,
       "jsonAttribute" : "email",
@@ -20757,7 +20684,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "subjectAnimals.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "subjectAnimals.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -20848,7 +20775,7 @@
     "pvTableName" : null,
     "pv" : false,
     "conditionalRequired" : true,
-    "description" : "A list of preferred terms is available.  The age unit must conform to the age unit assigned to the study.",
+    "description" : "A list of preferred terms is available.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "ageUnit",
     "jsonDataType" : "enum",
@@ -20860,7 +20787,7 @@
     "columnType" : "varchar(50)",
     "cv" : true,
     "cvTableName" : "lk_time_unit",
-    "comment" : "Please choose from the drop down list.  The age unit must conform to the age unit assigned to the study.",
+    "comment" : "Please choose from the drop down list.",
     "tableColumn" : "age_unit",
     "templateColumn" : "Age Unit",
     "foreignKey" : false,
@@ -21079,7 +21006,7 @@
     "pvTableName" : "lk_exposure_material",
     "pv" : true,
     "conditionalRequired" : false,
-    "description" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.  The value provided by the user is further checked against the pref mapping table lk_exposure_material_pref_map.",
+    "description" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "exposureMaterialReported",
     "jsonDataType" : "enum",
@@ -21088,10 +21015,10 @@
     "combinedColumn" : false,
     "metaResultDataType" : "resultData",
     "tableName" : "immune_exposure",
-    "columnType" : "varchar(200)",
+    "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.  The value provided by the user is further checked against the pref mapping table lk_exposure_material_pref_map.",
+    "comment" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.",
     "tableColumn" : "exposure_material_reported",
     "templateColumn" : "Exposure Material Reported",
     "foreignKey" : false,
@@ -21100,7 +21027,7 @@
     "pvTableName" : null,
     "pv" : false,
     "conditionalRequired" : false,
-    "description" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be automatically be the ID associated with the preferred value and user will NOT need to supply this ID.",
+    "description" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be the ID associated with the preferred value.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "exposureMaterialId",
     "jsonDataType" : "string",
@@ -21112,7 +21039,7 @@
     "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be automatically be the ID associated with the preferred value and user will NOT need to supply this ID.",
+    "comment" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be the ID associated with the preferred value.",
     "tableColumn" : "exposure_material_id",
     "templateColumn" : "Exposure Material ID",
     "foreignKey" : false,
@@ -21121,7 +21048,7 @@
     "pvTableName" : "lk_disease",
     "pv" : true,
     "conditionalRequired" : false,
-    "description" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.  The Value provide by the user is further checked against the pref mapping table lk_study_condition_pref_mappng.",
+    "description" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "diseaseReported",
     "jsonDataType" : "enum",
@@ -21130,10 +21057,10 @@
     "combinedColumn" : false,
     "metaResultDataType" : "resultData",
     "tableName" : "immune_exposure",
-    "columnType" : "varchar(550)",
+    "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.  The Value provide by the user is further checked against the pref mapping table lk_study_condition_pref_mappng.",
+    "comment" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.",
     "tableColumn" : "disease_reported",
     "templateColumn" : "Disease Reported",
     "foreignKey" : false,
@@ -21186,7 +21113,7 @@
 }, {
   "templateType" : "combined-result",
   "fileName" : "subjectHumans.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "subjectHumans.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -21277,7 +21204,7 @@
     "pvTableName" : null,
     "pv" : false,
     "conditionalRequired" : true,
-    "description" : "A list of preferred terms is available.  The age unit must conform to the age unit assigned to the study.",
+    "description" : "A list of preferred terms is available.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "ageUnit",
     "jsonDataType" : "enum",
@@ -21289,7 +21216,7 @@
     "columnType" : "varchar(50)",
     "cv" : true,
     "cvTableName" : "lk_time_unit",
-    "comment" : "Please choose from the drop down list.  The age unit must conform to the age unit assigned to the study.",
+    "comment" : "Please choose from the drop down list.",
     "tableColumn" : "age_unit",
     "templateColumn" : "Age Unit",
     "foreignKey" : false,
@@ -21529,7 +21456,7 @@
     "pvTableName" : "lk_exposure_material",
     "pv" : true,
     "conditionalRequired" : false,
-    "description" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.  The value provided by the user is further checked against the pref mapping table lk_exposure_material_pref_map.",
+    "description" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "exposureMaterialReported",
     "jsonDataType" : "enum",
@@ -21538,10 +21465,10 @@
     "combinedColumn" : false,
     "metaResultDataType" : "resultData",
     "tableName" : "immune_exposure",
-    "columnType" : "varchar(200)",
+    "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.  The value provided by the user is further checked against the pref mapping table lk_exposure_material_pref_map.",
+    "comment" : "This describes what substance(s) the host is exposed to and/or develops immune reactions to as part of the exposure process. Please select an exposure material from the list provided if the exposure material matches yours or enter a exposure material if there is not an appropriate one provided. This exposure material is visible when the result is shared.",
     "tableColumn" : "exposure_material_reported",
     "templateColumn" : "Exposure Material Reported",
     "foreignKey" : false,
@@ -21550,7 +21477,7 @@
     "pvTableName" : null,
     "pv" : false,
     "conditionalRequired" : false,
-    "description" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be automatically be the ID associated with the preferred value and user will NOT need to supply this ID.",
+    "description" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be the ID associated with the preferred value.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "exposureMaterialId",
     "jsonDataType" : "string",
@@ -21562,7 +21489,7 @@
     "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be automatically be the ID associated with the preferred value and user will NOT need to supply this ID.",
+    "comment" : "The NCBI or Vaccine Ontology ID associated with the exposure material. If the Exposure Material Reported is not a preferred value, then the Exposure Material ID must be provided. If the Exposure Material Reported is a preferred value, then the Exposure Material ID will be the ID associated with the preferred value.",
     "tableColumn" : "exposure_material_id",
     "templateColumn" : "Exposure Material ID",
     "foreignKey" : false,
@@ -21571,7 +21498,7 @@
     "pvTableName" : "lk_disease",
     "pv" : true,
     "conditionalRequired" : false,
-    "description" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.  The Value provide by the user is further checked against the pref mapping table lk_study_condition_pref_mappng.",
+    "description" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.",
     "conditionalDuplicateRequired" : false,
     "jsonAttribute" : "diseaseReported",
     "jsonDataType" : "enum",
@@ -21580,10 +21507,10 @@
     "combinedColumn" : false,
     "metaResultDataType" : "resultData",
     "tableName" : "immune_exposure",
-    "columnType" : "varchar(550)",
+    "columnType" : "varchar(100)",
     "cv" : false,
     "cvTableName" : null,
-    "comment" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.  The Value provide by the user is further checked against the pref mapping table lk_study_condition_pref_mappng.",
+    "comment" : "This indicates the specific disease of the host associated with the exposure. Please select a disease from the list provided if the disease matches yours or enter a disease if there is not an appropriate one provided. This disease is visible when the result is shared.",
     "tableColumn" : "disease_reported",
     "templateColumn" : "Disease Reported",
     "foreignKey" : false,
@@ -21636,7 +21563,7 @@
 }, {
   "templateType" : "single",
   "fileName" : "treatments.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "treatments.json",
   "validationLevel" : "",
   "columns" : [ {
@@ -21855,7 +21782,7 @@
 }, {
   "templateType" : "multiple",
   "fileName" : "Virus_Neutralization_Results.txt",
-  "schemaVersion" : "3.20",
+  "schemaVersion" : "3.19",
   "jsonFileName" : "Virus_Neutralization_Results.json",
   "validationLevel" : "",
   "columns" : [ {
