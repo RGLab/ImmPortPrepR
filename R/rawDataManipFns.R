@@ -28,6 +28,7 @@
         bsd <- plyr::ldply(tmp$templates, data.frame)
         bsdSubTbls <- c("study",
                         "study_categorization",
+                        "study_2_condition_or_disease",
                         "arm_or_cohort",
                         "study_personnel",
                         "planned_visit",

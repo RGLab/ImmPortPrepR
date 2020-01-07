@@ -1,4 +1,4 @@
-basic_study_design	Schema Version 3.19
+basic_study_design	Schema Version 3.20
 Please do not delete or edit this column
 Validation Level	Standard
 Column Name
@@ -14,16 +14,19 @@ Objectives	The objectives were ...
 Endpoints	Endpoints are ... 
 Sponsoring Organization	NIH
 Target Enrollment	50
-Condition Studied	disease
 Minimum Age	10
 Maximum Age	30
 Age Unit	Years
-Actual Start Date	doctor
+Actual Start Date	01/01/2018
 Intervention Agent	01/01/2018
 
 study_categorization
 Research Focus
 Immune Response
+
+study_2_condition_or_disease
+Condition Reported
+Typhoid
 
 arm_or_cohort
 User Defined ID	Name	Description	Type
@@ -32,8 +35,8 @@ Cohort2	Mock Immunized	5 doses saline
 Cohort3	Not Treated	No doses	Control
 
 study_personnel
-User Defined ID	Honorific	Last Name	First Name	Suffixes	Organization	Email	Title In Study	Role In Study	Site Name
-Principal Investigator	Dr.	Khanna	Elizabeth		Major University	ekhanna@major.edu	PI	Principal Investigator	Major University
+User Defined ID	Honorific	Last Name	First Name	Suffixes	Organization	ORCID ID	Email	Title In Study	Role In Study	Site Name
+Personnel1	Dr.	Khanna	Elizabeth		Major University	123	ekhanna@major.edu	PI	Principal Investigator	Major University
 
 planned_visit
 User Defined ID	Name	Order Number	Min Start Day	Max Start Day	Start Rule	End Rule

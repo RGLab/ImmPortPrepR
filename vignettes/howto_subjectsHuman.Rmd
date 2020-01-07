@@ -22,9 +22,7 @@ library(R2i)
 ```
 
 We will need to create a dataframe with the following variables:  
-- User Defined ID  
 - Arm Or Cohort ID  
-- Protocol  
 - Gender  
 - Min Subject Age  
 - Max Subject Age  
@@ -33,11 +31,18 @@ We will need to create a dataframe with the following variables:
 - Age Event Specify  
 - Subject Phenotype  
 - Subject Location  
-- Ancestry Populations  
 - Ethnicity  
 - Race  
 - Race Specify  
 - Description  
+- Subject ID
+- Result Separator Column
+- Exposure Process Reported
+- Exposure Material Reported
+- Exposure Material ID
+- Disease Reported
+- Disease Ontology ID
+- Disease Stage Reported
   
 In order to get a pre-made dataframe for subjectHumans we use the `getTemplateDF()` function.  
 The only argument is the name of the template.

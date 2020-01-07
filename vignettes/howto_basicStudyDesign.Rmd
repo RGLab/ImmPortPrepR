@@ -27,18 +27,19 @@ First, we will load the `R2i` library, which has the functions and templates we 
 library(R2i)
 ```
 
-Next, we need to create the 10 dataframes that will be put together to form the larger txt:
+Next, we need to create the 11 dataframes that will be put together to form the larger txt:
 
 1. study
 2. study_categorization
-3. arm_or_cohort
-4. inclusion_exclusion
-5. planned_visit
-6. study_2_protocol
-7. study_file
-8. study_link
-9. study_personnel
-10. study_pubmed
+3. study_2_condition_or_disease
+4. arm_or_cohort
+5. study_personnel
+6. planned_visit
+7. inclusion_exclusion
+8. study_2_protocol
+9. study_file
+10. study_link
+11. study_pubmed
 
 The first dataframe, called **study** is unique in that it has two columns, one with names 
 and the other with values.  In this way it functions more like a named list and is treated 
@@ -77,12 +78,12 @@ study[1, ] <- list(NA,
                   "Endpoints are ... ",
                   "NIH",
                   50,
-                  "disease",
                   10,
                   30,
                   "years",
-                  "doctor",
-                  "01/01/2018")
+                  "01/01/2018",
+                  "01/01/2018"
+                  )
 ```
 
 We can check the **study** template to see if it passes the basic checks for class, dimension,
@@ -165,6 +166,13 @@ study_categorization[1,] <- c("Immune Response")
 DT::datatable(study_categorization, options = list(scrollX = TRUE))
 ```
 
+The next one is a simple one called **study_2_condition_or_disease** that defines the disease or condition studied.
+```{r study-2-condtion-or-disease}
+study_2_condition_or_disease <- getTemplateDF("study_2_condition_or_disease")
+study_2_condition_or_disease[1,] <- c("Typhoid")
+DT::datatable(study_2_condition_or_disease, options = list(scrollX = TRUE))
+```
+
 The next one we focus on is called **arm_or_cohort**. In this
 demonstration case, we have a csv already of the information needed and just want to bind this
 new information to correct headers.  Therefore we use the arm_or_cohort dataframe only for the
@@ -192,12 +200,13 @@ Making **study_personnel**:
 
 ```{r }
 study_personnel <- getTemplateDF("study_personnel")
-study_personnel[1,] <- c("Principal Investigator",
+study_personnel[1,] <- c("Personnel1",
                        "Dr.",
                        "Khanna",
                        "Elizabeth",
                        "",
                        "Major University",
+                       123,
                        "ekhanna@major.edu",
                        "PI",
                        "Principal Investigator",
@@ -300,7 +309,7 @@ study_pubmed <- getTemplateDF("study_pubmed")
 Before transforming our data frames and writing the tsv output, we can also do some quality assurance
 checks of the text in our data frames using the text cleaning functions in the `R2i` package.
 
-We will use `planned_visit$Name` as an example to first check fir spelling errors using 
+We will use `planned_visit$Name` as an example to first check for spelling errors using 
 the `checkSpelling()` function that imports the `hunspell` package.
 
 ```{r finding-spelling-errors}
@@ -330,6 +339,7 @@ function you can always enter `?transform_basicStudyDesign` in the console.
 ```{r transform-data-into-tsv}
 blocks <- list("study" = study,
                "study_categorization" = study_categorization,
+               "study_2_condition_or_disease" = study_2_condition_or_disease,
                "arm_or_cohort" = arm_or_cohort,
                "study_personnel" = study_personnel,
                "planned_visit" = planned_visit,
