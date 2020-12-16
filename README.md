@@ -3,6 +3,7 @@
 <!-- badges: start -->
   [![R-CMD-check](https://github.com/RGLab/R2i/workflows/R-CMD-check/badge.svg)](https://github.com/RGLab/R2i/actions)
 [![Codecov test coverage](https://codecov.io/gh/RGLab/R2i/branch/master/graph/badge.svg)](https://codecov.io/gh/RGLab/R2i?branch=master)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
 
