@@ -1,8 +1,9 @@
 # R to ImmPort (R2i)
 
-[![Travis-CI Build Status](https://travis-ci.org/RGLab/R2i.svg?branch=master)](https://travis-ci.org/RGLab/R2i)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/RGLab/R2i?branch=master&svg=true)](https://ci.appveyor.com/project/RGLab/R2i)
-[![Coverage Status](https://img.shields.io/codecov/c/github/RGLab/R2i/master.svg)](https://codecov.io/github/RGLab/R2i?branch=master)
+<!-- badges: start -->
+  [![R-CMD-check](https://github.com/RGLab/R2i/workflows/R-CMD-check/badge.svg)](https://github.com/RGLab/R2i/actions)
+[![Codecov test coverage](https://codecov.io/gh/RGLab/R2i/branch/master/graph/badge.svg)](https://codecov.io/gh/RGLab/R2i?branch=master)
+<!-- badges: end -->
 
 
 Tools for preparing ImmPort Submission

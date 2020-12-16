@@ -4,8 +4,10 @@
 \name{ISFreqsAll}
 \alias{ISFreqsAll}
 \title{ISFreqsAll}
-\format{A named list of word frequencies in certain table and column name
-    combinations of ImmuneSpace}
+\format{
+A named list of word frequencies in certain table and column name
+    combinations of ImmuneSpace
+}
 \usage{
 ISFreqsAll
 }

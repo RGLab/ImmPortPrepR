@@ -28,6 +28,10 @@ Imports: hunspell,
     jsonlite,
     plyr,
     Biobase
-Suggests: testthat,
-    covr
-RoxygenNote: 6.0.1
+Suggests: 
+    testthat,
+    covr,
+    knitr,
+    rmarkdown
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr

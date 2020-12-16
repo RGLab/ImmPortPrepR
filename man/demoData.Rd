@@ -4,8 +4,10 @@
 \name{demoData}
 \alias{demoData}
 \title{demoData}
-\format{A list of data frames holding demo data for the basic study design
-    template.}
+\format{
+A list of data frames holding demo data for the basic study design
+    template.
+}
 \usage{
 demoData
 }

@@ -4,8 +4,10 @@
 \name{ImmPortLookups}
 \alias{ImmPortLookups}
 \title{ImmPortLookups}
-\format{A data frame holding ImmPort lookup information from lookups.json
-    that is used to create and check empty templates for user editing.}
+\format{
+A data frame holding ImmPort lookup information from lookups.json
+    that is used to create and check empty templates for user editing.
+}
 \usage{
 ImmPortLookups
 }

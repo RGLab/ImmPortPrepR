@@ -1,10 +1,15 @@
 ---
 title: "subjectHumans"
-output: html_document
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{subjectHumans}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+options(DT.options = list(paginate = FALSE, info = FALSE, filter = FALSE))
 ```
 
 # OVERVIEW
@@ -81,7 +86,6 @@ subjectHumans$Description <- ""
 subjectHumans$`Subject ID` <- paste("myID", seq(1:3), sep = "_")
 
 DT::datatable(subjectHumans)
-
 ```
 
 Now we can use the `checkTemplate()` function to ensure that our dataframe meets the ImmPort upload requirements. For the purpose of this vignette we will wrap the function in a `tryCatch()` method.  
@@ -133,7 +137,8 @@ If there are no errors, the subjectHumans dataframe is complete.
 ### CREATING THE OUTPUT TSV
 
 ```{r transform-df}
+temp <- tempdir()
 transform_Data(df = subjectHumans,
-               outputDir = "~/R/Gen_Test/",
+               outputDir = temp,
                validate = TRUE)
 ```

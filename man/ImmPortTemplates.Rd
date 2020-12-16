@@ -4,8 +4,10 @@
 \name{ImmPortTemplates}
 \alias{ImmPortTemplates}
 \title{ImmPortTemplates}
-\format{A data frame holding ImmPort Schema information from templates.json
-    that is used to create and check empty templates for user editing.}
+\format{
+A data frame holding ImmPort Schema information from templates.json
+    that is used to create and check empty templates for user editing.
+}
 \usage{
 ImmPortTemplates
 }

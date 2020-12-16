@@ -4,8 +4,10 @@
 \name{ISFreqsByNm}
 \alias{ISFreqsByNm}
 \title{ISFreqsByNm}
-\format{A named list of lists of word frequencies in certain table and column
-    combinations of ImmuneSpace. Higher level names are paste0(table, '-', column).}
+\format{
+A named list of lists of word frequencies in certain table and column
+    combinations of ImmuneSpace. Higher level names are paste0(table, '-', column).
+}
 \usage{
 ISFreqsByNm
 }

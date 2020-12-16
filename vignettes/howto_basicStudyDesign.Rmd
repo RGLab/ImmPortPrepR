@@ -1,16 +1,15 @@
 ---
 title: "Create the Basic Study Design Template"
-output: rmarkdown::html_document
+output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{Create Basic Study Design Template}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-options(DT.options = list(paginate = FALSE,
-                          info = FALSE,
-                          filter = FALSE))
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+options(DT.options = list(paginate = FALSE, info = FALSE, filter = FALSE))
 ```
 
 ### OVERVIEW
@@ -182,7 +181,8 @@ using `attr(arm_or_cohort, "templateName") <- "arm_or_cohort"`.
 
 ```{r make-arm-or-cohort-df}
 arm_or_cohort <- getTemplateDF("arm_or_cohort")
-aocImport <- read.table("arm_or_cohort_demo.tsv", sep = "\t", stringsAsFactors = FALSE)
+file_path <- system.file("extdata/arm_or_cohort_demo.tsv", package = "R2i")
+aocImport <- read.table(file_path, sep = "\t", stringsAsFactors = FALSE)
 colnames(aocImport) <- colnames(arm_or_cohort)
 aocImport <- aocImport[ aocImport$`User Defined ID` != "", ]
 DT::datatable(aocImport, options = list(scrollX = TRUE))
@@ -349,8 +349,9 @@ blocks <- list("study" = study,
                "study_link" = study_link,
                "study_pubmed" = study_pubmed)
 
+temp <- tempdir()
 transform_basicStudyDesign(blocks = blocks,
-                           outputDir = NULL,
+                           outputDir = temp,
                            validate = TRUE)
 ```
 
