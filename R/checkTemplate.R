@@ -71,7 +71,7 @@ checkTypes <- function(df, templateInfo, ImmPortTemplateName, quiet) {
 checkRequired <- function(df, templateInfo, ImmPortTemplateName, quiet) {
   required <- templateInfo$templateColumn[templateInfo$required]
 
-  res <- sapply(required, function(x) any(is.na(df[[x]]) || df[[x]] == ""))
+  res <- sapply(required, function(x) any(is.na(df[[x]]) | df[[x]] == ""))
   res <- res[ res == TRUE ]
 
   if (any(res)) {
