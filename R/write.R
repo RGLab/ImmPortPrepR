@@ -6,21 +6,25 @@ write_header <- function(name, file, version = get_version(), extras = FALSE) {
   schema_version <- paste("Schema Version", version)
 
   # Update in v3.18
-  if(name == "experimentSamples.RNA_Sequencing"){
-      name <- "rna_sequencing"
-  }else if(name == "reagents.Sequencing"){
-      name <- "sequencing_reagents"
+  if (name == "experimentSamples.RNA_Sequencing") {
+    name <- "rna_sequencing"
+  } else if (name == "reagents.Sequencing") {
+    name <- "sequencing_reagents"
   }
 
   cat(name, schema_version,
-      file = file, sep = "\t", fill = TRUE)
+    file = file, sep = "\t", fill = TRUE
+  )
   cat("Please do not delete or edit this column",
-      file = file, append = TRUE, fill = TRUE)
+    file = file, append = TRUE, fill = TRUE
+  )
   if (extras) {
     cat("Validation Level", "Standard",
-        file = file, sep = "\t", append = TRUE, fill = TRUE)
+      file = file, sep = "\t", append = TRUE, fill = TRUE
+    )
     cat("Column Name",
-        file = file, append = TRUE, fill = TRUE)
+      file = file, append = TRUE, fill = TRUE
+    )
   }
 }
 
@@ -41,8 +45,10 @@ write_table <- function(table, file, addColumnName = TRUE) {
   }
 
   suppressWarnings(
-    write.table(table, file = file, append = TRUE, quote = FALSE,
-                sep = "\t", row.names = FALSE, na = "")
+    write.table(table,
+      file = file, append = TRUE, quote = FALSE,
+      sep = "\t", row.names = FALSE, na = ""
+    )
   )
 }
 
@@ -53,8 +59,10 @@ write_list <- function(list, file) {
   table <- data.frame(names(list), unlist(list), stringsAsFactors = FALSE)
 
   suppressWarnings(
-    write.table(table, file = file, append = TRUE, quote = FALSE,
-                sep = "\t", row.names = FALSE, col.names = FALSE)
+    write.table(table,
+      file = file, append = TRUE, quote = FALSE,
+      sep = "\t", row.names = FALSE, col.names = FALSE
+    )
   )
 }
 
@@ -90,9 +98,9 @@ write_txt <- function(name, blocks, file) {
   write_header(name, file, extras = extras)
 
   lapply(names(blocks), function(blockName) {
-    if( name == "basic_study_design" ){
-        write_line(file)
-        write_blockName(blockName, file)
+    if (name == "basic_study_design") {
+      write_line(file)
+      write_blockName(blockName, file)
     }
 
     block <- blocks[[blockName]]

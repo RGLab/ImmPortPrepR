@@ -18,15 +18,17 @@ test_that("updateTypes", {
 
 test_that("getTemplateDF", {
   actual <- getTemplateDF("planned_visit")
-  expected <- data.frame("User Defined ID" = "",
-                         "Name" = "",
-                         "Order Number" = NA_real_,
-                         "Min Start Day" = NA_real_,
-                         "Max Start Day" = NA_real_,
-                         "Start Rule" = "",
-                         "End Rule" = "",
-                         check.names = FALSE,
-                         stringsAsFactors = FALSE)
+  expected <- data.frame(
+    "User Defined ID" = "",
+    "Name" = "",
+    "Order Number" = NA_real_,
+    "Min Start Day" = NA_real_,
+    "Max Start Day" = NA_real_,
+    "Start Rule" = "",
+    "End Rule" = "",
+    check.names = FALSE,
+    stringsAsFactors = FALSE
+  )
   attr(expected, "templateName") <- "planned_visit"
 
   expect_equal(actual, expected)

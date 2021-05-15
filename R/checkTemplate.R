@@ -9,7 +9,7 @@ checkClass <- function(df, dfName, quiet) {
   if (!res) {
     if (quiet) {
       return(FALSE)
-    }else{
+    } else {
       stop(dfName, " data must be input as a data frame. Please re-format.")
     }
   }
@@ -24,7 +24,7 @@ checkDim <- function(df, templateInfo, ImmPortTemplateName, quiet) {
   if (!res) {
     if (quiet) {
       return(FALSE)
-    }else{
+    } else {
       stop("Number of columns in ", ImmPortTemplateName, " is not correct.")
     }
   }
@@ -39,7 +39,7 @@ checkColnames <- function(df, templateInfo, ImmPortTemplateName, quiet) {
   if (!res) {
     if (quiet) {
       return(FALSE)
-    }else{
+    } else {
       stop("Colnames of ", ImmPortTemplateName, " are not correct.")
     }
   }
@@ -50,17 +50,21 @@ checkColnames <- function(df, templateInfo, ImmPortTemplateName, quiet) {
 # TYPES
 #' @importFrom utils capture.output
 checkTypes <- function(df, templateInfo, ImmPortTemplateName, quiet) {
-  demoDF <- data.frame(current = sapply(df, typeof),
-                       target = updateTypes(templateInfo$jsonDataType),
-                       stringsAsFactors = F)
-  demoDF <- demoDF[ demoDF$current != demoDF$target, ]
+  demoDF <- data.frame(
+    current = sapply(df, typeof),
+    target = updateTypes(templateInfo$jsonDataType),
+    stringsAsFactors = F
+  )
+  demoDF <- demoDF[demoDF$current != demoDF$target, ]
 
   if (nrow(demoDF) > 0) {
     if (quiet) {
       return(demoDF)
-    }else{
-      stop("Correct data types for '", ImmPortTemplateName, "'\n",
-           paste(capture.output(print(demoDF)), collapse = "\n"))
+    } else {
+      stop(
+        "Correct data types for '", ImmPortTemplateName, "'\n",
+        paste(capture.output(print(demoDF)), collapse = "\n")
+      )
     }
   }
 
@@ -72,15 +76,16 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName, quiet) {
   required <- templateInfo$templateColumn[templateInfo$required]
 
   res <- sapply(required, function(x) any(is.na(df[[x]]) | df[[x]] == ""))
-  res <- res[ res == TRUE ]
+  res <- res[res == TRUE]
 
   if (any(res)) {
     if (quiet) {
       return(names(res))
-    }else{
-      stop("Check data for ", ImmPortTemplateName, ". ",
-           "Required columns with NA or blank values: ",
-           paste(required[res], collapse = ", ")
+    } else {
+      stop(
+        "Check data for ", ImmPortTemplateName, ". ",
+        "Required columns with NA or blank values: ",
+        paste(required[res], collapse = ", ")
       )
     }
   }
@@ -90,70 +95,73 @@ checkRequired <- function(df, templateInfo, ImmPortTemplateName, quiet) {
 
 # Helper for comparing inputVals to lkVals
 chkLookupVals <- function(metaByIdx, dfCol) {
-    ipl <- R2i::ImmPortLookups
+  ipl <- R2i::ImmPortLookups
 
-    lkTblNm <- c(metaByIdx$pvTableName, metaByIdx$cvTableName)
-    lkTblNm <- lkTblNm[ !is.na(lkTblNm) ]
+  lkTblNm <- c(metaByIdx$pvTableName, metaByIdx$cvTableName)
+  lkTblNm <- lkTblNm[!is.na(lkTblNm)]
 
-    if (length(lkTblNm) > 0) {
-        lkVals <- ipl$name[ipl$lookup == lkTblNm]
+  if (length(lkTblNm) > 0) {
+    lkVals <- ipl$name[ipl$lookup == lkTblNm]
 
-        if (any(grepl(";", lkVals))) {
-            lkVals <- unname(unlist(sapply(lkVals, function(y) strsplit(y, ";"))))
-        }
-
-        res <- all(dfCol %in% lkVals)
-    }else{
-        res <- NULL
+    if (any(grepl(";", lkVals))) {
+      lkVals <- unname(unlist(sapply(lkVals, function(y) strsplit(y, ";"))))
     }
 
-    res
+    res <- all(dfCol %in% lkVals)
+  } else {
+    res <- NULL
+  }
+
+  res
 }
 
 # Only Throws error for controlled values being incorrect.
 # Otherwise, to determine abnormal preferred values, quiet == FALSE
 checkFormat <- function(df, templateInfo, ImmPortTemplateName, quiet) {
-
   res <- sapply(seq(1:dim(df)[[2]]), function(index) {
     metaByIdx <- templateInfo[index, ]
 
     valType <- if (metaByIdx$cv == TRUE) {
-        "Controlled"
+      "Controlled"
     } else if (metaByIdx$pv == TRUE) {
-        "Preferred"
+      "Preferred"
     } else {
-        NA
+      NA
     }
-    if( !is.na(valType)) {
-        res <- chkLookupVals(metaByIdx, df[,index])
-    }else{
-        res <- NA
+    if (!is.na(valType)) {
+      res <- chkLookupVals(metaByIdx, df[, index])
+    } else {
+      res <- NA
     }
 
-    if( quiet == FALSE ){
+    if (quiet == FALSE) {
       if (metaByIdx$pv == TRUE && res == FALSE) {
-        message("'", ImmPortTemplateName,
-                "' has non-preferred terms in ",
-                metaByIdx$templateColumn, " at index ",
-                index)
-      }else if (metaByIdx$cv == TRUE && res == FALSE) {
-        stop("'", ImmPortTemplateName,
-             "' has non-controlled terms in ",
-             metaByIdx$templateColumn, " at index ",
-             index)
+        message(
+          "'", ImmPortTemplateName,
+          "' has non-preferred terms in ",
+          metaByIdx$templateColumn, " at index ",
+          index
+        )
+      } else if (metaByIdx$cv == TRUE && res == FALSE) {
+        stop(
+          "'", ImmPortTemplateName,
+          "' has non-controlled terms in ",
+          metaByIdx$templateColumn, " at index ",
+          index
+        )
       }
     }
     return(c(valType, res))
   })
 
   colnames(res) <- colnames(df)
-  res <- res[ , res[2,] == FALSE & !is.na(res[2,]), drop = FALSE]
-  cv <- colnames(res)[ res[1,] == "Controlled" ]
+  res <- res[, res[2, ] == FALSE & !is.na(res[2, ]), drop = FALSE]
+  cv <- colnames(res)[res[1, ] == "Controlled"]
 
   if (length(cv) == 0) {
-      return(NULL)
+    return(NULL)
   } else {
-      return(cv)
+    return(cv)
   }
 }
 
@@ -171,10 +179,9 @@ checkFormat <- function(df, templateInfo, ImmPortTemplateName, quiet) {
 #' @param quiet boolean, TRUE by default, instead of errors, returns problems
 #' @export
 checkTemplate <- function(df, chkTypes = TRUE, quiet = TRUE) {
-
   ImmPortTemplateName <- attr(df, "templateName")
   if (is.null(ImmPortTemplateName)) {
-      stop("'templateName' attribute is not present. Please set with attr().")
+    stop("'templateName' attribute is not present. Please set with attr().")
   }
 
   templateInfo <- getSingleTemplate(ImmPortTemplateName) # for easier debugging
@@ -187,7 +194,7 @@ checkTemplate <- function(df, chkTypes = TRUE, quiet = TRUE) {
   ret$dim <- checkDim(df, templateInfo, ImmPortTemplateName, quiet)
   ret$colnames <- checkColnames(df, templateInfo, ImmPortTemplateName, quiet)
 
-  if(chkTypes == TRUE){
+  if (chkTypes == TRUE) {
     ret$types <- checkTypes(df, templateInfo, ImmPortTemplateName, quiet)
   }
 
@@ -213,7 +220,9 @@ checkTemplate <- function(df, chkTypes = TRUE, quiet = TRUE) {
   # Feedback
   message(paste0(ImmPortTemplateName, ": ", length(ret), " Errors"))
 
-  if(length(ret) == 0 ){ return(NULL) }
+  if (length(ret) == 0) {
+    return(NULL)
+  }
 
   return(ret)
 }

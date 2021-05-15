@@ -14,26 +14,23 @@
 #' @export
 transform_Data <- function(df,
                            outputDir = NULL,
-                           validate = TRUE){
+                           validate = TRUE) {
+  dataName <- attr(df, "templateName")
+  if (!(dataName %in% unique(R2i::ImmPortTemplates$templateName))) {
+    stop(paste0(dataName, " is not an option for transformation."))
+  }
 
-    dataName <- attr(df, 'templateName')
-    if( !(dataName %in% unique(R2i::ImmPortTemplates$templateName)) ){
-        stop(paste0(dataName, " is not an option for transformation."))
-    }
+  #----PreCheck DFs-------
+  checkTemplate(df = df)
 
-    #----PreCheck DFs-------
-    checkTemplate(df = df)
+  #----Generate tsv output-----
+  blocks <- list(df)
+  names(blocks) <- dataName
+  file <- file.path(outputDir, paste0(dataName, ".txt"))
 
-    #----Generate tsv output-----
-    blocks <- list(df)
-    names(blocks) <- dataName
-    file <- file.path(outputDir, paste0(dataName, ".txt"))
+  write_txt(dataName, blocks, file)
 
-    write_txt(dataName, blocks, file)
+  #-----Validate output------
 
-    #-----Validate output------
-
-    #return(output)
+  # return(output)
 }
-
-

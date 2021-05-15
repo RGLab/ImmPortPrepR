@@ -4,6 +4,6 @@
 #' @description returns vector of possible templates
 #'
 #' @export
-getTemplateNames <- function(){
-    return( unique(R2i::ImmPortTemplates$templateName) )
+getTemplateNames <- function() {
+  return(unique(R2i::ImmPortTemplates$templateName))
 }

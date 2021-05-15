@@ -90,8 +90,12 @@ DT::datatable(subjectHumans)
 
 Now we can use the `checkTemplate()` function to ensure that our dataframe meets the ImmPort upload requirements. For the purpose of this vignette we will wrap the function in a `tryCatch()` method.  
 ```{r check-template}
-results <- tryCatch(checkTemplate(subjectHumans, "subjectHumans"),
-                    error = function(e){ return(e) }) 
+results <- tryCatch(
+  checkTemplate(subjectHumans, "subjectHumans"),
+  error = function(e) {
+    return(e)
+  }
+)
 
 # This will print out which required columns are missing values
 results$required
@@ -101,8 +105,12 @@ The error tells us that the required column `subjectHumans$'Exposure Process Rep
 ```{r fix-ageunit}
 subjectHumans$`Exposure Process Reported` <- "Vaccine"
 
-results <- tryCatch(checkTemplate(subjectHumans, "subjectHumans"),
-                    error = function(e){ return(e) }) 
+results <- tryCatch(
+  checkTemplate(subjectHumans, "subjectHumans"),
+  error = function(e) {
+    return(e)
+  }
+)
 
 # This will print out the error message
 results$format
@@ -138,7 +146,9 @@ If there are no errors, the subjectHumans dataframe is complete.
 
 ```{r transform-df}
 temp <- tempdir()
-transform_Data(df = subjectHumans,
-               outputDir = temp,
-               validate = TRUE)
+transform_Data(
+  df = subjectHumans,
+  outputDir = temp,
+  validate = TRUE
+)
 ```

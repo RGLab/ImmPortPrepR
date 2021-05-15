@@ -16,50 +16,55 @@
 transform_basicStudyDesign <- function(blocks,
                                        outputDir = NULL,
                                        validate = TRUE,
-                                       ...){
+                                       ...) {
 
-    # Any errors in checkObj will stop transformation
-    # if quiet = FALSE.
-    res <- mapply(checkTemplate,
-                  df = blocks,
-                  ...)
+  # Any errors in checkObj will stop transformation
+  # if quiet = FALSE.
+  res <- mapply(checkTemplate,
+    df = blocks,
+    ...
+  )
 
-    # ----- Convert to Vector / Lists -------
-    # Convert to vector if empty DF so that no
-    # extra rows are written in output file.
-    # Must be done after checks because checks
-    # assume data.frame input.
-    blocks <- lapply(blocks, function(x){
-        chk <- unique(unname(unlist(x[1,])))
-        if( all(chk == "" | is.na(chk)) ){
-            return(colnames(x))
-        }else{
-            return(x)
-        }
-    })
-
-    # Convert 'study' and 'protocol' to lists
-    # to preserve data types and prepare for
-    # write out.
-    if( is.data.frame(blocks$study) ){
-        blocks$study <- as.list(blocks$study)
+  # ----- Convert to Vector / Lists -------
+  # Convert to vector if empty DF so that no
+  # extra rows are written in output file.
+  # Must be done after checks because checks
+  # assume data.frame input.
+  blocks <- lapply(blocks, function(x) {
+    chk <- unique(unname(unlist(x[1, ])))
+    if (all(chk == "" | is.na(chk))) {
+      return(colnames(x))
+    } else {
+      return(x)
     }
+  })
 
-    if( is.data.frame(blocks$protocol) ){
-        blocks$protocol <- as.list(blocks$protocol)
-    }
+  # Convert 'study' and 'protocol' to lists
+  # to preserve data types and prepare for
+  # write out.
+  if (is.data.frame(blocks$study)) {
+    blocks$study <- as.list(blocks$study)
+  }
 
-    # --------- Generate tsv output -------------
-    name <- "basic_study_design"
-    if(is.null(outputDir)){ outputDir <- getwd() }
-    file <- file.path(outputDir, paste0(name, ".txt"))
+  if (is.data.frame(blocks$protocol)) {
+    blocks$protocol <- as.list(blocks$protocol)
+  }
 
-    write_txt(name = name,
-              blocks = blocks,
-              file = file)
+  # --------- Generate tsv output -------------
+  name <- "basic_study_design"
+  if (is.null(outputDir)) {
+    outputDir <- getwd()
+  }
+  file <- file.path(outputDir, paste0(name, ".txt"))
 
-    # ---------- Validate output -----------------
-    # TODO: waiting on patrick for scripts
+  write_txt(
+    name = name,
+    blocks = blocks,
+    file = file
+  )
 
-    return(res)
+  # ---------- Validate output -----------------
+  # TODO: waiting on patrick for scripts
+
+  return(res)
 }

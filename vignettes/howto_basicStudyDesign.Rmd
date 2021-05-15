@@ -67,22 +67,23 @@ edit(study)
 An R-based approach example:
 
 ```{r R-based-approach-to-editing}
-study[1, ] <- list(NA,
-                  "myBriefTitle",
-                  "myOfficialTitle",
-                  "This is a study",
-                  "This is a longer description of the study",
-                  "We hypothesize ... ",
-                  "The objectives were ... ",
-                  "Endpoints are ... ",
-                  "NIH",
-                  50,
-                  10,
-                  30,
-                  "years",
-                  "01/01/2018",
-                  "01/01/2018"
-                  )
+study[1, ] <- list(
+  NA,
+  "myBriefTitle",
+  "myOfficialTitle",
+  "This is a study",
+  "This is a longer description of the study",
+  "We hypothesize ... ",
+  "The objectives were ... ",
+  "Endpoints are ... ",
+  "NIH",
+  50,
+  10,
+  30,
+  "years",
+  "01/01/2018",
+  "01/01/2018"
+)
 ```
 
 We can check the **study** template to see if it passes the basic checks for class, dimension,
@@ -93,7 +94,10 @@ an error, so for demonstration purposes we wrap the function in a `tryCatch()` m
 ```{r check-template-required-error}
 # NOTE: messages are printed out
 results <- tryCatch(checkTemplate(df = study),
-                    error = function(e){ return(e) })
+  error = function(e) {
+    return(e)
+  }
+)
 
 # to see error statement
 results
@@ -107,7 +111,10 @@ study$`User Defined ID` <- "sdyID"
 
 # NOTE: messages are printed out
 results <- tryCatch(checkTemplate(df = study),
-                    error = function(e){ return(e) })
+  error = function(e) {
+    return(e)
+  }
+)
 
 # to see error statement
 results
@@ -146,7 +153,10 @@ study$`Age Unit` <- "Years"
 
 # NOTE: messages are printed out
 results <- tryCatch(checkTemplate(df = study),
-                    error = function(e){ return(e) })
+  error = function(e) {
+    return(e)
+  }
+)
 
 # to see error statement
 results
@@ -161,14 +171,14 @@ approach is used for reproducibiity and demonstration.
 The next one is a simple one called **study_categorization** that defines the type of study performed
 ```{r study-categorization}
 study_categorization <- getTemplateDF("study_categorization")
-study_categorization[1,] <- c("Immune Response")
+study_categorization[1, ] <- c("Immune Response")
 DT::datatable(study_categorization, options = list(scrollX = TRUE))
 ```
 
 The next one is a simple one called **study_2_condition_or_disease** that defines the disease or condition studied.
 ```{r study-2-condtion-or-disease}
 study_2_condition_or_disease <- getTemplateDF("study_2_condition_or_disease")
-study_2_condition_or_disease[1,] <- c("Typhoid")
+study_2_condition_or_disease[1, ] <- c("Typhoid")
 DT::datatable(study_2_condition_or_disease, options = list(scrollX = TRUE))
 ```
 
@@ -184,7 +194,7 @@ arm_or_cohort <- getTemplateDF("arm_or_cohort")
 file_path <- system.file("extdata/arm_or_cohort_demo.tsv", package = "R2i")
 aocImport <- read.table(file_path, sep = "\t", stringsAsFactors = FALSE)
 colnames(aocImport) <- colnames(arm_or_cohort)
-aocImport <- aocImport[ aocImport$`User Defined ID` != "", ]
+aocImport <- aocImport[aocImport$`User Defined ID` != "", ]
 DT::datatable(aocImport, options = list(scrollX = TRUE))
 
 # to be consistent we rename aocImport for use in the 'write' functions later
@@ -200,17 +210,19 @@ Making **study_personnel**:
 
 ```{r }
 study_personnel <- getTemplateDF("study_personnel")
-study_personnel[1,] <- c("Personnel1",
-                       "Dr.",
-                       "Khanna",
-                       "Elizabeth",
-                       "",
-                       "Major University",
-                       123,
-                       "ekhanna@major.edu",
-                       "PI",
-                       "Principal Investigator",
-                       "Major University")
+study_personnel[1, ] <- c(
+  "Personnel1",
+  "Dr.",
+  "Khanna",
+  "Elizabeth",
+  "",
+  "Major University",
+  123,
+  "ekhanna@major.edu",
+  "PI",
+  "Principal Investigator",
+  "Major University"
+)
 DT::datatable(study_personnel, options = list(scrollX = TRUE))
 ```
 
@@ -221,29 +233,35 @@ Making **planned_visit**:
 ```{r }
 planned_visit <- getTemplateDF("planned_visit")
 
-planned_visit[1,] <- list(1,
-                      "Screening",
-                      1,
-                      -10,
-                      -2,
-                      "",
-                      "")
+planned_visit[1, ] <- list(
+  1,
+  "Screening",
+  1,
+  -10,
+  -2,
+  "",
+  ""
+)
 
-planned_visit[2,] <- list(2,
-                      "Immunazation",
-                      2,
-                      0,
-                      0,
-                      "",
-                      "")
+planned_visit[2, ] <- list(
+  2,
+  "Immunazation",
+  2,
+  0,
+  0,
+  "",
+  ""
+)
 
-planned_visit[3,] <- list(3,
-                      "Chellenge",
-                      3,
-                      100,
-                      110,
-                      "",
-                      "")
+planned_visit[3, ] <- list(
+  3,
+  "Chellenge",
+  3,
+  100,
+  110,
+  "",
+  ""
+)
 
 DT::datatable(planned_visit)
 ```
@@ -254,9 +272,11 @@ Making **inclusion_exclusion**:
 
 ```{r make-inclusion-exclusion-df}
 inclusion_exclusion <- getTemplateDF("inclusion_exclusion")
-inclusion_exclusion[1,] <- c("InclExcl1",
-                            "older than 35 years old",
-                            "Exclusion")
+inclusion_exclusion[1, ] <- c(
+  "InclExcl1",
+  "older than 35 years old",
+  "Exclusion"
+)
 DT::datatable(inclusion_exclusion)
 ```
 
@@ -267,7 +287,7 @@ and two columns with the first column being a name and the second being he value
 
 ```{r make-study-2-protocol}
 study_2_protocol <- getTemplateDF("study_2_protocol")
-study_2_protocol[1,] <- "protocol 3445"
+study_2_protocol[1, ] <- "protocol 3445"
 DT::datatable(study_2_protocol)
 ```
 
@@ -277,9 +297,11 @@ Making **study_file**:
 
 ```{r make-study-file}
 study_file <- getTemplateDF("study_file")
-study_file[1,] <- list("Appendix.txt",
-                       "Study Appendix",
-                       "Study Data")
+study_file[1, ] <- list(
+  "Appendix.txt",
+  "Study Appendix",
+  "Study Data"
+)
 DT::datatable(study_file)
 ```
 
@@ -289,8 +311,10 @@ Making **study_link**:
 
 ```{r make-study-link}
 study_link <- getTemplateDF("study_link")
-study_link[1,] <- c("main website",
-                   "https://drkhannalab.major.edu/NewStudy1")
+study_link[1, ] <- c(
+  "main website",
+  "https://drkhannalab.major.edu/NewStudy1"
+)
 DT::datatable(study_link, options = list(autoWidth = TRUE))
 ```
 
@@ -337,23 +361,24 @@ criteria necessary for import.  To see more information about the `transform_bas
 function you can always enter `?transform_basicStudyDesign` in the console.
 
 ```{r transform-data-into-tsv}
-blocks <- list("study" = study,
-               "study_categorization" = study_categorization,
-               "study_2_condition_or_disease" = study_2_condition_or_disease,
-               "arm_or_cohort" = arm_or_cohort,
-               "study_personnel" = study_personnel,
-               "planned_visit" = planned_visit,
-               "inclusion_exclusion" = inclusion_exclusion,
-               "study_2_protocol" = study_2_protocol,
-               "study_file" = study_file,
-               "study_link" = study_link,
-               "study_pubmed" = study_pubmed)
+blocks <- list(
+  "study" = study,
+  "study_categorization" = study_categorization,
+  "study_2_condition_or_disease" = study_2_condition_or_disease,
+  "arm_or_cohort" = arm_or_cohort,
+  "study_personnel" = study_personnel,
+  "planned_visit" = planned_visit,
+  "inclusion_exclusion" = inclusion_exclusion,
+  "study_2_protocol" = study_2_protocol,
+  "study_file" = study_file,
+  "study_link" = study_link,
+  "study_pubmed" = study_pubmed
+)
 
 temp <- tempdir()
-transform_basicStudyDesign(blocks = blocks,
-                           outputDir = temp,
-                           validate = TRUE)
+transform_basicStudyDesign(
+  blocks = blocks,
+  outputDir = temp,
+  validate = TRUE
+)
 ```
-
-
-

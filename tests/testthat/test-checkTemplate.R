@@ -57,17 +57,23 @@ test_that("checkColnames", {
   expect_null(
     R2i:::checkColnames(
       df = data.frame(x = 1, y = 2, z = 3),
-      templateInfo = data.frame(templateColumn = c("x", "y", "z"),
-                                stringsAsFactors = FALSE),
+      templateInfo = data.frame(
+        templateColumn = c("x", "y", "z"),
+        stringsAsFactors = FALSE
+      ),
       ImmPortTemplateName = "case #1"
     )
   )
 
   # fail case
-  expect_error(R2i:::checkColnames(data.frame(x = 1, y = 2, z = 3),
-                                              data.frame(templateColumn = c("x", "y", "w"),
-                                                         stringsAsFactors = FALSE),
-                                              "case #2"))
+  expect_error(R2i:::checkColnames(
+    data.frame(x = 1, y = 2, z = 3),
+    data.frame(
+      templateColumn = c("x", "y", "w"),
+      stringsAsFactors = FALSE
+    ),
+    "case #2"
+  ))
 })
 
 test_that("checkTypes", {
@@ -75,9 +81,12 @@ test_that("checkTypes", {
   expect_null(
     R2i:::checkTypes(
       df = data.frame("", "", NA_character_, NA_real_, 0,
-                      stringsAsFactors = FALSE),
-      templateInfo = data.frame(jsonDataType = c("string", "date", "enum", "number", "positive"),
-                                stringsAsFactors = FALSE),
+        stringsAsFactors = FALSE
+      ),
+      templateInfo = data.frame(
+        jsonDataType = c("string", "date", "enum", "number", "positive"),
+        stringsAsFactors = FALSE
+      ),
       ImmPortTemplateName = "case #1"
     )
   )
@@ -86,9 +95,12 @@ test_that("checkTypes", {
   expect_error(
     R2i:::checkTypes(
       df = data.frame(1, "", "", 0, 0,
-                      stringsAsFactors = FALSE),
-      templateInfo = data.frame(jsonDataType = c("string", "date", "enum", "number", "positive"),
-                                stringsAsFactors = FALSE),
+        stringsAsFactors = FALSE
+      ),
+      templateInfo = data.frame(
+        jsonDataType = c("string", "date", "enum", "number", "positive"),
+        stringsAsFactors = FALSE
+      ),
       ImmPortTemplateName = "case #2"
     )
   )
@@ -98,11 +110,15 @@ test_that("checkRequired", {
   # success case
   expect_null(
     R2i:::checkRequired(
-      df = data.frame(a = "a", b = "b", c = "", d = 1, e = NA_real_,
-                      stringsAsFactors = FALSE),
-      templateInfo = data.frame(templateColumn = c("a", "b", "c", "d", "e"),
-                                required = c(TRUE, TRUE, FALSE, TRUE, FALSE),
-                                stringsAsFactors = FALSE),
+      df = data.frame(
+        a = "a", b = "b", c = "", d = 1, e = NA_real_,
+        stringsAsFactors = FALSE
+      ),
+      templateInfo = data.frame(
+        templateColumn = c("a", "b", "c", "d", "e"),
+        required = c(TRUE, TRUE, FALSE, TRUE, FALSE),
+        stringsAsFactors = FALSE
+      ),
       ImmPortTemplateName = "case #1"
     )
   )
@@ -110,11 +126,15 @@ test_that("checkRequired", {
   # fail case
   expect_error(
     R2i:::checkRequired(
-      df = data.frame(a = "a", b = "b", c = "", d = 1, e = NA_real_,
-                      stringsAsFactors = FALSE),
-      templateInfo = data.frame(templateColumn = c("a", "b", "c", "d", "e"),
-                                required = c(TRUE, TRUE, TRUE, TRUE, TRUE),
-                                stringsAsFactors = FALSE),
+      df = data.frame(
+        a = "a", b = "b", c = "", d = 1, e = NA_real_,
+        stringsAsFactors = FALSE
+      ),
+      templateInfo = data.frame(
+        templateColumn = c("a", "b", "c", "d", "e"),
+        required = c(TRUE, TRUE, TRUE, TRUE, TRUE),
+        stringsAsFactors = FALSE
+      ),
       ImmPortTemplateName = "case #1"
     )
   )

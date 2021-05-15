@@ -44,7 +44,8 @@ getTemplateDF <- function(ImmPortTemplateName, rowNum = 1) {
 
   # create a temp data frame with template columns
   tmpDF <- data.frame(matrix("", ncol = nrow(templateInfo), nrow = rowNum),
-                      stringsAsFactors = FALSE)
+    stringsAsFactors = FALSE
+  )
   colnames(tmpDF) <- templateInfo$templateColumn
 
   # update column type

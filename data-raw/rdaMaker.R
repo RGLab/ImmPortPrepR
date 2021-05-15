@@ -19,8 +19,9 @@ save(demoData, file = "data/demoData.rda")
 # Create word frequencies list object
 ISqueries <- read.csv("data-raw/ImmuneSpaceQueries.csv", stringsAsFactors = F)
 lsWords <- mapply(R2i:::.makeContextVector,
-                  tableName = ISqueries$tableName,
-                  colName = ISqueries$columnName)
+  tableName = ISqueries$tableName,
+  colName = ISqueries$columnName
+)
 names(lsWords) <- paste0(ISqueries$tableName, "-", ISqueries$columnName)
 ISFreqsByNm <- sapply(lsWords, table)
 save(ISFreqsByNm, file = "data/ISFreqsByNm.rda")
